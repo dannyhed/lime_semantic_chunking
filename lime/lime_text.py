@@ -155,6 +155,7 @@ class IndexedString(object):
 
     def string_position(self, id_):
         """Returns a np array with indices to id_ (int) occurrences"""
+        #print(f"self.positions[{id_}]: {self.positions[id_]}")
         if self.bow:
             return self.string_start[self.positions[id_]]
         else:

@@ -302,17 +302,21 @@ class Explanation(object):
 
         raw_js = '''var raw_div = top_div.append('div');'''
 
-        if self.mode == "classification":
-            html_data = self.local_exp[labels[0]]
-        else:
-            html_data = self.local_exp[self.dummy_label]
+        #print(f"self.local_exp[labels[0]]: {self.local_exp[labels[0]]}")
 
+# ////////////////////////////////////////////////////////////////////////
+# CHANGE THIS, ADD ALL EXPLANATIONS TOGETHER SEPARATED BY \n (PROBABLY CHANGE
+# SOMEWHERE ELSE), SHIFTING THE IDS AND PRINT THE ENTIRE COMBINED TEXT ONLY 
+# ONCE. SHOULD FIX HIGHLIGHT PROBLEM AND "HIGHLIGHET TEXT" REPEAT PROBLEM
+# ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+# \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
         raw_js += self.domain_mapper.visualize_instance_html(
-                html_data,
-                labels[0] if self.mode == "classification" else self.dummy_label,
-                'raw_div',
-                'exp',
-                **kwargs)
+        self.local_exp[labels[0]],
+        labels[0] if self.mode == "classification" else self.dummy_label,
+        'raw_div',
+        'exp',
+        **kwargs)
+
         out += u'''
         <script>
         var top_div = d3.select('#top_div%s').classed('lime top_div', true);
