@@ -190,7 +190,7 @@ c = make_pipeline(vectorizer, rf)
 
 print(c.predict_proba([x_test[0]]))
 
-explainer = LimeTextParserExplainer(class_names=class_names, verbose=True)
+explainer = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
 explainerStandard = LimeTextExplainer(class_names=class_names, verbose=True)
 #explainer = LimeTextExplainer(class_names=class_names)
 idx = 0
@@ -218,11 +218,12 @@ exp.as_list()
 #print('Difference:', rf.predict_proba(tmp)[0,1] - rf.predict_proba(test_vectors[idx])[0,1])
 
 
-fig = exp.as_pyplot_figure()
+#fig = exp.as_pyplot_figure()
+#fig.show()
 #exp.show_in_notebook(text=False)
 
+
 #%%
-fig.show()
 exp.save_to_file('lime_output.html')
 exp2.save_to_file('lime_output2.html')
 expStandard.save_to_file('lime_std_output.html')

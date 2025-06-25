@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRI1EYOOGEQO5A7K"></div>
+        <div class="lime top_div" id="top_div5M6F3EQBSH3FB4B"></div>
         
         <script>
-        var top_div = d3.select('#top_divRI1EYOOGEQO5A7K').classed('lime top_div', true);
+        var top_div = d3.select('#top_div5M6F3EQBSH3FB4B').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.146, 0.854]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.132, 0.868]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["mobile", 0.17950678874430803], ["100", 0.1661967460830584], ["Free", 0.12793117102868173], ["Nokia", 0.1058550590827906]], 1, exp_div);
+                exp.show([["mobile", 0.18888070871478926], ["100", 0.13796911923534227], ["Free", 0.12649762638693357], ["Nokia", 0.12264231503607655]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["mobile", 91, 0.17950678874430803], ["100", 100, 0.1661967460830584], ["Free", 117, 0.12793117102868173], ["Nokia", 18, 0.1058550590827906]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705", raw_div, true);
+            exp.show_raw_text([["mobile", 91, 0.18888070871478926], ["100", 100, 0.13796911923534227], ["Free", 117, 0.12649762638693357], ["Nokia", 18, 0.12264231503607655]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705", raw_div, true);
             
         </script>
         </body></html>

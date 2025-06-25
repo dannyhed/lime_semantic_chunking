@@ -80,6 +80,7 @@ class LimeTextParserExplainer(object):
        restricting explanations to words that are present in documents."""
 
     def __init__(self,
+                 parsing_type="dependency",
                  kernel_width=25,
                  kernel=None,
                  verbose=False,
@@ -128,9 +129,14 @@ class LimeTextParserExplainer(object):
 
         def init_parser(self):
             stanza.download('en')
-            dep_parser = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
-            self.dep_parser = dep_parser
-
+            if parsing_type == "dependency":
+                self.parser = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
+            elif parsing_type == "constituency":
+                self.parser = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
+            else:
+                raise ValueError("PARSING METHOD NOT AN OPTION, HALTING")
+               
+        self.parser_type = parsing_type
         init_parser(self)
 
 #////////////////////////////////////////////////////////////////////////////
@@ -193,7 +199,7 @@ class LimeTextParserExplainer(object):
         #print(f"text_instance: {text_instance}") #////////////////////////
 
         def dependent_highlights(exp, indexed_string):
-            #print(f"Original single exp: {exp}")
+            print(f"Original single exp: {exp}")
             allx = []
             for x in exp:
                 allx.append(x[0])
@@ -208,15 +214,16 @@ class LimeTextParserExplainer(object):
                     elif d is not x:
                         exp.append((d, exp[allx.index(x)][1]))
                         allx.append(d)
-            exp = [x for x in exp if x[0] >= indexed_string.tot_sents]
+            exp = [x for x in exp if indexed_string.id_is_word(x[0])]
             #print(f"depend single exp: {exp}")
             return exp
+        
 
         indexed_string = (IndexedCharacters(
             text_instance, bow=self.bow, mask_string=self.mask_string)
                           if self.char_level else
-                          IndexedStringParsed(text_instance, parser=self.dep_parser, 
-                                        bow=self.bow,
+                          IndexedStringParsed(text_instance, parser=self.parser, 
+                                        parse_type=self.parser_type, bow=self.bow,
                                         mask_string=self.mask_string))
         
         #print(f"indexed_string.tokens: {indexed_string.tokens}")
@@ -271,15 +278,15 @@ class LimeTextParserExplainer(object):
                 #/store each dependent group separately to be displayed/#
         
         def combine_all_exps(all_exps, main_exp, string):
-            print(f"main_exp: {main_exp}")
+            #print(f"main_exp: {main_exp}")
             actual_all_exp = {}
             for label in labels:
                 label_exp_arr = all_exps[label]
                 actual_all_exp[label] = main_exp[label]
                 for i, exp in enumerate(label_exp_arr, start=1):
                     rest = list([(x[0] + i*string.num_words(), x[1]) for x in exp])
-                    print(f"token offset: {i} * {string.num_words()}")
-                    print(f"rest[{i}]: {rest}")
+                    #print(f"token offset: {i} * {string.num_words()}")
+                    #print(f"rest[{i}]: {rest}")
                     for r in rest:
                         actual_all_exp[label].append(r)
             return actual_all_exp
@@ -334,7 +341,7 @@ class LimeTextParserExplainer(object):
             return sklearn.metrics.pairwise.pairwise_distances(
                 x, x[0], metric=distance_metric).ravel() * 100
 
-        doc_size = indexed_string.num_words() + indexed_string.tot_sents #///////////////////
+        doc_size = indexed_string.num_features()
         sample = self.random_state.randint(0, int(doc_size/3), num_samples - 1)
         data = np.ones((num_samples, doc_size))
         data[0] = np.ones(doc_size)
@@ -344,8 +351,19 @@ class LimeTextParserExplainer(object):
             inactive = self.random_state.choice(features_range, size,
                                                 replace=False)
             #data[i, inactive] = 0
+
+
+    #////// METHOD 1 /////////////////////////////////////////////
             data[i] = indexed_string.mask_dependents(inactive)
             inverse_data.append(indexed_string.inverse_removing(data[i]))
+    #/////////////////////////////////////////////////////////////
+
+    #////// METHOD 2 /////////////////////////////////////////////
+            #data[i, inactive] = 0
+            #inverse_data.append(indexed_string.inverse_removing(indexed_string.mask_dependents(inactive)))
+    #/////////////////////////////////////////////////////////////
+
+
             #if i == 1:
             #    print(f"\n\nparse tree: {indexed_string.parse_tree}")
             #    print(f"inactive: {inactive}")
@@ -359,7 +377,7 @@ class LimeTextParserExplainer(object):
 class IndexedStringParsed(object):
     """String with various indexes."""
 
-    def __init__(self, raw_string, parser, bow=True,
+    def __init__(self, raw_string, parser, parse_type="dependency", bow=True,
                  mask_string=None):
         """Initializer.
 
@@ -376,7 +394,10 @@ class IndexedStringParsed(object):
         """
         self.raw = raw_string + "\n\n\n"
         self.parser = parser
-        self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)    
+        self.parse_type = parse_type
+        self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
+        self.inverse_ids = self.get_inverse_ids()  
+        self.num_feats = self.num_features()
         self.as_list, self.positions = self._segment_with_tokens(self.raw, self.tokens)    
         self.as_np = np.array(self.as_list)
         self.string_start = np.hstack(
@@ -438,7 +459,7 @@ class IndexedStringParsed(object):
     def get_parsing(self, text_instance, parser):
         def total_sentences(pipeline_out):
             return len([sent for sent in pipeline_out.sentences])
-        def organize_parse(pipeline_out):
+        def organize_parse(pipeline_out, parse_type):
             def id_offset(word_id, sentence, doc):
                 if word_id == 0:
                     #print(sentence.sent_id)
@@ -449,9 +470,9 @@ class IndexedStringParsed(object):
                 return word_id + offset
             def get_branches(pipeline_out):
                 return {id_offset(word.id, sent, pipeline_out): (id_offset(word.head, sent, pipeline_out), id_offset(word.id, sent, pipeline_out)) for sent in pipeline_out.sentences for word in sent.words}
-            def get_ids(pipeline_out):
+            def get_ids_depend(pipeline_out):
                 return {id_offset(word.id, sent, pipeline_out): word.text for sent in pipeline_out.sentences for word in sent.words}    
-            def tree(allbranches):
+            def tree_depend(allbranches):
                 ids = list(allbranches.keys())
                 #print(f"len(ids): {len(ids)}")
                 i = 0
@@ -474,41 +495,155 @@ class IndexedStringParsed(object):
                         dependents.append(branch[1])
                         leftovers.remove(n)
                 return dependents, leftovers
-            branches = get_branches(pipeline_out)
-            #print(f"branches: {branches}")
-            id_dict = get_ids(pipeline_out)
-            print(f"id_dict: {id_dict}")
-            parse_tree = tree(branches)
-            print(f"tree: {parse_tree}")
+            def get_ids_constit(clean_cont_depens):
+                idx = 0
+                id_dict = {}
+                for vertex in clean_cont_depens:
+                    if len(vertex[1]) == 0:
+                        id_dict[idx] = vertex[0]
+                    idx += 1
+                return id_dict
+        
+            def clean_const_depends(roots):
+                def constituent_depends(constituencies, enum=0, dep_list=[]):
+                    next_layer = []
+                    for const in constituencies:
+                        for child in const.children:
+                            num_kids = len(child.children)
+                            deps = list(range(enum + 1, enum + num_kids + 1))
+                            dep_list.append((child.label, deps))
+                            next_layer.append(child)
+                            enum += num_kids
+                    if len(next_layer) > 0:
+                        constituent_depends(next_layer, enum, dep_list)
+                    return dep_list
+                def constituent_depends2(root, enum=1, dep_list=[]):
+                    def how_many_kids(root):
+                        children = 1
+                        if len(root.children) > 0:
+                            for child in root.children:
+                                children += how_many_kids(child)
+                        return children
+                        
+                    deps = []
+                    enum_temp = enum
+                    to_visit = root.children
+                    for child in to_visit:
+                        deps.append(enum_temp)
+                        enum_temp += how_many_kids(child)
+                    dep_list.append((root.label, deps))
+                    for child in to_visit:
+                        constituent_depends2(child, enum + 1, dep_list)
+                        enum += how_many_kids(child)
+                    return dep_list
+
+
+                all_cont_dep = []
+                for snum, sent in enumerate(roots.sentences):
+                    #cont_dep = constituent_depends([sent.constituency], dep_list=[])
+                    cont_dep = constituent_depends2(sent.constituency, dep_list=[])
+                    y = [i for i in list(range(len(cont_dep))) if len(cont_dep[i][1]) == 1]
+                    while len(y) > 0:
+                        to_remove = []
+                        for i in y:
+                            if cont_dep[i][1][0] not in y:
+                                to_remove.append(cont_dep[i][1][0])
+                                cont_dep[i] = cont_dep[to_remove[-1]]#(cont_dep[to_remove[-1]][0], [])
+                        to_remove = sorted(to_remove, reverse=True)
+                        shifts = np.zeros(len(cont_dep), dtype=np.int16)
+                        for r in to_remove:
+                            shifts[r:] -= 1
+                            cont_dep.pop(r)
+                        for i in list(range(len(cont_dep))):
+                            for j in list(range(len(cont_dep[i][1]))):
+                                cont_dep[i][1][j] += shifts[cont_dep[i][1][j]]
+                        y = [i for i in list(range(len(cont_dep))) if len(cont_dep[i][1]) == 1]
+                    offset = 0
+                    for s in range(len(all_cont_dep)):
+                        offset += len(all_cont_dep[s])
+                    if offset > 0:
+                        for di, dep in enumerate(cont_dep):
+                            newchildren = []
+                            for child in dep[1]:
+                                newchildren.append(child + offset)
+                            cont_dep[di] = (dep[0], newchildren)
+                    all_cont_dep.append(cont_dep.copy())
+                appended_conts = []
+                for di in all_cont_dep:
+                    for dj in di:
+                        appended_conts.append(dj)
+                return appended_conts
+            def just_tree(clean_cont_depens):
+                return [x[1] for x in clean_cont_depens]
+            if self.parse_type == "dependency":
+                branches = get_branches(pipeline_out)
+                #print(f"branches: {branches}")
+                id_dict = get_ids_depend(pipeline_out)
+                print(f"id_dict: {id_dict}")
+                parse_tree = tree_depend(branches)
+                print(f"tree: {parse_tree}")
+            elif self.parse_type == "constituency":
+                clean_deps = clean_const_depends(pipeline_out)
+                id_dict = get_ids_constit(clean_deps)
+                parse_tree = just_tree(clean_deps)
             return parse_tree, id_dict
         
         parse = parser(text_instance)
         self.tot_sents = total_sentences(parse)
-        return organize_parse(parse)
+        return organize_parse(parse, self.parse_type)
 
 #////////////////////////////////////////////////////////////////////////////
+
+    def get_inverse_ids(self):
+        token_keys = self.tokens.keys()
+        inverse_ids = {}
+        for i, tk in enumerate(token_keys):
+            inverse_ids[tk] = i
+        return inverse_ids
 
     def raw_string(self):
         """Returns the original raw string"""
         return self.raw
 
+    def num_features(self):
+        if self.parse_type == "dependency":
+            return self.tot_sents + self.num_words()
+        elif self.parse_type == "constituency":
+            return len(self.parse_tree)
+
     def num_words(self):
         """Returns the number of tokens in the vocabulary for this document."""
-        return len(self.tokens)
+        if self.parse_type == "dependency":
+            return len(self.tokens)
+        elif self.parse_type == "constituency":
+            return self.num_features()
 
     def word(self, id_):
         """Returns the word that corresponds to id_ (int)"""
         #print(id_)
         id_ = ((id_ - self.tot_sents) % self.num_words()) + self.tot_sents
         return self.tokens[id_]
+    
+    
+    def id_is_word(self, id_):
+        #if self.parser_type == "dependency":
+        #    return id_ >= self.tot_sents
+        #elif self.parser_type == "constituency":
+        #    return id_ in self.tokens.keys()
+        return id_ in self.tokens.keys()
 
     def string_position(self, id_):
         """Returns a np array with indices to id_ (int) occurrences"""
         #if self.bow:
         #    return self.string_start[self.positions[id_]]
         #else:
-        i = int((id_ - self.tot_sents) / self.num_words())
-        id_ = (id_ - self.tot_sents) % (self.num_words())
+        i = 0
+        if self.parse_type == "dependency":
+            i = int((id_ - self.tot_sents) / self.num_words())
+            id_ = (id_ - self.tot_sents) % (self.num_words())
+        elif self.parse_type == "constituency":
+            i = int(id_ / self.num_words())
+            id_ = self.feature_to_id(id_ % self.num_words())
         start = self.string_start[[self.positions[id_]]]
         #print(f"string start offset: {i} * {(self.string_start[-1] + len(self.as_list[-1]))}")
         start += i*(self.string_start[-1] + len(self.as_list[-1]))
@@ -518,6 +653,9 @@ class IndexedStringParsed(object):
         #else:
         #    print("PLEASE FINISH THE string_positions METHOD in the idxstringparsed class; around line 339")
         
+    def feature_to_id(self, feature_id):
+        return self.inverse_ids[feature_id]
+
     def mask_dependents(self, words_to_remove):
         def dep_vector(tree, heads):
             toremove = set()
@@ -568,7 +706,7 @@ class IndexedStringParsed(object):
                  for i in range(mask.shape[0])])
         return ''.join([self.as_list[v] for v in mask.nonzero()[0]])
         """
-        return ''.join([f"{self.tokens[v]} " for v in np.flatnonzero(mask) if v > self.tot_sents])
+        return ''.join([f"{self.tokens[v]} " for v in np.flatnonzero(mask) if self.id_is_word(v)])
 
     @staticmethod
     def _segment_with_tokens(text, tokens):
