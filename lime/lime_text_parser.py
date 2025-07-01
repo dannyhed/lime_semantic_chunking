@@ -1,6 +1,7 @@
 from lime.lime_text import *
 import stanza
 from tqdm import tqdm
+import random as rand
 
 class TextParserDomainMapper(explanation.DomainMapper):
     """Maps feature ids to words or word-positions"""
@@ -90,7 +91,9 @@ class LimeTextParserExplainer(object):
                  bow=True,
                  mask_string=None,
                  random_state=None,
-                 char_level=False):
+                 char_level=False,
+                 random_trees=20,
+                 max_sample_size = 1/2):
         """Init function.
 
         Args:
@@ -133,11 +136,15 @@ class LimeTextParserExplainer(object):
                 self.parser = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
             elif parsing_type == "constituency":
                 self.parser = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
+            elif parsing_type == "random":
+                self.parser = stanza.Pipeline(lang='en', processors='tokenize')
             else:
                 raise ValueError("PARSING METHOD NOT AN OPTION, HALTING")
                
         self.parser_type = parsing_type
         init_parser(self)
+        self.random_trees = random_trees
+        self.max_sample_size = max_sample_size
 
 #////////////////////////////////////////////////////////////////////////////
 
@@ -167,7 +174,8 @@ class LimeTextParserExplainer(object):
                          num_features=10,
                          num_samples=5000,
                          distance_metric='cosine',
-                         model_regressor=None):
+                         model_regressor=None,
+                         random_trees = None):
         """Generates explanations for a prediction.
 
         First, we generate neighborhood data by randomly hiding features from
@@ -197,6 +205,8 @@ class LimeTextParserExplainer(object):
             explanations.
         """
         #print(f"text_instance: {text_instance}") #////////////////////////
+        if random_trees == None:
+            random_trees = self.random_trees
 
         def dependent_highlights(exp, indexed_string):
             print(f"Original single exp: {exp}")
@@ -219,12 +229,10 @@ class LimeTextParserExplainer(object):
             return exp
         
 
-        indexed_string = (IndexedCharacters(
-            text_instance, bow=self.bow, mask_string=self.mask_string)
-                          if self.char_level else
-                          IndexedStringParsed(text_instance, parser=self.parser, 
+        indexed_string = (IndexedStringParsed(text_instance, parser=self.parser, 
                                         parse_type=self.parser_type, bow=self.bow,
-                                        mask_string=self.mask_string))
+                                        mask_string=self.mask_string,
+                                        random_trees=random_trees))
         
         #print(f"indexed_string.tokens: {indexed_string.tokens}")
         #print(f"indexed_string.as_list: {indexed_string.as_list}")
@@ -264,7 +272,7 @@ class LimeTextParserExplainer(object):
         #self.individual_groups = individual_dep_groups(ret_exp.local_exp)
 
         def individual_dep_groups(exp, string):
-            print(f"Original full exp: {exp}")
+            print(f"ORIGINAL full exp: {exp}")
             all_exps = {}
             for label in labels:
                 label_exp = exp[label]
@@ -273,7 +281,7 @@ class LimeTextParserExplainer(object):
                     label_exp_arr.append((dependent_highlights([lexp], string), lexp[1]))
                 label_exp_arr = sorted(label_exp_arr, key=lambda x: -abs(x[1]))
                 all_exps[label] = [x[0] for x in label_exp_arr]
-            print(f"FINAL dependent explanation: {all_exps}")
+            print(f"FINAL individual dependent explanations: {all_exps}")
             return all_exps
                 #/store each dependent group separately to be displayed/#
         
@@ -289,6 +297,7 @@ class LimeTextParserExplainer(object):
                     #print(f"rest[{i}]: {rest}")
                     for r in rest:
                         actual_all_exp[label].append(r)
+                print(f"FINAL COMBINED explanation: {actual_all_exp[label]}")
             return actual_all_exp
 
         rest_exps = individual_dep_groups(ret_exp.local_exp, indexed_string)
@@ -296,6 +305,7 @@ class LimeTextParserExplainer(object):
         for label in labels:
             main_exp[label] = dependent_highlights(ret_exp.local_exp[label], indexed_string)
             domain_mapper.num_exps[label] = len(main_exp[label]) + 1
+            print(f"MAIN COMBINED explanation: {main_exp[label]}")
         #print(f"ret_exp.local_exp[1]: {ret_exp.local_exp[1]}")
         domain_mapper.all_exps = combine_all_exps(rest_exps, main_exp, indexed_string)
         ret_exp.local_exp = main_exp
@@ -303,6 +313,7 @@ class LimeTextParserExplainer(object):
 
         # ////////////////////////////////////////////////////////////////////////////////
         # /////////////// DEBUGGED UP TO HERE, LOOK AT OUTPUT CODE NEXT //////////////////
+        # ^^^^^^^^^^^^^^^ ON GOD ^^^^^^^^ THIS IS TRUE AGAIN ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         return ret_exp
 
     def __data_labels_distances(self,
@@ -342,7 +353,7 @@ class LimeTextParserExplainer(object):
                 x, x[0], metric=distance_metric).ravel() * 100
 
         doc_size = indexed_string.num_features()
-        sample = self.random_state.randint(0, int(doc_size/3), num_samples - 1)
+        sample = self.random_state.randint(0, int(doc_size * self.max_sample_size), num_samples - 1)
         data = np.ones((num_samples, doc_size))
         data[0] = np.ones(doc_size)
         features_range = range(doc_size)
@@ -378,7 +389,7 @@ class IndexedStringParsed(object):
     """String with various indexes."""
 
     def __init__(self, raw_string, parser, parse_type="dependency", bow=True,
-                 mask_string=None):
+                 mask_string=None, random_trees=20):
         """Initializer.
 
         Args:
@@ -395,6 +406,7 @@ class IndexedStringParsed(object):
         self.raw = raw_string + "\n\n\n"
         self.parser = parser
         self.parse_type = parse_type
+        self.random_trees = random_trees
         self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
         self.inverse_ids = self.get_inverse_ids()  
         self.num_feats = self.num_features()
@@ -537,7 +549,6 @@ class IndexedStringParsed(object):
                         enum += how_many_kids(child)
                     return dep_list
 
-
                 all_cont_dep = []
                 for snum, sent in enumerate(roots.sentences):
                     #cont_dep = constituent_depends([sent.constituency], dep_list=[])
@@ -587,10 +598,150 @@ class IndexedStringParsed(object):
                 id_dict = get_ids_constit(clean_deps)
                 parse_tree = just_tree(clean_deps)
             return parse_tree, id_dict
-        
-        parse = parser(text_instance)
-        self.tot_sents = total_sentences(parse)
-        return organize_parse(parse, self.parse_type)
+
+        def custom_parse(text_instance):
+            def random_connections(leaves, connections=[]):
+                len_leaves = len(leaves)
+                connections.append(leaves)
+
+                if len_leaves == 1:
+                    return connections
+
+                n_groups = rand.randint(1, len_leaves - 1)
+
+                assigns = []
+                while not np.all([group in assigns for group in range(n_groups)]):
+                    assigns = np.random.randint(0, n_groups, len_leaves)
+
+                new_connections = [[] for _ in range(n_groups)]
+                for i, group in enumerate(assigns):
+                    new_connections[group].append(i)
+                
+                return random_connections(new_connections, connections)
+
+            def random_tree(words):
+                connections = list(reversed(random_connections(words, [])))
+                
+                branches = [[0 for _ in group] if type(group) is not str else [] for layer in connections for group in layer]
+                word_dict = {}
+                idx = 0
+                len_prev = 0
+
+                for i, layer in enumerate(connections):
+
+                    len_prev += len(layer)
+
+                    for j, group in enumerate(layer):
+                        new_deps = []
+
+                        if type(group) is not str:
+                            new_deps = [g + len_prev for g in group]
+                        else:
+                            word_dict[idx] = group
+
+                        branches[idx] = new_deps
+                        idx += 1
+
+                return branches, word_dict
+            
+            
+            def combine_similar(parse_tree_tuples):
+                
+                def shift_connections(parse_tree, word_offset, nw_offset, word_start):
+                    for i, group in enumerate(parse_tree):
+                        for j, _ in enumerate(group):
+                            if parse_tree[i][j] >= word_start:
+                                parse_tree[i][j] += word_offset
+                            parse_tree[i][j] += nw_offset
+                            parse_tree[i][j] += 1
+                    return parse_tree
+
+                parse_trees = [tup[0] for tup in parse_tree_tuples]
+                word_dicts = [tup[1] for tup in parse_tree_tuples]
+
+                tree_trunks = []
+                tree_lengths = []
+
+                for i, tree in enumerate(parse_trees):
+                    tree_trunks.append(tree[:list(word_dicts[i].keys())[0]])
+                    tree_lengths.append(len(tree_trunks[-1]))
+
+                word_offsets = [np.sum(tree_lengths[i:]) for i in range(1, len(tree_lengths))]
+                word_offsets.append(0)
+
+                nw_offset = 0
+                root = [1]
+
+                for i, tree in enumerate(tree_trunks):
+                    word_start = list(word_dicts[i].keys())[0]
+                    shift_connections(tree, word_offsets[i], nw_offset, word_start)
+
+                    nw_offset += len(tree)
+                    root.append(nw_offset + 1)
+
+                root.pop()
+                combined_trees = [root]
+                for k in [j for i in range(len(tree_trunks)) for j in tree_trunks[i]]:
+                    combined_trees.append(k)
+
+                new_word_dict = {i + 1 + word_offsets[0]: word_dicts[0][i] for i in word_dicts[0]}
+                for word in new_word_dict:
+                    combined_trees.append([])
+
+                return combined_trees, new_word_dict
+            
+            def combine_different(parse_tree_tuples):
+                parse_trees = [tup[0] for tup in parse_tree_tuples]
+                word_dicts = [tup[1] for tup in parse_tree_tuples]
+
+                offsets = []
+                for tree in parse_trees:
+                    offsets.append(len(tree))
+                
+                offsets = [np.sum([offsets[:i]]) + 1 for i in range(len(offsets))]
+                offsets = list(np.array(offsets, dtype=np.int16))
+
+                combined = [offsets.copy()]
+
+                for i, tree in enumerate(parse_trees):
+                    for group in tree:
+                        for j, _ in enumerate(group):
+                            group[j] += offsets[i]
+                        combined.append(group)
+
+                new_word_dict = {}
+                for j in range(len(word_dicts)):
+                    for i in list(word_dicts[j].keys()):
+                        new_word_dict[i + offsets[j]] = word_dicts[j][i]
+
+                return combined, new_word_dict
+
+            def combine_ran_trees(sentences, sample_size):
+                combined = []
+
+                for sent in sentences:
+
+                    parse_trees = []
+
+                    for s in range(sample_size):
+
+                        parse_trees.append(random_tree(sent))
+
+                    combined.append(combine_similar(parse_trees))
+
+                return combine_different(combined)
+
+            parse = self.parser(text_instance)
+            words = [[token.text for token in sent.words] for sent in parse.sentences]
+            self.tot_sents = len(words)
+            return combine_ran_trees(words, self.random_trees)
+
+        if self.parse_type == "random":
+            return custom_parse(text_instance) # <--- ADD SAMPLE SIZE THROUGHOUT
+        else:
+            parse = parser(text_instance)
+            self.tot_sents = total_sentences(parse)
+            return organize_parse(parse, self.parse_type)
 
 #////////////////////////////////////////////////////////////////////////////
 
@@ -610,6 +761,8 @@ class IndexedStringParsed(object):
             return self.tot_sents + self.num_words()
         elif self.parse_type == "constituency":
             return len(self.parse_tree)
+        elif self.parse_type == "random":
+            return len(self.parse_tree)
 
     def num_words(self):
         """Returns the number of tokens in the vocabulary for this document."""
@@ -617,11 +770,18 @@ class IndexedStringParsed(object):
             return len(self.tokens)
         elif self.parse_type == "constituency":
             return self.num_features()
+        elif self.parse_type == "random":
+            return self.num_features()
 
     def word(self, id_):
         """Returns the word that corresponds to id_ (int)"""
         #print(id_)
-        id_ = ((id_ - self.tot_sents) % self.num_words()) + self.tot_sents
+        if self.parse_type == "dependency":
+            id_ = ((id_ - self.tot_sents) % self.num_words()) + self.tot_sents
+        elif self.parse_type == "constituency":
+            id_ = id_ % self.num_words()#list(self.tokens.keys())[id_ % len(self.tokens)]#self.feature_to_id(id_ % self.num_words())
+        elif self.parse_type == "random":
+            id_ = id_ % self.num_words()
         return self.tokens[id_]
     
     
@@ -642,6 +802,9 @@ class IndexedStringParsed(object):
             i = int((id_ - self.tot_sents) / self.num_words())
             id_ = (id_ - self.tot_sents) % (self.num_words())
         elif self.parse_type == "constituency":
+            i = int(id_ / self.num_words())
+            id_ = self.feature_to_id(id_ % self.num_words())
+        elif self.parse_type == "random":
             i = int(id_ / self.num_words())
             id_ = self.feature_to_id(id_ % self.num_words())
         start = self.string_start[[self.positions[id_]]]

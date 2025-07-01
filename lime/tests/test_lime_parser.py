@@ -25,80 +25,6 @@ import numpy as np
 #print(*[f"{n}: {branches[n]}" for n in branches.keys()], sep='\n')
 
 #print(f"REMOVING BRANCH {ranbranch}")
-
-def get_branches(pipeline_out):
-    return {word.id: (word.head, word.id) for sent in pipeline_out.sentences for word in sent.words}
-
-def get_ids(pipeline_out):
-    return [word.text for sent in pipeline_out.sentences for word in sent.words]
-
-def organize_parse(pipeline_out):
-    branches = get_branches(pipeline_out)
-    id_dict = get_ids(pipeline_out)
-    parse_tree = tree(branches)
-    return parse_tree, id_dict
-
-def tree(allbranches):
-    ids = list(allbranches.keys())
-    i = 0
-    tree = []
-    dependents, leftovers = depsFromBranches(allbranches, 0, ids)
-    tree.append(dependents)
-    while i < len(ids):
-        i += 1
-        dependents, leftovers = depsFromBranches(allbranches, i, leftovers)
-        tree.append(dependents)
-    return tree
-
-def depsFromBranches(allbranches, wordid, ids):
-    dependents = []
-    if len(ids) == 0:
-        return dependents, ids
-    leftovers = ids.copy()
-    for n in ids:
-        branch = allbranches[n]
-        if branch[0] == wordid:
-            dependents.append(branch[1])
-            leftovers.remove(n)
-    return dependents, leftovers
-
-def depsFromTreeHelper(tree, head):
-    dependents = list(tree[head]).copy()
-    newDependents = []
-    for dep in dependents:
-        if type(dep) is not list:
-            newDependents = depsFromTreeHelper(tree, dep)
-            for newdep in newDependents:
-                if type(dep) is not list:
-                    dependents.append(newdep)
-    return dependents
-
-def depsFromTree(tree, head):
-    dependents = depsFromTreeHelper(tree, head)
-    dependents.append(head)
-    dependents = list(np.sort(np.array(dependents)))
-    return dependents
-
-def depsFromHeads(tree, heads):
-    toremove = set()
-    heads = list(heads)
-    for head in heads:
-        newdeps = depsFromTree(tree, head)
-        for dep in newdeps:
-            toremove.add(dep)
-    return toremove
-
-def binaryVec(toRemove, total):
-    binaryvec = np.ones(total, dtype=np.int8)
-    for zero in toRemove:
-        binaryvec[zero] = 0
-    return binaryvec
-
-def inverse_removing(to_remove, parse_tree, id_dict):
-    to_remove_deps = depsFromHeads(parse_tree, to_remove)
-    bvec = binaryVec(to_remove_deps, len(parse_tree))
-    mask = bvec[1:]
-    return ''.join([f"{id_dict[v]} " for v in np.flatnonzero(mask)])
     
 #stanza.download('en') # <------------------------- ONLY DOES THIS ONCE, FLAGS THE PREVIOUS DOWNLOAD AND STOPS 
 #dep = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
@@ -110,8 +36,6 @@ def inverse_removing(to_remove, parse_tree, id_dict):
 #ranbranch = rand.choice(range(len(id_dict)))
 
 #print(inverse_removing([7,9], parse_tree, id_dict))
-
-
 
 
 #import lime
@@ -190,8 +114,10 @@ c = make_pipeline(vectorizer, rf)
 
 print(c.predict_proba([x_test[0]]))
 
-explainer = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
-explainerStandard = LimeTextExplainer(class_names=class_names, verbose=True)
+explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random")
+#explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="dependency")
+#explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
+#explainerStandard = LimeTextExplainer(class_names=class_names, verbose=True)
 #explainer = LimeTextExplainer(class_names=class_names)
 idx = 0
 while idx < len(x_test):
@@ -200,15 +126,21 @@ while idx < len(x_test):
 
 idx = 953
 
-expStandard = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=4)
+expRand = explainerRan.explain_instance(x_test[idx], c.predict_proba, num_features=4)
+expRand2 = explainerRan.explain_instance(x_test[idx], c.predict_proba, num_features=50)
 
-exp = explainer.explain_instance(x_test[idx], c.predict_proba, num_features=4)
-exp2 = explainer.explain_instance(x_test[idx], c.predict_proba, num_features=50)
+#expStd = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=4)
+#expStd2 = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=50)
+
+#exp = explainerDep.explain_instance(x_test[idx], c.predict_proba, num_features=4)
+#exp2 = explainerDep.explain_instance(x_test[idx], c.predict_proba, num_features=50)
+#exp3 = explainerCon.explain_instance(x_test[idx], c.predict_proba, num_features=4)
+#exp4 = explainerCon.explain_instance(x_test[idx], c.predict_proba, num_features=50)
 print('Document id: %d' % idx)
 print('Probability(christian) =', c.predict_proba([x_test[idx]])[0,1])
 print('True class: %s' % class_names[y_test[idx]])
 
-exp.as_list()
+#exp.as_list()
 
 #print('Original prediction:', rf.predict_proba(test_vectors[idx])[0,1])
 #tmp = test_vectors[idx].copy()
@@ -224,8 +156,13 @@ exp.as_list()
 
 
 #%%
-exp.save_to_file('lime_output.html')
-exp2.save_to_file('lime_output2.html')
-expStandard.save_to_file('lime_std_output.html')
+expRand.save_to_file('ran_lime_output.html')
+expRand2.save_to_file('ran_lime_output2.html')
+# exp.save_to_file('dep_lime_output.html')
+# exp2.save_to_file('dep_lime_output2.html')
+# exp3.save_to_file('con_lime_output.html')
+# exp4.save_to_file('con_lime_output2.html')
+# expStd.save_to_file('std_lime_output.html')
+# expStd2.save_to_file('std_lime_output2.html')
 #exp.show_in_notebook(text=True)
 # %%
