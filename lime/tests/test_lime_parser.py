@@ -4,39 +4,6 @@ from __future__ import print_function
 import stanza
 import random as rand
 import numpy as np
-#import lime_text_parser
-#import stanza.pipeline
-
-#con = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
-#con1 = con(sen)
-
-#for sentence in con1.sentences:
-#    print(sentence.constituency)
-
-#print(*[f'id: {word.id}\tword: {word.text}\thead id: {word.head}\thead: {sent.words[word.head-1].text if word.head > 0 else "root"}\tdeprel: {word.deprel}' for sent in dep1.sentences for word in sent.words], sep='\n')
-
-#print(*[f'id: {word.id}\tword: {word.text}\thead id: {word.head}\thead: {sent.words[word.head-1].text if word.head > 0 else "root"}\tdeprel: {word.deprel}' for sent in doc.sentences for word in sent.words], sep='\n')
-#print(doc)
-#print(doc.entities)
-
-#branches = {word.id: (word.head, word.id) for sent in dep1.sentences for word in sent.words}
-#ids = [word.text for sent in dep1.sentences for word in sent.words]
-
-#print(*[f"{n}: {branches[n]}" for n in branches.keys()], sep='\n')
-
-#print(f"REMOVING BRANCH {ranbranch}")
-    
-#stanza.download('en') # <------------------------- ONLY DOES THIS ONCE, FLAGS THE PREVIOUS DOWNLOAD AND STOPS 
-#dep = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
-#sen = "john saw this movie last weekend, he thought it was not very good, but he still went again"
-#dep1 = dep(sen)
-
-#parse_tree, id_dict = organize_parse(dep1)
-
-#ranbranch = rand.choice(range(len(id_dict)))
-
-#print(inverse_removing([7,9], parse_tree, id_dict))
-
 
 #import lime
 import sklearn
@@ -53,32 +20,48 @@ from sklearn.pipeline import make_pipeline
 
 from lime.lime_text_parser import LimeTextParserExplainer
 from lime.lime_text import LimeTextExplainer
+import pickle as pkl
 
-#from sklearn.datasets import fetch_openml
-#spam = fetch_openml(name="spambase_reproduced")
+class LimeParserComparison(object):
+    def __init__(self, exps=None):
+        if not exps:
+            self.exps_to_compare = {}
+        else:
+            self.exps_to_compare = exps
 
-#print(spam['data'].keys())
+class SavedExplanation(object):
+    def __init__(self, name, path, desc=None, exp=None):
+        if exp:
+            self.name = name
+            self.path = path
+            self.desc = desc
+            self.exp = exp
+            pkl.dump(self, path + name)
+        else:
+            self = pkl.load(path + name)
+            return exp
+        
+    def get_exp(self):
+        return self.exp
+    
+    def get_name(self):
+        return self.name
+    
+    def get_description(self):
+        return self.desc
+    
+    def get_folder(self):
+        return self.path
+    
+    def get_full_path(self):
+        return self.path + self.name
+    
 
-'''
-from sklearn.datasets import fetch_20newsgroups
-categories = ['alt.atheism', 'soc.religion.christian']
-newsgroups_train = fetch_20newsgroups(subset='train', categories=categories)
-newsgroups_test = fetch_20newsgroups(subset='test', categories=categories)
-class_names = ['atheism', 'christian']
-vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-train_vectors = vectorizer.fit_transform(newsgroups_train.data)
-test_vectors = vectorizer.transform(newsgroups_test.data)
-'''
-    #while(not file.closed):
-    #    split = file.readline().split("\t")
-    #    if len(split) > 1:
-    #        l, t = split
-    #        labels.append(l)
-    #        texts.append(t)
-    #    else:
-    #        file.close()
+
+
 
 from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
 
 SPAMFILE = r"../smsspamcollection/SMSSpamCollection"
 
@@ -103,21 +86,25 @@ vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
 train_vectors = vectorizer.fit_transform(x_train)
 test_vectors = vectorizer.transform(x_test)
 
+clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(50, 25), random_state=1)
+clf.fit(train_vectors, y_train)
+pred = clf.predict(test_vectors)
 
-rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-rf.fit(train_vectors, y_train)
+# rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# rf.fit(train_vectors, y_train)
+# pred = rf.predict(test_vectors)
 
-pred = rf.predict(test_vectors)
 sklearn.metrics.f1_score(y_test, pred, average='binary')
 
-c = make_pipeline(vectorizer, rf)
+c = make_pipeline(vectorizer, clf)
 
 print(c.predict_proba([x_test[0]]))
 
-explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random")
-#explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="dependency")
-#explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
-#explainerStandard = LimeTextExplainer(class_names=class_names, verbose=True)
+explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random", random_trees=100)
+explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="dependency")
+explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
+explainerStandard = LimeTextExplainer(class_names=class_names, verbose=True)
 #explainer = LimeTextExplainer(class_names=class_names)
 idx = 0
 while idx < len(x_test):
@@ -126,16 +113,16 @@ while idx < len(x_test):
 
 idx = 953
 
-expRand = explainerRan.explain_instance(x_test[idx], c.predict_proba, num_features=4)
-expRand2 = explainerRan.explain_instance(x_test[idx], c.predict_proba, num_features=50)
+# expRand = explainerRan.explain_instance(x_test[idx], c.predict_proba, num_features=5, num_samples=10000)
+# expRand2 = explainerRan.explain_instance(x_test[idx], c.predict_proba, num_features=20, num_samples=10000)
 
-#expStd = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=4)
-#expStd2 = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=50)
+# expStd = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=5, num_samples=10000)
+# expStd2 = explainerStandard.explain_instance(x_test[idx], c.predict_proba, num_features=20, num_samples=10000)
 
-#exp = explainerDep.explain_instance(x_test[idx], c.predict_proba, num_features=4)
-#exp2 = explainerDep.explain_instance(x_test[idx], c.predict_proba, num_features=50)
-#exp3 = explainerCon.explain_instance(x_test[idx], c.predict_proba, num_features=4)
-#exp4 = explainerCon.explain_instance(x_test[idx], c.predict_proba, num_features=50)
+# exp = explainerDep.explain_instance(x_test[idx], c.predict_proba, num_features=5, num_samples=10000, word_level=True)
+# exp2 = explainerDep.explain_instance(x_test[idx], c.predict_proba, num_features=20, num_samples=10000, word_level=True)
+exp3 = explainerCon.explain_instance(x_test[idx], c.predict_proba, num_features=5, num_samples=10000)
+exp4 = explainerCon.explain_instance(x_test[idx], c.predict_proba, num_features=20, num_samples=10000)
 print('Document id: %d' % idx)
 print('Probability(christian) =', c.predict_proba([x_test[idx]])[0,1])
 print('True class: %s' % class_names[y_test[idx]])
@@ -156,13 +143,13 @@ print('True class: %s' % class_names[y_test[idx]])
 
 
 #%%
-expRand.save_to_file('ran_lime_output.html')
-expRand2.save_to_file('ran_lime_output2.html')
-# exp.save_to_file('dep_lime_output.html')
-# exp2.save_to_file('dep_lime_output2.html')
-# exp3.save_to_file('con_lime_output.html')
-# exp4.save_to_file('con_lime_output2.html')
-# expStd.save_to_file('std_lime_output.html')
-# expStd2.save_to_file('std_lime_output2.html')
+# expRand.save_to_file('NN2_ran_lime_output.html')
+# expRand2.save_to_file('NN2_ran_lime_output2.html')
+# exp.save_to_file('NN2_dep_lime_output.html')
+# exp2.save_to_file('NN2_dep_lime_output2.html')
+exp3.save_to_file('NN1_con_lime_output.html')
+exp4.save_to_file('NN1_con_lime_output2.html')
+# expStd.save_to_file('NN_std_lime_output.html')
+# expStd2.save_to_file('NN_std_lime_output2.html')
 #exp.show_in_notebook(text=True)
 # %%

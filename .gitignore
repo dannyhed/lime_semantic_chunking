@@ -70,3 +70,7 @@ fabric.properties
 
 # Pycharm
 .idea
+
+# Saved Results
+/saved_explanations
+*.html

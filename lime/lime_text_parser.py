@@ -92,6 +92,7 @@ class LimeTextParserExplainer(object):
                  mask_string=None,
                  random_state=None,
                  char_level=False,
+                 word_level=False,
                  random_trees=20,
                  max_sample_size = 1/2):
         """Init function.
@@ -145,6 +146,7 @@ class LimeTextParserExplainer(object):
         init_parser(self)
         self.random_trees = random_trees
         self.max_sample_size = max_sample_size
+        self.word_level=word_level
 
 #////////////////////////////////////////////////////////////////////////////
 
@@ -173,6 +175,7 @@ class LimeTextParserExplainer(object):
                          top_labels=None,
                          num_features=10,
                          num_samples=5000,
+                         word_level=None,
                          distance_metric='cosine',
                          model_regressor=None,
                          random_trees = None):
@@ -205,6 +208,8 @@ class LimeTextParserExplainer(object):
             explanations.
         """
         #print(f"text_instance: {text_instance}") #////////////////////////
+        if word_level == None:
+            word_level = self.word_level
         if random_trees == None:
             random_trees = self.random_trees
 
@@ -230,8 +235,7 @@ class LimeTextParserExplainer(object):
         
 
         indexed_string = (IndexedStringParsed(text_instance, parser=self.parser, 
-                                        parse_type=self.parser_type, bow=self.bow,
-                                        mask_string=self.mask_string,
+                                        parse_type=self.parser_type, word_level=word_level,
                                         random_trees=random_trees))
         
         #print(f"indexed_string.tokens: {indexed_string.tokens}")
@@ -388,8 +392,8 @@ class LimeTextParserExplainer(object):
 class IndexedStringParsed(object):
     """String with various indexes."""
 
-    def __init__(self, raw_string, parser, parse_type="dependency", bow=True,
-                 mask_string=None, random_trees=20):
+    def __init__(self, raw_string, parser, parse_type="dependency", 
+                 word_level=False, random_trees=20):
         """Initializer.
 
         Args:
@@ -407,6 +411,7 @@ class IndexedStringParsed(object):
         self.parser = parser
         self.parse_type = parse_type
         self.random_trees = random_trees
+        self.word_level = word_level
         self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
         self.inverse_ids = self.get_inverse_ids()  
         self.num_feats = self.num_features()
@@ -586,10 +591,23 @@ class IndexedStringParsed(object):
                 return appended_conts
             def just_tree(clean_cont_depens):
                 return [x[1] for x in clean_cont_depens]
+            def add_idv_words(branches, id_dict):
+                new_word_dict = {}
+                i = max(list(id_dict.keys()))
+                for word_id in list(id_dict.keys()):
+                    if len(branches[word_id]) > 0:
+                        i += 1
+                        new_word_dict[i] = id_dict[word_id]
+                        branches[i] = (word_id, i)
+                    else:
+                        new_word_dict[word_id] = id_dict[word_id]
+                return branches, new_word_dict
+                        
             if self.parse_type == "dependency":
                 branches = get_branches(pipeline_out)
-                #print(f"branches: {branches}")
                 id_dict = get_ids_depend(pipeline_out)
+                if self.word_level:
+                    branches, id_dict = add_idv_words(branches, id_dict)
                 print(f"id_dict: {id_dict}")
                 parse_tree = tree_depend(branches)
                 print(f"tree: {parse_tree}")
@@ -719,11 +737,11 @@ class IndexedStringParsed(object):
             def combine_ran_trees(sentences, sample_size):
                 combined = []
 
-                for sent in sentences:
+                for sent in tqdm(sentences, "Sentences"):
 
                     parse_trees = []
 
-                    for s in range(sample_size):
+                    for s in tqdm(range(sample_size), "Random Parse Trees"):
 
                         parse_trees.append(random_tree(sent))
 
@@ -758,7 +776,8 @@ class IndexedStringParsed(object):
 
     def num_features(self):
         if self.parse_type == "dependency":
-            return self.tot_sents + self.num_words()
+            #return self.tot_sents + self.num_words()
+            return len(self.parse_tree)
         elif self.parse_type == "constituency":
             return len(self.parse_tree)
         elif self.parse_type == "random":
@@ -767,7 +786,8 @@ class IndexedStringParsed(object):
     def num_words(self):
         """Returns the number of tokens in the vocabulary for this document."""
         if self.parse_type == "dependency":
-            return len(self.tokens)
+            #return len(self.tokens)
+            return self.num_features()
         elif self.parse_type == "constituency":
             return self.num_features()
         elif self.parse_type == "random":
@@ -777,7 +797,8 @@ class IndexedStringParsed(object):
         """Returns the word that corresponds to id_ (int)"""
         #print(id_)
         if self.parse_type == "dependency":
-            id_ = ((id_ - self.tot_sents) % self.num_words()) + self.tot_sents
+            #id_ = ((id_ - self.tot_sents) % self.num_words()) + self.tot_sents
+            id_ = id_ % self.num_words()
         elif self.parse_type == "constituency":
             id_ = id_ % self.num_words()#list(self.tokens.keys())[id_ % len(self.tokens)]#self.feature_to_id(id_ % self.num_words())
         elif self.parse_type == "random":
@@ -799,8 +820,10 @@ class IndexedStringParsed(object):
         #else:
         i = 0
         if self.parse_type == "dependency":
-            i = int((id_ - self.tot_sents) / self.num_words())
-            id_ = (id_ - self.tot_sents) % (self.num_words())
+            # i = int((id_ - self.tot_sents) / self.num_words())
+            # id_ = (id_ - self.tot_sents) % (self.num_words())
+            i = int(id_ / self.num_words())
+            id_ = self.feature_to_id(id_ % self.num_words())
         elif self.parse_type == "constituency":
             i = int(id_ / self.num_words())
             id_ = self.feature_to_id(id_ % self.num_words())
