@@ -2,6 +2,7 @@ from lime.lime_text import *
 import stanza
 from tqdm import tqdm
 import random as rand
+import pickle as pkl
 
 class TextParserDomainMapper(explanation.DomainMapper):
     """Maps feature ids to words or word-positions"""
@@ -56,12 +57,12 @@ class TextParserDomainMapper(explanation.DomainMapper):
             return u''
         text =  self.num_exps[label] * (self.indexed_string.raw_string()
                 .encode('utf-8', 'xmlcharrefreplace').decode('utf-8'))
-        print(f"num_exps: {self.num_exps[label]}")
+        #print(f"num_exps: {self.num_exps[label]}")
         text = re.sub(r'[<>&]', '|', text)
         exp = [(self.indexed_string.word(x[0]),
                 self.indexed_string.string_position(x[0]),
                 x[1]) for x in exp]
-        print(f"exp: {exp}")
+        #print(f"exp: {exp}")
         #print(f"exp: {exp}")
         all_occurrences = list(itertools.chain.from_iterable(
             [itertools.product([x[0]], x[1], [x[2]]) for x in exp]))
@@ -94,7 +95,8 @@ class LimeTextParserExplainer(object):
                  char_level=False,
                  word_level=False,
                  random_trees=20,
-                 max_sample_size = 1/2):
+                 max_sample_size=1/2,
+                 mask_method=1):
         """Init function.
 
         Args:
@@ -142,6 +144,7 @@ class LimeTextParserExplainer(object):
             else:
                 raise ValueError("PARSING METHOD NOT AN OPTION, HALTING")
                
+        self.mask_method = mask_method
         self.parser_type = parsing_type
         init_parser(self)
         self.random_trees = random_trees
@@ -178,7 +181,8 @@ class LimeTextParserExplainer(object):
                          word_level=None,
                          distance_metric='cosine',
                          model_regressor=None,
-                         random_trees = None):
+                         random_trees=None,
+                         mask_method=None):
         """Generates explanations for a prediction.
 
         First, we generate neighborhood data by randomly hiding features from
@@ -208,13 +212,15 @@ class LimeTextParserExplainer(object):
             explanations.
         """
         #print(f"text_instance: {text_instance}") #////////////////////////
+        if mask_method == None:
+            mask_method = self.mask_method
         if word_level == None:
             word_level = self.word_level
         if random_trees == None:
             random_trees = self.random_trees
 
         def dependent_highlights(exp, indexed_string):
-            print(f"Original single exp: {exp}")
+            #print(f"Original single exp: {exp}")
             allx = []
             for x in exp:
                 allx.append(x[0])
@@ -246,7 +252,7 @@ class LimeTextParserExplainer(object):
         domain_mapper = TextParserDomainMapper(indexed_string)
         data, yss, distances = self.__data_labels_distances(
             indexed_string, classifier_fn, num_samples,
-            distance_metric=distance_metric)
+            distance_metric=distance_metric, mask_method=mask_method)
         #print(f"data: {data}")
         if self.class_names is None:
             self.class_names = [str(x) for x in range(yss[0].shape[0])]
@@ -276,7 +282,7 @@ class LimeTextParserExplainer(object):
         #self.individual_groups = individual_dep_groups(ret_exp.local_exp)
 
         def individual_dep_groups(exp, string):
-            print(f"ORIGINAL full exp: {exp}")
+            #print(f"ORIGINAL full exp: {exp}")
             all_exps = {}
             for label in labels:
                 label_exp = exp[label]
@@ -285,7 +291,7 @@ class LimeTextParserExplainer(object):
                     label_exp_arr.append((dependent_highlights([lexp], string), lexp[1]))
                 label_exp_arr = sorted(label_exp_arr, key=lambda x: -abs(x[1]))
                 all_exps[label] = [x[0] for x in label_exp_arr]
-            print(f"FINAL individual dependent explanations: {all_exps}")
+            #print(f"FINAL individual dependent explanations: {all_exps}")
             return all_exps
                 #/store each dependent group separately to be displayed/#
         
@@ -301,7 +307,7 @@ class LimeTextParserExplainer(object):
                     #print(f"rest[{i}]: {rest}")
                     for r in rest:
                         actual_all_exp[label].append(r)
-                print(f"FINAL COMBINED explanation: {actual_all_exp[label]}")
+                #print(f"FINAL COMBINED explanation: {actual_all_exp[label]}")
             return actual_all_exp
 
         rest_exps = individual_dep_groups(ret_exp.local_exp, indexed_string)
@@ -309,7 +315,7 @@ class LimeTextParserExplainer(object):
         for label in labels:
             main_exp[label] = dependent_highlights(ret_exp.local_exp[label], indexed_string)
             domain_mapper.num_exps[label] = len(main_exp[label]) + 1
-            print(f"MAIN COMBINED explanation: {main_exp[label]}")
+            #print(f"MAIN COMBINED explanation: {main_exp[label]}")
         #print(f"ret_exp.local_exp[1]: {ret_exp.local_exp[1]}")
         domain_mapper.all_exps = combine_all_exps(rest_exps, main_exp, indexed_string)
         ret_exp.local_exp = main_exp
@@ -324,7 +330,8 @@ class LimeTextParserExplainer(object):
                                 indexed_string,
                                 classifier_fn,
                                 num_samples,
-                                distance_metric='cosine'):
+                                distance_metric='cosine',
+                                mask_method=1):
         """Generates a neighborhood around a prediction.
 
         Generates neighborhood data by randomly removing words from
@@ -369,13 +376,15 @@ class LimeTextParserExplainer(object):
 
 
     #////// METHOD 1 /////////////////////////////////////////////
-            data[i] = indexed_string.mask_dependents(inactive)
-            inverse_data.append(indexed_string.inverse_removing(data[i]))
+            if mask_method == 1:
+                data[i] = indexed_string.mask_dependents(inactive)
+                inverse_data.append(indexed_string.inverse_removing(data[i]))
     #/////////////////////////////////////////////////////////////
 
     #////// METHOD 2 /////////////////////////////////////////////
-            #data[i, inactive] = 0
-            #inverse_data.append(indexed_string.inverse_removing(indexed_string.mask_dependents(inactive)))
+            elif mask_method == 2:
+                data[i, inactive] = 0
+                inverse_data.append(indexed_string.inverse_removing(indexed_string.mask_dependents(inactive)))
     #/////////////////////////////////////////////////////////////
 
 
@@ -388,12 +397,122 @@ class LimeTextParserExplainer(object):
         distances = distance_fn(sp.sparse.csr_matrix(data))
         return data, labels, distances
 
+class SavedExplanation(object):
+    def __init__(self, name, path, desc=None, exp=None, load=True):
+        if exp != None:
+            domain_mapper = exp.domain_mapper
+            indexed_string = domain_mapper.indexed_string
+            self.standard = False
+            try:
+                indexed_string.tokens
+            except:
+                self.standard = True
+            indexed_string_data = {
+                "raw_string": indexed_string.raw,
+                "as_list": indexed_string.as_list,
+                "positions": indexed_string.positions,
+                "as_np": indexed_string.as_np,
+                "string_start": indexed_string.string_start
+            }
+            if not self.standard:
+                indexed_string_data["tokens"] = indexed_string.tokens,
+                indexed_string_data["parse_tree"] = indexed_string.parse_tree
+                indexed_string_data["tot_sents"] = indexed_string.tot_sents
+                indexed_string_data["parse_type"] = indexed_string.parse_type
+                indexed_string_data["inverse_ids"] = indexed_string.inverse_ids
+                indexed_string_data["word_level"] = indexed_string.word_level
+            domain_data = {
+                "indexed_string": indexed_string_data
+            }
+            if not self.standard:
+                domain_data["all_exps"] = domain_mapper.all_exps
+                domain_data["num_exps"] = domain_mapper.num_exps
+            exp_data = {
+                "top_labels": exp.top_labels,
+                "intercept": exp.intercept,
+                "local_exp": exp.local_exp,
+                "score": exp.score,
+                "local_pred": exp.local_pred,
+                "class_names": exp.class_names,
+                "random_state": exp.random_state,
+                "predict_proba": exp.predict_proba,
+                "domain_data": domain_data
+            }
+            self.data = {
+                "name": name,
+                "path": path,
+                "desc": desc,
+                "exp_data": exp_data,
+                "is_standard": self.standard
+            }
+            with open(path + name + ".pkl", mode="wb+") as file:
+                pkl.dump(self.data, file=file)
+        else:
+            try:
+                with open(path + name + ".pkl", 'rb') as file:
+                    self.data = pkl.load(file)
+            except:
+                print("File does not exist")
+                return None
+            exp_data = self.data["exp_data"]
+            domain_data = exp_data["domain_data"]
+            indexed_string_data = domain_data["indexed_string"]
+
+            if load:
+                if self.data["is_standard"]:
+                    indexed_string = IndexedString(indexed_string_data["raw_string"])
+                    domain_mapper = TextDomainMapper(indexed_string)
+                else:
+                    indexed_string = IndexedStringParsed(no_init=True)
+                    (indexed_string.raw, indexed_string.parse_tree,
+                    indexed_string.inverse_ids, indexed_string.as_list,
+                    indexed_string.positions, indexed_string.as_np, 
+                    indexed_string.string_start, indexed_string.parse_type,
+                    indexed_string.tot_sents, indexed_string.tokens) = (indexed_string_data["raw_string"],
+                                                    indexed_string_data["parse_tree"],
+                                                    indexed_string_data["inverse_ids"],
+                                                    indexed_string_data["as_list"],
+                                                    indexed_string_data["positions"],
+                                                    indexed_string_data["as_np"],
+                                                    indexed_string_data["string_start"],
+                                                    indexed_string_data["parse_type"],
+                                                    indexed_string_data["tot_sents"],
+                                                    indexed_string_data["tokens"])
+                    domain_mapper = TextParserDomainMapper(indexed_string)
+                    (domain_mapper.all_exps, domain_mapper.num_exps) = (domain_data["all_exps"],
+                                                                        domain_data["num_exps"])
+
+                exp = explanation.Explanation(domain_mapper=domain_mapper,
+                                            class_names=exp_data["class_names"],
+                                            random_state=exp_data["random_state"])
+                (exp.intercept, exp.local_exp, exp.score,
+                exp.local_pred, exp.top_labels, exp.predict_proba) = (exp_data["intercept"],
+                                                                    exp_data["local_exp"],
+                                                                    exp_data["score"],
+                                                                    exp_data["local_pred"],
+                                                                    exp_data["top_labels"],
+                                                                    exp_data["predict_proba"])
+                self.exp = exp
+        
+    def get_exp(self):
+        return self.exp
+
+    def get_desc(self):
+        return self.data["desc"]
+    
+    def get_name(self):
+        return self.data["name"]
+    
+    def get_path(self):
+        return self.data["path"]
+    
+
 
 class IndexedStringParsed(object):
     """String with various indexes."""
 
-    def __init__(self, raw_string, parser, parse_type="dependency", 
-                 word_level=False, random_trees=20):
+    def __init__(self, raw_string=None, parser=None, parse_type="dependency", 
+                 word_level=False, random_trees=20, no_init=False):
         """Initializer.
 
         Args:
@@ -407,18 +526,19 @@ class IndexedStringParsed(object):
             mask_string: If not None, replace words with this if bow=False
                 if None, default value is UNKWORDZ
         """
-        self.raw = raw_string + "\n\n\n"
-        self.parser = parser
-        self.parse_type = parse_type
-        self.random_trees = random_trees
-        self.word_level = word_level
-        self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
-        self.inverse_ids = self.get_inverse_ids()  
-        self.num_feats = self.num_features()
-        self.as_list, self.positions = self._segment_with_tokens(self.raw, self.tokens)    
-        self.as_np = np.array(self.as_list)
-        self.string_start = np.hstack(
-            ([0], np.cumsum([len(x) for x in self.as_np[:-1]])))
+        if not no_init:
+            self.raw = raw_string + "\n\n\n"
+            self.parser = parser
+            self.parse_type = parse_type
+            self.random_trees = random_trees
+            self.word_level = word_level
+            self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
+            self.inverse_ids = self.get_inverse_ids()  
+            self.num_feats = self.num_features()
+            self.as_list, self.positions = self._segment_with_tokens(self.raw, self.tokens)    
+            self.as_np = np.array(self.as_list)
+            self.string_start = np.hstack(
+                ([0], np.cumsum([len(x) for x in self.as_np[:-1]])))
 
         #self.positions = [i for i, word in enumerate(self.as_np)]
 
@@ -608,9 +728,7 @@ class IndexedStringParsed(object):
                 id_dict = get_ids_depend(pipeline_out)
                 if self.word_level:
                     branches, id_dict = add_idv_words(branches, id_dict)
-                print(f"id_dict: {id_dict}")
                 parse_tree = tree_depend(branches)
-                print(f"tree: {parse_tree}")
             elif self.parse_type == "constituency":
                 clean_deps = clean_const_depends(pipeline_out)
                 id_dict = get_ids_constit(clean_deps)
