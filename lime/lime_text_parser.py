@@ -465,6 +465,7 @@ class SavedExplanation(object):
                         self.data = pkl.load(file)
                 except:
                     try:
+                        #os.remove(path + name) #//////////////////
                         with open(path, 'rb') as file:
                             self.data = pkl.load(file)
                     except:

@@ -351,34 +351,34 @@ def avg_influence_sz(exp_arr):
     return (avg_sz / total, wgh_sz / total, dist_sum / total)
 
 
-# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
 
-# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-# train_vectors = vectorizer.fit_transform(t_train)
-# test_vectors = vectorizer.transform(t_test)
+vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+train_vectors = vectorizer.fit_transform(t_train)
+test_vectors = vectorizer.transform(t_test)
 
-# mlp = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                     hidden_layer_sizes=(50, 25), random_state=1)
-# mlp.fit(train_vectors, y_train)
+mlp = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(50, 25), random_state=1)
+mlp.fit(train_vectors, y_train)
 
-# rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-# rf.fit(train_vectors, y_train)
+rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+rf.fit(train_vectors, y_train)
 
-# r = make_pipeline(vectorizer, rf)
-# m = make_pipeline(vectorizer, mlp)
+r = make_pipeline(vectorizer, rf)
+m = make_pipeline(vectorizer, mlp)
 
-# bert_vectorizer = BERTVectorizer()
+bert_vectorizer = BERTVectorizer()
 
 
-# mlpb = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                     hidden_layer_sizes=(50, 25), random_state=1)
-# mlpb.fit(bert_train, y_train)
+mlpb = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(50, 25), random_state=1)
+mlpb.fit(bert_train, y_train)
 
-# rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-# rfb.fit(bert_train, y_train)
+rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+rfb.fit(bert_train, y_train)
 
-# rb = make_pipeline(bert_vectorizer, rfb)
-# mb = make_pipeline(bert_vectorizer, mlpb)
+rb = make_pipeline(bert_vectorizer, rfb)
+mb = make_pipeline(bert_vectorizer, mlpb)
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
 parameter_sets = [(5, 1000, 1, 50, True), 
@@ -410,10 +410,10 @@ comp_descs = {
 instance_idxs = [953, 1091, 1089, 1087, 1080, 1078, 1076, 
              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-# instances = [t_test[i] for i in instance_idxs]
+instances = [t_test[i] for i in instance_idxs]
 
-# run_all_explainers([rb.predict_proba, mb.predict_proba, r.predict_proba, m.predict_proba], class_names, parameter_sets, 
-#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+run_all_explainers([rb.predict_proba, mb.predict_proba, r.predict_proba, m.predict_proba], class_names, parameter_sets, 
+                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
