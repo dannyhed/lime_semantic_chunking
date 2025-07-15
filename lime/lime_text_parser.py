@@ -219,6 +219,7 @@ class LimeTextParserExplainer(object):
         if random_trees == None:
             random_trees = self.random_trees
 
+
         def dependent_highlights(exp, indexed_string):
             #print(f"Original single exp: {exp}")
             allx = []
@@ -249,6 +250,7 @@ class LimeTextParserExplainer(object):
         #print(f"indexed_string.positions: {indexed_string.positions}")
         #print(f"indexed_string.string_start: {indexed_string.string_start}")
 
+        #print("I MADE IT HERE??????")
         domain_mapper = TextParserDomainMapper(indexed_string)
         data, yss, distances = self.__data_labels_distances(
             indexed_string, classifier_fn, num_samples,
@@ -321,9 +323,6 @@ class LimeTextParserExplainer(object):
         ret_exp.local_exp = main_exp
         #print(f"dependent exp: {ret_exp.local_exp[1]}")
 
-        # ////////////////////////////////////////////////////////////////////////////////
-        # /////////////// DEBUGGED UP TO HERE, LOOK AT OUTPUT CODE NEXT //////////////////
-        # ^^^^^^^^^^^^^^^ ON GOD ^^^^^^^^ THIS IS TRUE AGAIN ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         return ret_exp
 
     def __data_labels_distances(self,
@@ -332,6 +331,7 @@ class LimeTextParserExplainer(object):
                                 num_samples,
                                 distance_metric='cosine',
                                 mask_method=1):
+        #print("MADE IT INSIDE THE FUNCTION")
         """Generates a neighborhood around a prediction.
 
         Generates neighborhood data by randomly removing words from
@@ -364,7 +364,8 @@ class LimeTextParserExplainer(object):
                 x, x[0], metric=distance_metric).ravel() * 100
 
         doc_size = indexed_string.num_features()
-        sample = self.random_state.randint(0, int(doc_size * self.max_sample_size), num_samples - 1)
+        #print(int(doc_size * self.max_sample_size + 1))
+        sample = self.random_state.randint(0, int(doc_size * self.max_sample_size + 1), num_samples - 1)
         data = np.ones((num_samples, doc_size))
         data[0] = np.ones(doc_size)
         features_range = range(doc_size)
@@ -398,7 +399,7 @@ class LimeTextParserExplainer(object):
         return data, labels, distances
 
 class SavedExplanation(object):
-    def __init__(self, name, path, desc=None, exp=None, load=True):
+    def __init__(self, name=None, path=None, desc=None, exp=None, load=True):
         if exp != None:
             domain_mapper = exp.domain_mapper
             indexed_string = domain_mapper.indexed_string
@@ -415,7 +416,10 @@ class SavedExplanation(object):
                 "string_start": indexed_string.string_start
             }
             if not self.standard:
-                indexed_string_data["tokens"] = indexed_string.tokens,
+                try:
+                    indexed_string_data["tokens"] = indexed_string.tokens[0]
+                except:
+                    indexed_string_data["tokens"] = indexed_string.tokens
                 indexed_string_data["parse_tree"] = indexed_string.parse_tree
                 indexed_string_data["tot_sents"] = indexed_string.tot_sents
                 indexed_string_data["parse_type"] = indexed_string.parse_type
@@ -443,6 +447,7 @@ class SavedExplanation(object):
                 "path": path,
                 "desc": desc,
                 "exp_data": exp_data,
+                "raw_string": indexed_string.raw,
                 "is_standard": self.standard
             }
             with open(path + name + ".pkl", mode="wb+") as file:
@@ -452,8 +457,16 @@ class SavedExplanation(object):
                 with open(path + name + ".pkl", 'rb') as file:
                     self.data = pkl.load(file)
             except:
-                print("File does not exist")
-                return None
+                try:
+                    with open(path + name, 'rb') as file:
+                        self.data = pkl.load(file)
+                except:
+                    try:
+                        with open(path, 'rb') as file:
+                            self.data = pkl.load(file)
+                    except:
+                        print("File does not exist")
+                        return None
             exp_data = self.data["exp_data"]
             domain_data = exp_data["domain_data"]
             indexed_string_data = domain_data["indexed_string"]
@@ -468,7 +481,8 @@ class SavedExplanation(object):
                     indexed_string.inverse_ids, indexed_string.as_list,
                     indexed_string.positions, indexed_string.as_np, 
                     indexed_string.string_start, indexed_string.parse_type,
-                    indexed_string.tot_sents, indexed_string.tokens) = (indexed_string_data["raw_string"],
+                    indexed_string.tot_sents, indexed_string.tokens,
+                    indexed_string.word_level) = (indexed_string_data["raw_string"],
                                                     indexed_string_data["parse_tree"],
                                                     indexed_string_data["inverse_ids"],
                                                     indexed_string_data["as_list"],
@@ -477,7 +491,8 @@ class SavedExplanation(object):
                                                     indexed_string_data["string_start"],
                                                     indexed_string_data["parse_type"],
                                                     indexed_string_data["tot_sents"],
-                                                    indexed_string_data["tokens"])
+                                                    indexed_string_data["tokens"],
+                                                    indexed_string_data["word_level"])
                     domain_mapper = TextParserDomainMapper(indexed_string)
                     (domain_mapper.all_exps, domain_mapper.num_exps) = (domain_data["all_exps"],
                                                                         domain_data["num_exps"])
@@ -493,9 +508,19 @@ class SavedExplanation(object):
                                                                     exp_data["top_labels"],
                                                                     exp_data["predict_proba"])
                 self.exp = exp
+                self.local_exp = exp.local_exp
         
     def get_exp(self):
         return self.exp
+    
+    def get_local_exp(self, label=1):
+        all_exp = self.local_exp[label]
+        word_ids = []
+        if self.data["is_standard"]:
+            return all_exp
+        else:
+            word_ids = self.get_tokens()
+            return [all_exp[i] for i in range(len(all_exp)) if i in word_ids]
 
     def get_desc(self):
         return self.data["desc"]
@@ -505,6 +530,40 @@ class SavedExplanation(object):
     
     def get_path(self):
         return self.data["path"]
+    
+    def get_text(self):
+        return self.data["raw_string"]
+
+    def get_tokens(self):
+        return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"][0]
+    
+    def get_idx_string(self):
+        return self.exp.domain_mapper.indexed_string
+
+    def all_features(self, label=1):
+        local_exp = self.get_local_exp(label)
+        complete_exp = []
+        if self.data["is_standard"]:
+            exp_ids = np.array([x[0] for x in local_exp])
+            idx_string = self.get_idx_string()
+            for i in range(idx_string.num_words()):
+                if i in exp_ids:
+                    complete_exp.append(local_exp[np.where(exp_ids == i)[0][0]])
+                else:
+                    complete_exp.append((i, 0.0))
+        else:
+            exp_ids = [x[0] for x in local_exp]
+            tokens = list(self.get_tokens().keys())
+            for i in range(len(tokens)):
+                if tokens[i] in exp_ids:
+                    j = 0
+                    while exp_ids[j] != tokens[i]:
+                        j += 1
+                    complete_exp.append(local_exp[j])
+                else:
+                    complete_exp.append((tokens[i], 0.0))
+        return complete_exp
+
     
 
 
@@ -736,7 +795,7 @@ class IndexedStringParsed(object):
             return parse_tree, id_dict
 
         def custom_parse(text_instance):
-            def random_connections(leaves, connections=[]):
+            def random_connections(leaves, connections=[], time_out=40):
                 len_leaves = len(leaves)
                 connections.append(leaves)
 
@@ -746,7 +805,12 @@ class IndexedStringParsed(object):
                 n_groups = rand.randint(1, len_leaves - 1)
 
                 assigns = []
+                times = 0
                 while not np.all([group in assigns for group in range(n_groups)]):
+                    times += 1
+                    if times >= time_out:
+                        n_groups = rand.randint(1, len_leaves - 1)
+                        times = 0
                     assigns = np.random.randint(0, n_groups, len_leaves)
 
                 new_connections = [[] for _ in range(n_groups)]
