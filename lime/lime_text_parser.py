@@ -398,6 +398,9 @@ class LimeTextParserExplainer(object):
         distances = distance_fn(sp.sparse.csr_matrix(data))
         return data, labels, distances
 
+import pickletools
+import os
+
 class SavedExplanation(object):
     def __init__(self, name=None, path=None, desc=None, exp=None, load=True):
         if exp != None:
@@ -450,7 +453,7 @@ class SavedExplanation(object):
                 "raw_string": indexed_string.raw,
                 "is_standard": self.standard
             }
-            with open(path + name + ".pkl", mode="wb+") as file:
+            with open(path + name + ".pkl", mode="wb") as file:
                 pkl.dump(self.data, file=file)
         else:
             try:

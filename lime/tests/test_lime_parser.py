@@ -302,10 +302,15 @@ def get_data(filename, path, data=None, split_ratio=0.2, random_state=20, text_t
     
 
 def influence_sz(exp, label=1):
+    sum_influences = []
+    weighted_sum_infl = []
+    relation_distance = []
+    total = 0
+
     if not exp.data["is_standard"]:
         num_words = exp.get_exp().domain_mapper.indexed_string.num_words()
-        ids = [x[0] for x in exp.local_exp[label]]
-        local_exp = exp.local_exp[label]
+        local_exp = exp.get_local_exp(label)
+        ids = [x[0] for x in local_exp]
 
         dependence_chunks = [[] for _ in range(int(max(ids)/num_words) + 1)]
         id_chunks = [[] for _ in range(int(max(ids)/num_words))]
@@ -318,56 +323,62 @@ def influence_sz(exp, label=1):
 
         sum_influences = [len(dep) for dep in id_chunks]
         weighted_sum_infl = [sum_ * weighted_dep_chunks[i] for i, sum_ in enumerate(sum_influences)]
-        farthest_relation = [max(id) - min(id) for id in id_chunks]
+        relation_distance = [max(id) - min(id) for id in id_chunks]
         total = len(id_chunks)
-        return (sum(sum_influences) / total, 
-                sum(weighted_sum_infl) / total,
-                sum(farthest_relation) / total)
+
     else:
-        return (0, 0, 0)
+        get_exp = exp.get_exp().local_exp[label]
+        sum_influences = [1 for _ in get_exp]
+        weighted_sum_infl = [x[0] for x in get_exp]
+        relation_distance = sum_influences
+        total = len(get_exp)
+
+    return (sum(sum_influences) / total, 
+            sum(weighted_sum_infl) / total,
+            sum(relation_distance) / total)
 
 
 def avg_influence_sz(exp_arr):
-    avg_sum = 0
-    max_sum = 0
+    avg_sz = 0
+    wgh_sz = 0
     dist_sum = 0
     for exp in exp_arr:
         infl_sz = influence_sz(exp)
-        avg_sum += infl_sz[0]
-        max_sum += infl_sz[1]
+        avg_sz += infl_sz[0]
+        wgh_sz += infl_sz[1]
         dist_sum += infl_sz[2]
     total = len(exp_arr)
-    return (avg_sum / total, max_sum / total, dist_sum / total)
+    return (avg_sz / total, wgh_sz / total, dist_sum / total)
 
 
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
+# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
 
-vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-train_vectors = vectorizer.fit_transform(t_train)
-test_vectors = vectorizer.transform(t_test)
+# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+# train_vectors = vectorizer.fit_transform(t_train)
+# test_vectors = vectorizer.transform(t_test)
 
-mlp = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(50, 25), random_state=1)
-mlp.fit(train_vectors, y_train)
+# mlp = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                     hidden_layer_sizes=(50, 25), random_state=1)
+# mlp.fit(train_vectors, y_train)
 
-rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-rf.fit(train_vectors, y_train)
+# rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# rf.fit(train_vectors, y_train)
 
-r = make_pipeline(vectorizer, rf)
-m = make_pipeline(vectorizer, mlp)
+# r = make_pipeline(vectorizer, rf)
+# m = make_pipeline(vectorizer, mlp)
 
-bert_vectorizer = BERTVectorizer()
+# bert_vectorizer = BERTVectorizer()
 
 
-mlpb = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(50, 25), random_state=1)
-mlpb.fit(bert_train, y_train)
+# mlpb = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                     hidden_layer_sizes=(50, 25), random_state=1)
+# mlpb.fit(bert_train, y_train)
 
-rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-rfb.fit(bert_train, y_train)
+# rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# rfb.fit(bert_train, y_train)
 
-rb = make_pipeline(bert_vectorizer, rfb)
-mb = make_pipeline(bert_vectorizer, mlpb)
+# rb = make_pipeline(bert_vectorizer, rfb)
+# mb = make_pipeline(bert_vectorizer, mlpb)
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
 parameter_sets = [(5, 1000, 1, 50, True), 
@@ -391,7 +402,7 @@ descs = {
 }
 
 comp_descs = {
-    "models": ["RF_500", "RF_500_BERT"],
+    "models": ["MLP_(50-25)_BERT", "RF_500_BERT"],
     "parses": ["Dep", "Con", "Ran"],
     "disting": "Results1"
 }
@@ -399,10 +410,10 @@ comp_descs = {
 instance_idxs = [953, 1091, 1089, 1087, 1080, 1078, 1076, 
              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-instances = [t_test[i] for i in instance_idxs]
+# instances = [t_test[i] for i in instance_idxs]
 
-run_all_explainers([rb.predict_proba, mb.predict_proba, r.predict_proba, m.predict_proba], class_names, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+# run_all_explainers([rb.predict_proba, mb.predict_proba, r.predict_proba, m.predict_proba], class_names, parameter_sets, 
+#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
