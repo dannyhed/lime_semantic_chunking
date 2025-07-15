@@ -72,5 +72,5 @@ fabric.properties
 .idea
 
 # Saved Results
-#/saved_explanations
+/saved_explanations
 *.html
