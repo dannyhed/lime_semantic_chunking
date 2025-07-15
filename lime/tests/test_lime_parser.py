@@ -217,7 +217,7 @@ def cos_similarity(vec1, vec2):
 
     
     
-SPAMFILE = r"../smsspamcollection/SMSSpamCollection"
+SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
 
 
 class_names = ['ham', 'spam']
