@@ -104,6 +104,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="dependency")
     clear_lines(26)
     explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
+    clear_lines(27)
     explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
     explanations = []
     
