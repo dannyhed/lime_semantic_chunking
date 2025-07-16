@@ -73,10 +73,10 @@ HTML_PATH = r"./HTML_results/"
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
                        skip_existing=False, just_desc=False):
-    explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random")
-    explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="dependency")
-    explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
-    explainerStd = LimeTextExplainer(class_names=class_names, verbose=True)
+    explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="random")
+    explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="dependency")
+    explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
+    explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
     explanations = []
 
     def save_name(j, m, i, p, desc):
@@ -106,8 +106,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     skip_existing = True 
     
                 name = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)[0]
-                print(name)
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
+                    print(name)
                     explanations.append(explainerDep.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
                                                                     mask_method=mask_method, word_level=word_level))
                 elif just_desc:
@@ -115,24 +115,24 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
 
                 
                 name = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)[0]
-                print(name)
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
+                    print(name)
                     explanations.append(explainerCon.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
                                                                     mask_method=mask_method))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
                     
                 name = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)[0]
-                print(name)
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
+                    print(name)
                     explanations.append(explainerRan.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
                                                                     random_trees=num_rand_trees, mask_method=mask_method))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
                     
                 name = save_desc(3,m,p,i,num_feats,num_samples,descriptions)[0]
-                print(name)
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
+                    print(name)
                     explanations.append(explainerStd.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
