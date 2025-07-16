@@ -420,9 +420,9 @@ class SavedExplanation(object):
             }
             if not self.standard:
                 try:
-                    indexed_string_data["tokens"] = indexed_string.tokens[0]
-                except:
                     indexed_string_data["tokens"] = indexed_string.tokens
+                except:
+                    indexed_string_data["tokens"] = [indexed_string.tokens[0]]
                 indexed_string_data["parse_tree"] = indexed_string.parse_tree
                 indexed_string_data["tot_sents"] = indexed_string.tot_sents
                 indexed_string_data["parse_type"] = indexed_string.parse_type
@@ -539,10 +539,10 @@ class SavedExplanation(object):
         return self.data["raw_string"]
 
     def get_tokens(self):
-        try:
-            return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"][0]
-        except:
-            return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"]
+        # try:
+        #     return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"][0]
+        # except:
+        return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"]
     
     def get_idx_string(self):
         return self.exp.domain_mapper.indexed_string

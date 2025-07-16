@@ -18,7 +18,7 @@ from sklearn.pipeline import make_pipeline
 
 #from .. import lime_text_parser
 
-from lime.lime_text_parser import LimeTextParserExplainer, SavedExplanation
+from lime.lime_text_parser import LimeTextParserExplainer, SavedExplanation, IndexedStringParsed
 from lime.lime_text import LimeTextExplainer
 import dill as pkl
 import os
@@ -68,9 +68,11 @@ import re
 
 
 EXPL_PATH = r"./saved_explanations/"
+MODEL_PATH = r"./saved_models/"
 HTML_PATH = r"./HTML_results/"
 
-def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, skip_existing=False, just_desc=False):
+def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
+                       skip_existing=False, just_desc=False):
     explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random")
     explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="dependency")
     explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
@@ -110,6 +112,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                                                                     mask_method=mask_method, word_level=word_level))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
+
                 
                 name = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)[0]
                 print(name)
@@ -217,21 +220,6 @@ def cos_similarity(vec1, vec2):
 
     
     
-SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
-
-
-class_names = ['ham', 'spam']
-
-labels = []
-texts = []
-with open(SPAMFILE, 'r', encoding='utf-8') as file:
-    for line in file:
-        l, t = line.strip().split('\t')
-        if l == class_names[0]:
-            labels.append(0)
-        else:
-            labels.append(1)
-        texts.append(t)
 
 
 class BERTVectorizer(BaseEstimator, TransformerMixin):
@@ -255,12 +243,6 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
             cls_vector = outputs.last_hidden_state[:, 0, :].cpu().numpy()
             vectors.append(cls_vector[0])
         return np.vstack(vectors)
-
-
-BERT_FOLD = r"./bert_data/"
-SPAM_DATA = "spam_ds"
-
-
 
 
 def save_bert_vecs(dataset, filename, path):
@@ -295,6 +277,7 @@ def get_data(filename, path, data=None, split_ratio=0.2, random_state=20, text_t
     train_data, test_data = train_test_split(zip_data, test_size=split_ratio, random_state=random_state)
     train_sens, train_bert, y_train = zip(*train_data)
     test_sens, test_bert, y_test = zip(*test_data)
+    print("Recieved BERT vectors")
     if not text_too:
         return (train_bert, test_bert, y_train, y_test)
     else:
@@ -307,9 +290,10 @@ def influence_sz(exp, label=1):
     relation_distance = []
     total = 0
     num_words = exp.get_exp().domain_mapper.indexed_string.num_words()
+    exp.get_exp().save_to_file("INFLUENCETEST.html")
 
     if not exp.data["is_standard"]:
-        local_exp = exp.get_local_exp(label)
+        local_exp = exp.data["exp_data"]["domain_data"]["all_exps"][label]
         ids = [x[0] for x in local_exp]
 
         dependence_chunks = [[] for _ in range(int(max(ids)/num_words) + 1)]
@@ -346,6 +330,7 @@ def avg_influence_sz(exp_arr):
     avg_sz = 0
     wgh_sz = 0
     dist_avg = 0
+    wgh_dst = 0
     word_sum = 0
     for exp in exp_arr:
         infl_sz = influence_sz(exp)
@@ -357,88 +342,125 @@ def avg_influence_sz(exp_arr):
     avg_sz = avg_sz / word_sum
     wgh_sz = wgh_sz / word_sum
     dist_avg = dist_avg / word_sum
-    wgh_dist = wgh_dst / word_sum
+    wgh_dst = wgh_dst / word_sum
     return (avg_sz, wgh_sz, dist_avg, wgh_dst)
 
 
-# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
-
-# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-# train_vectors = vectorizer.fit_transform(t_train)
-# test_vectors = vectorizer.transform(t_test)
-
-# mlp1idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                     hidden_layer_sizes=(100, 50), random_state=1)
-# mlp1idf.fit(train_vectors, y_train)
-
-# mlp2idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                     hidden_layer_sizes=(200, 100), random_state=1)
-# mlp2idf.fit(train_vectors, y_train)
-
-# # rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-# # rf.fit(train_vectors, y_train)
-
-# # r = make_pipeline(vectorizer, rf)
-# m1i = make_pipeline(vectorizer, mlp1idf)
-# m2i = make_pipeline(vectorizer, mlp2idf)
-
-# bert_vectorizer = BERTVectorizer()
+def model_save_name(params, ext=True):
+    filename = params[0] + "-" + params[1]
+    if params[0] == "rf":
+        filename += "-" + str(params[2])
+    elif params[0] == "mlp":
+        for l in params[2]:
+            filename += "-" + str(l)
+    if ext:
+        return filename + ".pkl"
+    else:
+        return filename
 
 
-# mlp1b = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                     hidden_layer_sizes=(100, 50), random_state=1)
-# mlp1b.fit(bert_train, y_train)
+def train_models(all_model_params):
+    print("Training Models...")
+    models_trained = []
+    bert_vectorizer = BERTVectorizer()
+    for p in all_model_params:
+        m = []
+        if p[0] == "rf":
+            m = sklearn.ensemble.RandomForestClassifier(n_estimators=p[2])
+        elif p[0] == "mlp":
+            m = MLPClassifier(solver="lbfgs", alpha=1e-5,
+                            hidden_layer_sizes=tuple(p[2]), random_state=1)
+        if p[1] == "i":
+            m.fit(train_vectors, y_train)
+            models_trained.append(make_pipeline(vectorizer, m).predict_proba)
+        elif p[1] == "b":
+            m.fit(bert_train, y_train)
+            models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
+        with open(MODEL_PATH + model_save_name(p), "wb") as file:
+            pkl.dump(models_trained[-1], file)
+    print("Models trained")
+    return models_trained
 
-# mlp2b = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                     hidden_layer_sizes=(200, 100), random_state=1)
-# mlp2b.fit(bert_train, y_train)
+def load_models(all_model_params):
+    print("Loading models...")
+    models_loaded = []
+    for p in all_model_params:
+        with open(MODEL_PATH + model_save_name(p), "rb") as file:
+            models_loaded.append(pkl.load(file))
+    print("Models loaded")
+    return models_loaded
 
 
-# # rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-# # rfb.fit(bert_train, y_train)
+BERT_FOLD = r"./bert_data/"
+SPAM_DATA = "spam_ds"
+SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
 
-# # rb = make_pipeline(bert_vectorizer, rfb)
-# # mb = make_pipeline(bert_vectorizer, mlpb)
 
-# m1b = make_pipeline(bert_vectorizer, mlp1b)
-# m2b = make_pipeline(bert_vectorizer, mlp2b)
+class_names = ['ham', 'spam']
+# labels = []
+# texts = []
+# with open(SPAMFILE, 'r', encoding='utf-8') as file:
+#     for line in file:
+#         l, t = line.strip().split('\t')
+#         if l == class_names[0]:
+#             labels.append(0)
+#         else:
+#             labels.append(1)
+#         texts.append(t)
+
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, text_too=True)
+
+vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+train_vectors = vectorizer.fit_transform(t_train)
+test_vectors = vectorizer.transform(t_test)
+
+
+model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
+                ("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
+                ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
+
+#all_models = train_models(model_params)
+all_models = load_models(model_params)
+    
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
-parameter_sets = [(5, 1000, 1, 50, True), 
+parameter_sets = [(5, 1000, 1, 25, True), 
+                  (10, 1000, 1, 25, True), 
+                  (20, 1000, 1, 25, True), 
+                  (5, 1000, 1, 50, True), 
                   (10, 1000, 1, 50, True), 
                   (20, 1000, 1, 50, True), 
-                  (5, 1000, 2, 50, True), 
-                  (10, 1000, 2, 50, True), 
-                  (20, 1000, 2, 50, True),
                   (5, 1000, 1, 100, True), 
                   (10, 1000, 1, 100, True), 
-                  (20, 1000, 1, 100, True), 
-                  (5, 1000, 2, 100, True),
-                  (10, 1000, 2, 100, True), 
-                  (20, 1000, 2, 100, True)]
+                  (20, 1000, 1, 100, True),
+                  (5, 1000, 1, 200, True), 
+                  (10, 1000, 1, 200, True), 
+                  (20, 1000, 1, 200, True)]
 
 descs = {
     # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
-    "models": ["MLP_(100-50)_BERT", "MLP_(200-100)_BERT", "MLP_(100-50)_TFIDF", "MLP_(200-100)_TFIDF"],
+    "models": [model_save_name(p, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran", "Std"],
     # "param_sets": ["0", "1", "2", "3"],
-    "disting": "Results1"
+    "disting": "Results2"
 }
 
 comp_descs = {
-    "models": ["MLP_(50-25)_BERT", "RF_500_BERT", "MLP_(50-25)_TFIDF", "RF_500_TFIDF",
-               "MLP_(100-50)_BERT", "MLP_(200-100)_BERT", "MLP_(100-50)_TFIDF", "MLP_(200-100)_TFIDF"],
+    "models": [model_save_name(p, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran"],
-    "disting": "Results1"
+    "disting": "Results2"
 }
 
 instance_idxs = [953, 1091, 1089, 1087, 1080, 1078, 1076, 
              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-# instances = [t_test[i] for i in instance_idxs]
+instances = [t_test[i] for i in instance_idxs]
+# for i in instances:
+#     print(i)
 
-# run_all_explainers([m1b.predict_proba, m2b.predict_proba, m1i.predict_proba, m2i.predict_proba], class_names, parameter_sets, 
-#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+
+run_all_explainers(all_models, class_names, parameter_sets, 
+                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
