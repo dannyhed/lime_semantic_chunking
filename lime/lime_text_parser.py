@@ -370,7 +370,7 @@ class LimeTextParserExplainer(object):
         data[0] = np.ones(doc_size)
         features_range = range(doc_size)
         inverse_data = [indexed_string.raw_string()]
-        for i, size in tqdm(enumerate(sample, start=1), "Sampling"):
+        for i, size in enumerate(sample, start=1):
             inactive = self.random_state.choice(features_range, size,
                                                 replace=False)
             #data[i, inactive] = 0
@@ -926,11 +926,11 @@ class IndexedStringParsed(object):
             def combine_ran_trees(sentences, sample_size):
                 combined = []
 
-                for sent in tqdm(sentences, "Sentences"):
+                for sent in sentences:
 
                     parse_trees = []
 
-                    for s in tqdm(range(sample_size), "Random Parse Trees"):
+                    for s in range(sample_size):
 
                         parse_trees.append(random_tree(sent))
 

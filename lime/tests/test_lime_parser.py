@@ -234,7 +234,7 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         vectors = []
-        for sentence in tqdm(X):
+        for sentence in X:
             inputs = self.tokenizer(sentence, return_tensors='pt', truncation=True,
                                     padding=True, max_length=128).to(self.device)
             with torch.no_grad():
@@ -485,8 +485,9 @@ for i, exp_arr in enumerate(sorted_exps):
         sz = avg_influence_sz(exp_arr)
         print("\n" + comp_descs["models"][i])
         print("Average size of influence:\t" + str(sz[0]))
-        print("Avg max size of influence:\t" + str(sz[1]))
+        print("Weighted size of influence:\t" + str(sz[1]))
         print("Avg relation distance:\t" + str(sz[2]))
+        print("Weighted relation distance:\t" + str(sz[3]))
 
 
 # single_inst = t_test[instance_idxs[0]]
