@@ -539,7 +539,10 @@ class SavedExplanation(object):
         return self.data["raw_string"]
 
     def get_tokens(self):
-        return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"][0]
+        try:
+            return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"][0]
+        except:
+            return self.data["exp_data"]["domain_data"]["indexed_string"]["tokens"]
     
     def get_idx_string(self):
         return self.exp.domain_mapper.indexed_string

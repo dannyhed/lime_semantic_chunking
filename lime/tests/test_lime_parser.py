@@ -361,47 +361,47 @@ def avg_influence_sz(exp_arr):
     return (avg_sz, wgh_sz, dist_avg, wgh_dst)
 
 
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
+# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
 
-vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-train_vectors = vectorizer.fit_transform(t_train)
-test_vectors = vectorizer.transform(t_test)
+# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+# train_vectors = vectorizer.fit_transform(t_train)
+# test_vectors = vectorizer.transform(t_test)
 
-mlp1idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(100, 50), random_state=1)
-mlp1idf.fit(train_vectors, y_train)
+# mlp1idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                     hidden_layer_sizes=(100, 50), random_state=1)
+# mlp1idf.fit(train_vectors, y_train)
 
-mlp2idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(200, 100), random_state=1)
-mlp2idf.fit(train_vectors, y_train)
+# mlp2idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                     hidden_layer_sizes=(200, 100), random_state=1)
+# mlp2idf.fit(train_vectors, y_train)
 
-# rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-# rf.fit(train_vectors, y_train)
+# # rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# # rf.fit(train_vectors, y_train)
 
-# r = make_pipeline(vectorizer, rf)
-m1i = make_pipeline(vectorizer, mlp1idf)
-m2i = make_pipeline(vectorizer, mlp2idf)
+# # r = make_pipeline(vectorizer, rf)
+# m1i = make_pipeline(vectorizer, mlp1idf)
+# m2i = make_pipeline(vectorizer, mlp2idf)
 
-bert_vectorizer = BERTVectorizer()
-
-
-mlp1b = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(100, 50), random_state=1)
-mlp1b.fit(bert_train, y_train)
-
-mlp2b = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(200, 100), random_state=1)
-mlp2b.fit(bert_train, y_train)
+# bert_vectorizer = BERTVectorizer()
 
 
-# rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-# rfb.fit(bert_train, y_train)
+# mlp1b = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                     hidden_layer_sizes=(100, 50), random_state=1)
+# mlp1b.fit(bert_train, y_train)
 
-# rb = make_pipeline(bert_vectorizer, rfb)
-# mb = make_pipeline(bert_vectorizer, mlpb)
+# mlp2b = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                     hidden_layer_sizes=(200, 100), random_state=1)
+# mlp2b.fit(bert_train, y_train)
 
-m1b = make_pipeline(bert_vectorizer, mlp1b)
-m2b = make_pipeline(bert_vectorizer, mlp2b)
+
+# # rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# # rfb.fit(bert_train, y_train)
+
+# # rb = make_pipeline(bert_vectorizer, rfb)
+# # mb = make_pipeline(bert_vectorizer, mlpb)
+
+# m1b = make_pipeline(bert_vectorizer, mlp1b)
+# m2b = make_pipeline(bert_vectorizer, mlp2b)
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
 parameter_sets = [(5, 1000, 1, 50, True), 
@@ -426,7 +426,8 @@ descs = {
 }
 
 comp_descs = {
-    "models": ["MLP_(50-25)_BERT", "RF_500_BERT"],
+    "models": ["MLP_(50-25)_BERT", "RF_500_BERT", "MLP_(50-25)_TFIDF", "RF_500_TFIDF",
+               "MLP_(100-50)_BERT", "MLP_(200-100)_BERT", "MLP_(100-50)_TFIDF", "MLP_(200-100)_TFIDF"],
     "parses": ["Dep", "Con", "Ran"],
     "disting": "Results1"
 }
@@ -434,10 +435,10 @@ comp_descs = {
 instance_idxs = [953, 1091, 1089, 1087, 1080, 1078, 1076, 
              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-instances = [t_test[i] for i in instance_idxs]
+# instances = [t_test[i] for i in instance_idxs]
 
-run_all_explainers([m1b.predict_proba, m2b.predict_proba, m1i.predict_proba, m2i.predict_proba], class_names, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+# run_all_explainers([m1b.predict_proba, m2b.predict_proba, m1i.predict_proba, m2i.predict_proba], class_names, parameter_sets, 
+#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
@@ -465,23 +466,23 @@ for i, exp_arr in enumerate(sorted_exps):
     print("Avg relation distance:\t" + str(sz[2]))
 
 
-single_inst = t_test[instance_idxs[0]]
-single_inst_exps = []
-for ep in loaded:
-    print(ep.get_text() + "\t" + get_explr(ep.get_desc()) + "\n")
-    if ep.get_text().strip() == single_inst.strip():
-        single_inst_exps.append(ep)
+# single_inst = t_test[instance_idxs[0]]
+# single_inst_exps = []
+# for ep in loaded:
+#     print(ep.get_text() + "\t" + get_explr(ep.get_desc()) + "\n")
+#     if ep.get_text().strip() == single_inst.strip():
+#         single_inst_exps.append(ep)
 
-#exp_idxs = list(range(1,20))
+# #exp_idxs = list(range(1,20))
 
-print(len(loaded))
-print(len(single_inst_exps))
+# print(len(loaded))
+# print(len(single_inst_exps))
 
-for i in range(len(single_inst_exps) - 1):
-    print(get_explr(single_inst_exps[i].get_desc()))
-    # print("Models:\t"+str(get_model(single_inst_exps[exp_idxs[i]].get_desc()))
-    #       +"\tvs.\t"+str(get_model(single_inst_exps[exp_idxs[i+1]].get_desc())))
-    print(str(exp_cos_similarity(single_inst_exps[i].all_features(), single_inst_exps[i+1].all_features()))+"\n")
+# for i in range(len(single_inst_exps) - 1):
+#     print(get_explr(single_inst_exps[i].get_desc()))
+#     # print("Models:\t"+str(get_model(single_inst_exps[exp_idxs[i]].get_desc()))
+#     #       +"\tvs.\t"+str(get_model(single_inst_exps[exp_idxs[i+1]].get_desc())))
+#     print(str(exp_cos_similarity(single_inst_exps[i].all_features(), single_inst_exps[i+1].all_features()))+"\n")
 
 
 
