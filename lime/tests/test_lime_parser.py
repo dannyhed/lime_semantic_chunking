@@ -95,14 +95,19 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
         if wrd != None:
             description += "\nWord Level:\t" + str(wrd)
         return name, description
+    
+    tot_insts = len(instances)
+    tot_params = len(parameter_sets)
+    tot_models = len(models)
 
     for m, model in enumerate(models):
-        print(f"\n////// MODEL {m}/{len(models)} ///////\n")
         for i, inst in enumerate(instances):
-            print(f"\n///// INSTANCE {i}/{len(instances)} /////\n")
             #prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
-                print(f"\n//// PARAMETERS {p}/{len(parameter_sets)} ////\n")
+                print(f"\n///// {m*tot_insts*tot_params + i*tot_params + p + 1} / {tot_insts*tot_params*tot_models} /////\n")
+                # print(f"\n////// MODEL {m}/{len(models)} ///////")
+                # print(f"///// INSTANCE {i}/{len(instances)} /////")
+                # print(f"//// PARAMETERS {p}/{len(parameter_sets)} ////\n")
                 (num_feats, num_samples, mask_method, num_rand_trees, word_level) = pset
 
                 if just_desc:
