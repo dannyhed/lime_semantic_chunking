@@ -460,7 +460,7 @@ instances = [t_test[i] for i in instance_idxs]
 
 
 run_all_explainers(all_models, class_names, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
+                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
@@ -481,11 +481,12 @@ for exp in loaded:
             sorted_exps[i].append(exp)
 
 for i, exp_arr in enumerate(sorted_exps):
-    sz = avg_influence_sz(exp_arr)
-    print("\n" + comp_descs["models"][i])
-    print("Average size of influence:\t" + str(sz[0]))
-    print("Avg max size of influence:\t" + str(sz[1]))
-    print("Avg relation distance:\t" + str(sz[2]))
+    if len(exp_arr) > 0:
+        sz = avg_influence_sz(exp_arr)
+        print("\n" + comp_descs["models"][i])
+        print("Average size of influence:\t" + str(sz[0]))
+        print("Avg max size of influence:\t" + str(sz[1]))
+        print("Avg relation distance:\t" + str(sz[2]))
 
 
 # single_inst = t_test[instance_idxs[0]]
