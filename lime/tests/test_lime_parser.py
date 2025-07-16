@@ -420,7 +420,7 @@ model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b"
                 ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
 
 #all_models = train_models(model_params)
-all_models = load_models(model_params)
+# all_models = load_models(model_params)
     
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
@@ -459,8 +459,8 @@ instances = [t_test[i] for i in instance_idxs]
 #     print(i)
 
 
-run_all_explainers(all_models, class_names, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+# run_all_explainers(all_models, class_names, parameter_sets, 
+#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
