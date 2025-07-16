@@ -68,17 +68,19 @@ import sys
 #explainer = LimeTextExplainer(class_names=class_names)
 
 
+def clear_lines(n):
+# Move up and clear n lines
+    for _ in range(n):
+        sys.stdout.write("\033[F")  # move cursor up
+        sys.stdout.write("\033[2K") # clear line
+    sys.stdout.flush()
+
 EXPL_PATH = r"./saved_explanations/"
 MODEL_PATH = r"./saved_models/"
 HTML_PATH = r"./HTML_results/"
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
                        skip_existing=False, just_desc=False):
-    explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="random")
-    explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="dependency")
-    explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
-    explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
-    explanations = []
 
     def save_name(j, m, i, p, desc):
         name = desc["disting"] + "_" + desc["parses"][j] + "_" + desc["models"][m] + "_" + str(p) + "_" + str(i)
@@ -96,13 +98,14 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
         if wrd != None:
             description += "\nWord Level:\t" + str(wrd)
         return name, description
-    
-    def clear_lines(n):
-    # Move up and clear n lines
-        for _ in range(n):
-            sys.stdout.write("\033[F")  # move cursor up
-            sys.stdout.write("\033[2K") # clear line
-        sys.stdout.flush()
+
+    explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="random")
+    clear_lines(21)
+    explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="dependency")
+    clear_lines(26)
+    explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
+    explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
+    explanations = []
     
     tot_insts = len(instances)
     tot_params = len(parameter_sets)
@@ -221,7 +224,6 @@ def get_explr(desc):
     explr = first_line[1]
     return explr
 
-
 def exp_cos_similarity(exp1, exp2):
     exp1 = [x[1] for x in exp1]
     exp2 = [x[1] for x in exp2]
@@ -235,10 +237,6 @@ def cos_similarity(vec1, vec2):
         return dot / (norm1 * norm2)
     except:
         return 0
-
-    
-    
-
 
 class BERTVectorizer(BaseEstimator, TransformerMixin):
     def __init__(self, model_name='bert-base-uncased', device=None):
