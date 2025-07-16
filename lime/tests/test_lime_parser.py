@@ -96,8 +96,10 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
             description += "\nWord Level:\t" + str(wrd)
         return name, description
 
-    for m, model in enumerate(tqdm(models, "Model")):
-        for i, inst in enumerate(tqdm(instances, "Instance")):
+    for m, model in enumerate(models):
+        print(f"\n//// MODEL {m}/{len(models)} ////\n")
+        for i, inst in enumerate(instances):
+            print(f"\n//// INSTANCE {i}/{len(instances)} ////\n")
             #prediction = model([inst])
             for p, pset in enumerate(tqdm(parameter_sets, "Parameter Set")):
                 (num_feats, num_samples, mask_method, num_rand_trees, word_level) = pset
