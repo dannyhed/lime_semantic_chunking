@@ -58,6 +58,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from tqdm import tqdm
 import re
+import sys
 
 
 #explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random", random_trees=100)
@@ -96,6 +97,13 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
             description += "\nWord Level:\t" + str(wrd)
         return name, description
     
+    def clear_lines(n):
+    # Move up and clear n lines
+        for _ in range(n):
+            sys.stdout.write("\033[F")  # move cursor up
+            sys.stdout.write("\033[2K") # clear line
+        sys.stdout.flush()
+    
     tot_insts = len(instances)
     tot_params = len(parameter_sets)
     tot_models = len(models)
@@ -107,10 +115,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
             #prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
-                print(f"\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n")
-                # print(f"\n////// MODEL {m}/{len(models)} ///////")
-                # print(f"///// INSTANCE {i}/{len(instances)} /////")
-                # print(f"//// PARAMETERS {p}/{len(parameter_sets)} ////\n")
+                print(f"\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n", end='', flush=True)
                 (num_feats, num_samples, mask_method, num_rand_trees, word_level) = pset
 
                 if just_desc:
@@ -172,6 +177,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         SavedExplanation(name, path, desc, explanations[-1])
                     else:
                         print(name + " exists")
+                
+                clear_lines(10)
 
     return explanations
 
