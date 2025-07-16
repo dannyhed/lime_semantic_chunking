@@ -104,7 +104,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="dependency")
     clear_lines(26)
     explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
-    clear_lines(27)
+    clear_lines(28)
     explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
     explanations = []
     
@@ -286,7 +286,7 @@ def load_bert_vecs(filename, path):
 def get_data(filename, path, data=None, split_ratio=0.2, random_state=20, text_too=False):
     try:
         data = load_bert_vecs(filename, path)
-        print("File found")
+        print("File found...")
     except:
         print("No file found, computing BERT vectors...")
         data = save_bert_vecs(data, filename, path)
@@ -294,6 +294,7 @@ def get_data(filename, path, data=None, split_ratio=0.2, random_state=20, text_t
     train_data, test_data = train_test_split(zip_data, test_size=split_ratio, random_state=random_state)
     train_sens, train_bert, y_train = zip(*train_data)
     test_sens, test_bert, y_test = zip(*test_data)
+    clear_lines(1)
     print("Recieved BERT vectors")
     if not text_too:
         return (train_bert, test_bert, y_train, y_test)
@@ -395,6 +396,7 @@ def train_models(all_model_params):
             models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
         with open(MODEL_PATH + model_save_name(p), "wb") as file:
             pkl.dump(models_trained[-1], file)
+    clear_lines(1)
     print("Models trained")
     return models_trained
 
@@ -404,6 +406,7 @@ def load_models(all_model_params):
     for p in all_model_params:
         with open(MODEL_PATH + model_save_name(p), "rb") as file:
             models_loaded.append(pkl.load(file))
+    clear_lines(1)
     print("Models loaded")
     return models_loaded
 
