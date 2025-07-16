@@ -137,7 +137,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 if just_desc:
                     skip_existing = False
 
-                if save:
+                if save:    
                     name, desc = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-4])
@@ -306,9 +306,9 @@ def influence_sz(exp, label=1):
     weighted_sum_infl = []
     relation_distance = []
     total = 0
+    num_words = exp.get_exp().domain_mapper.indexed_string.num_words()
 
     if not exp.data["is_standard"]:
-        num_words = exp.get_exp().domain_mapper.indexed_string.num_words()
         local_exp = exp.get_local_exp(label)
         ids = [x[0] for x in local_exp]
 
@@ -324,31 +324,41 @@ def influence_sz(exp, label=1):
         sum_influences = [len(dep) for dep in id_chunks]
         weighted_sum_infl = [sum_ * weighted_dep_chunks[i] for i, sum_ in enumerate(sum_influences)]
         relation_distance = [max(id) - min(id) for id in id_chunks]
+        weighted_rel_dist = [dist * weighted_dep_chunks[i] for i, dist in enumerate(relation_distance)]
         total = len(id_chunks)
 
     else:
         get_exp = exp.get_exp().local_exp[label]
         sum_influences = [1 for _ in get_exp]
-        weighted_sum_infl = [x[0] for x in get_exp]
+        weighted_sum_infl = [x[1] for x in get_exp]
         relation_distance = sum_influences
+        weighted_rel_dist = weighted_sum_infl
         total = len(get_exp)
 
     return (sum(sum_influences) / total, 
             sum(weighted_sum_infl) / total,
-            sum(relation_distance) / total)
+            sum(relation_distance) / total,
+            sum(weighted_rel_dist) / total,
+            num_words)
 
 
 def avg_influence_sz(exp_arr):
     avg_sz = 0
     wgh_sz = 0
-    dist_sum = 0
+    dist_avg = 0
+    word_sum = 0
     for exp in exp_arr:
         infl_sz = influence_sz(exp)
         avg_sz += infl_sz[0]
         wgh_sz += infl_sz[1]
-        dist_sum += infl_sz[2]
-    total = len(exp_arr)
-    return (avg_sz / total, wgh_sz / total, dist_sum / total)
+        dist_avg += infl_sz[2]
+        wgh_dst += infl_sz[3]
+        word_sum += infl_sz[4]
+    avg_sz = avg_sz / word_sum
+    wgh_sz = wgh_sz / word_sum
+    dist_avg = dist_avg / word_sum
+    wgh_dist = wgh_dst / word_sum
+    return (avg_sz, wgh_sz, dist_avg, wgh_dst)
 
 
 t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts,labels), text_too=True)
@@ -357,28 +367,41 @@ vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
 train_vectors = vectorizer.fit_transform(t_train)
 test_vectors = vectorizer.transform(t_test)
 
-mlp = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(50, 25), random_state=1)
-mlp.fit(train_vectors, y_train)
+mlp1idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(100, 50), random_state=1)
+mlp1idf.fit(train_vectors, y_train)
 
-rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-rf.fit(train_vectors, y_train)
+mlp2idf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(200, 100), random_state=1)
+mlp2idf.fit(train_vectors, y_train)
 
-r = make_pipeline(vectorizer, rf)
-m = make_pipeline(vectorizer, mlp)
+# rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# rf.fit(train_vectors, y_train)
+
+# r = make_pipeline(vectorizer, rf)
+m1i = make_pipeline(vectorizer, mlp1idf)
+m2i = make_pipeline(vectorizer, mlp2idf)
 
 bert_vectorizer = BERTVectorizer()
 
 
-mlpb = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(50, 25), random_state=1)
-mlpb.fit(bert_train, y_train)
+mlp1b = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(100, 50), random_state=1)
+mlp1b.fit(bert_train, y_train)
 
-rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
-rfb.fit(bert_train, y_train)
+mlp2b = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(200, 100), random_state=1)
+mlp2b.fit(bert_train, y_train)
 
-rb = make_pipeline(bert_vectorizer, rfb)
-mb = make_pipeline(bert_vectorizer, mlpb)
+
+# rfb = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+# rfb.fit(bert_train, y_train)
+
+# rb = make_pipeline(bert_vectorizer, rfb)
+# mb = make_pipeline(bert_vectorizer, mlpb)
+
+m1b = make_pipeline(bert_vectorizer, mlp1b)
+m2b = make_pipeline(bert_vectorizer, mlp2b)
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
 parameter_sets = [(5, 1000, 1, 50, True), 
@@ -395,7 +418,8 @@ parameter_sets = [(5, 1000, 1, 50, True),
                   (20, 1000, 2, 100, True)]
 
 descs = {
-    "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
+    # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
+    "models": ["MLP_(100-50)_BERT", "MLP_(200-100)_BERT", "MLP_(100-50)_TFIDF", "MLP_(200-100)_TFIDF"],
     "parses": ["Dep", "Con", "Ran", "Std"],
     # "param_sets": ["0", "1", "2", "3"],
     "disting": "Results1"
@@ -412,7 +436,7 @@ instance_idxs = [953, 1091, 1089, 1087, 1080, 1078, 1076,
 
 instances = [t_test[i] for i in instance_idxs]
 
-run_all_explainers([rb.predict_proba, mb.predict_proba, r.predict_proba, m.predict_proba], class_names, parameter_sets, 
+run_all_explainers([m1b.predict_proba, m2b.predict_proba, m1i.predict_proba, m2i.predict_proba], class_names, parameter_sets, 
                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
