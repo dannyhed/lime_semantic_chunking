@@ -115,7 +115,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
             #prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
-                print(f"\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n", end='', flush=True)
+                print(f"\n\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n\n", end='', flush=True)
                 (num_feats, num_samples, mask_method, num_rand_trees, word_level) = pset
 
                 if just_desc:
@@ -123,7 +123,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     
                 name = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
-                    print(name)
+                    print("\n" + name)
                     explanations.append(explainerDep.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
                                                                     mask_method=mask_method, word_level=word_level))
                 elif just_desc:
@@ -132,7 +132,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 
                 name = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
-                    print(name)
+                    print("\n" + name)
                     explanations.append(explainerCon.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
                                                                     mask_method=mask_method))
                 elif just_desc:
@@ -140,7 +140,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     
                 name = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
-                    print(name)
+                    print("\n" + name)
                     explanations.append(explainerRan.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
                                                                     random_trees=num_rand_trees, mask_method=mask_method))
                 elif just_desc:
@@ -148,7 +148,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     
                 name = save_desc(3,m,p,i,num_feats,num_samples,descriptions)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
-                    print(name)
+                    print("\n" + name)
                     explanations.append(explainerStd.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
@@ -161,24 +161,24 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-4])
                     else:
-                        print(name + " exists")
+                        print("\n" + name + " exists")
                     name, desc = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-3])
                     else:
-                        print(name + " exists")
+                        print("\n" + name + " exists")
                     name, desc = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-2])
                     else:
-                        print(name + " exists")
+                        print("\n" + name + " exists")
                     name, desc = save_desc(3,m,p,i,num_feats,num_samples,descriptions)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-1])
                     else:
-                        print(name + " exists")
+                        print("\n" + name + " exists")
                 
-                clear_lines(10)
+                clear_lines(16)
 
     return explanations
 
