@@ -115,7 +115,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
             #prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
-                print(f"\n\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n\n", end='', flush=True)
+                print(f"\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n\n", end='', flush=True)
                 (num_feats, num_samples, mask_method, num_rand_trees, word_level) = pset
 
                 if just_desc:
@@ -178,7 +178,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     else:
                         print("\n" + name + " exists")
                 
-                clear_lines(16)
+                clear_lines(15)
 
     return explanations
 
