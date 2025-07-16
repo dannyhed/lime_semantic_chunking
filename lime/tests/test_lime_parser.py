@@ -99,12 +99,15 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     tot_insts = len(instances)
     tot_params = len(parameter_sets)
     tot_models = len(models)
+    total = tot_insts*tot_params*tot_models
+    progress = 0
 
     for m, model in enumerate(models):
         for i, inst in enumerate(instances):
             #prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
-                print(f"\n///// {m*tot_insts*tot_params + i*tot_params + p + 1} / {tot_insts*tot_params*tot_models} /////\n")
+                progress = m*tot_insts*tot_params + i*tot_params + p + 1
+                print(f"\n/// {int((1000 * progress) / total) / 10.0}\% /// {progress} / {total} /////\n")
                 # print(f"\n////// MODEL {m}/{len(models)} ///////")
                 # print(f"///// INSTANCE {i}/{len(instances)} /////")
                 # print(f"//// PARAMETERS {p}/{len(parameter_sets)} ////\n")
