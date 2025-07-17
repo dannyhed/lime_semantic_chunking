@@ -318,9 +318,9 @@ def influence_sz(exp, label=1):
             id_chunks[i] = [x[0] for x in chunk]
 
         sum_influences = [len(dep) for dep in id_chunks]
-        weighted_sum_infl = [sum_ * weighted_dep_chunks[i] for i, sum_ in enumerate(sum_influences)]
-        relation_distance = [max(id) - min(id) for id in id_chunks]
-        weighted_rel_dist = [dist * weighted_dep_chunks[i] for i, dist in enumerate(relation_distance)]
+        weighted_sum_infl = [sum_ * abs(weighted_dep_chunks[i]) for i, sum_ in enumerate(sum_influences)]
+        relation_distance = [abs(max(id) - min(id)) for id in id_chunks]
+        weighted_rel_dist = [dist * abs(weighted_dep_chunks[i]) for i, dist in enumerate(relation_distance)]
         total = len(id_chunks)
 
     else:
@@ -358,8 +358,11 @@ def avg_influence_sz(exp_arr):
     return (avg_sz, wgh_sz, dist_avg, wgh_dst)
 
 
-def model_save_name(params, ext=True):
-    filename = params[0] + "-" + params[1]
+def model_save_name(params, dataset=None, ext=True):
+    filename = ''
+    if dataset != None:
+        filename += dataset + "-"
+    filename += params[0] + "-" + params[1]
     if params[0] == "rf":
         filename += "-" + str(params[2])
     elif params[0] == "mlp":
@@ -371,7 +374,7 @@ def model_save_name(params, ext=True):
         return filename
 
 
-def train_models(all_model_params):
+def train_models(all_model_params, dataset=None):
     print("Training Models...")
     models_trained = []
     bert_vectorizer = BERTVectorizer()
@@ -388,17 +391,17 @@ def train_models(all_model_params):
         elif p[1] == "b":
             m.fit(bert_train, y_train)
             models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
-        with open(MODEL_PATH + model_save_name(p), "wb") as file:
+        with open(MODEL_PATH + model_save_name(p, dataset), "wb") as file:
             pkl.dump(models_trained[-1], file)
     clear_lines(1)
     print("Models trained")
     return models_trained
 
-def load_models(all_model_params):
+def load_models(all_model_params, dataset=None):
     print("Loading models...")
     models_loaded = []
     for p in all_model_params:
-        with open(MODEL_PATH + model_save_name(p), "rb") as file:
+        with open(MODEL_PATH + model_save_name(p, dataset), "rb") as file:
             models_loaded.append(pkl.load(file))
     clear_lines(1)
     print("Models loaded")
@@ -431,21 +434,34 @@ def tab_separated_ds(filepath, class_names, labelfirst=True):
             texts.append(t)
     return labels, texts
 
-
 class_names_spam = ['ham', 'spam']
 class_names_sem = ['0', '1']
 
-# #SPAM DATASET
-# labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
 
-# #SEMANTIC LABELING
-# labels, texts = tab_separated_ds(SEMFILE + SEMFILE_1, class_names_sem, False)
-# labels, texts = tab_separated_ds(SEMFILE + SEMFILE_2, class_names_sem, False)
-# labels, texts = tab_separated_ds(SEMFILE + SEMFILE_3, class_names_sem, False)
+#                                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = "sem" # "spam", "sem" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+labels = []
+texts = []
+if DATASET == "sem":
+    l1, t1 = tab_separated_ds(SEMFILE + SEMFILE_1, class_names_sem, False)
+    l2, t2 = tab_separated_ds(SEMFILE + SEMFILE_2, class_names_sem, False)
+    l3, t3 = tab_separated_ds(SEMFILE + SEMFILE_3, class_names_sem, False)
+
+    labels = l1 + l2 + l3
+    texts = l1 + l2 + l3
+
+    CLASS_NAMES = class_names_sem
+
+elif DATASET == "spam":
+    labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
+
+    CLASS_NAMES = class_names_spam
 
 
 
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, text_too=True)
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
 
 vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
 train_vectors = vectorizer.fit_transform(t_train)
@@ -456,8 +472,8 @@ model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b"
                 ("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
                 ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
 
-#all_models = train_models(model_params)
-all_models = load_models(model_params)
+all_models = train_models(model_params, "sem")
+all_models = load_models(model_params, "sem")
     
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
@@ -474,12 +490,14 @@ parameter_sets = [(5, 1000, 1, 25, True),
                   (10, 1000, 1, 200, True), 
                   (20, 1000, 1, 200, True)]
 
+ds = "sem"
+
 descs = {
     # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
-    "models": [model_save_name(p, ext=False) for p in model_params],
+    "models": [model_save_name(p, ds, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran", "Std"],
     # "param_sets": ["0", "1", "2", "3"],
-    "disting": "Results2"
+    "disting": "SemResults1"
 }
 
 comp_descs = {
@@ -496,7 +514,7 @@ instances = [t_test[i] for i in instance_idxs]
 #     print(i)
 
 
-run_all_explainers(all_models, class_names_spam, parameter_sets, 
+run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
