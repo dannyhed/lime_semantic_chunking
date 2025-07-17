@@ -410,11 +410,33 @@ def load_models(all_model_params, dataset=None):
 
 BERT_FOLD = r"./bert_data/"
 SPAM_DATA = "spam_ds"
+SEM_DATA = "sem_ds"
+IMDB_DATA = "imdb_ds"
 SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
 SEMFILE = r"./sentiment_sens/"
 SEMFILE_1 = "amazon_cells_labelled.txt"
 SEMFILE_2 = "imdb_labelled.txt"
 SEMFILE_3 = "yelp_labelled.txt"
+IMDB = r"./aclImdb/"
+IMDB_TT = ["test/", "train/"]
+IMDB_NP = ["neg/", "pos/"]
+IMDB_COMP = IMDB + "imdb_compiled.txt"
+
+# texts = []
+# labels = []
+# for i in range(2):
+#     print(f"i = {i}")
+#     for j in range(2):
+#         print(f"j = {j}")
+#         for filename in os.listdir(IMDB + IMDB_TT[i] + IMDB_NP[j]):
+#             with open(IMDB + IMDB_TT[i] + IMDB_NP[j] + filename, "r", encoding="utf-8") as file:
+#                 texts.append(file.readline().replace("<br />", " "))
+#             labels.append(j)
+
+# with open(IMDB + "imdb_compiled.txt", "w+", encoding='utf-8') as file:
+#     for l, t in enumerate(texts):
+#         file.write(str(labels[l]) + "\t" + t + "\n")
+
 
 def tab_separated_ds(filepath, class_names, labelfirst=True):
     labels = []
@@ -436,6 +458,7 @@ def tab_separated_ds(filepath, class_names, labelfirst=True):
 
 class_names_spam = ['ham', 'spam']
 class_names_sem = ['0', '1']
+class_names_imdb = ['0', '1']
 
 
 #                                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -459,9 +482,14 @@ elif DATASET == "spam":
 
     CLASS_NAMES = class_names_spam
 
+elif DATASET == "imdb":
+    labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
+
+    CLASS_NAMES = class_names_imdb
 
 
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SEM_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
 
 vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
 train_vectors = vectorizer.fit_transform(t_train)
@@ -472,7 +500,7 @@ model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b"
                 ("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
                 ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
 
-#all_models = train_models(model_params, "sem")
+all_models = train_models(model_params, "sem")
 all_models = load_models(model_params, "sem")
     
 
@@ -514,35 +542,36 @@ instances = [t_test[i] for i in instance_idxs]
 #     print(i)
 
 
-# run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
 
+def get_exp_metrics(comp_descs):
 
-loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
+    loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
 
-for i, ep in enumerate(loaded):
-    print("[" + str(i) + "]: " + str(ep.get_desc()) + "\n" + ep.get_text() + "\n")
-    #print(f"\nREWRITING {ep.get_path()}{ep.get_name()}\n")
-    #SavedExplanation(ep.get_name(), ep.get_path(), ep.get_desc(), ep.get_exp())
+    for i, ep in enumerate(loaded):
+        print("[" + str(i) + "]: " + str(ep.get_desc()) + "\n" + ep.get_text() + "\n")
+        #print(f"\nREWRITING {ep.get_path()}{ep.get_name()}\n")
+        #SavedExplanation(ep.get_name(), ep.get_path(), ep.get_desc(), ep.get_exp())
 
-patterns = []
-for model in comp_descs["models"]:
-    patterns.append(re.compile(rf".*{re.escape(model)}_\d+.*"))
+    patterns = []
+    for model in comp_descs["models"]:
+        patterns.append(re.compile(rf".*{re.escape(model)}_\d+.*"))
 
-sorted_exps = [[] for _ in comp_descs["models"]]
-for exp in loaded:
-    for i, pattern in enumerate(patterns):
-        if pattern.match(exp.get_desc()):
-            sorted_exps[i].append(exp)
+    sorted_exps = [[] for _ in comp_descs["models"]]
+    for exp in loaded:
+        for i, pattern in enumerate(patterns):
+            if pattern.match(exp.get_desc()):
+                sorted_exps[i].append(exp)
 
-for i, exp_arr in enumerate(sorted_exps):
-    if len(exp_arr) > 0:
-        sz = avg_influence_sz(exp_arr)
-        print("\n" + comp_descs["models"][i])
-        print("Average size of influence:\t" + str(sz[0]))
-        print("Weighted size of influence:\t" + str(sz[1]))
-        print("Avg relation distance:\t" + str(sz[2]))
-        print("Weighted relation distance:\t" + str(sz[3]))
+    for i, exp_arr in enumerate(sorted_exps):
+        if len(exp_arr) > 0:
+            sz = avg_influence_sz(exp_arr)
+            print("\n" + comp_descs["models"][i])
+            print("Average size of influence:\t" + str(sz[0]))
+            print("Weighted size of influence:\t" + str(sz[1]))
+            print("Avg relation distance:\t" + str(sz[2]))
+            print("Weighted relation distance:\t" + str(sz[3]))
 
 
 # single_inst = t_test[instance_idxs[0]]
