@@ -472,7 +472,7 @@ model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b"
                 ("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
                 ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
 
-all_models = train_models(model_params, "sem")
+#all_models = train_models(model_params, "sem")
 all_models = load_models(model_params, "sem")
     
 
