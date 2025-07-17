@@ -473,7 +473,7 @@ if DATASET == "sem":
     l3, t3 = tab_separated_ds(SEMFILE + SEMFILE_3, class_names_sem, False)
 
     labels = l1 + l2 + l3
-    texts = l1 + l2 + l3
+    texts = t1 + t2 + t3
 
     CLASS_NAMES = class_names_sem
 
