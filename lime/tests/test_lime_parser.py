@@ -538,6 +538,7 @@ instance_idxs = [953, 1091, 1089, 1087, 1080, 1078, 1076,
              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
 print(len(t_test))
+print(len(t_train))
 instances = [t_test[i] for i in instance_idxs]
 # for i in instances:
 #     print(i)
