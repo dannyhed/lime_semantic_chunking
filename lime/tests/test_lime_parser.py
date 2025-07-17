@@ -501,7 +501,7 @@ descs = {
 }
 
 comp_descs = {
-    "models": [model_save_name(p, ext=False) for p in model_params],
+    "models": [model_save_name(p, ds, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran"],
     "disting": "SemResults1"
 }
@@ -514,8 +514,8 @@ instances = [t_test[i] for i in instance_idxs]
 #     print(i)
 
 
-run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+# run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
