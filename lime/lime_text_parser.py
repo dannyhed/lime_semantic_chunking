@@ -370,7 +370,7 @@ class LimeTextParserExplainer(object):
         data[0] = np.ones(doc_size)
         features_range = range(doc_size)
         inverse_data = [indexed_string.raw_string()]
-        for i, size in enumerate(tqdm(sample, start=1)):
+        for i, size in tqdm(enumerate(sample, start=1)):
             inactive = self.random_state.choice(features_range, size,
                                                 replace=False)
             #data[i, inactive] = 0
