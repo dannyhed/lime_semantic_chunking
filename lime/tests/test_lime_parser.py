@@ -61,12 +61,6 @@ import re
 import sys
 
 
-#explainerRan = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="random", random_trees=100)
-#explainerDep = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="dependency")
-#explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=True, parsing_type="constituency")
-#explainerStandard = LimeTextExplainer(class_names=class_names, verbose=True)
-#explainer = LimeTextExplainer(class_names=class_names)
-
 
 def clear_lines(n):
 # Move up and clear n lines
@@ -414,19 +408,42 @@ def load_models(all_model_params):
 BERT_FOLD = r"./bert_data/"
 SPAM_DATA = "spam_ds"
 SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
+SEMFILE = r"./semantic_sens/"
+SEMFILE_1 = "amazon_cells_labelled.txt"
+SEMFILE_2 = "imdb_labelled.txt"
+SEMFILE_3 = "yelp_labelled.txt"
+
+def tab_separated_ds(filepath, class_names, labelfirst=True):
+    labels = []
+    texts = []
+    l = ''
+    t = ''
+    with open(filepath, 'r', encoding='utf-8') as file:
+        for line in file:
+            if labelfirst:
+                l, t = line.strip().split('\t')
+            else:
+                t, l = line.strip().split('\t')
+            if l == class_names[0]:
+                labels.append(0)
+            else:
+                labels.append(1)
+            texts.append(t)
+    return labels, texts
 
 
-class_names = ['ham', 'spam']
-# labels = []
-# texts = []
-# with open(SPAMFILE, 'r', encoding='utf-8') as file:
-#     for line in file:
-#         l, t = line.strip().split('\t')
-#         if l == class_names[0]:
-#             labels.append(0)
-#         else:
-#             labels.append(1)
-#         texts.append(t)
+class_names_spam = ['ham', 'spam']
+class_names_sem = ['0', '1']
+
+# #SPAM DATASET
+# labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
+
+# #SEMANTIC LABELING
+# labels, texts = tab_separated_ds(SEMFILE + SEMFILE_1, class_names_sem, False)
+# labels, texts = tab_separated_ds(SEMFILE + SEMFILE_2, class_names_sem, False)
+# labels, texts = tab_separated_ds(SEMFILE + SEMFILE_3, class_names_sem, False)
+
+
 
 t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, text_too=True)
 
@@ -479,7 +496,7 @@ instances = [t_test[i] for i in instance_idxs]
 #     print(i)
 
 
-run_all_explainers(all_models, class_names, parameter_sets, 
+run_all_explainers(all_models, class_names_spam, parameter_sets, 
                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
