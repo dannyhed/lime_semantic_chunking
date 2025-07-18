@@ -461,9 +461,9 @@ class_names_sem = ['0', '1']
 class_names_imdb = ['0', '1']
 
 
-#                                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-DATASET = "sem" # "spam", "sem" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = "spam" # "spam", "sem", "imdb" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 labels = []
 texts = []
@@ -487,9 +487,13 @@ elif DATASET == "imdb":
 
     CLASS_NAMES = class_names_imdb
 
-
-
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SEM_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+#                                                                 ||||||||||
+#                                                                 ||||||||||
+#                                                                 \/\/\/\/\/
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+#                                                                 /\/\/\/\/\
+#                                                                 ||||||||||
+#                                                                 ||||||||||
 
 vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
 train_vectors = vectorizer.fit_transform(t_train)
@@ -500,8 +504,8 @@ model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b"
                 ("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
                 ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
 
-#all_models = train_models(model_params, "sem")
-all_models = load_models(model_params, "sem")
+all_models = train_models(model_params, DATASET)
+all_models = load_models(model_params, DATASET)
     
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
@@ -518,20 +522,23 @@ parameter_sets = [(5, 1000, 1, 25, True),
                   (10, 1000, 1, 200, True), 
                   (20, 1000, 1, 200, True)]
 
-ds = "sem"
 
 descs = {
     # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
-    "models": [model_save_name(p, ds, ext=False) for p in model_params],
+    "models": [model_save_name(p, DATASET, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran", "Std"],
     # "param_sets": ["0", "1", "2", "3"],
-    "disting": "SemResults1"
-}
+
+  #            ||||||||||||||
+  #            \/\/\/\/\/\/\/
+    "disting": "SpamResults1"
+} #            ^^^^^^^^^^^^^^
+  #            ^^^^^^^^^^^^^^
 
 comp_descs = {
-    "models": [model_save_name(p, ds, ext=False) for p in model_params],
+    "models": [model_save_name(p, DATASET, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran"],
-    "disting": "SemResults1"
+    "disting": "SpamResults1"
 }
 
 instance_idxs = list(range(25))
