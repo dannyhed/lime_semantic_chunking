@@ -553,7 +553,8 @@ instances = [t_test[i] for i in instance_idxs]
 run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
-def get_exp_metrics(comp_descs):
+
+def get_exp_metrics(comp_descs, all_results=False):
 
     loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
 
@@ -564,7 +565,12 @@ def get_exp_metrics(comp_descs):
 
     patterns = []
     for model in comp_descs["models"]:
-        patterns.append(re.compile(rf".*{re.escape(model)}_\d+.*"))
+        disting = ''
+        if not all_results:
+            disting = comp_descs["disting"] + "_"
+        else:
+            disting = ".*"
+        patterns.append(re.compile(rf"^{re.escape(disting)}.*{re.escape(model)}_\d+.*"))
 
     sorted_exps = [[] for _ in comp_descs["models"]]
     for exp in loaded:
@@ -580,6 +586,12 @@ def get_exp_metrics(comp_descs):
             print("Weighted size of influence:\t" + str(sz[1]))
             print("Avg relation distance:\t" + str(sz[2]))
             print("Weighted relation distance:\t" + str(sz[3]))
+
+
+get_exp_metrics(comp_descs)
+
+comp_descs["disting"] = "SemResults1"
+get_exp_metrics(comp_descs)
 
 
 # single_inst = t_test[instance_idxs[0]]
