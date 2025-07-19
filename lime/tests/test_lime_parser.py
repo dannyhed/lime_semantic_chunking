@@ -446,9 +446,9 @@ def tab_separated_ds(filepath, class_names, labelfirst=True):
     with open(filepath, 'r', encoding='utf-8') as file:
         for line in file:
             if labelfirst:
-                l, t = line.strip().split('\t')
+                l, t = line.strip().split('\t', 1)
             else:
-                t, l = line.strip().split('\t')
+                t, l = line.strip().split('\t', 1)
             if l == class_names[0]:
                 labels.append(0)
             else:
