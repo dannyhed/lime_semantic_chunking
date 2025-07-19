@@ -462,7 +462,7 @@ class_names_imdb = ['0', '1']
 
 
 #                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-DATASET = "spam" # "spam", "sem", "imdb" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = "imdb" # "spam", "sem", "imdb" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 labels = []
@@ -490,7 +490,7 @@ elif DATASET == "imdb":
 #                                                                 ||||||||||
 #                                                                 ||||||||||
 #                                                                 \/\/\/\/\/
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(SPAM_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(IMDB_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
 #                                                                 /\/\/\/\/\
 #                                                                 ||||||||||
 #                                                                 ||||||||||
@@ -529,14 +529,14 @@ descs = {
 
   #            ||||||||||||||
   #            \/\/\/\/\/\/\/
-    "disting": "SpamResults1"
+    "disting": "IMDBResults1"
 } #            ^^^^^^^^^^^^^^
   #            ^^^^^^^^^^^^^^
 
 comp_descs = {
     "models": [model_save_name(p, DATASET, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran"],
-    "disting": "SpamResults1"
+    "disting": "IMDBResults1"
 }
 
 instance_idxs = list(range(25))
