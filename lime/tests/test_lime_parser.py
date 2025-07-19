@@ -288,7 +288,7 @@ def get_data(filename, path, data=None, split_ratio=0.2, random_state=20, text_t
     train_data, test_data = train_test_split(zip_data, test_size=split_ratio, random_state=random_state)
     train_sens, train_bert, y_train = zip(*train_data)
     test_sens, test_bert, y_test = zip(*test_data)
-    clear_lines(1)
+    # clear_lines(1)
     print("Recieved BERT vectors")
     if not text_too:
         return (train_bert, test_bert, y_train, y_test)
