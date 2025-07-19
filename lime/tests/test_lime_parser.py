@@ -548,7 +548,7 @@ instances = [t_test[i] for i in instance_idxs]
 #     print(i)
 
 
-all_models = train_models(model_params, DATASET)
+# all_models = train_models(model_params, DATASET)
 all_models = load_models(model_params, DATASET)
 
 run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
