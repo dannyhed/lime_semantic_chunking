@@ -547,6 +547,8 @@ instances = [t_test[i] for i in instance_idxs]
 # for i in instances:
 #     print(i)
 
+print("YES THESE FILES ARE GETTING UPDATED")
+
 all_models = train_models(model_params, DATASET)
 all_models = load_models(model_params, DATASET)
 
