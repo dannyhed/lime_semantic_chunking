@@ -591,6 +591,8 @@ def get_exp_metrics(comp_descs, all_results=False):
                 sorted_exps[i].append(exp)
                 continue
 
+    print(f"{len(sorted)} explanations match...")
+
     for i, exp_arr in enumerate(sorted_exps):
         if len(exp_arr) > 0:
             sz = avg_influence_sz(exp_arr)
