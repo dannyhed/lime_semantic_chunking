@@ -470,7 +470,7 @@ class_names_imdb = ['0', '1']
 
 
 #                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-DATASET = "spam" # "spam", "sem", "imdb" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = "sem" # "spam", "sem", "imdb" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 labels = []
@@ -542,9 +542,9 @@ descs = {
   #            ^^^^^^^^^^^^^^
 
 comp_descs = {
-    "models": [model_save_name(p, DATASET, ext=False) for p in model_params],
+    "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran"],
-    "disting": "SpamResults1"
+    "disting": "Results2"
 }
 
 instance_idxs = list(range(25))
