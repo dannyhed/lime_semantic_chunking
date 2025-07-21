@@ -353,7 +353,7 @@ def avg_influence_sz(exp_arr):
     wgh_dst = 0
     word_sum = 0
     for exp in exp_arr:
-        if len(exp) > 0:
+        if len(exp.get_local_exp()) > 0:
             infl_sz = influence_sz(exp)
             avg_sz += infl_sz[0]
             wgh_sz += infl_sz[1]
