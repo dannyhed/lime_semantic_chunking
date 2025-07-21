@@ -353,12 +353,13 @@ def avg_influence_sz(exp_arr):
     wgh_dst = 0
     word_sum = 0
     for exp in exp_arr:
-        infl_sz = influence_sz(exp)
-        avg_sz += infl_sz[0]
-        wgh_sz += infl_sz[1]
-        dist_avg += infl_sz[2]
-        wgh_dst += infl_sz[3]
-        word_sum += infl_sz[4]
+        if len(exp) > 0:
+            infl_sz = influence_sz(exp)
+            avg_sz += infl_sz[0]
+            wgh_sz += infl_sz[1]
+            dist_avg += infl_sz[2]
+            wgh_dst += infl_sz[3]
+            word_sum += infl_sz[4]
     avg_sz = avg_sz / word_sum
     wgh_sz = wgh_sz / word_sum
     dist_avg = dist_avg / word_sum
