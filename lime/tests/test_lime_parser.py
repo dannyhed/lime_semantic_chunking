@@ -564,8 +564,8 @@ def get_exp_metrics(comp_descs, all_results=False):
 
     loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
 
-    for i, ep in enumerate(loaded):
-        print("[" + str(i) + "]: " + str(ep.get_desc()) + "\n" + ep.get_text() + "\n")
+    # for i, ep in enumerate(loaded):
+    #     print("[" + str(i) + "]: " + str(ep.get_desc()) + "\n" + ep.get_text() + "\n")
         #print(f"\nREWRITING {ep.get_path()}{ep.get_name()}\n")
         #SavedExplanation(ep.get_name(), ep.get_path(), ep.get_desc(), ep.get_exp())
 
