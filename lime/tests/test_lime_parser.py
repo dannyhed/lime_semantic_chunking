@@ -306,7 +306,10 @@ def influence_sz(exp, label=1):
     # print(exp.get_text())
     # print(exp.get_tokens())
     if len(exp.get_local_exp()) == 0:
-        print(exp.get_desc())
+        desc = exp.get_desc()
+        m = desc.split('\n')[1].split('\t')[1]
+        i = desc.split('\n')[0].split('_')[-1]
+        print(m + "\t" + i)
     # exp.get_exp().save_to_file("INFLUENCETEST.html")
 
     if not exp.data["is_standard"]:
