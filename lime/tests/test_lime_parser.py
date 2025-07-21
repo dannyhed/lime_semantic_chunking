@@ -565,7 +565,7 @@ instance_idxs = list(range(25))
 
 def get_exp_metrics(comp_descs, all_results=False):
 
-    loaded = load_explanations(comp_descs, EXPL_PATH, specific=True)
+    loaded = load_explanations(comp_descs, EXPL_PATH, specific=False)
 
     # for i, ep in enumerate(loaded):
     #     print("[" + str(i) + "]: " + str(ep.get_desc()) + "\n" + ep.get_text() + "\n")
