@@ -190,7 +190,7 @@ def load_explanations(descs, path, specific=False):
         for parse in descs["parses"]:
             for model in descs["models"]:
                 disting = descs["disting"]
-                patterns.append(re.compile(rf"{re.escape(disting)}_{re.escape(parse)}_{re.escape(model)}.*\.pkl$"))
+                patterns.append(re.compile(rf"^{re.escape(disting)}_{re.escape(parse)}_{re.escape(model)}.*\.pkl$"))
         
         for filename in os.listdir(path):
             for pattern in patterns:
