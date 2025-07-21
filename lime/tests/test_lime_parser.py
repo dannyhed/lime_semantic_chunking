@@ -577,16 +577,19 @@ def get_exp_metrics(comp_descs, all_results=False):
     for model in comp_descs["models"]:
         disting = ''
         if not all_results:
-            disting = comp_descs["disting"] + "_"
+            disting = re.escape(comp_descs["disting"] + "_")
         else:
             disting = ".*"
-        patterns.append(re.compile(rf"^{re.escape(disting)}.*{re.escape(model)}_\d+.*"))
+        patterns.append(re.compile(rf"^{disting}.*{re.escape(model)}_\d+.*"))
+
+    print(f"{len(patterns)} patterns found...")
 
     sorted_exps = [[] for _ in comp_descs["models"]]
     for exp in loaded:
         for i, pattern in enumerate(patterns):
             if pattern.match(exp.get_desc()):
                 sorted_exps[i].append(exp)
+                continue
 
     for i, exp_arr in enumerate(sorted_exps):
         if len(exp_arr) > 0:
