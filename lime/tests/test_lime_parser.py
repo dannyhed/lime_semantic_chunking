@@ -591,7 +591,7 @@ def get_exp_metrics(comp_descs, all_results=False):
                 sorted_exps[i].append(exp)
                 continue
 
-    print(f"{len(sorted_exps)} explanations match...")
+    print(f"{sum([len(i) for i in sorted_exps])} explanations match...")
 
     for i, exp_arr in enumerate(sorted_exps):
         if len(exp_arr) > 0:
