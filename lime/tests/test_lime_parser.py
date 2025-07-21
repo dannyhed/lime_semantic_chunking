@@ -302,6 +302,9 @@ def influence_sz(exp, label=1):
     relation_distance = []
     total = 0
     num_words = exp.get_exp().domain_mapper.indexed_string.num_words()
+    print(exp.get_local_exp())
+    print(exp.get_text())
+    print(exp.get_tokens())
     exp.get_exp().save_to_file("INFLUENCETEST.html")
 
     if not exp.data["is_standard"]:
