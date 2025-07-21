@@ -544,7 +544,7 @@ descs = {
 comp_descs = {
     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
     "parses": ["Dep", "Con", "Ran"],
-    "disting": "Results1"
+    "disting": "Results2"
 }
 
 instance_idxs = list(range(25))
