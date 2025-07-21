@@ -597,7 +597,7 @@ def get_exp_metrics(comp_descs, all_results=False):
             print("Weighted relation distance:\t" + str(sz[3]))
 
 
-get_exp_metrics(comp_descs)
+# get_exp_metrics(comp_descs)
 
 comp_descs["disting"] = "SemResults1"
 get_exp_metrics(comp_descs)
