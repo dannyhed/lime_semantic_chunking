@@ -302,10 +302,12 @@ def influence_sz(exp, label=1):
     relation_distance = []
     total = 0
     num_words = exp.get_exp().domain_mapper.indexed_string.num_words()
-    print(exp.get_local_exp())
-    print(exp.get_text())
-    print(exp.get_tokens())
-    exp.get_exp().save_to_file("INFLUENCETEST.html")
+    # print(exp.get_local_exp())
+    # print(exp.get_text())
+    # print(exp.get_tokens())
+    if len(exp.get_local_exp()) == 0:
+        print(exp.get_desc())
+    # exp.get_exp().save_to_file("INFLUENCETEST.html")
 
     if not exp.data["is_standard"]:
         local_exp = exp.data["exp_data"]["domain_data"]["all_exps"][label]
@@ -490,17 +492,17 @@ elif DATASET == "imdb":
 
     CLASS_NAMES = class_names_imdb
 
-#                                                                 ||||||||||
-#                                                                 ||||||||||
-#                                                                 \/\/\/\/\/
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(IMDB_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
-#                                                                 /\/\/\/\/\
-#                                                                 ||||||||||
-#                                                                 ||||||||||
+# #                                                                 ||||||||||
+# #                                                                 ||||||||||
+# #                                                                 \/\/\/\/\/
+# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(IMDB_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+# #                                                                 /\/\/\/\/\
+# #                                                                 ||||||||||
+# #                                                                 ||||||||||
 
-vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-train_vectors = vectorizer.fit_transform(t_train)
-test_vectors = vectorizer.transform(t_test)
+# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+# train_vectors = vectorizer.fit_transform(t_train)
+# test_vectors = vectorizer.transform(t_test)
 
 
 model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
@@ -546,16 +548,16 @@ instance_idxs = list(range(25))
 # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
 #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-instances = [t_test[i] for i in instance_idxs]
+# instances = [t_test[i] for i in instance_idxs]
 # for i in instances:
 #     print(i)
 
 
 # all_models = train_models(model_params, DATASET)
-all_models = load_models(model_params, DATASET)
+# all_models = load_models(model_params, DATASET)
 
-run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+# run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 def get_exp_metrics(comp_descs, all_results=False):
