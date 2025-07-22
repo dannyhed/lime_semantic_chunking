@@ -59,6 +59,7 @@ from sklearn.neural_network import MLPClassifier
 from tqdm import tqdm
 import re
 import sys
+import pandas as pd
 
 
 
@@ -430,6 +431,8 @@ IMDB = r"./aclImdb/"
 IMDB_TT = ["test/", "train/"]
 IMDB_NP = ["neg/", "pos/"]
 IMDB_COMP = IMDB + "imdb_compiled.txt"
+HATEFILE = r"./hate_speech/labeled_data.csv"
+HATETAB = r"./hate_speech/tab_sep_hate_data.csv"
 
 # texts = []
 # labels = []
@@ -443,6 +446,41 @@ IMDB_COMP = IMDB + "imdb_compiled.txt"
 #             labels.append(j)
 
 # with open(IMDB + "imdb_compiled.txt", "w+", encoding='utf-8') as file:
+#     for l, t in enumerate(texts):
+#         file.write(str(labels[l]) + "\t" + t + "\n")
+
+# df = pd.read_parquet("hf://datasets/ucberkeley-dlab/measuring-hate-speech/measuring-hate-speech.parquet")
+# with open(r"./hate_speech/measuring_hate.csv", "wb") as file:
+#     df.to_csv(file)
+
+# texts = []
+# labels = []
+# with open(HATEFILE, "r", encoding='utf-8') as file:
+#     file.readline()
+#     secs = []
+#     label = 0
+#     for i, line in enumerate(file):
+#         secs = line.split(",")
+#         try:
+#             label = secs[5]
+#         except:
+#             continue
+#         t = secs[6]
+#         t = t.replace("\"", "")
+#         t = re.sub(r"^.*?@.*?:", "", t, count=1)
+#         t = re.sub("&.*?;", "", t)
+#         t = re.sub("@.*? ", "", t)
+#         t = re.sub("https*://.*?[ \n]", "", t)
+#         t = t.replace("  ", " ")
+#         t = t.strip()
+#         if t != '':
+#             texts.append(t)
+#             if label == '0' or label == '1':
+#                 labels.append(1)
+#             else:
+#                 labels.append(0)
+
+# with open(HATETAB, "w+") as file:
 #     for l, t in enumerate(texts):
 #         file.write(str(labels[l]) + "\t" + t + "\n")
 
@@ -468,11 +506,13 @@ def tab_separated_ds(filepath, class_names, labelfirst=True):
 class_names_spam = ['ham', 'spam']
 class_names_sem = ['0', '1']
 class_names_imdb = ['0', '1']
+class_names_hate = ['0', '1']
 
 
 #                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-DATASET = "sem" # "spam", "sem", "imdb" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = "hate" # "spam", "sem", "imdb", "hate" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
 labels = []
 texts = []
@@ -495,6 +535,11 @@ elif DATASET == "imdb":
     labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
 
     CLASS_NAMES = class_names_imdb
+
+elif DATASET == "hate":    
+    labels, texts = tab_separated_ds(HATETAB, class_names_hate)
+
+    CLASS_NAMES = class_names_hate
 
 # #                                                                 ||||||||||
 # #                                                                 ||||||||||
@@ -542,12 +587,6 @@ descs = {
 } #            ^^^^^^^^^^^^^^
   #            ^^^^^^^^^^^^^^
 
-comp_descs = {
-    "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
-    "parses": ["Dep", "Con", "Ran"],
-    "disting": "Results2"
-}
-
 instance_idxs = list(range(25))
 # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
 #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
@@ -555,6 +594,14 @@ instance_idxs = list(range(25))
 # instances = [t_test[i] for i in instance_idxs]
 # for i in instances:
 #     print(i)
+
+comp_descs = {
+    "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
+    "parses": ["Dep", "Con", "Ran"],
+    "params": parameter_sets,
+    "instances": instance_idxs,
+    "disting": "Results2"
+}
 
 
 # all_models = train_models(model_params, DATASET)
@@ -564,7 +611,7 @@ instance_idxs = list(range(25))
 #                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
-def get_exp_metrics(comp_descs, all_results=False):
+def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
     loaded = load_explanations(comp_descs, EXPL_PATH, specific=False)
     print(f"Found {len(loaded)} explanations...")
@@ -575,17 +622,42 @@ def get_exp_metrics(comp_descs, all_results=False):
         #SavedExplanation(ep.get_name(), ep.get_path(), ep.get_desc(), ep.get_exp())
 
     patterns = []
-    for model in comp_descs["models"]:
-        disting = ''
-        if not all_results:
-            disting = re.escape(comp_descs["disting"] + "_")
-        else:
-            disting = ".*"
-        patterns.append(re.compile(rf"^{disting}.*{re.escape(model)}_\d+.*"))
+    sorted_exps = []
+
+    disting = ''
+    if not all_results:
+        disting = re.escape(comp_descs["disting"] + "_")
+    else:
+        disting = ".*"
+
+    if compare_by == "model":
+        for model in comp_descs["models"]:
+            patterns.append(re.compile(rf"^{disting}.*{re.escape(model)}_\d+.*"))
+        sorted_exps = [[] for _ in comp_descs["models"]]
+    
+    elif compare_by == "exp_params":
+        for p, _ in enumerate(comp_descs["params"]):
+            patterns.append(re.compile(rf"^{disting}.*{re.escape(p)}_\d+\.pkl$"))
+        sorted_exps = [[] for _ in comp_descs["params"]]
+
+    elif compare_by == "parse":
+        for p in comp_descs["parses"]:
+            patterns.append(re.compile(rf"^{disting}_{re.escape(p)}_.*"))
+        sorted_exps = [[] for _ in comp_descs["parses"]]
+
+    elif compare_by == "inst":
+        for i in instance_idxs:
+            patterns.append(re.compile(rf"^{disting}.*_{i}\.pkl$"))
+        sorted_exps = [[] for _ in instance_idxs]
+
+    elif compare_by == "exp":
+        for parse in comp_descs["parses"]:
+            for pars, _ in enumerate(comp_descs["params"]):
+                patterns.append(re.compile(rf"^{disting}_{re.escape([parse])}_.*_{re.escape(pars)}_\d+\.pkl$"))
+        sorted_exps = [[] for _ in range(len(comp_descs["parses"]) * len(comp_descs["params"]))]
 
     print(f"{len(patterns)} patterns found...")
 
-    sorted_exps = [[] for _ in comp_descs["models"]]
     for exp in loaded:
         for i, pattern in enumerate(patterns):
             if pattern.match(exp.get_desc()):
@@ -604,7 +676,7 @@ def get_exp_metrics(comp_descs, all_results=False):
             print("Weighted relation distance:\t" + str(sz[3]))
 
 
-get_exp_metrics(comp_descs)
+get_exp_metrics(comp_descs, compare_by="parse")
 
 # comp_descs["disting"] = "SemResults1"
 # get_exp_metrics(comp_descs)
