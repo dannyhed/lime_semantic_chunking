@@ -673,11 +673,11 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
             print("\n" + name)
             print("Average size of influence:\t" + str(sz[0]))
             print("Weighted size of influence:\t" + str(sz[1]))
-            print("Avg relation distance:\t" + str(sz[2]))
+            print("Avg relation distance:\t\t" + str(sz[2]))
             print("Weighted relation distance:\t" + str(sz[3]))
 
 
-get_exp_metrics(comp_descs, compare_by="parse")
+get_exp_metrics(comp_descs, compare_by="exp")
 
 # comp_descs["disting"] = "SemResults1"
 # get_exp_metrics(comp_descs)
