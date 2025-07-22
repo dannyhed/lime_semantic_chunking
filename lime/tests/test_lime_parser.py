@@ -597,10 +597,10 @@ instance_idxs = list(range(25))
 
 comp_descs = {
     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
-    "parses": ["Dep", "Con", "Ran"],
+    "parses": ["Dep", "Con", "Ran", "Std"],
     "params": parameter_sets,
     "instances": instance_idxs,
-    "disting": "IMDBResults1"
+    "disting": "SpamResults1"
 }
 
 
@@ -626,18 +626,18 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
     disting = ''
     if not all_results:
-        disting = re.escape(comp_descs["disting"] + "_")
+        disting = re.escape(comp_descs["disting"])
     else:
         disting = ".*"
 
     if compare_by == "model":
         for model in comp_descs["models"]:
-            patterns.append(re.compile(rf"^{disting}.*{re.escape(model)}_\d+.*"))
+            patterns.append(re.compile(rf"^{disting}_.*{re.escape(model)}_\d+.*"))
         sorted_exps = [[] for _ in comp_descs["models"]]
     
     elif compare_by == "exp_params":
         for p, _ in enumerate(comp_descs["params"]):
-            patterns.append(re.compile(rf"^{disting}.*{re.escape(p)}_\d+\.pkl$"))
+            patterns.append(re.compile(rf"^{disting}_.*{re.escape(p)}_\d+\.pkl$"))
         sorted_exps = [[] for _ in comp_descs["params"]]
 
     elif compare_by == "parse":
