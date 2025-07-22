@@ -361,11 +361,14 @@ def avg_influence_sz(exp_arr):
             dist_avg += infl_sz[2]
             wgh_dst += infl_sz[3]
             word_sum += infl_sz[4]
-    avg_sz = avg_sz / word_sum
-    wgh_sz = wgh_sz / word_sum
-    dist_avg = dist_avg / word_sum
-    wgh_dst = wgh_dst / word_sum
-    return (avg_sz, wgh_sz, dist_avg, wgh_dst)
+    if word_sum != 0:
+        avg_sz = avg_sz / word_sum
+        wgh_sz = wgh_sz / word_sum
+        dist_avg = dist_avg / word_sum
+        wgh_dst = wgh_dst / word_sum
+        return (avg_sz, wgh_sz, dist_avg, wgh_dst)
+    else:
+        return (0, 0, 0, 0)
 
 
 def model_save_name(params, dataset=None, ext=True):
