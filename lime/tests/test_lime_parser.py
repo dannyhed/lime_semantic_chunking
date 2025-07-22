@@ -660,7 +660,6 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
     for exp in loaded:
         desc = exp.get_desc()
-        print(desc)
         for i, pattern in enumerate(patterns):
             if pattern.match(desc):
                 sorted_exps[i][1].append(exp)
