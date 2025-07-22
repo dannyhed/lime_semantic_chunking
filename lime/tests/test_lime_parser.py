@@ -654,7 +654,7 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
         for parse in comp_descs["parses"]:
             for pars, _ in enumerate(comp_descs["params"]):
                 patterns.append(re.compile(f"^{disting}_{re.escape(parse)}_.*_{pars}_\d+\n"))
-        sorted_exps = [(f'{comp_descs["parses"][int(i/len(comp_descs["parses"]))]}-{i%len(comp_descs["parses"])}', []) for i in range(len(comp_descs["parses"]) * len(comp_descs["params"]))]
+        sorted_exps = [(f'{comp_descs["parses"][int(i/len(comp_descs["params"]))]}-{i%len(comp_descs["params"])}', []) for i in range(len(comp_descs["parses"]) * len(comp_descs["params"]))]
 
     print(f"{len(patterns)} patterns found...")
 
