@@ -318,6 +318,7 @@ def influence_sz(exp, label=1):
         if len(local_exp):
             print(exp.get_tokens())
             print(exp.get_text())
+            print(exp.get_idx_string().raw_string)
         ids = [x[0] for x in local_exp]
 
         dependence_chunks = [[] for _ in range(int(max(ids)/num_words) + 1)]
