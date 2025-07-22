@@ -600,7 +600,7 @@ comp_descs = {
     "parses": ["Dep", "Con", "Ran"],
     "params": parameter_sets,
     "instances": instance_idxs,
-    "disting": "Results2"
+    "disting": "IMDBResults1"
 }
 
 
