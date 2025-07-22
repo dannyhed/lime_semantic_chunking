@@ -330,11 +330,12 @@ def influence_sz(exp, label=1):
             try:
                 weighted_dep_chunks[i] = chunk[0][1]
             except:
-                print(exp.get_desc())
-                print(num_words)
-                print(local_exp)
-                print(dependence_chunks)
-                print(chunk)
+                exp.get_exp().save_to_file("problematic.html")
+                # print(exp.get_desc())
+                # print(num_words)
+                # print(local_exp)
+                # print(dependence_chunks)
+                # print(chunk)
             id_chunks[i] = [x[0] for x in chunk]
 
         sum_influences = [len(dep) for dep in id_chunks]
