@@ -330,6 +330,7 @@ def influence_sz(exp, label=1):
             try:
                 weighted_dep_chunks[i] = chunk[0][1]
             except:
+                print(exp.get_desc())
                 print(local_exp)
                 print(dependence_chunks)
                 print(chunk)
