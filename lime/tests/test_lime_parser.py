@@ -315,7 +315,7 @@ def influence_sz(exp, label=1):
 
     if not exp.data["is_standard"]:
         local_exp = exp.get_local_exp()
-        if len(local_exp):
+        if len(local_exp) == 0:
             print(exp.get_tokens())
             print(exp.get_text())
             print(exp.get_idx_string().raw_string)
