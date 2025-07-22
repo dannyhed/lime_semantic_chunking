@@ -659,8 +659,10 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
     print(f"{len(patterns)} patterns found...")
 
     for exp in loaded:
+        desc = exp.get_desc()
+        print(desc)
         for i, pattern in enumerate(patterns):
-            if pattern.match(exp.get_desc()):
+            if pattern.match(desc):
                 sorted_exps[i][1].append(exp)
                 continue
 
