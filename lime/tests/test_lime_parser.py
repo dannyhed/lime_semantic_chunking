@@ -633,43 +633,43 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
     if compare_by == "model":
         for model in comp_descs["models"]:
             patterns.append(re.compile(rf"^{disting}_.*{re.escape(model)}_\d+.*"))
-        sorted_exps = [[] for _ in comp_descs["models"]]
+        sorted_exps = [(m, []) for m in comp_descs["models"]]
     
     elif compare_by == "exp_params":
         for p, _ in enumerate(comp_descs["params"]):
             patterns.append(re.compile(rf"^{disting}_.*{re.escape(p)}_\d+\.pkl$"))
-        sorted_exps = [[] for _ in comp_descs["params"]]
+        sorted_exps = [(str(i), []) for i in range(len(comp_descs["params"]))]
 
     elif compare_by == "parse":
         for p in comp_descs["parses"]:
             patterns.append(re.compile(rf"^{disting}_{re.escape(p)}_.*"))
-        sorted_exps = [[] for _ in comp_descs["parses"]]
+        sorted_exps = [(p, []) for p in comp_descs["parses"]]
 
     elif compare_by == "inst":
         for i in instance_idxs:
             patterns.append(re.compile(rf"^{disting}.*_{i}\.pkl$"))
-        sorted_exps = [[] for _ in instance_idxs]
+        sorted_exps = [(str(i), []) for i in instance_idxs]
 
     elif compare_by == "exp":
         for parse in comp_descs["parses"]:
             for pars, _ in enumerate(comp_descs["params"]):
                 patterns.append(re.compile(rf"^{disting}_{re.escape([parse])}_.*_{re.escape(pars)}_\d+\.pkl$"))
-        sorted_exps = [[] for _ in range(len(comp_descs["parses"]) * len(comp_descs["params"]))]
+        sorted_exps = [(str(i), []) for i in range(len(comp_descs["parses"]) * len(comp_descs["params"]))]
 
     print(f"{len(patterns)} patterns found...")
 
     for exp in loaded:
         for i, pattern in enumerate(patterns):
             if pattern.match(exp.get_desc()):
-                sorted_exps[i].append(exp)
+                sorted_exps[i][1].append(exp)
                 continue
 
     print(f"{sum([len(i) for i in sorted_exps])} explanations match...")
 
-    for i, exp_arr in enumerate(sorted_exps):
+    for i, (name, exp_arr) in enumerate(sorted_exps):
         if len(exp_arr) > 0:
             sz = avg_influence_sz(exp_arr)
-            print("\n" + comp_descs["models"][i])
+            print("\n" + name)
             print("Average size of influence:\t" + str(sz[0]))
             print("Weighted size of influence:\t" + str(sz[1]))
             print("Avg relation distance:\t" + str(sz[2]))
