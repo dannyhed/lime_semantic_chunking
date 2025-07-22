@@ -314,7 +314,7 @@ def influence_sz(exp, label=1):
     # exp.get_exp().save_to_file("INFLUENCETEST.html")
 
     if not exp.data["is_standard"]:
-        local_exp = exp.data["exp_data"]["domain_data"]["all_exps"][label]
+        local_exp = exp.get_local_exp()
         ids = [x[0] for x in local_exp]
 
         dependence_chunks = [[] for _ in range(int(max(ids)/num_words) + 1)]
@@ -331,6 +331,8 @@ def influence_sz(exp, label=1):
         relation_distance = [abs(max(id) - min(id)) for id in id_chunks]
         weighted_rel_dist = [dist * abs(weighted_dep_chunks[i]) for i, dist in enumerate(relation_distance)]
         total = len(id_chunks)
+        if total == 0:
+            print(exp.get_tokens())
 
     else:
         get_exp = exp.get_exp().local_exp[label]
