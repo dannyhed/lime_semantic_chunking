@@ -404,7 +404,7 @@ def train_models(all_model_params, dataset=None):
     print("Training Models...")
     models_trained = []
     bert_vectorizer = BERTVectorizer()
-    for p in all_model_params:
+    for p in tqdm(all_model_params):
         m = []
         if p[0] == "rf":
             m = sklearn.ensemble.RandomForestClassifier(n_estimators=p[2])
