@@ -634,7 +634,7 @@ comp_descs = {
     "disting": "SpamResults1"
 }
 
-all_models = train_models(model_params[7:], DATASET)
+# all_models = train_models(model_params, DATASET)
 all_models = load_models(model_params, DATASET)
 
 run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
