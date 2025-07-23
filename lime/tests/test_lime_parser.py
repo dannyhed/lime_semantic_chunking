@@ -410,7 +410,7 @@ def train_models(all_model_params, dataset=None):
             m = sklearn.ensemble.RandomForestClassifier(n_estimators=p[2])
         elif p[0] == "mlp":
             m = MLPClassifier(solver="lbfgs", alpha=1e-5,
-                            hidden_layer_sizes=tuple(p[2]), random_state=1, max_iter=1000)
+                            hidden_layer_sizes=tuple(p[2]), random_state=1, max_iter=2000)
         if p[1] == "i":
             m.fit(train_vectors, y_train)
             models_trained.append(make_pipeline(vectorizer, m).predict_proba)
@@ -432,6 +432,20 @@ def load_models(all_model_params, dataset=None):
     clear_lines(1)
     print("Models loaded")
     return models_loaded
+
+def print_explanations(disting, names=None):
+    pattern = re.compile(f"^{re.escape(disting)}.*")
+    files = []
+    for file in os.listdir(EXPL_PATH):
+        if pattern.match(file):
+            files.append(file)
+    if names == None:
+        for f, file in enumerate(files):
+            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + str(f))
+    else:
+        for name, file in zip(names, files):
+            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + name)
+
 
 
 BERT_FOLD = r"./bert_data/"
@@ -620,12 +634,11 @@ comp_descs = {
     "disting": "SpamResults1"
 }
 
-
-all_models = train_models(model_params, DATASET)
+all_models = train_models(model_params[7:], DATASET)
 all_models = load_models(model_params, DATASET)
 
 run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
 
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
