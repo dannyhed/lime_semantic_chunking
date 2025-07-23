@@ -410,7 +410,7 @@ def train_models(all_model_params, dataset=None):
             m = sklearn.ensemble.RandomForestClassifier(n_estimators=p[2])
         elif p[0] == "mlp":
             m = MLPClassifier(solver="lbfgs", alpha=1e-5,
-                            hidden_layer_sizes=tuple(p[2]), random_state=1)
+                            hidden_layer_sizes=tuple(p[2]), random_state=1, max_iter=1000)
         if p[1] == "i":
             m.fit(train_vectors, y_train)
             models_trained.append(make_pipeline(vectorizer, m).predict_proba)
@@ -621,7 +621,7 @@ comp_descs = {
 }
 
 
-# all_models = train_models(model_params, DATASET)
+all_models = train_models(model_params, DATASET)
 all_models = load_models(model_params, DATASET)
 
 run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
