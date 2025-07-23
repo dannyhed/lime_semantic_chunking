@@ -330,7 +330,8 @@ def influence_sz(exp, label=1):
             try:
                 weighted_dep_chunks[i] = chunk[0][1]
             except:
-                exp.get_exp().save_to_file("problematic.html")
+                return (0, 0, 0, 0, 0)
+                # exp.get_exp().save_to_file("problematic.html")
                 # print(exp.get_desc())
                 # print(num_words)
                 # print(local_exp)
@@ -437,6 +438,7 @@ BERT_FOLD = r"./bert_data/"
 SPAM_DATA = "spam_ds"
 SEM_DATA = "sem_ds"
 IMDB_DATA = "imdb_ds"
+HATE_DATA = "hate_ds"
 SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
 SEMFILE = r"./sentiment_sens/"
 SEMFILE_1 = "amazon_cells_labelled.txt"
@@ -525,7 +527,7 @@ class_names_hate = ['0', '1']
 
 
 #                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-DATASET = "imdb" # "spam", "sem", "imdb", "hate" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = "hate" # "spam", "sem", "imdb", "hate" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
@@ -559,14 +561,14 @@ elif DATASET == "hate":
 # #                                                                 ||||||||||
 # #                                                                 ||||||||||
 # #                                                                 \/\/\/\/\/
-# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(IMDB_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(HATE_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
 # #                                                                 /\/\/\/\/\
 # #                                                                 ||||||||||
 # #                                                                 ||||||||||
 
-# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-# train_vectors = vectorizer.fit_transform(t_train)
-# test_vectors = vectorizer.transform(t_test)
+vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+train_vectors = vectorizer.fit_transform(t_train)
+test_vectors = vectorizer.transform(t_test)
 
 
 model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
@@ -598,7 +600,7 @@ descs = {
 
   #            ||||||||||||||
   #            \/\/\/\/\/\/\/
-    "disting": "IMDBResults1"
+    "disting": "HateResults1"
 } #            ^^^^^^^^^^^^^^
   #            ^^^^^^^^^^^^^^
 
@@ -606,7 +608,7 @@ instance_idxs = list(range(25))
 # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
 #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-# instances = [t_test[i] for i in instance_idxs]
+instances = [t_test[i] for i in instance_idxs]
 # for i in instances:
 #     print(i)
 
@@ -619,11 +621,11 @@ comp_descs = {
 }
 
 
-# all_models = train_models(model_params, DATASET)
-# all_models = load_models(model_params, DATASET)
+all_models = train_models(model_params, DATASET)
+all_models = load_models(model_params, DATASET)
 
-# run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
