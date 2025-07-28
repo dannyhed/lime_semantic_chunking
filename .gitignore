@@ -73,6 +73,6 @@ fabric.properties
 
 # Saved Results
 /saved_explanations
-!/saved_explanations/humaneval*
+#!/saved_explanations/humaneval*
 /saved_models
-*.html
+#*.html

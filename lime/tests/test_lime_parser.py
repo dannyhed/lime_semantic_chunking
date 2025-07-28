@@ -60,7 +60,7 @@ from tqdm import tqdm
 import re
 import sys
 import pandas as pd
-
+import shap
 
 
 def clear_lines(n):
@@ -540,10 +540,9 @@ class_names_imdb = ['0', '1']
 class_names_hate = ['0', '1']
 
 
-#                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-DATASET = "hate" # "spam", "sem", "imdb", "hate" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
+ALL_DATASETS = ["spam", "sem", "imdb", "hate"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+DATASET = ALL_DATASETS[3]                      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#         ^^^^^^^^^^^^^^^
 
 labels = []
 texts = []
@@ -635,15 +634,15 @@ comp_descs = {
 }
 
 # all_models = train_models(model_params, DATASET)
-all_models = load_models(model_params, DATASET)
+# all_models = load_models(model_params, DATASET)
 
-run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                   instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+# run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
-    loaded = load_explanations(comp_descs, EXPL_PATH, specific=False)
+    loaded = load_explanations(comp_descs, EXPL_PATH, specific=False) 
     print(f"Found {len(loaded)} explanations...")
 
     # for i, ep in enumerate(loaded):
@@ -706,8 +705,16 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
             print("Avg relation distance:\t\t" + str(sz[2]))
             print("Weighted relation distance:\t" + str(sz[3]))
 
+all_dists = set()
+for file in os.listdir(EXPL_PATH):
+    all_dists.add(SavedExplanation(file).get_desc().split("\n")[0].split("\t")[0])
 
-get_exp_metrics(comp_descs, compare_by="exp")
+for dist in all_dists:
+    print(dist)
+
+
+# get_exp_metrics(comp_descs, compare_by="exp")
+
 
 # comp_descs["disting"] = "SemResults1"
 # get_exp_metrics(comp_descs)
