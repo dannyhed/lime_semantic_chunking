@@ -445,9 +445,11 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
     if names == None:
         for f, file in enumerate(files):
             SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + str(f))
+            print(HTML_PATH + disting + more_name + str(f))
     else:
         for name, file in zip(names, files):
             SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + name)
+            print(HTML_PATH + disting + more_name + name)
 
 
 
@@ -728,6 +730,7 @@ for dist in all_dists:
             more_name = "small"
         else:
             more_name = "large"
+        print(more_name)
         print_explanations(dist, add_regex=f"_{m}_9_\d+", more_name=more_name)
 
 
