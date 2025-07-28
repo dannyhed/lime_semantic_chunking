@@ -433,18 +433,21 @@ def load_models(all_model_params, dataset=None):
     print("Models loaded")
     return models_loaded
 
-def print_explanations(disting, names=None):
-    pattern = re.compile(f"^{re.escape(disting)}.*")
+def print_explanations(disting, names=None, more_name=None, add_regex=None):
+    if add_regex == None:
+        pattern = re.compile(f"^{re.escape(disting)}.*")
+    else:
+        pattern = re.compile(f"^{re.escape(disting)}{add_regex}\n")
     files = []
     for file in os.listdir(EXPL_PATH):
         if pattern.match(file):
             files.append(file)
     if names == None:
         for f, file in enumerate(files):
-            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + str(f))
+            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + str(f))
     else:
         for name, file in zip(names, files):
-            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + name)
+            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + name)
 
 
 
@@ -617,7 +620,7 @@ descs = {
 } #            ^^^^^^^^^^^^^^
   #            ^^^^^^^^^^^^^^
 
-# instance_idxs = list(range(25))
+instance_idxs = list(range(25))
 # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
 #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
@@ -625,13 +628,13 @@ descs = {
 # for i in instances:
 #     print(i)
 
-# comp_descs = {
-#     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
-#     "parses": ["Dep", "Con", "Ran", "Std"],
-#     "params": parameter_sets,
-#     "instances": instance_idxs,
-#     "disting": "SpamResults1"
-# }
+comp_descs = {
+    "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
+    "parses": ["Dep", "Con", "Ran", "Std"],
+    "params": parameter_sets,
+    "instances": instance_idxs,
+    "disting": "SpamResults1"
+}
 
 # all_models = train_models(model_params, DATASET)
 # all_models = load_models(model_params, DATASET)
@@ -705,12 +708,27 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
             print("Avg relation distance:\t\t" + str(sz[2]))
             print("Weighted relation distance:\t" + str(sz[3]))
 
-all_dists = set()
-for file in os.listdir(EXPL_PATH):
-    all_dists.add(SavedExplanation(file, EXPL_PATH).get_desc().split("\n")[0].split("_")[0])
+def get_all_distings():
+    all_dists = set()
+    for file in os.listdir(EXPL_PATH):
+        all_dists.add(SavedExplanation(file, EXPL_PATH).get_desc().split("\n")[0].split("_")[0])
 
+    for dist in all_dists:
+        print(dist)
+    return all_dists
+
+all_dists = ["SpamResults1", "IMDBResults1", "SemResults1",
+             "HateResults1"] #, "Results2", "Results1"
+
+
+more_name = ''
 for dist in all_dists:
-    print(dist)
+    for m in [comp_descs["models"][0], comp_descs["models"][-1]]:
+        if m == comp_descs["models"][0]:
+            more_name = "small"
+        else:
+            more_name = "large"
+        print_explanations(dist, add_regex=f"_{m}_9_\d+", more_name=more_name)
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
