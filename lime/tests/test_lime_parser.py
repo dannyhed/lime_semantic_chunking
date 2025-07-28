@@ -551,44 +551,38 @@ ALL_DATASETS = ["spam", "sem", "imdb", "hate"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 DATASET = ALL_DATASETS[3]                      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #         ^^^^^^^^^^^^^^^
 
-labels = []
-texts = []
-if DATASET == "sem":
-    l1, t1 = tab_separated_ds(SEMFILE + SEMFILE_1, class_names_sem, False)
-    l2, t2 = tab_separated_ds(SEMFILE + SEMFILE_2, class_names_sem, False)
-    l3, t3 = tab_separated_ds(SEMFILE + SEMFILE_3, class_names_sem, False)
+CLASS_NAMES = []
 
-    labels = l1 + l2 + l3
-    texts = t1 + t2 + t3
+def get_ts_and_ls(DS):
+    labels = []
+    texts = []
+    if DS == "sem":
+        l1, t1 = tab_separated_ds(SEMFILE + SEMFILE_1, class_names_sem, False)
+        l2, t2 = tab_separated_ds(SEMFILE + SEMFILE_2, class_names_sem, False)
+        l3, t3 = tab_separated_ds(SEMFILE + SEMFILE_3, class_names_sem, False)
 
-    CLASS_NAMES = class_names_sem
+        labels = l1 + l2 + l3
+        texts = t1 + t2 + t3
 
-elif DATASET == "spam":
-    labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
+        CLASS_NAMES = class_names_sem
 
-    CLASS_NAMES = class_names_spam
+    elif DS == "spam":
+        labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
 
-elif DATASET == "imdb":
-    labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
+        CLASS_NAMES = class_names_spam
 
-    CLASS_NAMES = class_names_imdb
+    elif DS == "imdb":
+        labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
 
-elif DATASET == "hate":    
-    labels, texts = tab_separated_ds(HATETAB, class_names_hate)
+        CLASS_NAMES = class_names_imdb
 
-    CLASS_NAMES = class_names_hate
+    elif DS == "hate":    
+        labels, texts = tab_separated_ds(HATETAB, class_names_hate)
 
-# #                                                                 ||||||||||
-# #                                                                 ||||||||||
-# #                                                                 \/\/\/\/\/
-# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(HATE_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
-# #                                                                 /\/\/\/\/\
-# #                                                                 ||||||||||
-# #                                                                 ||||||||||
+        CLASS_NAMES = class_names_hate
+    
+    return texts, labels
 
-# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-# train_vectors = vectorizer.fit_transform(t_train)
-# test_vectors = vectorizer.transform(t_test)
 
 
 model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
@@ -607,30 +601,59 @@ parameter_sets = [(5, 1000, 1, 25, True),
                   (5, 1000, 1, 100, True), 
                   (10, 1000, 1, 100, True), 
                   (20, 1000, 1, 100, True),
-                  (5, 1000, 1, 200, True), 
+                  (5, 1000, 1, 200, True),
                   (10, 1000, 1, 200, True), 
                   (20, 1000, 1, 200, True)]
 
 
-descs = {
-    # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
-    "models": [model_save_name(p, DATASET, ext=False) for p in model_params],
-    "parses": ["Dep", "Con", "Ran", "Std"],
-    # "param_sets": ["0", "1", "2", "3"],
+model_params = [model_params[0], model_params[-1]]
+parameter_sets = [parameter_sets[9]]
 
-  #            ||||||||||||||
-  #            \/\/\/\/\/\/\/
-    "disting": "HateResults1"
-} #            ^^^^^^^^^^^^^^
-  #            ^^^^^^^^^^^^^^
+all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
+             "HateResults2"] #, "Results2", "Results1"
 
-instance_idxs = list(range(25))
-# [953, 1091, 1089, 1087, 1080, 1078, 1076, 
-#              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
+comp_descs = {}
 
-# instances = [t_test[i] for i in instance_idxs]
-# for i in instances:
-#     print(i)
+for dist, DS in enumerate(ALL_DATASETS):
+
+    descs = {
+        # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
+        "models": [model_save_name(p, DS, ext=False) for p in model_params],
+        "parses": ["Dep", "Con", "Ran", "Std"],
+        # "param_sets": ["0", "1", "2", "3"],
+
+    #            ||||||||||||||
+    #            \/\/\/\/\/\/\/
+        "disting": all_dists[dist]
+    } #            ^^^^^^^^^^^^^^
+    #            ^^^^^^^^^^^^^^
+
+    #                                                                 ||||||||||
+    #                                                                 ||||||||||
+    #                                                                 \/\/\/\/\/
+    t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(DS, BERT_FOLD, data=get_ts_and_ls(DS), text_too=True)
+    #                                                                 /\/\/\/\/\
+    #                                                                 ||||||||||
+    #                                                                 ||||||||||
+
+    vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+    train_vectors = vectorizer.fit_transform(t_train)
+    test_vectors = vectorizer.transform(t_test)
+
+    instance_idxs = list(range(25, 50))
+    # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
+    #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
+
+    instances = [t_test[i] for i in instance_idxs]
+    # for i in instances:
+    #     print(i)
+
+    # all_models = train_models(model_params, DATASET)
+    all_models = load_models(model_params, DATASET)
+
+    run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+
 
 comp_descs = {
     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
@@ -639,13 +662,6 @@ comp_descs = {
     "instances": instance_idxs,
     "disting": "SpamResults1"
 }
-
-# all_models = train_models(model_params, DATASET)
-# all_models = load_models(model_params, DATASET)
-
-# run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-#                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
-
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
@@ -721,8 +737,7 @@ def get_all_distings():
         print(dist)
     return all_dists
 
-all_dists = ["SpamResults1", "IMDBResults1", "SemResults1",
-             "HateResults1"] #, "Results2", "Results1"
+
 
 
 more_name = ''
@@ -734,7 +749,7 @@ for dist, ds in zip(all_dists, ALL_DATASETS):
             else:
                 more_name = "large"
             print(more_name)
-            print_explanations(dist, add_regex=f"_{parse}_{ds}-{m}_9_\d+", more_name=parse + "_" + more_name)
+            print_explanations(dist, add_regex=f"_{parse}_{ds}-{m}_0_\d+", more_name=(parse + "_" + more_name))
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")

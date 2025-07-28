@@ -75,4 +75,5 @@ fabric.properties
 /saved_explanations
 #!/saved_explanations/humaneval*
 /saved_models
+/HTML_results/html_images
 #*.html
