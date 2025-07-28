@@ -400,7 +400,7 @@ def model_save_name(params, dataset=None, ext=True):
         return filename
 
 
-def train_models(all_model_params, dataset=None):
+def train_models(all_model_params, train_vectors, bert_train, y_train, vectorizer, dataset=None):
     print("Training Models...")
     models_trained = []
     bert_vectorizer = BERTVectorizer()
@@ -585,14 +585,14 @@ def get_ts_and_ls(DS):
 
 
 
-model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
+MODEL_PARAMS = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
                 ("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
                 ("mlp", "b", [50, 25]), ("mlp", "b", [100, 50]), ("mlp", "b", [200, 100])]
 
     
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
-parameter_sets = [(5, 1000, 1, 25, True), 
+EXP_PARAMS = [(5, 1000, 1, 25, True), 
                   (10, 1000, 1, 25, True), 
                   (20, 1000, 1, 25, True), 
                   (5, 1000, 1, 50, True), 
@@ -609,8 +609,8 @@ parameter_sets = [(5, 1000, 1, 25, True),
 comp_descs = {}
 
 def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
-    model_params = [model_params[i] for i in model_param_sets]
-    parameter_sets = [parameter_sets[i] for i in exp_param_sets]
+    model_params = [MODEL_PARAMS[i] for i in model_param_sets]
+    parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
 
     for dist, DS in enumerate(ALL_DATASETS):
 
@@ -646,7 +646,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         # for i in instances:
         #     print(i)
 
-        # all_models = train_models(model_params, DATASET)
+        #all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS)
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
