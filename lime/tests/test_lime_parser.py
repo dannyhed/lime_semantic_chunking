@@ -435,9 +435,9 @@ def load_models(all_model_params, dataset=None):
 
 def print_explanations(disting, names=None, more_name=None, add_regex=None):
     if add_regex == None:
-        pattern = re.compile(f"^{re.escape(disting)}.*")
+        pattern = re.compile(f"^{re.escape(disting)}.*\.pkl$")
     else:
-        pattern = re.compile(f"^{re.escape(disting)}{add_regex}\n")
+        pattern = re.compile(f"^{re.escape(disting)}{add_regex}\.pkl$")
     files = []
     for file in os.listdir(EXPL_PATH):
         if pattern.match(file):
