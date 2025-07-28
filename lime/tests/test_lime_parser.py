@@ -654,7 +654,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
 
 
 
-models = [0, -1]
+models = [0]
 params = [9]
 all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
             "HateResults2"]
