@@ -574,14 +574,14 @@ elif DATASET == "hate":
 # #                                                                 ||||||||||
 # #                                                                 ||||||||||
 # #                                                                 \/\/\/\/\/
-t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(HATE_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
+# t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(HATE_DATA, BERT_FOLD, data=(texts, labels), text_too=True)
 # #                                                                 /\/\/\/\/\
 # #                                                                 ||||||||||
 # #                                                                 ||||||||||
 
-vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-train_vectors = vectorizer.fit_transform(t_train)
-test_vectors = vectorizer.transform(t_test)
+# vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+# train_vectors = vectorizer.fit_transform(t_train)
+# test_vectors = vectorizer.transform(t_test)
 
 
 model_params = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
@@ -617,21 +617,21 @@ descs = {
 } #            ^^^^^^^^^^^^^^
   #            ^^^^^^^^^^^^^^
 
-instance_idxs = list(range(25))
+# instance_idxs = list(range(25))
 # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
 #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-instances = [t_test[i] for i in instance_idxs]
+# instances = [t_test[i] for i in instance_idxs]
 # for i in instances:
 #     print(i)
 
-comp_descs = {
-    "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
-    "parses": ["Dep", "Con", "Ran", "Std"],
-    "params": parameter_sets,
-    "instances": instance_idxs,
-    "disting": "SpamResults1"
-}
+# comp_descs = {
+#     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
+#     "parses": ["Dep", "Con", "Ran", "Std"],
+#     "params": parameter_sets,
+#     "instances": instance_idxs,
+#     "disting": "SpamResults1"
+# }
 
 # all_models = train_models(model_params, DATASET)
 # all_models = load_models(model_params, DATASET)
@@ -707,7 +707,7 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
 all_dists = set()
 for file in os.listdir(EXPL_PATH):
-    all_dists.add(SavedExplanation(file, EXPL_PATH).get_desc().split("\n")[0].split("\t")[0])
+    all_dists.add(SavedExplanation(file, EXPL_PATH).get_desc().split("\n")[0].split("_")[0])
 
 for dist in all_dists:
     print(dist)
