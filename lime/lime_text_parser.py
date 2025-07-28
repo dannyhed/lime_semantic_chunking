@@ -906,7 +906,7 @@ class IndexedStringParsed(object):
                     offsets.append(len(tree))
                 
                 offsets = [np.sum([offsets[:i]]) + 1 for i in range(len(offsets))]
-                offsets = list(np.array(offsets, dtype=np.int16))
+                offsets = list(np.array(offsets, dtype=np.int32))
 
                 combined = [offsets.copy()]
 
