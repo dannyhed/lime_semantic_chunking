@@ -735,7 +735,7 @@ for dist in all_dists:
                 else:
                     more_name = "large"
                 print(more_name)
-                print_explanations(dist, add_regex=f"_{parse}_{ds}_{m}_9_\d+", more_name=more_name)
+                print_explanations(dist, add_regex=f"_{parse}_{ds}-{m}_9_\d+", more_name=more_name)
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
