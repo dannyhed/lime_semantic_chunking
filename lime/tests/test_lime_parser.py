@@ -606,53 +606,55 @@ parameter_sets = [(5, 1000, 1, 25, True),
                   (20, 1000, 1, 200, True)]
 
 
-model_params = [model_params[0], model_params[-1]]
-parameter_sets = [parameter_sets[9]]
-
-all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
-             "HateResults2"] #, "Results2", "Results1"
-
 comp_descs = {}
+model_params = [0, -1]
+exp_params = [9]
+all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
+            "HateResults2"]
 
-for dist, DS in enumerate(ALL_DATASETS):
+def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
+    model_params = [model_params[i] for i in model_param_sets]
+    parameter_sets = [parameter_sets[i] for i in exp_param_sets]
 
-    descs = {
-        # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
-        "models": [model_save_name(p, DS, ext=False) for p in model_params],
-        "parses": ["Dep", "Con", "Ran", "Std"],
-        # "param_sets": ["0", "1", "2", "3"],
+    for dist, DS in enumerate(ALL_DATASETS):
 
-    #            ||||||||||||||
-    #            \/\/\/\/\/\/\/
-        "disting": all_dists[dist]
-    } #            ^^^^^^^^^^^^^^
-    #            ^^^^^^^^^^^^^^
+        descs = {
+            # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
+            "models": [model_save_name(p, DS, ext=False) for p in model_params],
+            "parses": ["Dep", "Con", "Ran", "Std"],
+            # "param_sets": ["0", "1", "2", "3"],
 
-    #                                                                 ||||||||||
-    #                                                                 ||||||||||
-    #                                                                 \/\/\/\/\/
-    t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(DS, BERT_FOLD, data=get_ts_and_ls(DS), text_too=True)
-    #                                                                 /\/\/\/\/\
-    #                                                                 ||||||||||
-    #                                                                 ||||||||||
+        #            ||||||||||||||
+        #            \/\/\/\/\/\/\/
+            "disting": all_dists[dist]
+        } #            ^^^^^^^^^^^^^^
+        #            ^^^^^^^^^^^^^^
 
-    vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-    train_vectors = vectorizer.fit_transform(t_train)
-    test_vectors = vectorizer.transform(t_test)
+        #                                                                 ||||||||||
+        #                                                                 ||||||||||
+        #                                                                 \/\/\/\/\/
+        t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(DS, BERT_FOLD, data=get_ts_and_ls(DS), text_too=True)
+        #                                                                 /\/\/\/\/\
+        #                                                                 ||||||||||
+        #                                                                 ||||||||||
 
-    instance_idxs = list(range(25, 50))
-    # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
-    #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
+        vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+        train_vectors = vectorizer.fit_transform(t_train)
+        test_vectors = vectorizer.transform(t_test)
 
-    instances = [t_test[i] for i in instance_idxs]
-    # for i in instances:
-    #     print(i)
+        instance_idxs = list(range(25, 50))
+        # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
+        #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-    # all_models = train_models(model_params, DATASET)
-    all_models = load_models(model_params, DATASET)
+        instances = [t_test[i] for i in instance_idxs]
+        # for i in instances:
+        #     print(i)
 
-    run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                    instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+        # all_models = train_models(model_params, DATASET)
+        all_models = load_models(model_params, DS)
+
+        run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
 
 
 comp_descs = {
