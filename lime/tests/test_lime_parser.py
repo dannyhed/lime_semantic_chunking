@@ -441,7 +441,6 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
     print(pattern)
     files = []
     for file in os.listdir(EXPL_PATH):
-        print(file)
         if pattern.match(file):
             print("found file")
             files.append(file)
