@@ -654,13 +654,13 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
 
 
 
-model_params = [0, -1]
-exp_params = [9]
+models = [0, -1]
+params = [9]
 all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
             "HateResults2"]
 
 
-run_all_datasets(all_dists, model_params, exp_params)
+run_all_datasets(all_dists, models, params)
 
 comp_descs = {
     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
