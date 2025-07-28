@@ -446,11 +446,11 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
             files.append(file)
     if names == None:
         for f, file in enumerate(files):
-            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + str(f))
+            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + str(f) + ".html")
             print(HTML_PATH + disting + more_name + str(f))
     else:
         for name, file in zip(names, files):
-            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + name)
+            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + name + ".html")
             print(HTML_PATH + disting + more_name + name)
 
 
