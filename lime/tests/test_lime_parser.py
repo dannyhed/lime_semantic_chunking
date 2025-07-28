@@ -638,11 +638,10 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         train_vectors = vectorizer.fit_transform(t_train)
         test_vectors = vectorizer.transform(t_test)
 
-        instance_idxs = list(range(25, 50))
         # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
         #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-        instances = [t_test[i] for i in instance_idxs]
+        instances = [t_test[i] for i in INSTANCE_IDXS]
         # for i in instances:
         #     print(i)
 
@@ -650,23 +649,26 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 
-models = [0]
+INSTANCE_IDXS = list(range(25, 50))
+models = [0, -1]
 params = [9]
-all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
-            "HateResults2"]
+# "spam", "sem", "imdb", "hate"
+all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
+            "HateResults1", "SpamResults2", "SemResults2", 
+            "IMDBResults2", "HateResults2"]
 
 
-run_all_datasets(all_dists, models, params)
+# run_all_datasets(all_dists, models, params)
 
 comp_descs = {
-    "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
+    "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
     "parses": ["Dep", "Con", "Ran", "Std"],
-    "params": parameter_sets,
-    "instances": instance_idxs,
+    "params": [EXP_PARAMS[p] for p in params],
+    "instances": INSTANCE_IDXS,
     "disting": "SpamResults1"
 }
 
@@ -705,9 +707,9 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
         sorted_exps = [(p, []) for p in comp_descs["parses"]]
 
     elif compare_by == "inst":
-        for i in instance_idxs:
+        for i in comp_descs["instances"]:
             patterns.append(re.compile(f"^{disting}.*_{i}\n"))
-        sorted_exps = [(str(i), []) for i in instance_idxs]
+        sorted_exps = [(str(i), []) for i in comp_descs["instances"]]
 
     elif compare_by == "exp":
         for parse in comp_descs["parses"]:
@@ -745,18 +747,19 @@ def get_all_distings():
     return all_dists
 
 
-
+ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"] 
 
 more_name = ''
+models = [comp_descs["models"]]
 for dist, ds in zip(all_dists, ALL_DATASETS):
     for parse in comp_descs["parses"]:
-        for m in [comp_descs["models"][0], comp_descs["models"][-1]]:
-            if m == comp_descs["models"][0]:
+        for m in models:
+            if m == models[0]:
                 more_name = "small"
             else:
                 more_name = "large"
             print(more_name)
-            print_explanations(dist, add_regex=f"_{parse}_{ds}-{m}_0_\d+", more_name=(parse + "_" + more_name))
+            print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
