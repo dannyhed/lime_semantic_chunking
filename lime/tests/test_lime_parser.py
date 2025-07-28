@@ -438,8 +438,10 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
         pattern = re.compile(f"^{re.escape(disting)}.*\.pkl$")
     else:
         pattern = re.compile(f"^{re.escape(disting)}{add_regex}\.pkl$")
+    print(pattern)
     files = []
     for file in os.listdir(EXPL_PATH):
+        print(file)
         if pattern.match(file):
             print("found file")
             files.append(file)
