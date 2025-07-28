@@ -728,13 +728,14 @@ all_dists = ["SpamResults1", "IMDBResults1", "SemResults1",
 more_name = ''
 for dist in all_dists:
     for parse in comp_descs["parses"]:
-        for m in [comp_descs["models"][0], comp_descs["models"][-1]]:
-            if m == comp_descs["models"][0]:
-                more_name = "small"
-            else:
-                more_name = "large"
-            print(more_name)
-            print_explanations(dist, add_regex=f"_{parse}_{m}_9_\d+", more_name=more_name)
+        for ds in ALL_DATASETS:
+            for m in [comp_descs["models"][0], comp_descs["models"][-1]]:
+                if m == comp_descs["models"][0]:
+                    more_name = "small"
+                else:
+                    more_name = "large"
+                print(more_name)
+                print_explanations(dist, add_regex=f"_{parse}_{ds}_{m}_9_\d+", more_name=more_name)
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
