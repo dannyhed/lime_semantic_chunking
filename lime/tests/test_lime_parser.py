@@ -649,7 +649,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 
