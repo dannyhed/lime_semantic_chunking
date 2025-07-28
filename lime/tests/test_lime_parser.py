@@ -607,10 +607,6 @@ parameter_sets = [(5, 1000, 1, 25, True),
 
 
 comp_descs = {}
-model_params = [0, -1]
-exp_params = [9]
-all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
-            "HateResults2"]
 
 def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
     model_params = [model_params[i] for i in model_param_sets]
@@ -656,6 +652,15 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
                         instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
 
+
+
+model_params = [0, -1]
+exp_params = [9]
+all_dists = ["SpamResults2", "SemResults2", "IMDBResults2",
+            "HateResults2"]
+
+
+run_all_datasets(all_dists, model_params, exp_params)
 
 comp_descs = {
     "models": [model_save_name(p, dataset=None, ext=False) for p in model_params],
