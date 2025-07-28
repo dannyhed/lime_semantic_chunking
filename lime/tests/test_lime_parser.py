@@ -613,7 +613,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
     parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
 
     for dist, DS in enumerate(ALL_DATASETS):
-
+        print(f"NEXT DATASET: {DS}")
         descs = {
             # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
             "models": [model_save_name(p, DS, ext=False) for p in model_params],
@@ -654,15 +654,22 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
 
 
 INSTANCE_IDXS = list(range(25, 50))
-models = [0, -1]
-params = [0]
+models = [0]
+params = [9]
 # "spam", "sem", "imdb", "hate"
-all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
-            "HateResults1", "SpamResults2", "SemResults2", 
+all_dists = ["SpamResults2", "SemResults2", 
             "IMDBResults2", "HateResults2"]
+#"SpamResults1", "SemResults1", "IMDBResults1",
+            # "HateResults1", 
 
+run_all_datasets(all_dists, models, params)
 
-# run_all_datasets(all_dists, models, params)
+INSTANCE_IDXS = list(range(25))
+models = [-1]
+all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
+            "HateResults1"]
+run_all_datasets(all_dists, models, params)
+
 
 comp_descs = {
     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
