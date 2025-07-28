@@ -655,14 +655,14 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
 
 INSTANCE_IDXS = list(range(25, 50))
 models = [0, -1]
-params = [9]
+params = [0]
 # "spam", "sem", "imdb", "hate"
 all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
             "HateResults1", "SpamResults2", "SemResults2", 
             "IMDBResults2", "HateResults2"]
 
 
-run_all_datasets(all_dists, models, params)
+# run_all_datasets(all_dists, models, params)
 
 comp_descs = {
     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
@@ -748,6 +748,10 @@ def get_all_distings():
 
 
 ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"] 
+
+# all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
+#             "HateResults1", "SpamResults2", "SemResults2", 
+#             "IMDBResults2", "HateResults2"]
 
 more_name = ''
 models = comp_descs["models"]
