@@ -707,7 +707,7 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
 all_dists = set()
 for file in os.listdir(EXPL_PATH):
-    all_dists.add(SavedExplanation(file).get_desc().split("\n")[0].split("\t")[0])
+    all_dists.add(SavedExplanation(file, EXPL_PATH).get_desc().split("\n")[0].split("\t")[0])
 
 for dist in all_dists:
     print(dist)
