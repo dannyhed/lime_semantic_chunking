@@ -175,29 +175,29 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 if save:    
                     name, desc = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-4])
+                        SavedExplanation(name, path, desc, explanations[-5])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-3])
+                        SavedExplanation(name, path, desc, explanations[-4])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-2])
+                        SavedExplanation(name, path, desc, explanations[-3])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(3,m,p,i,num_feats,num_samples,descriptions)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
+                        SavedExplanation(name, path, desc, explanations[-2])
+                    else:
+                        print("\n" + name + " exists" + "\n")
+                    name, desc = save_desc(4,m,p,i,descriptions)
+                    if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-1])
                     else:
                         print("\n" + name + " exists" + "\n")
-                    # name, desc = save_desc(4,m,p,i,descriptions)
-                    # if not(skip_existing and os.path.exists(path+name+".pkl")):
-                    #     SavedExplanation(name, path, desc, explanations[-1])
-                    # else:
-                    #     print("\n" + name + " exists" + "\n")
                         
                 
                 clear_lines(15)
