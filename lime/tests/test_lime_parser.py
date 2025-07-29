@@ -618,7 +618,7 @@ EXP_PARAMS = [(5, 1000, 1, 25, True),
 
 comp_descs = {}
 
-def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
+def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs):
     model_params = [MODEL_PARAMS[i] for i in model_param_sets]
     parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
 
@@ -651,7 +651,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
         #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-        instances = [t_test[i] for i in INSTANCE_IDXS]
+        instances = [t_test[i] for i in instance_idxs]
         # for i in instances:
         #     print(i)
 
@@ -662,15 +662,15 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
                         instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
-INSTANCE_IDXS = list(range(25))
+instance_idxs = list(range(25))
 params = [6]
 models_1 = [-1]
 dists_1 = ["SpamResults1", "SemResults1", "IMDBResults1",
             "HateResults1"]
-# run_all_datasets(dists_1, models_1, params)
+run_all_datasets(dists_1, models_1, params, instance_idxs)
 
 
-INSTANCE_IDXS = list(range(25, 50))
+instance_idxs = list(range(25, 50))
 models_2 = [0]
 # "spam", "sem", "imdb", "hate"
 dists_2 = ["SpamResults2", "SemResults2", 
@@ -678,7 +678,7 @@ dists_2 = ["SpamResults2", "SemResults2",
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
-# run_all_datasets(dists_2, models_2, params)
+run_all_datasets(dists_2, models_2, params, instance_idxs)
 
 
 all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
@@ -690,7 +690,7 @@ comp_descs = {
     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
     "parses": ["Dep", "Con", "Ran", "Std"],
     "params": [EXP_PARAMS[p] for p in params],
-    "instances": INSTANCE_IDXS,
+    "instances": instance_idxs,
     "disting": "SpamResults1"
 }
 
