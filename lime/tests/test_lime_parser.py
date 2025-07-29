@@ -62,6 +62,7 @@ import re
 import sys
 import pandas as pd
 import shap
+import html
 
 EXPL_PATH = r"./saved_explanations/"
 MODEL_PATH = r"./saved_models/"
@@ -115,6 +116,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
 
     for m, model in enumerate(models):
         for i, inst in enumerate(instances):
+            inst = html.unescape(inst).strip()
             #prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
@@ -179,7 +181,6 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
                         #mask = shap.maskers.Text(tokenizer)
-                        print(f"Explaining instance: {repr(inst)}")
                         mask = shap.maskers.Text(r"\W+")
                         sh = shap.Explainer(model.predict_proba, mask)
                         explanations.append(sh(inst))
