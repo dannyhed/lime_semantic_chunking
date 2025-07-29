@@ -707,7 +707,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         #     print(i)
         t_train = np.array(list(t_train))
         t_test = np.array(list(t_test))
-        # all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, jmodel=True)
+        all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, jmodel=True)
 
         all_models = load_models(model_params, DS)
 
