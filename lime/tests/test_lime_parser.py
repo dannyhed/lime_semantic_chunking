@@ -679,12 +679,12 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
                         skip_existing=True, just_desc=False, shap_train=train_vectors)
 
 
-instance_idxs = list(range(25))
-params = [6]
-models_1 = [-1]
-dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
-            "HateHuman1"]
-run_all_datasets(dists_1, models_1, params, instance_idxs)
+# instance_idxs = list(range(25))
+# params = [6]
+# models_1 = [-1]
+# dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
+#             "HateHuman1"]
+# run_all_datasets(dists_1, models_1, params, instance_idxs)
 
 
 instance_idxs = list(range(25, 50))
