@@ -239,9 +239,9 @@ def get_explr(desc):
 def exp_cos_similarity(exp1, exp2):
     exp1 = [x[1] for x in exp1]
     exp2 = [x[1] for x in exp2]
-    return cos_similarity(exp1, exp2)
+    return my_cos_similarity(exp1, exp2)
     
-def cos_similarity(vec1, vec2):
+def my_cos_similarity(vec1, vec2):
     dot = np.dot(vec1, vec2)
     norm1 = np.linalg.norm(vec1)
     norm2 = np.linalg.norm(vec2)
