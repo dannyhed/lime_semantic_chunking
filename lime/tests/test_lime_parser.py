@@ -153,20 +153,20 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
 
-                name = save_desc(4,m,p,i,desc=descriptions)[0]
-                if not (skip_existing and os.path.exists(path+name+".pkl")):
-                    print("\n" + name)
-                    shap_inputs = [x.decode("utf-8") if isinstance(x, bytes) else x for x in shap_train[:num_feats]]
-                    background_data = model.named_steps['tfidfvectorizer'].transform(shap_inputs).toarray()
-                    #background_data = model.named_steps['tfidfvectorizer'].transform(shap_train[:num_feats]).toarray()
-                    #sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
-                    #sh = shap.KernelExplainer(model.predict_proba, background_data)
-                    sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
-                    # sh = shap.KernelExplainer(model.predict_proba, background_data)
-                    #sh = shap.KernelExplainer(model, shap_train[:num_feats])
-                    explanations.append(sh(inst))
-                elif just_desc:
-                    explanations.append(SavedExplanation(name, path).get_exp())
+                # name = save_desc(4,m,p,i,desc=descriptions)[0]
+                # if not (skip_existing and os.path.exists(path+name+".pkl")):
+                #     print("\n" + name)
+                #     shap_inputs = [x.decode("utf-8") if isinstance(x, bytes) else x for x in shap_train[:num_feats]]
+                #     background_data = model.named_steps['tfidfvectorizer'].transform(shap_inputs).toarray()
+                #     #background_data = model.named_steps['tfidfvectorizer'].transform(shap_train[:num_feats]).toarray()
+                #     #sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
+                #     #sh = shap.KernelExplainer(model.predict_proba, background_data)
+                #     sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
+                #     # sh = shap.KernelExplainer(model.predict_proba, background_data)
+                #     #sh = shap.KernelExplainer(model, shap_train[:num_feats])
+                #     explanations.append(sh(inst))
+                # elif just_desc:
+                #     explanations.append(SavedExplanation(name, path).get_exp())
                 
 
                 if just_desc:
@@ -175,29 +175,29 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 if save:    
                     name, desc = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-5])
+                        SavedExplanation(name, path, desc, explanations[-4])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-4])
+                        SavedExplanation(name, path, desc, explanations[-3])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-3])
+                        SavedExplanation(name, path, desc, explanations[-2])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(3,m,p,i,num_feats,num_samples,descriptions)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-2])
-                    else:
-                        print("\n" + name + " exists" + "\n")
-                    name, desc = save_desc(4,m,p,i,descriptions)
-                    if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-1])
                     else:
                         print("\n" + name + " exists" + "\n")
+                    # name, desc = save_desc(4,m,p,i,descriptions)
+                    # if not(skip_existing and os.path.exists(path+name+".pkl")):
+                    #     SavedExplanation(name, path, desc, explanations[-1])
+                    # else:
+                    #     print("\n" + name + " exists" + "\n")
                         
                 
                 clear_lines(15)
@@ -694,12 +694,12 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
                         skip_existing=True, just_desc=False, shap_train=t_train)
 
 
-# instance_idxs = list(range(25))
+instance_idxs = list(range(25))
 params = [6]
-# models_1 = [-1]
-# dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
-#             "HateHuman1"]
-# run_all_datasets(dists_1, models_1, params, instance_idxs)
+models_1 = [-1]
+dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
+            "HateHuman1"]
+run_all_datasets(dists_1, models_1, params, instance_idxs)
 
 
 instance_idxs = list(range(25, 50))
