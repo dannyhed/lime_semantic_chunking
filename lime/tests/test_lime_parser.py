@@ -676,7 +676,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
                         instances, save=True, descriptions=descs, path=EXPL_PATH, 
-                        skip_existing=True, just_desc=False, shap_train=train_vectors)
+                        skip_existing=True, just_desc=False, shap_train=t_train)
 
 
 # instance_idxs = list(range(25))
