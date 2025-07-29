@@ -452,8 +452,7 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
             exp.save_to_file(pathname + ".html")
             #print(pathname)
             with open(pathname + ".txt", "w+") as file:
-                print(exp.predict_proba)
-                file.write(exp.predict_proba)
+                file.write(str(exp.predict_proba[0]))
 
     else:
         for name, file in zip(names, files):
@@ -462,7 +461,7 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
             exp.save_to_file(pathname + ".html")
             #print(HTML_PATH + disting + more_name + name)
             with open(pathname + ".txt", "w+") as file:
-                file.write(exp.predict_proba)
+                file.write(str(exp.predict_proba[0]))
 
 
 
@@ -673,13 +672,13 @@ all_dists = ["SpamResults2", "SemResults2",
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
-run_all_datasets(all_dists, models, params)
+# run_all_datasets(all_dists, models, params)
 
 INSTANCE_IDXS = list(range(25))
 models = [-1]
 all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
             "HateResults1"]
-run_all_datasets(all_dists, models, params)
+# run_all_datasets(all_dists, models, params)
 
 
 comp_descs = {
