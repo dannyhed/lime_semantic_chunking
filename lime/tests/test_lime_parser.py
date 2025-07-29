@@ -117,7 +117,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     for m, model in enumerate(models):
         for i, inst in enumerate(instances):
             inst = html.unescape(inst).strip()
-            #prediction = model([inst])
+            # prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
                 print(f"\n[  {int((1000 * progress) / total) / 10.0}%  |  {progress}/{total}  ]\n\n", end='', flush=True)
@@ -180,7 +180,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         # teacher_forcing_model = shap.models.TeacherForcing(
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
-                        #mask = shap.maskers.Text(tokenizer)
+                        # mask = shap.maskers.Text(tokenizer)
+                        print(f"Instance: {inst}")
                         mask = shap.maskers.Text(r"\W+")
                         sh = shap.Explainer(model.predict_proba, mask)
                         explanations.append(sh(inst))
