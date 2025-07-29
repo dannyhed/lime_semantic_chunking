@@ -787,6 +787,7 @@ ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"]
 #             print(more_name)
 #             print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
 
+params = [0]
 
 more_name = "large"
 m = model_save_name(MODEL_PARAMS[models_1[0]], ext=False)
@@ -828,39 +829,22 @@ for dist, ds in zip(dists_2, ALL_DATASETS):
 
 
 
-# SemResults2_Dep_sem-rf-i-100_0_9.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_8.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_1.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_15.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_12.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_6.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_23.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_24.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_15.pkl
-# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_15.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_12.pkl
-# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_12.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_18.pkl
-# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_7.pkl
-# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_0.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_20.pkl
-# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_20.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_11.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_16.pkl
-# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_9.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_13.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_7.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_0.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_14.pkl
-# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_9.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_7.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_8.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_0.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_1.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_21.pkl
-# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_9.pkl
-# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_6.pkl
-
+# re.compile('^SpamResults2_Dep_spam-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SpamResults2_Con_spam-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SpamResults2_Ran_spam-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SpamResults2_Std_spam-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SemResults2_Dep_sem-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SemResults2_Con_sem-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SemResults2_Ran_sem-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^SemResults2_Std_sem-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^IMDBResults2_Dep_imdb-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^IMDBResults2_Con_imdb-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^IMDBResults2_Ran_imdb-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^IMDBResults2_Std_imdb-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^HateResults2_Dep_hate-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^HateResults2_Con_hate-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^HateResults2_Ran_hate-rf\\-i\\-100_6_\\d+\\.pkl$')
+# re.compile('^HateResults2_Std_hate-rf\\-i\\-100_6_\\d+\\.pkl$')
 
 
 #exp.as_list()
