@@ -76,7 +76,7 @@ def clear_lines(n):
 
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
-                       skip_existing=False, just_desc=False):
+                       skip_existing=False, just_desc=False, shap_train=None):
 
     def save_name(j, m, i, p, desc):
         name = desc["disting"] + "_" + desc["parses"][j] + "_" + desc["models"][m] + "_" + str(p) + "_" + str(i)
@@ -156,7 +156,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(4,m,p,i,desc=descriptions)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    sh = shap.Explainer(model)
+                    sh = shap.KernelExplainer(model, shap.kmeans(shap_train, num_feats))
                     explanations.append(sh(inst))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
@@ -675,7 +675,8 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, 
+                        skip_existing=True, just_desc=False, shap_train=train_vectors)
 
 
 instance_idxs = list(range(25))
