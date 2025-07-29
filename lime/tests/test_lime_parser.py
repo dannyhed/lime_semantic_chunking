@@ -111,6 +111,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     total = tot_insts*tot_params*tot_models
     progress = 0
 
+    tokenizer = None
+
     for m, model in enumerate(models):
         for i, inst in enumerate(instances):
             #prediction = model([inst])
@@ -171,7 +173,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         try:
                             tokenizer = model.named_steps["TfidfVectorizer"]
                         except:
-                            tokenizer = model.named_steps["bertvectorizer"].tokenizer
+                            print(model.names_steps)
+                            tokenizer = model.named_steps["BERTVectorizer"].tokenizer
                         # teacher_forcing_model = shap.models.TeacherForcing(
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
@@ -182,8 +185,6 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     elif just_desc:
                         explanations.append(SavedExplanation(name, path).get_exp())
                         new_expls += 1
-
-                print(new_expls)
 
                 if just_desc:
                     skip_existing = False
@@ -215,8 +216,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(4,m,p,i,desc=descriptions)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        print(new_expls)
-                        SavedExplanation(name, path, desc, explanations[-new_expls])
+                        SavedExplanation(name, path, desc, explanations[-new_expls], 
+                                         addl_data={"predict_proba": model.predict_proba(inst)})
                         new_expls -= 1
                     else:
                         print("\n" + name + " exists" + "\n")
@@ -516,6 +517,7 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
 
 
 
+
 BERT_FOLD = r"./bert_data/"
 SPAM_DATA = "spam_ds"
 SEM_DATA = "sem_ds"
@@ -716,12 +718,12 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
                         skip_existing=True, just_desc=False, shap_too=True)
 
 
-instance_idxs = list(range(25))
-params = [6]
-models_1 = [-1]
-dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
-            "HateHuman1"]
-run_all_datasets(dists_1, models_1, params, instance_idxs)
+# instance_idxs = list(range(25))
+# params = [6]
+# models_1 = [-1]
+# dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
+#             "HateHuman1"]
+# run_all_datasets(dists_1, models_1, params, instance_idxs)
 
 
 instance_idxs = list(range(25, 50))

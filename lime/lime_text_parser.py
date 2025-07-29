@@ -402,7 +402,7 @@ import pickletools
 import os
 
 class SavedExplanation(object):
-    def __init__(self, name=None, path=None, desc=None, exp=None, load=True):
+    def __init__(self, name=None, path=None, desc=None, exp=None, load=True, addl_data=None):
         if exp != None:
             self.shap = False
             try:
@@ -469,6 +469,9 @@ class SavedExplanation(object):
                     "is_standard": self.standard,
                     "shap": False
                 }
+                if addl_data != None:
+                    for key, value in addl_data:
+                        self.data[key] = value
             with open(path + name + ".pkl", mode="wb") as file:
                 pkl.dump(self.data, file=file)
         else:
@@ -538,7 +541,7 @@ class SavedExplanation(object):
                 self.exp = exp
                 self.local_exp = exp.local_exp
                 return self
-        
+    
     def get_exp(self):
         return self.exp
     

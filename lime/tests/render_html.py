@@ -5,7 +5,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from PIL import Image
+from test_lime_parser import *
 import time
+import shap
+from lime_text_parser import SavedExplanation
+import re
+import matplotlib.pyplot as plt
 
 # ==== CONFIG ====
 HTML_DIR = r"./HTML_results/"
@@ -25,6 +30,15 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--window-size=1600,1200")
 chrome_options.add_argument("--force-device-scale-factor=2")
 driver = webdriver.Chrome(options=chrome_options)
+
+def print_shap_images(exp_path):
+    pattern = re.compile(".*Shap.*")
+    for filename in os.listdir(exp_path):
+        if pattern.match(filename):
+            exp = SavedExplanation(filename).get_exp()
+            shap.plots.text(exp)
+            shap.plots.bar(exp)
+
 
 # ==== RENDER FUNCTION ====
 def render_div_by_selector(selector, output_path, html_file):
@@ -65,14 +79,15 @@ for filename in os.listdir(HTML_DIR):
     if not filename.endswith(".html"):
         continue
 
-    file_path = os.path.join(HTML_DIR, filename)
-    base_name = os.path.splitext(filename)[0]
+    if not filename.find("shap"):
+        file_path = os.path.join(HTML_DIR, filename)
+        base_name = os.path.splitext(filename)[0]
 
-    for selector in DIV_SELECTORS:
-        # Sanitize filename from selector
-        safe_selector = selector.replace(".", "_").replace(" ", "")
-        output_path = os.path.join(OUTPUT_DIR, f"{base_name}_{safe_selector}.png")
+        for selector in DIV_SELECTORS:
+            # Sanitize filename from selector
+            safe_selector = selector.replace(".", "_").replace(" ", "")
+            output_path = os.path.join(OUTPUT_DIR, f"{base_name}_{safe_selector}.png")
 
-        render_div_by_selector(selector, output_path, file_path)
+            render_div_by_selector(selector, output_path, file_path)
 
 driver.quit()
