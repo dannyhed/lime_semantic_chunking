@@ -179,6 +179,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
                         #mask = shap.maskers.Text(tokenizer)
+                        print(f"Explaining instance: {repr(inst)}")
                         mask = shap.maskers.Text(r"\W+")
                         sh = shap.Explainer(model.predict_proba, mask)
                         explanations.append(sh(inst))
