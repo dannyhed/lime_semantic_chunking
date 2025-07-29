@@ -171,7 +171,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     if not (skip_existing and os.path.exists(path+name+".pkl")):
                         print("\n" + name)
                         try:
-                            tokenizer = model.named_steps["tfidfvectorizer'"]
+                            tokenizer = model.named_steps["tfidfvectorizer"]
                         except:
                             print(model.named_steps)
                             tokenizer = model.named_steps["bertvectorizer"].tokenizer
