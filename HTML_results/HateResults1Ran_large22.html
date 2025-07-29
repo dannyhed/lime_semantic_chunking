@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divVY7PE73UMZGB431"></div>
+        <div class="lime top_div" id="top_divTAUT42SGCA3OLID"></div>
         
         <script>
-        var top_div = d3.select('#top_divVY7PE73UMZGB431').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTAUT42SGCA3OLID').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.687667734859288e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9979474615188508, 0.0020525384811492064]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Saying", 0.7620413701516983], ["birds", -0.5986885338517911], ["true", -0.09598748016671772], ["Singing", 0.024234881941743888], ["his", 0.010971900278086541]], 1, exp_div);
+                exp.show([["Period", 0.6178247931713727], ["ai", 0.2664334081103652], ["Cole", 0.2612233446660618], ["trash", -0.07083645807462799]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Saying", 96, 0.7620413701516983], ["birds", 24, -0.5986885338517911], ["true", 90, -0.09598748016671772], ["Singing", 53, 0.024234881941743888], ["his", 39, 0.010971900278086541], ["Saying", 205, 0.7620413701516983], ["birds", 242, -0.5986885338517911], ["true", 417, -0.09598748016671772], ["Singing", 489, 0.024234881941743888], ["his", 584, 0.010971900278086541]], 1, "he was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\n", raw_div, true);
+            exp.show_raw_text([["Period", 22, 0.6178247931713727], ["ai", 7, 0.2664334081103652], ["Cole", 2, 0.2612233446660618], ["trash", 13, -0.07083645807462799], ["Period", 54, 0.6178247931713727], ["ai", 71, 0.2664334081103652], ["Cole", 98, 0.2612233446660618], ["trash", 141, -0.13782916184078817], ["trash", 173, 0.06699270376616018]], 1, "J Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

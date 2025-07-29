@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div44CMIR93D9P6F7C"></div>
+        <div class="lime top_div" id="top_divY86GLRD0VRES6VA"></div>
         
         <script>
-        var top_div = d3.select('#top_div44CMIR93D9P6F7C').classed('lime top_div', true);
+        var top_div = d3.select('#top_divY86GLRD0VRES6VA').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["crows", 0.49758134981298635], ["all", 0.3800440602215755], ["the", -0.2291443166407459], ["lines", 0.22216049066394009], ["power", -0.20293492290565923]], 1, exp_div);
+                exp.show([["deal", 0.3761854586230557], ["like", 0.3188137890396376], ["you", 0.24175035501087916], ["with", 0.2963209551185132]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["crows", 16, 0.49758134981298635], ["all", 7, 0.3800440602215755], ["the", 25, -0.2291443166407459], ["lines", 35, 0.22216049066394009], ["power", 29, -0.20293492290565923], ["crows", 60, 0.49758134981298635], ["all", 95, 0.3800440602215755], ["the", 157, -0.2291443166407459], ["lines", 211, 0.22216049066394009], ["power", 249, -0.20293492290565923]], 1, "You're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\n", raw_div, true);
+            exp.show_raw_text([["deal", 0, 0.3761854586230557], ["like", 34, 0.3188137890396376], ["you", 10, 0.24175035501087916], ["with", 5, 0.2963209551185132], ["deal", 44, 0.3761854586230557], ["like", 122, 0.3188137890396376], ["you", 142, 0.24175035501087916], ["with", 181, 0.23866838430906273], ["with", 225, 0.057652570809450444]], 1, "deal with you bitches when I feel like it\n\n\ndeal with you bitches when I feel like it\n\n\ndeal with you bitches when I feel like it\n\n\ndeal with you bitches when I feel like it\n\n\ndeal with you bitches when I feel like it\n\n\n", raw_div, true);
             
         </script>
         </body></html>

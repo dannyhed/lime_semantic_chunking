@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUQ0YTM8YJXU9ARX"></div>
+        <div class="lime top_div" id="top_div7D7DL2CGUMVCVGF"></div>
         
         <script>
-        var top_div = d3.select('#top_divUQ0YTM8YJXU9ARX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7D7DL2CGUMVCVGF').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999905, 9.570029900776654e-15]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", 0.004594512260966583], ["in", 0.004161269990636446], ["this", 0.004016174783158031], ["Not", -0.0006339848544990758], ["library", -0.00060230978200526]], 1, exp_div);
+                exp.show([["not", -0.27722539066588625], ["Terrible", -0.24727114405411812], ["car", -0.24029782587376852], ["will", 0.13028936624607187], ["cassette", 0.123510378019529]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 26, 0.004594512260966583], ["in", 30, 0.004161269990636446], ["this", 9, 0.004016174783158031], ["Not", 0, -0.0006339848544990758], ["library", 37, -0.00060230978200526]], 1, "Not from this campus. Are you in the library?", raw_div, true);
+            exp.show_raw_text([["not", 23, -0.27722539066588625], ["Terrible", 0, -0.24727114405411812], ["car", 14, -0.24029782587376852], ["will", 18, 0.13028936624607187], ["cassette", 39, 0.123510378019529]], 1, "Terrible.. My car will not accept this cassette.", raw_div, true);
             
         </script>
         </body></html>

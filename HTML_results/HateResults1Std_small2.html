@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divYHIXRXJMINC33FX"></div>
+        <div class="lime top_div" id="top_div8MYLBE84KB77JCZ"></div>
         
         <script>
-        var top_div = d3.select('#top_divYHIXRXJMINC33FX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div8MYLBE84KB77JCZ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.07219513360653129, 0.9278048663934687]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.194647831588213e-18]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["You", 0.15830831723384414], ["ugly", 0.03541507124330981], ["anyway", 0.025980495410769605]], 1, exp_div);
+                exp.show([["nlds", -0.42359658573324005], ["s", -0.12403330214679763], ["Carmen", -0.11508059766657067], ["inning", -0.10887852732098344], ["Giants", -0.10302593020928219]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["You", 0, 0.15830831723384414], ["ugly", 4, 0.03541507124330981], ["anyway", 9, 0.025980495410769605]], 1, "You ugly anyway", raw_div, true);
+            exp.show_raw_text([["nlds", 115, -0.42359658573324005], ["s", 81, -0.12403330214679763], ["Carmen", 98, -0.11508059766657067], ["inning", 34, -0.10887852732098344], ["Giants", 56, -0.10302593020928219]], 1, "WTF is this chick singing the 7th inning stretch at the Giants game wearing? She's like a redneck Carmen Miranda. #nlds", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div32C30SJW2W666OI"></div>
+        <div class="lime top_div" id="top_divMYDTNDTOHZYR27L"></div>
         
         <script>
-        var top_div = d3.select('#top_div32C30SJW2W666OI').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMYDTNDTOHZYR27L').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.06, 0.94]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["that", 0.15220212192069793], ["just", 0.05332628988853757], ["asian", 0.053053713545094014], ["stand", 0.02613077991052759], ["dude", -0.023631465526464036]], 1, exp_div);
+                exp.show([["dick", 0.07231955959531931], ["she", 0.06552094629064698], ["said", -0.04212193989679078], ["hoes", 0.040164109204955924], ["nothin", 0.038172345810985615]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["that", 12, 0.15220212192069793], ["just", 28, 0.05332628988853757], ["asian", 17, 0.053053713545094014], ["stand", 6, 0.02613077991052759], ["dude", 23, -0.023631465526464036]], 1, "Can't stand that asian dude just now", raw_div, true);
+            exp.show_raw_text([["dick", 40, 0.07231955959531931], ["she", 67, 0.06552094629064698], ["she", 80, 0.06552094629064698], ["said", 99, -0.04212193989679078], ["hoes", 13, 0.040164109204955924], ["nothin", 22, 0.038172345810985615]], 1, "' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...", raw_div, true);
             
         </script>
         </body></html>

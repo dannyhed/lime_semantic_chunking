@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div7OHG718SLRQ52LW"></div>
+        <div class="lime top_div" id="top_divC75S0WVVQJXMIQY"></div>
         
         <script>
-        var top_div = d3.select('#top_div7OHG718SLRQ52LW').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC75S0WVVQJXMIQY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.532107773982716e-14, 0.9999999999999847]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["09066361921", 0.07155867138218472], ["call", 0.05358911172910857], ["prize", 0.04770884467287878], ["1000", 0.04091807771631826], ["top", 0.037508184946205704]], 1, exp_div);
+                exp.show([["83222", 0.2183452713521053], ["Euro2004", 0.15957704514319693], ["EURO", 0.12526571505337325], ["daily", 0.0984257559051974], ["latest", 0.09610186321314072]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["09066361921", 119, 0.07155867138218472], ["call", 114, 0.05358911172910857], ["prize", 67, 0.04770884467287878], ["prize", 102, 0.04770884467287878], ["1000", 84, 0.04091807771631826], ["top", 63, 0.037508184946205704]], 1, "This is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921", raw_div, true);
+            exp.show_raw_text([["83222", 129, 0.2183452713521053], ["Euro2004", 11, 0.15957704514319693], ["EURO", 116, 0.12526571505337325], ["daily", 88, 0.0984257559051974], ["latest", 64, 0.09610186321314072]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.", raw_div, true);
             
         </script>
         </body></html>

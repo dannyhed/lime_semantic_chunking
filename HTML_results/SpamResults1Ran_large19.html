@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div51BYMQ0G681CTJ7"></div>
+        <div class="lime top_div" id="top_div286QQHL8UFM9BG7"></div>
         
         <script>
-        var top_div = d3.select('#top_div51BYMQ0G681CTJ7').classed('lime top_div', true);
+        var top_div = d3.select('#top_div286QQHL8UFM9BG7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.4385024784097376e-35]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Hmmm", -2.6899681255140796e-12], ["?", 1.8397744069561552e-12], ["nt", -1.6347822172390566e-12], ["have", -1.4807422417610635e-12], ["still", -1.2539586134361367e-12]], 1, exp_div);
+                exp.show([["that", -1.853990142794246e-11], ["persons", 6.708197270114955e-12], ["Howz", 6.642054460947618e-12], ["story", 4.038634604252203e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Hmmm", 0, -2.6899681255140796e-12], ["?", 30, 1.8397744069561552e-12], ["nt", 16, -1.6347822172390566e-12], ["have", 19, -1.4807422417610635e-12], ["still", 5, -1.2539586134361367e-12], ["Hmmm", 34, -2.6899681255140796e-12], ["?", 98, 1.8397744069561552e-12], ["nt", 118, -1.6347822172390566e-12], ["have", 155, -1.4807422417610635e-12], ["still", 175, -1.2539586134361367e-12]], 1, "Hmmm.still we dont have opener?\n\n\nHmmm.still we dont have opener?\n\n\nHmmm.still we dont have opener?\n\n\nHmmm.still we dont have opener?\n\n\nHmmm.still we dont have opener?\n\n\nHmmm.still we dont have opener?\n\n\n", raw_div, true);
+            exp.show_raw_text([["that", 5, -1.853990142794246e-11], ["persons", 10, 6.708197270114955e-12], ["Howz", 0, 6.642054460947618e-12], ["story", 18, 4.038634604252203e-12], ["that", 31, -1.722938027579784e-11], ["persons", 62, 6.708197270114955e-12], ["Howz", 78, 6.642054460947618e-12], ["story", 122, 4.038634604252203e-12], ["that", 135, -1.3105211521446192e-12]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
             
         </script>
         </body></html>

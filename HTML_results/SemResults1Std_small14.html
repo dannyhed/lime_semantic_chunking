@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTOSL54BET0W1OSA"></div>
+        <div class="lime top_div" id="top_div0DKJQX7GJ7HW0EB"></div>
         
         <script>
-        var top_div = d3.select('#top_divTOSL54BET0W1OSA').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0DKJQX7GJ7HW0EB').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.06, 0.94]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["great", 0.5334967293376406], ["Overall", 0.07240194061262571], ["experience", -0.03477242965338317], ["a", 0.007298200907545742]], 1, exp_div);
+                exp.show([["spends", -0.28930056101833496], ["me", -0.27451809588339743], ["talking", -0.23975089014343806], ["Your", 0.1738468571279572], ["more", -0.10583782499150038]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["great", 11, 0.5334967293376406], ["Overall", 0, 0.07240194061262571], ["experience", 17, -0.03477242965338317], ["a", 9, 0.007298200907545742]], 1, "Overall, a great experience.", raw_div, true);
+            exp.show_raw_text([["spends", 11, -0.28930056101833496], ["me", 55, -0.27451809588339743], ["talking", 28, -0.23975089014343806], ["Your", 0, 0.1738468571279572], ["more", 18, -0.10583782499150038]], 1, "Your staff spends more time talking to themselves than me.", raw_div, true);
             
         </script>
         </body></html>

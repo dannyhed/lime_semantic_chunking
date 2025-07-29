@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMNBOQX55YHO7M6D"></div>
+        <div class="lime top_div" id="top_divGH5UWVGNR8OI1P6"></div>
         
         <script>
-        var top_div = d3.select('#top_divMNBOQX55YHO7M6D').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGH5UWVGNR8OI1P6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.1133441410730037e-38]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["came", -5.802833345917151e-28], ["m", 2.4258820199371968e-28], ["room", -2.2421193187650917e-28], ["to", -1.5903748026874082e-28], ["I", -1.3525926767335884e-28]], 1, exp_div);
+                exp.show([["Worst", -0.6138348666529564], ["service", 0.38123830624095206], ["customer", 0.18389836587947683]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["came", 9, -5.802833345917151e-28], ["m", 2, 2.4258820199371968e-28], ["room", 17, -2.2421193187650917e-28], ["to", 14, -1.5903748026874082e-28], ["I", 0, -1.3525926767335884e-28]], 1, "I'm also came to room.", raw_div, true);
+            exp.show_raw_text([["Worst", 0, -0.6138348666529564], ["service", 15, 0.38123830624095206], ["customer", 6, 0.18389836587947683]], 1, "Worst customer service.", raw_div, true);
             
         </script>
         </body></html>

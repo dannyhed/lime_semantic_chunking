@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divW0RP8AAGYED58I8"></div>
+        <div class="lime top_div" id="top_divPQZB8PEVYBC8XIT"></div>
         
         <script>
-        var top_div = d3.select('#top_divW0RP8AAGYED58I8').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPQZB8PEVYBC8XIT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 9.728936215777947e-34]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Okay", -2.2373408994585206e-12], ["right", -2.2167346365191405e-12], ["...", -9.78692993059336e-13], ["thanks", -3.437328018830799e-13], ["Sat", -3.018680095136873e-13]], 1, exp_div);
+                exp.show([["09066361921", 0.8451185541810108], ["£", 0.4711627290264938], ["won", -0.44205254270736744], [".", 0.2023039847755449], ["top", 0.1492989335699978]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Okay", 11, -2.2373408994585206e-12], ["right", 4, -2.2167346365191405e-12], ["...", 22, -9.78692993059336e-13], ["thanks", 16, -3.437328018830799e-13], ["Sat", 0, -3.018680095136873e-13], ["Okay", 39, -2.2373408994585206e-12], ["right", 60, -2.2167346365191405e-12], ["...", 106, -9.78692993059336e-13], ["thanks", 128, -3.437328018830799e-13], ["Sat", 140, -3.018680095136873e-13]], 1, "Sat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\n", raw_div, true);
+            exp.show_raw_text([["09066361921", 119, 0.8451185541810108], ["\u00a3", 97, 0.4711627290264938], ["won", 48, -0.44205254270736744], [".", 107, 0.2023039847755449], ["top", 63, 0.1492989335699978], ["09066361921", 252, 0.8451185541810108], ["\u00a3", 363, 0.4711627290264938], ["won", 447, -0.44205254270736744], [".", 639, 0.2023039847755449], ["top", 728, 0.1492989335699978]], 1, "This is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\n", raw_div, true);
             
         </script>
         </body></html>

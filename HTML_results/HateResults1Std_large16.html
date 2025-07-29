@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divR22YTM6ZT0X19T5"></div>
+        <div class="lime top_div" id="top_divY86GLRD0VRES6VA"></div>
         
         <script>
-        var top_div = d3.select('#top_divR22YTM6ZT0X19T5').classed('lime top_div', true);
+        var top_div = d3.select('#top_divY86GLRD0VRES6VA').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.194647831588213e-18]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["nlds", -0.363725813489442], ["s", -0.1622732439673917], ["WTF", -0.15994609159433967], ["Carmen", -0.12806516097935322], ["7th", -0.12212709466334164]], 1, exp_div);
+                exp.show([["deal", 0.08705228982277677], ["bitches", 0.07354906818728284], ["when", -0.02491148072887601], ["like", 0.024396803362536825], ["I", -0.017165120177652007]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["nlds", 115, -0.363725813489442], ["s", 81, -0.1622732439673917], ["WTF", 0, -0.15994609159433967], ["Carmen", 98, -0.12806516097935322], ["7th", 30, -0.12212709466334164]], 1, "WTF is this chick singing the 7th inning stretch at the Giants game wearing? She's like a redneck Carmen Miranda. #nlds", raw_div, true);
+            exp.show_raw_text([["deal", 0, 0.08705228982277677], ["bitches", 14, 0.07354906818728284], ["when", 22, -0.02491148072887601], ["like", 34, 0.024396803362536825], ["I", 27, -0.017165120177652007]], 1, "deal with you bitches when I feel like it", raw_div, true);
             
         </script>
         </body></html>

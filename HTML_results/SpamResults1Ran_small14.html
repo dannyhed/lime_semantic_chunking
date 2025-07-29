@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMK5W8REYOGPJ24O"></div>
+        <div class="lime top_div" id="top_divNN08T9D17AQM0HY"></div>
         
         <script>
-        var top_div = d3.select('#top_divMK5W8REYOGPJ24O').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNN08T9D17AQM0HY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Howz", 0.0], ["that", 0.0], ["persons", 0.0], ["story", 0.0]], 1, exp_div);
+                exp.show([["persons", -2.2428877677501617e-12], ["that", -1.2998914630602166e-12], ["Howz", -8.309208827330371e-13], ["story", -3.935863702833302e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Howz", 0, 0.0], ["that", 5, 0.0], ["persons", 10, 0.0], ["story", 18, 0.0], ["Howz", 26, 0.0], ["that", 31, 0.0], ["persons", 36, 0.0], ["story", 44, 0.0], ["Howz", 52, 0.0], ["that", 57, 0.0], ["persons", 62, 0.0], ["story", 70, 0.0], ["Howz", 78, 0.0], ["that", 83, 0.0], ["persons", 88, 0.0], ["story", 96, 0.0], ["Howz", 104, 0.0], ["that", 109, 0.0], ["persons", 114, 0.0], ["story", 122, 0.0], ["Howz", 130, 0.0], ["persons", 140, 0.0]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
+            exp.show_raw_text([["persons", 10, -2.2428877677501617e-12], ["that", 5, -1.2998914630602166e-12], ["Howz", 0, -8.309208827330371e-13], ["story", 18, -3.935863702833302e-13], ["persons", 36, -2.2428877677501617e-12], ["that", 57, -1.2998914630602166e-12], ["Howz", 78, -8.309208827330371e-13], ["story", 122, -3.6688607617288977e-13], ["story", 148, -2.6700294110440432e-14]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
             
         </script>
         </body></html>

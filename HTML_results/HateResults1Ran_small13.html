@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRW2K9LIC86C35FC"></div>
+        <div class="lime top_div" id="top_div9EG527M5MFM0G1P"></div>
         
         <script>
-        var top_div = d3.select('#top_divRW2K9LIC86C35FC').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9EG527M5MFM0G1P').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.01, 0.99]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bitch", 0.17007309390983594], ["hoe", 0.13533973983810205], ["lol", 0.1251141406023888], ["you", -0.064208257648878], ["the", 0.023314563374543285]], 1, exp_div);
+                exp.show([["play", 0.586854168908303], ["damn", 0.49541751693440744], ["my", 0.40665416174865326], ["i", -0.22254418537897624], ["get", -0.13341513013895334]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bitch", 0, 0.17007309390983594], ["hoe", 25, 0.13533973983810205], ["lol", 29, 0.1251141406023888], ["you", 6, -0.064208257648878], ["the", 15, 0.023314563374543285], ["bitch", 35, 0.17007309390983594], ["hoe", 95, 0.13533973983810205], ["lol", 134, 0.1251141406023888], ["you", 146, -0.064208257648878], ["the", 190, 0.023314563374543285]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
+            exp.show_raw_text([["play", 79, 0.586854168908303], ["damn", 5, 0.49541751693440744], ["my", 32, 0.40665416174865326], ["i", 13, -0.22254418537897624], ["get", 28, -0.13341513013895334], ["play", 189, 0.586854168908303], ["damn", 225, 0.49541751693440744], ["my", 362, 0.40665416174865326], ["i", 453, -0.22254418537897624], ["get", 578, -0.13341513013895334]], 1, "I be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently\n\n\nI be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently\n\n\nI be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently\n\n\nI be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently\n\n\nI be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently\n\n\nI be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently\n\n\n", raw_div, true);
             
         </script>
         </body></html>

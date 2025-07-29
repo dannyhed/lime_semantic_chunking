@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9M5W0FM00JSJ9CS"></div>
+        <div class="lime top_div" id="top_div0HPVAMYWHEXRDBW"></div>
         
         <script>
-        var top_div = d3.select('#top_div9M5W0FM00JSJ9CS').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0HPVAMYWHEXRDBW').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.063569268460371e-33]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["talk", 0.00626440393738955], ["had", 0.006197729996925281], ["about", 0.0011238099266606609], ["nyc", -0.0013618070617955407], ["boston", -0.0013281959209960486]], 1, exp_div);
+                exp.show([["sister", -1.951341680605108e-08], ["more", 1.7679102841765516e-08], ["me", -1.413159962887308e-08], ["da", -1.1799576717577924e-08], [".", -3.378463494197631e-08]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["talk", 19, 0.00626440393738955], ["had", 102, 0.006197729996925281], ["about", 24, 0.0011238099266606609], ["nyc", 123, -0.0013618070617955407], ["boston", 136, -0.0013281959209960486], ["talk", 169, 0.00626440393738955], ["had", 402, 0.006197729996925281], ["nyc", 573, -0.0013618070617955407], ["boston", 736, -0.0013281959209960486], ["about", 774, 0.0011238099266606609]], 1, "Especially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.\n\n\nEspecially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.\n\n\nEspecially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.\n\n\nEspecially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.\n\n\nEspecially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.\n\n\nEspecially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.\n\n\n", raw_div, true);
+            exp.show_raw_text([["sister", 3, -1.951341680605108e-08], ["more", 24, 1.7679102841765516e-08], ["me", 34, -1.413159962887308e-08], ["da", 37, -1.1799576717577924e-08], [".", 39, -3.378463494197631e-08], [".", 82, -3.378463494197631e-08], ["sister", 89, -1.951341680605108e-08], ["more", 153, 1.7679102841765516e-08], ["me", 206, -1.413159962887308e-08], ["da", 252, -1.1799576717577924e-08]], 1, "My sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divWYCHQIB40LOG34P"></div>
+        <div class="lime top_div" id="top_divZQGGXATETDO76GQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divWYCHQIB40LOG34P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZQGGXATETDO76GQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0804003761360723e-29]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -2.2302935799324996e-12], ["4", -2.1841053481400785e-12], ["Me", 8.372934682555375e-13], ["in", -8.322692716693044e-13], ["sup", -7.22277221395359e-13]], 1, exp_div);
+                exp.show([["in", -4.136539891684138e-12], ["am", 2.969775290243553e-12], ["a", -2.8620080188257586e-12], ["I", -1.8430799400343633e-12], ["marriage", 1.8415832092227417e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 3, -2.2302935799324996e-12], ["4", 23, -2.1841053481400785e-12], ["Me", 0, 8.372934682555375e-13], ["in", 25, -8.322692716693044e-13], ["sup", 43, -7.22277221395359e-13], ["not", 52, -2.2302935799324996e-12], ["4", 121, -2.1841053481400785e-12], ["Me", 147, 8.372934682555375e-13], ["in", 221, -8.322692716693044e-13], ["sup", 288, -7.22277221395359e-13]], 1, "Me not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\n", raw_div, true);
+            exp.show_raw_text([["in", 5, -4.136539891684138e-12], ["am", 2, 2.969775290243553e-12], ["a", 8, -2.8620080188257586e-12], ["I", 0, -1.8430799400343633e-12], ["marriage", 10, 1.8415832092227417e-12], ["in", 35, -4.136539891684138e-12], ["am", 62, 2.969775290243553e-12], ["a", 98, -2.8620080188257586e-12], ["I", 120, -1.8430799400343633e-12], ["marriage", 160, 1.8415832092227417e-12]], 1, "I am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\n", raw_div, true);
             
         </script>
         </body></html>

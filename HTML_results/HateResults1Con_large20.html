@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divB5LUHX4AY94RWFK"></div>
+        <div class="lime top_div" id="top_divR0NG267HORJH0OD"></div>
         
         <script>
-        var top_div = d3.select('#top_divB5LUHX4AY94RWFK').classed('lime top_div', true);
+        var top_div = d3.select('#top_divR0NG267HORJH0OD').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999964782587, 3.5217413286002613e-09]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["that", 0.15542383007892363], ["Ca", 0.2762013902230132], ["asian", -0.38710440450337863], ["n't", -0.14585731744410194], ["dude", -0.2186912215634469]], 1, exp_div);
+                exp.show([["bitch", 0.11053186527114109], ["you", 0.2161365821441543], ["know", 0.20372474816298874], ["the", 0.18554882435570824], ["lingo", 0.18554882435570824], ["hoe", 0.18554882435570824], ["lol", 0.18554882435570824]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["that", 12, 0.15542383007892363], ["Ca", 0, 0.2762013902230132], ["asian", 17, -0.38710440450337863], ["n't", 2, -0.14585731744410194], ["dude", 23, -0.2186912215634469], ["that", 51, 0.3741150516423705], ["Ca", 78, 0.2762013902230132], ["dude", 140, -0.2186912215634469], ["that", 129, -0.2186912215634469], ["asian", 134, -0.2186912215634469], ["asian", 173, -0.16841318293993174], ["n't", 197, -0.14585731744410194]], 1, "Can't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\n", raw_div, true);
+            exp.show_raw_text([["bitch", 0, 0.11053186527114109], ["you", 6, 0.2161365821441543], ["know", 10, 0.20372474816298874], ["the", 15, 0.18554882435570824], ["lingo", 19, 0.18554882435570824], ["hoe", 25, 0.18554882435570824], ["lol", 29, 0.18554882435570824], ["bitch", 35, 0.06672874099049565], ["you", 41, 0.06672874099049565], ["know", 45, 0.06672874099049565], ["the", 50, 0.06672874099049565], ["lingo", 54, 0.06672874099049565], ["hoe", 60, 0.06672874099049565], ["lol", 64, 0.06672874099049565], ["you", 76, 0.05209134237471692], ["know", 80, 0.05209134237471692], ["the", 85, 0.05209134237471692], ["lingo", 89, 0.05209134237471692], ["hoe", 95, 0.05209134237471692], ["lol", 99, 0.05209134237471692], ["bitch", 105, 0.04380312428064544], ["you", 146, 0.030587757788446066], ["know", 185, 0.01817592380728051]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
             
         </script>
         </body></html>

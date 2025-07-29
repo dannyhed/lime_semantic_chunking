@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLINIAOQG5U4MP37"></div>
+        <div class="lime top_div" id="top_div1596BWPDP19VVIN"></div>
         
         <script>
-        var top_div = d3.select('#top_divLINIAOQG5U4MP37').classed('lime top_div', true);
+        var top_div = d3.select('#top_div1596BWPDP19VVIN').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["I", 0.0], ["'m", 0.0], ["also", 0.0], ["came", 0.0], ["to", 0.0], ["room", 0.0], [".", 0.0]], 1, exp_div);
+                exp.show([[".", 0.013000488464008338], ["na", 0.0002293757765595983], ["da", -0.012302589613720624], ["i", -0.009994788895022623], ["gayle", 0.012832451509901538]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["I", 0, 0.0], ["'m", 1, 0.0], ["also", 4, 0.0], ["came", 9, 0.0], ["to", 14, 0.0], ["room", 17, 0.0], [".", 21, 0.0], ["I", 25, 0.0], ["'m", 26, 0.0], ["also", 29, 0.0], ["came", 34, 0.0], ["to", 39, 0.0], ["room", 42, 0.0], [".", 46, 0.0], ["I", 50, 0.0], ["'m", 76, 0.0], ["also", 79, 0.0], ["came", 84, 0.0], ["to", 89, 0.0], ["room", 92, 0.0], ["'m", 101, 0.0], ["also", 129, 0.0]], 1, "I'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 14, 0.013000488464008338], ["na", 20, 0.0002293757765595983], ["da", 12, -0.012302589613720624], ["i", 15, -0.009994788895022623], ["gayle", 23, 0.012832451509901538], [".", 46, 0.013000488464008338], ["na", 84, 0.012832451509901538], ["gayle", 87, 0.012832451509901538], ["na", 116, -0.01260307573334194], ["da", 140, -0.012302589613720624], ["i", 175, -0.009994788895022623]], 1, "Smith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divB8ZEU8NTCI8F1LU"></div>
+        <div class="lime top_div" id="top_divBUQ0KZHLKYOUCGX"></div>
         
         <script>
-        var top_div = d3.select('#top_divB8ZEU8NTCI8F1LU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divBUQ0KZHLKYOUCGX').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.349075899275303e-25]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["sleeping", 1.302566558485598e-07], ["going", -1.1549368620725451e-07], ["you", -1.1239633172842448e-07], ["got", -1.0739465685196454e-07], ["checking", -1.054158046560856e-07]], 1, exp_div);
+                exp.show([["not", -6.12180767462139e-09], ["4", 4.520950762325744e-09], ["sup", -4.1081663101397664e-09], ["in", -4.031474521840644e-09], ["Me", -3.780844235346068e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["sleeping", 2, 1.302566558485598e-07], ["going", 24, -1.1549368620725451e-07], ["you", 20, -1.1239633172842448e-07], ["got", 48, -1.0739465685196454e-07], ["checking", 73, -1.054158046560856e-07]], 1, "U sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..", raw_div, true);
+            exp.show_raw_text([["not", 3, -6.12180767462139e-09], ["4", 23, 4.520950762325744e-09], ["sup", 43, -4.1081663101397664e-09], ["in", 25, -4.031474521840644e-09], ["Me", 0, -3.780844235346068e-09]], 1, "Me not waking up until 4 in the afternoon, sup", raw_div, true);
             
         </script>
         </body></html>

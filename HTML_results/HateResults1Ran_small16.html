@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divCPC9QH49FKJ4BG5"></div>
+        <div class="lime top_div" id="top_div494DS19BC7CF4NQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divCPC9QH49FKJ4BG5').classed('lime top_div', true);
+        var top_div = d3.select('#top_div494DS19BC7CF4NQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.02, 0.98]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["plans", 0.1534893124842602], ["Text", 0.10346390748259983], ["with", 0.08723093930832793], ["me", 8.763184352990179e-05], ["nigs", 8.763184352990179e-05]], 1, exp_div);
+                exp.show([["they", 0.5230229515051927], ["thats", 0.3237174355853108], ["who", 0.21299683499403105], ["died", 0.18342036019701122], ["null", 0.15462708184994098]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["plans", 13, 0.1534893124842602], ["Text", 0, 0.10346390748259983], ["with", 8, 0.08723093930832793], ["me", 5, 8.763184352990179e-05], ["nigs", 19, 8.763184352990179e-05], ["plans", 39, 0.15340168064073031], ["Text", 52, 0.10337627563906993], ["with", 86, 0.08714330746479802], ["Text", 104, 6.0758544647323305e-05], ["me", 109, 6.0758544647323305e-05], ["with", 112, 6.0758544647323305e-05], ["plans", 117, 6.0758544647323305e-05], ["nigs", 123, 6.0758544647323305e-05], ["Text", 130, 2.6873298882578485e-05], ["me", 135, 2.6873298882578485e-05], ["with", 138, 2.6873298882578485e-05], ["plans", 143, 2.6873298882578485e-05], ["nigs", 149, 2.6873298882578485e-05]], 1, "Text me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\n", raw_div, true);
+            exp.show_raw_text([["they", 10, 0.5230229515051927], ["thats", 26, 0.3237174355853108], ["who", 43, 0.21299683499403105], ["died", 47, 0.18342036019701122], ["null", 0, 0.15462708184994098], ["they", 64, 0.5230229515051927], ["thats", 134, 0.3237174355853108], ["who", 205, 0.21299683499403105], ["died", 263, 0.18342036019701122], ["null", 270, 0.15462708184994098]], 1, "null bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\n", raw_div, true);
             
         </script>
         </body></html>

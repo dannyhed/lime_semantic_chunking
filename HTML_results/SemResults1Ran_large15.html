@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divU5KZ0MUQZJNBIIJ"></div>
+        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
         
         <script>
-        var top_div = d3.select('#top_divU5KZ0MUQZJNBIIJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.024251970019192e-42]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["my", -2.4765308346670064e-12], ["life", -1.4381777239178045e-12], ["Umma", -1.1584756457483929e-12], ["and", 7.985871358331409e-13], ["you", -4.3952312775482266e-13]], 1, exp_div);
+                exp.show([["this", 0.4483020079882493], ["happier", 0.42549702119422395], ["n't", -0.3293287423766485], ["a", 0.17020341013572085], ["and", 0.15845500552784833]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["my", 5, -2.4765308346670064e-12], ["life", 8, -1.4381777239178045e-12], ["Umma", 0, -1.1584756457483929e-12], ["and", 13, 7.985871358331409e-13], ["you", 32, -4.3952312775482266e-13], ["my", 52, -2.4765308346670064e-12], ["life", 102, -1.4381777239178045e-12], ["Umma", 141, -1.1584756457483929e-12], ["and", 201, 7.985871358331409e-13], ["you", 267, -4.3952312775482266e-13]], 1, "Umma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\n", raw_div, true);
+            exp.show_raw_text([["this", 18, 0.4483020079882493], ["happier", 86, 0.42549702119422395], ["n't", 79, -0.3293287423766485], ["a", 35, 0.17020341013572085], ["and", 47, 0.15845500552784833], ["this", 115, 0.4483020079882493], ["happier", 280, 0.42549702119422395], ["n't", 370, -0.3293287423766485], ["a", 423, 0.17020341013572085], ["and", 532, 0.15845500552784833]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

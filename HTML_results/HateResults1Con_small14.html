@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRW2K9LIC86C35FC"></div>
+        <div class="lime top_div" id="top_divKE6Q746QKN84G34"></div>
         
         <script>
-        var top_div = d3.select('#top_divRW2K9LIC86C35FC').classed('lime top_div', true);
+        var top_div = d3.select('#top_divKE6Q746QKN84G34').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.01, 0.99]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.687667734859288e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bitch", 0.06564711587047951], ["lingo", 0.024538506512905806], ["hoe", 0.023935819782131156], ["you", -0.014403320416126918], ["know", -0.011151821084117431]], 1, exp_div);
+                exp.show([["...", -0.3054990562880306], [".", -0.17934867541879312], ["Singing", -0.17055779417743286], ["true", -0.1413598532856521], ["pitch", 0.1009257777455748]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bitch", 0, 0.06564711587047951], ["lingo", 19, 0.024538506512905806], ["hoe", 25, 0.023935819782131156], ["you", 6, -0.014403320416126918], ["know", 10, -0.011151821084117431], ["bitch", 35, 0.06564711587047951], ["lingo", 89, 0.024538506512905806], ["hoe", 130, 0.023935819782131156], ["you", 146, -0.014403320416126918], ["know", 185, -0.011151821084117431]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
+            exp.show_raw_text([["...", 103, -0.3054990562880306], [".", 51, -0.17934867541879312], ["Singing", 53, -0.17055779417743286], ["true", 90, -0.1413598532856521], ["pitch", 30, 0.1009257777455748], ["...", 212, -0.3054990562880306], [".", 269, -0.17934867541879312], ["Singing", 380, -0.17055779417743286], ["true", 526, -0.1413598532856521], ["pitch", 575, 0.1009257777455748]], 1, "he was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\nhe was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...\n\n\n", raw_div, true);
             
         </script>
         </body></html>

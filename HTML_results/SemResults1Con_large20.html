@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divDLV6TAFQL17REWN"></div>
+        <div class="lime top_div" id="top_divGH5UWVGNR8OI1P6"></div>
         
         <script>
-        var top_div = d3.select('#top_divDLV6TAFQL17REWN').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGH5UWVGNR8OI1P6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.3475614127846863e-18]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["me", 6.883261474445695e-12], ["I", -1.1519632599219178e-11], ["the", 8.103546431357579e-12], ["you", -2.6846395696115715e-11], ["love", -2.6846395696115715e-11], ["for", -7.650598154775054e-12]], 1, exp_div);
+                exp.show([["Worst", -0.7819858597285378], ["service", 0.22227249174707708], [".", 0.012012056213956492], ["customer", 0.01306436706750952]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["me", 77, 6.883261474445695e-12], ["I", 149, -1.1519632599219178e-11], ["the", 124, 8.103546431357579e-12], ["you", 156, -2.6846395696115715e-11], ["love", 151, -2.6846395696115715e-11], ["for", 73, -7.650598154775054e-12], ["you", 318, -2.6846395696115715e-11], ["love", 313, -2.6846395696115715e-11], ["me", 401, 1.4533859629220749e-11], ["I", 635, -1.1519632599219178e-11], ["the", 772, 8.103546431357579e-12], ["for", 883, -7.650598154775054e-12], ["me", 887, -7.650598154775054e-12]], 1, "I miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\n", raw_div, true);
+            exp.show_raw_text([["Worst", 0, -0.7819858597285378], ["service", 15, 0.22227249174707708], [".", 22, 0.012012056213956492], ["customer", 6, 0.01306436706750952], ["Worst", 26, -0.8282856648788122], ["service", 67, 0.17597268659680276], ["Worst", 78, 0.04629980515027433], ["customer", 84, 0.04629980515027433], ["service", 93, 0.04629980515027433], [".", 100, 0.04629980515027433], [".", 126, -0.034287748936317836], ["customer", 136, -0.03323543808276481]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

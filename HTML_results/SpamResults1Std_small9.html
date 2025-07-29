@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMK5W8REYOGPJ24O"></div>
+        <div class="lime top_div" id="top_div9GBPO697BB1UZXL"></div>
         
         <script>
-        var top_div = d3.select('#top_divMK5W8REYOGPJ24O').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9GBPO697BB1UZXL').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Howz", 0.0], ["that", 0.0], ["persons", 0.0], ["story", 0.0]], 1, exp_div);
+                exp.show([["national", 0.02681612719287398], ["08718726971", 0.025601915404893674], ["BT", 0.024127077504957153], ["Congratulations", 0.021076137330190613], ["prize", 0.020836045127968023]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Howz", 0, 0.0], ["that", 5, 0.0], ["persons", 10, 0.0], ["story", 18, 0.0]], 1, "Howz that persons story", raw_div, true);
+            exp.show_raw_text([["national", 143, 0.02681612719287398], ["08718726971", 102, 0.025601915404893674], ["BT", 140, 0.024127077504957153], ["Congratulations", 0, 0.021076137330190613], ["prize", 68, 0.020836045127968023]], 1, "Congratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.", raw_div, true);
             
         </script>
         </body></html>

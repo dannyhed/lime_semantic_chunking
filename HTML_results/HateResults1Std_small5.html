@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8SQGSL4AQDJXGUV"></div>
+        <div class="lime top_div" id="top_divNECSTIBXXQGWR07"></div>
         
         <script>
-        var top_div = d3.select('#top_div8SQGSL4AQDJXGUV').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNECSTIBXXQGWR07').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.03, 0.97]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["pussy", 0.23390579088688954], ["your", 0.08765158501410165], ["soft", -0.034267621067520286], ["keeps", -0.013188039678897296], ["lips", 0.007019736002301737]], 1, exp_div);
+                exp.show([["mad", 0.12661035811551774], ["so", 0.0732261729039048], ["m", -0.06670266762111901], ["I", -0.06494203723357546], ["ready", 0.05325943825990629]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["pussy", 7, 0.23390579088688954], ["your", 19, 0.08765158501410165], ["soft", 29, -0.034267621067520286], ["keeps", 13, -0.013188039678897296], ["lips", 24, 0.007019736002301737]], 1, "Eating pussy keeps your lips soft. (;", raw_div, true);
+            exp.show_raw_text([["mad", 24, 0.12661035811551774], ["so", 21, 0.0732261729039048], ["m", 2, -0.06670266762111901], ["m", 19, -0.06670266762111901], ["I", 0, -0.06494203723357546], ["I", 17, -0.06494203723357546], ["ready", 4, 0.05325943825990629]], 1, "I'm ready to cry I'm so mad", raw_div, true);
             
         </script>
         </body></html>

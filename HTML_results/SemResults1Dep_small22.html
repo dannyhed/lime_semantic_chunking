@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUQ0YTM8YJXU9ARX"></div>
+        <div class="lime top_div" id="top_divW9ONBLDGOKKSBS7"></div>
         
         <script>
-        var top_div = d3.select('#top_divUQ0YTM8YJXU9ARX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divW9ONBLDGOKKSBS7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", 0.004354705485886725], ["this", 0.00407481100255656], ["in", 0.004019203017527226], ["library", -0.0012361359048379866], ["from", 0.000709206689057047]], 1, exp_div);
+                exp.show([["service", 0.10505114348751386], ["Call", 0.37897685590184865], ["FREEPHONE", 1.1246297560415621], ["0800", 2.3982817618835526], ["542", 1.1246297560415621], ["0825", 2.3982817618835526], ["now", 0.37897685590184865], ["!", 0.37897685590184865], ["You", 0.14447519463787778]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 26, 0.004354705485886725], ["this", 9, 0.00407481100255656], ["in", 30, 0.004019203017527226], ["library", 37, -0.0012361359048379866], ["from", 4, 0.000709206689057047], ["you", 74, 0.004354705485886725], ["this", 105, 0.00407481100255656], ["in", 174, 0.004019203017527226], ["library", 229, -0.0012361359048379866], ["from", 244, 0.000709206689057047]], 1, "Not from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\n", raw_div, true);
+            exp.show_raw_text([["service", 31, 0.10505114348751386], ["Call", 53, 0.37897685590184865], ["FREEPHONE", 58, 1.1246297560415621], ["0800", 68, 2.3982817618835526], ["542", 73, 1.1246297560415621], ["0825", 77, 2.3982817618835526], ["now", 82, 0.37897685590184865], ["!", 85, 0.37897685590184865], ["You", 0, 0.14447519463787778], ["Call", 142, 0.37897685590184865], ["FREEPHONE", 147, 0.37897685590184865], ["0800", 157, 0.37897685590184865], ["542", 162, 0.37897685590184865], ["0825", 166, 0.37897685590184865], ["now", 171, 0.37897685590184865], ["!", 174, 0.37897685590184865], ["FREEPHONE", 236, 0.3666760442378647], ["0800", 246, 0.3666760442378647], ["542", 251, 0.3666760442378647], ["0825", 255, 0.3666760442378647], ["0800", 335, 0.14902224980042866], ["0825", 344, 0.14902224980042866], ["You", 356, 0.14447519463787778], ["service", 476, 0.10505114348751386]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

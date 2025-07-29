@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divB3YHU7G8ALIN9VX"></div>
+        <div class="lime top_div" id="top_divW200TTA1RG3MDS0"></div>
         
         <script>
-        var top_div = d3.select('#top_divB3YHU7G8ALIN9VX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divW200TTA1RG3MDS0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.480755528541006e-26]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.063569268460371e-33]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["What", -3.1285474884788885e-12], ["?", -5.994179783870103e-12], ["'s", -2.97252268505954e-12], ["the", -6.102916826654834e-12], ["significance", -6.102916826654834e-12]], 1, exp_div);
+                exp.show([["more", 1.9693071847094353e-08], ["me", -1.3908162050784878e-08], ["to", -1.2012182130294182e-08], [".", -2.0404234680857683e-08], ["My", -1.557136470989754e-08]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["What", 0, -3.1285474884788885e-12], ["?", 23, -5.994179783870103e-12], ["'s", 4, -2.97252268505954e-12], ["the", 7, -6.102916826654834e-12], ["significance", 11, -6.102916826654834e-12], ["What", 27, -2.97252268505954e-12], ["'s", 31, -2.97252268505954e-12], ["the", 34, -2.97252268505954e-12], ["significance", 38, -2.97252268505954e-12], ["?", 50, -2.97252268505954e-12], ["the", 61, -1.5787145653575437e-13], ["significance", 65, -1.5787145653575437e-13], ["What", 81, -1.5602480341934836e-13], ["?", 131, -9.731002419247589e-14], ["?", 158, 4.817561044145306e-14]], 1, "What's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\n", raw_div, true);
+            exp.show_raw_text([["more", 24, 1.9693071847094353e-08], ["me", 34, -1.3908162050784878e-08], ["to", 16, -1.2012182130294182e-08], [".", 39, -2.0404234680857683e-08], ["My", 0, -1.557136470989754e-08], [".", 82, -2.0404234680857683e-08], ["more", 110, 1.9693071847094353e-08], ["My", 129, -1.557136470989754e-08], ["me", 206, -1.3908162050784878e-08], ["to", 231, -1.2012182130294182e-08]], 1, "My sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

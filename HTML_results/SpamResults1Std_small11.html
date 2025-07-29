@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divPFSR8D9F6UJKJ04"></div>
+        <div class="lime top_div" id="top_divNEITOQR2FHRZWY8"></div>
         
         <script>
-        var top_div = d3.select('#top_divPFSR8D9F6UJKJ04').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNEITOQR2FHRZWY8').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.6224664218731528e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["replying", 0.01954581985245033], ["to", 0.006495121401224586], ["now", 0.006083059583356653], ["going", -0.00034607437322392397], ["take", 0.00031181840168931533]], 1, exp_div);
+                exp.show([["you", -3.137368022713327e-21], ["when", 1.995856419725977e-21], ["are", 1.982933771520647e-21], ["k", 1.757338510280116e-21], ["K", 1.749404628942441e-21]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["replying", 84, 0.01954581985245033], ["to", 30, 0.006495121401224586], ["now", 11, 0.006083059583356653], ["going", 24, -0.00034607437322392397], ["take", 33, 0.00031181840168931533]], 1, "U sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..", raw_div, true);
+            exp.show_raw_text([["you", 14, -3.137368022713327e-21], ["when", 5, 1.995856419725977e-21], ["are", 10, 1.982933771520647e-21], ["k", 2, 1.757338510280116e-21], ["K", 0, 1.749404628942441e-21]], 1, "K.k:)when are you going?", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divAT9TVA100QJH6TB"></div>
+        <div class="lime top_div" id="top_divEGVT8Q1AMGKISDG"></div>
         
         <script>
-        var top_div = d3.select('#top_divAT9TVA100QJH6TB').classed('lime top_div', true);
+        var top_div = d3.select('#top_divEGVT8Q1AMGKISDG').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0578310436234116e-25]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.349075899275303e-25]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["where", -2.557154056173107e-12], ["it", -1.6602673721921288e-12], [".", -1.3845859603094769e-12], ["you", 1.2308536035086281e-12], ["possible", -7.919540877080104e-13]], 1, exp_div);
+                exp.show([["mails", 4.173854851298774e-07], ["Me", -2.605396242661221e-07], ["n", -1.577012561483288e-07], ["sleeping", -1.279767537054047e-07], ["wat", 1.2664310228911162e-07]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["where", 37, -2.557154056173107e-12], ["it", 7, -1.6602673721921288e-12], [".", 42, -1.3845859603094769e-12], ["you", 28, 1.2308536035086281e-12], ["possible", 10, -7.919540877080104e-13], ["where", 83, -2.557154056173107e-12], ["it", 99, -1.6602673721921288e-12], [".", 180, -1.3845859603094769e-12], ["you", 212, 1.2308536035086281e-12], ["possible", 240, -7.919540877080104e-13]], 1, "How is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\n", raw_div, true);
+            exp.show_raw_text([["mails", 93, 4.173854851298774e-07], ["Me", 63, -2.605396242661221e-07], ["n", 82, -1.577012561483288e-07], ["sleeping", 2, -1.279767537054047e-07], ["wat", 57, 1.2664310228911162e-07], ["mails", 200, 4.173854851298774e-07], ["Me", 277, -2.605396242661221e-07], ["n", 403, -1.577012561483288e-07], ["sleeping", 430, -1.279767537054047e-07], ["wat", 592, 1.2664310228911162e-07]], 1, "U sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..\n\n\nU sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..\n\n\nU sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..\n\n\nU sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..\n\n\nU sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..\n\n\nU sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..\n\n\n", raw_div, true);
             
         </script>
         </body></html>

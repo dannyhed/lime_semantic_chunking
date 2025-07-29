@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divR89FDRBZ4091Q22"></div>
+        <div class="lime top_div" id="top_div286QQHL8UFM9BG7"></div>
         
         <script>
-        var top_div = d3.select('#top_divR89FDRBZ4091Q22').classed('lime top_div', true);
+        var top_div = d3.select('#top_div286QQHL8UFM9BG7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.3322676295501878e-15, 0.9999999999999987]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["09056242159", 0.16072235814888175], ["21870000", 0.12052135822397975], ["21", 0.06901930406557075], ["have", 0.061476183396417236], ["SMS", 0.058373684658196534]], 1, exp_div);
+                exp.show([["Howz", 2.8958170905336798e-11], ["persons", 2.8544337271726358e-11], ["story", 2.7483936359611568e-11], ["that", -2.28091669553152e-11]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["09056242159", 134, 0.16072235814888175], ["21870000", 16, 0.12052135822397975], ["21", 102, 0.06901930406557075], ["have", 76, 0.061476183396417236], ["have", 97, 0.061476183396417236], ["SMS", 61, 0.058373684658196534]], 1, "|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches", raw_div, true);
+            exp.show_raw_text([["Howz", 0, 2.8958170905336798e-11], ["persons", 10, 2.8544337271726358e-11], ["story", 18, 2.7483936359611568e-11], ["that", 5, -2.28091669553152e-11]], 1, "Howz that persons story", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZZWMJB05V1TMH5U"></div>
+        <div class="lime top_div" id="top_divLHWKGB51GUWB182"></div>
         
         <script>
-        var top_div = d3.select('#top_divZZWMJB05V1TMH5U').classed('lime top_div', true);
+        var top_div = d3.select('#top_divLHWKGB51GUWB182').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.04, 0.96]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", 0.12728195898159417], ["ass", 0.12098038018654315], ["fake", 0.07086772215906806], ["So", 0.05575899477870499]], 1, exp_div);
+                exp.show([["hoe", 0.4976753044498869], ["bitch", 0.49740548220492], ["lol", 0.005488737641276003], ["lingo", -0.0020457743111358785], ["you", -0.001207603741077649]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 11, 0.12728195898159417], ["ass", 20, 0.12098038018654315], ["fake", 15, 0.07086772215906806], ["So", 0, 0.05575899477870499], ["you", 42, 0.12728195898159417], ["ass", 82, 0.12196157860087449], ["fake", 108, 0.0718489205733994], ["So", 124, 0.05575899477870499], ["fake", 170, -0.0009811984143313403], ["ass", 175, -0.0009811984143313403]], 1, "So sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\n", raw_div, true);
+            exp.show_raw_text([["hoe", 25, 0.4976753044498869], ["bitch", 0, 0.49740548220492], ["lol", 29, 0.005488737641276003], ["lingo", 19, -0.0020457743111358785], ["you", 6, -0.001207603741077649], ["hoe", 60, 0.4976753044498869], ["bitch", 70, 0.49740548220492], ["lol", 134, 0.005488737641276003], ["lingo", 159, -0.0020457743111358785], ["you", 181, -0.001207603741077649]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
             
         </script>
         </body></html>

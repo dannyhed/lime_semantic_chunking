@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMAIGQ67DUVQT0UP"></div>
+        <div class="lime top_div" id="top_divGU1S2A29P9HSI7O"></div>
         
         <script>
-        var top_div = d3.select('#top_divMAIGQ67DUVQT0UP').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGU1S2A29P9HSI7O').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.7, 0.3]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["walk", -0.08002091228156628], ["to", 0.049830712948830215], ["had", 0.049750320547537835], ["I", -0.02987553640624642], ["get", -0.02015377373819751]], 1, exp_div);
+                exp.show([["happier", 0.6235295015737801], [".", 0.37357142786856423], ["time", -0.25057732315819226], ["a", 0.24899273406263198], ["could", -0.0005628611482776632]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["walk", 9, -0.08002091228156628], ["to", 6, 0.049830712948830215], ["had", 2, 0.049750320547537835], ["I", 0, -0.02987553640624642], ["get", 59, -0.02015377373819751], ["walk", 89, -0.08002091228156628], ["to", 166, 0.049830712948830215], ["had", 242, 0.049750320547537835], ["I", 320, -0.02987553640624642], ["get", 459, -0.02015377373819751]], 1, "I had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\n", raw_div, true);
+            exp.show_raw_text([["happier", 86, 0.6235295015737801], [".", 93, 0.37357142786856423], ["time", 42, -0.25057732315819226], ["a", 35, 0.24899273406263198], ["could", 74, -0.0005628611482776632], ["happier", 183, 0.6235295015737801], [".", 287, 0.37357142786856423], ["time", 333, -0.25057732315819226], ["a", 423, 0.24899273406263198], ["could", 559, -0.0005628611482776632]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

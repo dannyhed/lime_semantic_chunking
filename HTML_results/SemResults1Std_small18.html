@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZEQLNC0C4M03TJ5"></div>
+        <div class="lime top_div" id="top_divH25SEZRBBHXC5S6"></div>
         
         <script>
-        var top_div = d3.select('#top_divZEQLNC0C4M03TJ5').classed('lime top_div', true);
+        var top_div = d3.select('#top_divH25SEZRBBHXC5S6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.05, 0.95]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.419257492084715e-38]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["150p", 0.2646624771038863], ["Txt", 0.16177055234802898], ["Mobile", 0.10985660290932733], ["Offer", 0.08351858669616978], ["START", 0.07662279285629424]], 1, exp_div);
+                exp.show([["you", -6.33428262753947e-17], ["campus", -5.866017291769235e-17], ["Not", -5.864482338394291e-17], ["library", -5.445582212504956e-17], ["this", 4.913226239732429e-17]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["150p", 134, 0.2646624771038863], ["Txt", 77, 0.16177055234802898], ["Mobile", 41, 0.10985660290932733], ["Offer", 17, 0.08351858669616978], ["START", 87, 0.07662279285629424]], 1, "Customer Loyalty Offer:The NEW Nokia6650 Mobile from ONLY \u00a310 at TXTAUCTION! Txt word: START to No: 81151 | get yours Now! 4T|Ctxt TC 150p/MTmsg", raw_div, true);
+            exp.show_raw_text([["you", 26, -6.33428262753947e-17], ["campus", 14, -5.866017291769235e-17], ["Not", 0, -5.864482338394291e-17], ["library", 37, -5.445582212504956e-17], ["this", 9, 4.913226239732429e-17]], 1, "Not from this campus. Are you in the library?", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divL71IYE2F8MY806B"></div>
+        <div class="lime top_div" id="top_divLZTPNQX97UXH25U"></div>
         
         <script>
-        var top_div = d3.select('#top_divL71IYE2F8MY806B').classed('lime top_div', true);
+        var top_div = d3.select('#top_divLZTPNQX97UXH25U').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.43, 0.57]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["alert", 0.1321681583499766], ["call", 0.1211839297797241], ["SMS", 0.10988500170493923], ["Forwarded", 0.08219566835568501], ["Please", 0.07156908740100974]], 1, exp_div);
+                exp.show([["not", 2.0655291465308307e-10], ["until", -2.7327234214691563e-09], ["4", 2.300283988642877e-09], [",", 1.7514052974191436e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["alert", 65, 0.1321681583499766], ["call", 121, 0.1211839297797241], ["SMS", 61, 0.10988500170493923], ["Forwarded", 1, 0.08219566835568501], ["Please", 114, 0.07156908740100974], ["alert", 251, 0.1321681583499766], ["call", 493, 0.1211839297797241], ["SMS", 619, 0.10988500170493923], ["Forwarded", 745, 0.08219566835568501], ["Please", 1044, 0.07156908740100974]], 1, "|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n", raw_div, true);
+            exp.show_raw_text([["not", 3, 2.0655291465308307e-10], ["until", 17, -2.7327234214691563e-09], ["4", 23, 2.300283988642877e-09], [",", 41, 1.7514052974191436e-09], ["not", 52, 5.1139119387786485e-09], ["not", 101, -4.9073590241255655e-09], ["until", 164, -2.7327234214691563e-09], ["4", 219, 2.300283988642877e-09], [",", 286, 1.7514052974191436e-09]], 1, "Me not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div54JQLNH8KCM6TVG"></div>
+        <div class="lime top_div" id="top_divJVRDK26B1EUZ8YM"></div>
         
         <script>
-        var top_div = d3.select('#top_div54JQLNH8KCM6TVG').classed('lime top_div', true);
+        var top_div = d3.select('#top_divJVRDK26B1EUZ8YM').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 6.915065525061897e-39]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["happier", 0.773213359174892], ["this", 0.23384084006620337], ["it", 0.08865432652061345], ["time", -0.07260252496706052], ["looking", -0.07092383644034021]], 1, exp_div);
+                exp.show([["have", -3.5341639017088973e-20], ["love", -3.2648121840400223e-20], ["arrange", -3.248873788225009e-20], ["But", -3.1316213596592376e-20], ["I", 2.4902923954712067e-20]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["happier", 86, 0.773213359174892], ["this", 18, 0.23384084006620337], ["it", 69, 0.08865432652061345], ["time", 42, -0.07260252496706052], ["looking", 6, -0.07092383644034021]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.", raw_div, true);
+            exp.show_raw_text([["have", 6, -3.5341639017088973e-20], ["have", 25, -3.5341639017088973e-20], ["love", 30, -3.2648121840400223e-20], ["arrange", 39, -3.248873788225009e-20], ["But", 0, -3.1316213596592376e-20], ["I", 15, 2.4902923954712067e-20]], 1, "But i have to. I like to have love and arrange.", raw_div, true);
             
         </script>
         </body></html>

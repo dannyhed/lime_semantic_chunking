@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divYHIXRXJMINC33FX"></div>
+        <div class="lime top_div" id="top_div90EA6FESF66RPBM"></div>
         
         <script>
-        var top_div = d3.select('#top_divYHIXRXJMINC33FX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div90EA6FESF66RPBM').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.07219513360653129, 0.9278048663934687]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["You", 0.18930015857898677], ["ugly", 0.03060508181539245], ["anyway", 0.01608656604957834]], 1, exp_div);
+                exp.show([["haha", 0.10092392640059564], ["bitches", 0.1842496190967852], ["damn", 0.17189854600300317], ["on", 0.17189854600300317], ["a", 0.36168363914014123], ["niggas", 0.36168363914014123], ["mind", 0.36168363914014123]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["You", 0, 0.18930015857898677], ["ugly", 4, 0.03060508181539245], ["anyway", 9, 0.01608656604957834], ["You", 18, 0.1871159767314929], ["ugly", 40, 0.06253129363274648], ["anyway", 63, 0.04801277786693237], ["ugly", 76, -0.03411039366484788], ["anyway", 81, -0.03411039366484788], ["You", 90, 0.002184181847493851], ["ugly", 94, 0.002184181847493851], ["anyway", 99, 0.002184181847493851]], 1, "You ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\n", raw_div, true);
+            exp.show_raw_text([["haha", 30, 0.10092392640059564], ["bitches", 5, 0.1842496190967852], ["damn", 0, 0.17189854600300317], ["on", 13, 0.17189854600300317], ["a", 16, 0.36168363914014123], ["niggas", 18, 0.36168363914014123], ["mind", 25, 0.36168363914014123], ["damn", 37, 0.108168644582945], ["bitches", 42, 0.108168644582945], ["on", 50, 0.108168644582945], ["a", 53, 0.108168644582945], ["niggas", 55, 0.108168644582945], ["mind", 62, 0.108168644582945], ["damn", 74, 0.06372990142005816], ["bitches", 79, 0.06372990142005816], ["on", 87, 0.06372990142005816], ["a", 90, 0.06372990142005816], ["niggas", 92, 0.06372990142005816], ["mind", 99, 0.06372990142005816], ["haha", 104, 0.06372990142005816], ["haha", 141, 0.037194024980537484], ["a", 164, 0.0178865471341349], ["niggas", 166, 0.0178865471341349], ["mind", 173, 0.0178865471341349], ["bitches", 190, 0.012351073093782021]], 1, "damn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\ndamn bitches on a niggas mind haha\n\n\n", raw_div, true);
             
         </script>
         </body></html>

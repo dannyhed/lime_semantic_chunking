@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9M5W0FM00JSJ9CS"></div>
+        <div class="lime top_div" id="top_divY55BQVPNVVSUZ6J"></div>
         
         <script>
-        var top_div = d3.select('#top_div9M5W0FM00JSJ9CS').classed('lime top_div', true);
+        var top_div = d3.select('#top_divY55BQVPNVVSUZ6J').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.2875307306239924e-28]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["talk", 0.006863092641716722], ["had", 0.006385228904381796], ["boston", -0.0015910364644067794], ["about", 0.0008813897514290717], ["woulda", -0.0008342936159078426]], 1, exp_div);
+                exp.show([["I", -2.0923443808934098e-11], ["for", -1.8992779544420144e-11], ["asked", -1.814967722633929e-11], ["far", 1.1241104598014216e-11], ["money", 9.81524886889785e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["talk", 19, 0.006863092641716722], ["had", 102, 0.006385228904381796], ["boston", 30, -0.0015910364644067794], ["boston", 136, -0.0015910364644067794], ["about", 24, 0.0008813897514290717], ["woulda", 77, -0.0008342936159078426]], 1, "Especially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.", raw_div, true);
+            exp.show_raw_text([["I", 4, -2.0923443808934098e-11], ["for", 12, -1.8992779544420144e-11], ["asked", 6, -1.814967722633929e-11], ["far", 26, 1.1241104598014216e-11], ["money", 16, 9.81524886889785e-12]], 1, "Ok. I asked for money how far", raw_div, true);
             
         </script>
         </body></html>

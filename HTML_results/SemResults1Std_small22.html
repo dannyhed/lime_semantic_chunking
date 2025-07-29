@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divI2IANVQWX8SQX31"></div>
+        <div class="lime top_div" id="top_divW9ONBLDGOKKSBS7"></div>
         
         <script>
-        var top_div = d3.select('#top_divI2IANVQWX8SQX31').classed('lime top_div', true);
+        var top_div = d3.select('#top_divW9ONBLDGOKKSBS7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.38, 0.62]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["with", 0.1216307237040218], ["the", 0.060832827197142], ["chicken", 0.030688101508898183], ["I", 0.005600523617667202], ["tried", 0.0034932405636726453]], 1, exp_div);
+                exp.show([["0800", 0.08716159345558756], ["0825", 0.0708488035077832], ["542", 0.059694908090903845], ["announcement", 0.05356726616095396], ["FREEPHONE", 0.05109201420286923]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["with", 37, 0.1216307237040218], ["the", 8, 0.060832827197142], ["chicken", 29, 0.030688101508898183], ["I", 0, 0.005600523617667202], ["tried", 2, 0.0034932405636726453]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!", raw_div, true);
+            exp.show_raw_text([["0800", 68, 0.08716159345558756], ["0825", 77, 0.0708488035077832], ["542", 73, 0.059694908090903845], ["announcement", 39, 0.05356726616095396], ["FREEPHONE", 58, 0.05109201420286923]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!", raw_div, true);
             
         </script>
         </body></html>

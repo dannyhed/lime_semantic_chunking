@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRUT522AEPGG7NQ9"></div>
+        <div class="lime top_div" id="top_divNN08T9D17AQM0HY"></div>
         
         <script>
-        var top_div = d3.select('#top_divRUT522AEPGG7NQ9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNN08T9D17AQM0HY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Sat", 0.009967980731060864], ["?", 9.881892534397812e-05], ["right", 9.418917521189515e-05], ["Okay", 8.403818510059048e-08], ["thanks", 8.403818510059048e-08], ["...", 8.403818510059048e-08], ["Sat", 0.009877696050558589]], 1, exp_div);
+                exp.show([["that", -9.734205619892291e-12], ["persons", 4.1974742513384964e-11], ["story", 9.057316690567237e-12], ["Howz", 5.059638304703044e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Sat", 0, 0.009967980731060864], ["?", 9, 9.881892534397812e-05], ["right", 4, 9.418917521189515e-05], ["Okay", 11, 8.403818510059048e-08], ["thanks", 16, 8.403818510059048e-08], ["...", 22, 8.403818510059048e-08], ["Sat", 28, 0.009877696050558589], ["Sat", 56, 9.028468050227617e-05], ["right", 60, 9.028468050227617e-05], ["?", 65, 9.028468050227617e-05], ["?", 93, 8.534244841701943e-06], ["right", 116, 3.904494709618979e-06], ["Okay", 151, 8.403818510059048e-08], ["thanks", 156, 8.403818510059048e-08], ["...", 162, 8.403818510059048e-08]], 1, "Sat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\n", raw_div, true);
+            exp.show_raw_text([["that", 5, -9.734205619892291e-12], ["persons", 10, 4.1974742513384964e-11], ["story", 18, 9.057316690567237e-12], ["Howz", 0, 5.059638304703044e-12], ["that", 31, -4.0496019256901456e-11], ["that", 57, 3.0761813637009165e-11], ["persons", 62, 3.0761813637009165e-11], ["persons", 88, 1.1212928876375801e-11], ["story", 122, 9.057316690567237e-12], ["Howz", 130, 5.059638304703044e-12]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
             
         </script>
         </body></html>

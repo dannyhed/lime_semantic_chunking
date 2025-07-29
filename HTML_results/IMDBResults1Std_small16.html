@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div0ZXO3BEH69BCNLF"></div>
+        <div class="lime top_div" id="top_divVFBA8TYMXL3XULQ"></div>
         
         <script>
-        var top_div = d3.select('#top_div0ZXO3BEH69BCNLF').classed('lime top_div', true);
+        var top_div = d3.select('#top_divVFBA8TYMXL3XULQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.27, 0.73]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9412971216691143, 0.05870287833088573]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["great", 0.07247764191881616], ["and", 0.06458638439268312], ["acting", -0.040998074430093005], ["why", -0.03250274459009684], ["this", -0.03204236170165036]], 1, exp_div);
+                exp.show([["only", -0.16382701635697836], ["wasted", -0.12332912361206279], ["Smith", -0.10548393165295226], ["is", -0.104406007369595], ["Well", -0.0969266588891644]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["great", 134, 0.07247764191881616], ["and", 81, 0.06458638439268312], ["and", 141, 0.06458638439268312], ["and", 164, 0.06458638439268312], ["and", 226, 0.06458638439268312], ["acting", 123, -0.040998074430093005], ["why", 266, -0.03250274459009684], ["this", 214, -0.03204236170165036], ["this", 241, -0.03204236170165036]], 1, "This movie is so good! I first seen it when i was six, then i bought it recently and i still love it, im 15 now. Plus, the acting was great, and Madonna is my idol and she did a phat job! Alot of people didnt like this movie, and i still to this day dont understand why.", raw_div, true);
+            exp.show_raw_text([["only", 330, -0.16382701635697836], ["only", 481, -0.16382701635697836], ["wasted", 261, -0.12332912361206279], ["Smith", 226, -0.10548393165295226], ["is", 247, -0.104406007369595], ["is", 368, -0.104406007369595], ["is", 584, -0.104406007369595], ["is", 714, -0.104406007369595], ["Well", 656, -0.0969266588891644]], 1, "Bad Movie! Bad! Go stand in a discount bin. Carrot Top should really stick to low lit comedy clubs. It's movies like this that make old Jerry Lewis films look like Shakespeare and John Agar like John Barrymore. Coutney Thorne-Smith (a fine talent)is absolutely wasted. Her purpose seems mainly to look pretty and oblivious.   The only enjoyable things about the movie is seeing Raquel Welch doing an Alexis Carrington type role, and Estelle Harris as a harridan of a landlady. The only way I can imagine someone thinking it would be a good idea to make this (beyond sophomoric) film, is if the producers' fourth grade child was allowed to pick the script. Well, maybe his third grader. What this film really needs is to be rubbed in the noses of its creators.", raw_div, true);
             
         </script>
         </body></html>

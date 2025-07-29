@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divDIWD0WON4TJXLLV"></div>
+        <div class="lime top_div" id="top_divMYDTNDTOHZYR27L"></div>
         
         <script>
-        var top_div = d3.select('#top_divDIWD0WON4TJXLLV').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMYDTNDTOHZYR27L').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.02, 0.98]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["they", 0.14182742119723746], ["died", 0.07467651789206192], ["alive", 0.06772488759951292], ["both", 0.06272463647934448], ["bruh", 0.01017221809973054]], 1, exp_div);
+                exp.show([["...", 0.6118058677391296], ["'", 0.4146340945762121], ["hoes", -0.32696690707370557], ["nothin", 0.3214960863540591], ["get", 0.27813019335182015]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["they", 10, 0.14182742119723746], ["died", 47, 0.07467651789206192], ["alive", 20, 0.06772488759951292], ["both", 15, 0.06272463647934448], ["bruh", 5, 0.01017221809973054], ["they", 64, 0.14182742119723746], ["died", 155, 0.07467651789206192], ["alive", 182, 0.06772488759951292], ["both", 231, 0.06272463647934448], ["bruh", 275, 0.01017221809973054]], 1, "null bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\n", raw_div, true);
+            exp.show_raw_text([["...", 105, 0.6118058677391296], ["'", 0, 0.4146340945762121], ["hoes", 13, -0.32696690707370557], ["nothin", 22, 0.3214960863540591], ["get", 18, 0.27813019335182015], ["...", 216, 0.6118058677391296], ["'", 222, 0.4146340945762121], ["hoes", 346, -0.32696690707370557], ["nothin", 466, 0.3214960863540591], ["get", 573, 0.27813019335182015]], 1, "' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBSSPHNZAN6KIL3M"></div>
+        <div class="lime top_div" id="top_divRA65G5AK02BB0K9"></div>
         
         <script>
-        var top_div = d3.select('#top_divBSSPHNZAN6KIL3M').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRA65G5AK02BB0K9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.02, 0.98]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.6608936448392342e-13, 0.9999999999998339]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["niggah", 0.03941546975874148], ["You", 0.02438867719864387], ["be", 0.02015406149667152], ["you", 0.01789851899129885], ["broke", -0.008832962984837813]], 1, exp_div);
+                exp.show([["Text", 0.16478169173671123], ["nigs", -0.008483474669656293], ["with", -0.02623107524339048], ["plans", -0.050836301514179935], ["me", 0.07130648389413519]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["niggah", 49, 0.03941546975874148], ["You", 2, 0.02438867719864387], ["be", 40, 0.02015406149667152], ["you", 32, 0.01789851899129885], ["broke", 18, -0.008832962984837813], ["niggah", 107, 0.03941546975874148], ["You", 118, 0.02438867719864387], ["be", 214, 0.02015406149667152], ["you", 264, 0.01789851899129885], ["broke", 308, -0.008832962984837813]], 1, "' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n", raw_div, true);
+            exp.show_raw_text([["Text", 0, 0.16478169173671123], ["nigs", 19, -0.008483474669656293], ["with", 8, -0.02623107524339048], ["plans", 13, -0.050836301514179935], ["me", 5, 0.07130648389413519], ["with", 34, -0.09753755913752567], ["plans", 39, -0.09753755913752567], ["nigs", 45, -0.09753755913752567], ["Text", 52, 0.09347520784257604], ["plans", 91, 0.07293233286673621], ["nigs", 97, 0.07293233286673621], ["Text", 104, 0.07130648389413519], ["me", 109, 0.07130648389413519], ["with", 112, 0.07130648389413519], ["plans", 117, 0.07130648389413519], ["nigs", 123, 0.07130648389413519], ["nigs", 149, 0.042352826844523635]], 1, "Text me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\n", raw_div, true);
             
         </script>
         </body></html>

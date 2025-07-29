@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div0SSJAC5JMPZ7Z5J"></div>
+        <div class="lime top_div" id="top_divDKIU77HRWALJ6WC"></div>
         
         <script>
-        var top_div = d3.select('#top_div0SSJAC5JMPZ7Z5J').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDKIU77HRWALJ6WC').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0578310436234116e-25]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.0014009846169600743], ["just", 0.0007035151408880478], ["phone", 0.009317695339338822], ["ur", -0.0020765253891470844], ["saw", -0.009641657810497976], ["messages", -0.009641657810497976]], 1, exp_div);
+                exp.show([["possible", -1.7433034584410602e-13], ["you", 1.0755780696794116e-13], ["How", -6.631934884823006e-14], ["it", -1.8120461237772496e-13], ["And", -1.687462694688743e-13], ["where", -1.687462694688743e-13], [".", -1.687462694688743e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 44, 0.0014009846169600743], ["just", 48, 0.0007035151408880478], ["phone", 30, 0.009317695339338822], ["ur", 57, -0.0020765253891470844], ["saw", 53, -0.009641657810497976], ["messages", 60, -0.009641657810497976], ["and", 157, 0.01104264242745805], ["just", 274, 0.010345172951386023], ["and", 383, -0.009641657810497976], ["just", 387, -0.009641657810497976], ["saw", 392, -0.009641657810497976], ["ur", 396, -0.009641657810497976], ["messages", 399, -0.009641657810497976], ["phone", 482, 0.009317695339338822], ["ur", 622, 0.007565132421350891]], 1, "What's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\nWhat's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\nWhat's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\nWhat's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\nWhat's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\nWhat's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\nWhat's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.\n\n\n", raw_div, true);
+            exp.show_raw_text([["possible", 10, -1.7433034584410602e-13], ["you", 28, 1.0755780696794116e-13], ["How", 0, -6.631934884823006e-14], ["it", 7, -1.8120461237772496e-13], ["And", 33, -1.687462694688743e-13], ["where", 37, -1.687462694688743e-13], [".", 42, -1.687462694688743e-13], ["it", 53, -1.8120461237772496e-13], ["possible", 102, -1.7433034584410602e-13], ["And", 171, -1.687462694688743e-13], ["where", 175, -1.687462694688743e-13], [".", 180, -1.687462694688743e-13], ["you", 212, 1.0755780696794116e-13], ["How", 230, -6.631934884823006e-14]], 1, "How is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

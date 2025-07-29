@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div3BPFNY3KWVV9IXU"></div>
+        <div class="lime top_div" id="top_divIV2Q5DZPNS7U6FE"></div>
         
         <script>
-        var top_div = d3.select('#top_div3BPFNY3KWVV9IXU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divIV2Q5DZPNS7U6FE').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.01, 0.99]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.008831596394676677, 0.9911684036053233]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Peace", 0.3397971977166862], ["fags", 0.0013195337928288947]], 1, exp_div);
+                exp.show([["fags", 0.6601765072157448], ["Peace", 0.32042822802274373]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Peace", 0, 0.3397971977166862], ["fags", 6, 0.0013195337928288947], ["Peace", 13, 0.3384776639238573], ["Peace", 26, 0.0007368251180065897], ["fags", 32, 0.0007368251180065897], ["Peace", 39, 0.000715331226717161], ["fags", 45, 0.000715331226717161], ["Peace", 52, -9.911765976460678e-05], ["fags", 58, -9.911765976460678e-05], ["Peace", 65, -3.350489213024933e-05], ["fags", 71, -3.350489213024933e-05]], 1, "Peace fags\n\n\nPeace fags\n\n\nPeace fags\n\n\n", raw_div, true);
+            exp.show_raw_text([["fags", 6, 0.6601765072157448], ["Peace", 0, 0.32042822802274373], ["fags", 19, 0.6584695832989129], ["Peace", 26, 0.3187213041059119], ["Peace", 39, 0.0017016806143542408], ["fags", 45, 0.0017016806143542408], ["Peace", 52, 4.258524187213396e-06], ["fags", 58, 4.258524187213396e-06], ["Peace", 65, 9.847782904351216e-07], ["fags", 71, 9.847782904351216e-07]], 1, "Peace fags\n\n\nPeace fags\n\n\nPeace fags\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1M8AI0CYP0051VS"></div>
+        <div class="lime top_div" id="top_divTGPEMMCCAPU4BYS"></div>
         
         <script>
-        var top_div = d3.select('#top_div1M8AI0CYP0051VS').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTGPEMMCCAPU4BYS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.008831596394676677, 0.9911684036053233]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999964782587, 3.5217413286002613e-09]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["fags", 0.047062597806265975], ["Peace", 0.04710675398455666]], 1, exp_div);
+                exp.show([["that", 0.04716017728904254], ["Ca", 0.25751432356037085], ["n't", -0.12860604780221396], ["stand", -0.09481596833347125], ["dude", -0.3105625023455617], ["asian", -0.3105625023455617]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["fags", 6, 0.047062597806265975], ["Peace", 0, 0.04710675398455666], ["Peace", 13, 0.055273629885126144], ["fags", 19, 0.055273629885126144], ["fags", 32, -0.008211032078860168], ["Peace", 39, -0.008166875900569482]], 1, "Peace fags\n\n\nPeace fags\n\n\nPeace fags\n\n\n", raw_div, true);
+            exp.show_raw_text([["that", 12, 0.04716017728904254], ["Ca", 0, 0.25751432356037085], ["n't", 2, -0.12860604780221396], ["stand", 6, -0.09481596833347125], ["dude", 23, -0.3105625023455617], ["asian", 17, -0.3105625023455617], ["that", 51, 0.35772267963460425], ["dude", 101, -0.3105625023455617], ["that", 90, -0.3105625023455617], ["asian", 95, -0.3105625023455617], ["Ca", 117, 0.25751432356037085], ["n't", 158, -0.12860604780221396], ["stand", 201, -0.09481596833347125]], 1, "Can't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\nCan't stand that asian dude just now\n\n\n", raw_div, true);
             
         </script>
         </body></html>

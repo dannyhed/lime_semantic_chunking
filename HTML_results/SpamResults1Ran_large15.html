@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divD02GJREF61QBBPH"></div>
+        <div class="lime top_div" id="top_divC75S0WVVQJXMIQY"></div>
         
         <script>
-        var top_div = d3.select('#top_divD02GJREF61QBBPH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC75S0WVVQJXMIQY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.532107773982716e-14, 0.9999999999999847]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["that", -2.0689232605880503e-12], ["persons", -1.50479230993638e-12], ["story", -4.711416474197456e-13], ["Howz", -4.710990925981015e-13]], 1, exp_div);
+                exp.show([["83222", 0.37432633414518685], ["send", 0.32061267101474283], ["!", 0.30564650657725406], ["EURO", 0.18423344374109216], ["kickoff", -0.10814784271389649]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["that", 5, -2.0689232605880503e-12], ["persons", 10, -1.50479230993638e-12], ["story", 18, -4.711416474197456e-13], ["Howz", 0, -4.710990925981015e-13], ["that", 31, -2.0679137910838165e-12], ["persons", 62, -1.5037828404321466e-12], ["story", 96, -4.701321779155119e-13], ["Howz", 104, -4.700896230938679e-13], ["Howz", 130, -1.0094695042336062e-15], ["that", 135, -1.0094695042336062e-15], ["persons", 140, -1.0094695042336062e-15], ["story", 148, -1.0094695042336062e-15]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
+            exp.show_raw_text([["83222", 129, 0.37432633414518685], ["send", 107, 0.32061267101474283], ["!", 27, 0.30564650657725406], ["EURO", 116, 0.18423344374109216], ["kickoff", 20, -0.10814784271389649], ["83222", 267, 0.37432633414518685], ["send", 383, 0.32061267101474283], ["!", 441, 0.30564650657725406], ["EURO", 668, 0.18423344374109216], ["kickoff", 710, -0.10814784271389649]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

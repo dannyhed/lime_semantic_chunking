@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div7LFYLHVC9RZ8L4U"></div>
+        <div class="lime top_div" id="top_divZQGGXATETDO76GQ"></div>
         
         <script>
-        var top_div = d3.select('#top_div7LFYLHVC9RZ8L4U').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZQGGXATETDO76GQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.063569268460371e-33]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0804003761360723e-29]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["me", -1.9499315496264806e-19], ["than", -1.6205054209336759e-19], ["to", -1.5776996382130546e-19], ["da", -1.5099368084467006e-19], ["sister", -1.4706310769054077e-19]], 1, exp_div);
+                exp.show([["in", -5.402095261211882e-13], ["a", -5.053364716790055e-13], ["function", -4.996630976778125e-13], ["I", -4.83188056673682e-13], ["marriage", 1.8381843138847093e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["me", 34, -1.9499315496264806e-19], ["than", 29, -1.6205054209336759e-19], ["to", 16, -1.5776996382130546e-19], ["da", 37, -1.5099368084467006e-19], ["sister", 3, -1.4706310769054077e-19]], 1, "My sister going to earn more than me da.", raw_div, true);
+            exp.show_raw_text([["in", 5, -5.402095261211882e-13], ["a", 8, -5.053364716790055e-13], ["function", 19, -4.996630976778125e-13], ["I", 0, -4.83188056673682e-13], ["marriage", 10, 1.8381843138847093e-13]], 1, "I am in a marriage function", raw_div, true);
             
         </script>
         </body></html>

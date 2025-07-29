@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJ1HSI7GC92OR6L9"></div>
+        <div class="lime top_div" id="top_divLHWKGB51GUWB182"></div>
         
         <script>
-        var top_div = d3.select('#top_divJ1HSI7GC92OR6L9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divLHWKGB51GUWB182').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.23, 0.77]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["crows", -0.12704639417530142], ["all", 0.05680644328173194], ["lines", -0.054305741645819826], ["just", 0.03724054126314984], ["You", 0.03350772942047223]], 1, exp_div);
+                exp.show([["bitch", 0.11615643243536929], ["know", 0.16935086724976145], ["you", 0.16813660179200857], ["the", 0.1444510950736646], ["lingo", 0.1444510950736646], ["hoe", 0.1444510950736646], ["lol", 0.1444510950736646]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["crows", 16, -0.12704639417530142], ["all", 7, 0.05680644328173194], ["lines", 35, -0.054305741645819826], ["just", 11, 0.03724054126314984], ["You", 0, 0.03350772942047223], ["crows", 60, -0.12704639417530142], ["all", 95, 0.05680644328173194], ["lines", 167, -0.054305741645819826], ["just", 187, 0.03724054126314984], ["You", 220, 0.03350772942047223]], 1, "You're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\n", raw_div, true);
+            exp.show_raw_text([["bitch", 0, 0.11615643243536929], ["know", 10, 0.16935086724976145], ["you", 6, 0.16813660179200857], ["the", 15, 0.1444510950736646], ["lingo", 19, 0.1444510950736646], ["hoe", 25, 0.1444510950736646], ["lol", 29, 0.1444510950736646], ["you", 41, 0.07749827512893284], ["know", 45, 0.07749827512893284], ["the", 50, 0.07749827512893284], ["lingo", 54, 0.07749827512893284], ["hoe", 60, 0.07749827512893284], ["lol", 64, 0.07749827512893284], ["bitch", 70, 0.06695281994473176], ["you", 76, 0.06695281994473176], ["know", 80, 0.06695281994473176], ["the", 85, 0.06695281994473176], ["lingo", 89, 0.06695281994473176], ["hoe", 95, 0.06695281994473176], ["lol", 99, 0.06695281994473176], ["bitch", 105, 0.049203612490637524], ["know", 150, 0.024899772176096843], ["you", 181, 0.02368550671834395]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
             
         </script>
         </body></html>

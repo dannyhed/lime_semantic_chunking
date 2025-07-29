@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJY7FXQ2GX2795GQ"></div>
+        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
         
         <script>
-        var top_div = d3.select('#top_divJY7FXQ2GX2795GQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["friendly", 0.027008430062456013], [".", 0.31137543433579007], ["and", 0.304378957989536], ["fine", 0.13620000278585306], ["the", -0.28485120027335376], ["waitress", -0.28485120027335376], ["was", -0.28485120027335376]], 1, exp_div);
+                exp.show([["happier", 0.591368948590803], ["this", 0.1649544625251736], ["n't", -0.3025179653685633], [".", 0.1778066883337936], ["for", -0.34659772989107157], ["headset", -0.34659772989107157]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["friendly", 38, 0.027008430062456013], [".", 46, 0.31137543433579007], ["and", 17, 0.304378957989536], ["fine", 12, 0.13620000278585306], ["the", 21, -0.28485120027335376], ["waitress", 25, -0.28485120027335376], ["was", 34, -0.28485120027335376], ["friendly", 88, 0.31185963033580977], [".", 146, 0.31137543433579007], ["and", 167, 0.304378957989536], ["the", 221, -0.28485120027335376], ["waitress", 225, -0.28485120027335376], ["was", 234, -0.28485120027335376], ["friendly", 238, -0.28485120027335376], ["fine", 262, 0.13620000278585306]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
+            exp.show_raw_text([["happier", 86, 0.591368948590803], ["this", 18, 0.1649544625251736], ["n't", 79, -0.3025179653685633], [".", 93, 0.1778066883337936], ["for", 14, -0.34659772989107157], ["headset", 23, -0.34659772989107157], ["happier", 183, 0.591368948590803], ["this", 212, 0.5115521924162452], ["for", 305, -0.34659772989107157], ["this", 309, -0.34659772989107157], ["headset", 314, -0.34659772989107157], ["n't", 467, -0.3025179653685633], [".", 578, 0.1778066883337936]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

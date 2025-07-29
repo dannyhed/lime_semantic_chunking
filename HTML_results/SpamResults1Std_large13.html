@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8951NDT3AIYSN1C"></div>
+        <div class="lime top_div" id="top_divTPFKN0IP5V4QDCO"></div>
         
         <script>
-        var top_div = d3.select('#top_div8951NDT3AIYSN1C').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTPFKN0IP5V4QDCO').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0231086626908561e-36]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.480755528541006e-26]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Yes", 5.207733154276993e-12], ["to", -4.834072491766725e-12], ["going", -4.709578228484013e-12], ["bank", -4.561024921960045e-12], ["the", -4.312869558526179e-12]], 1, exp_div);
+                exp.show([["significance", -7.532168089486308e-24], ["What", -6.801233016570259e-24], ["the", -1.3416351998681295e-24], ["s", 8.894308673954356e-25]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Yes", 0, 5.207733154276993e-12], ["to", 37, -4.834072491766725e-12], ["to", 82, -4.834072491766725e-12], ["going", 31, -4.709578228484013e-12], ["bank", 85, -4.561024921960045e-12], ["the", 40, -4.312869558526179e-12]], 1, "Yes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.", raw_div, true);
+            exp.show_raw_text([["significance", 11, -7.532168089486308e-24], ["What", 0, -6.801233016570259e-24], ["the", 7, -1.3416351998681295e-24], ["s", 5, 8.894308673954356e-25]], 1, "What's the significance?", raw_div, true);
             
         </script>
         </body></html>

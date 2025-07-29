@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div43WJL9RM8MG5IXP"></div>
+        <div class="lime top_div" id="top_divZ6EGWC38NB5FVX6"></div>
         
         <script>
-        var top_div = d3.select('#top_div43WJL9RM8MG5IXP').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZ6EGWC38NB5FVX6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.834074077520548e-19]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", -6.133754902998189e-08], ["I", 4.7297064856010025e-08], ["around", 1.642295254646006e-08], ["+", 1.5844529290538365e-08], ["Hey", 7.804872190173013e-09]], 1, exp_div);
+                exp.show([[".", 0.5831876965503515], ["talking", -0.43516518892866773], ["spends", -0.2123258178347916], ["themselves", 0.1392089276713039], ["staff", 0.12277393552096344]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 59, -6.133754902998189e-08], ["I", 16, 4.7297064856010025e-08], ["around", 8, 1.642295254646006e-08], ["+", 43, 1.5844529290538365e-08], ["Hey", 0, 7.804872190173013e-09], ["you", 124, -6.133754902998189e-08], ["I", 146, 4.7297064856010025e-08], ["around", 203, 1.642295254646006e-08], ["+", 303, 1.5844529290538365e-08], ["Hey", 325, 7.804872190173013e-09]], 1, "Hey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 57, 0.5831876965503515], ["talking", 28, -0.43516518892866773], ["spends", 11, -0.2123258178347916], ["themselves", 39, 0.1392089276713039], ["staff", 5, 0.12277393552096344], [".", 118, 0.5831876965503515], ["talking", 150, -0.43516518892866773], ["spends", 194, -0.2123258178347916], ["themselves", 283, 0.1392089276713039], ["staff", 310, 0.12277393552096344]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

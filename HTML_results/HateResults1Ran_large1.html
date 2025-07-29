@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div79ABRLH1ZVLEO5G"></div>
+        <div class="lime top_div" id="top_divHTK1G7PYUC9UDYS"></div>
         
         <script>
-        var top_div = d3.select('#top_div79ABRLH1ZVLEO5G').classed('lime top_div', true);
+        var top_div = d3.select('#top_divHTK1G7PYUC9UDYS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.16883978220557716, 0.8311602177944228]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["lingo", 0.6371556418714416], ["you", 0.4340649477916861], ["the", 0.1291335810345316], ["lol", 0.041950425341894707]], 1, exp_div);
+                exp.show([["You", 0.4406850362855412], ["anyway", 0.35735147091410296], ["ugly", 0.2172602665922358]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["lingo", 19, 0.6371556418714416], ["you", 6, 0.4340649477916861], ["the", 15, 0.1291335810345316], ["lol", 29, 0.041950425341894707], ["lingo", 54, 0.6371556418714416], ["you", 76, 0.4340649477916861], ["the", 120, 0.1291335810345316], ["lol", 169, 0.03182894109465574], ["lol", 204, 0.010121484247238965]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
+            exp.show_raw_text([["You", 0, 0.4406850362855412], ["anyway", 9, 0.35735147091410296], ["ugly", 4, 0.2172602665922358], ["You", 18, 0.41108103651313893], ["anyway", 45, 0.3299720488749236], ["ugly", 58, 0.18765626681983352], ["ugly", 76, 0.029603999772402266], ["You", 72, 0.029603999772402266], ["anyway", 99, 0.027379422039179365]], 1, "You ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\n", raw_div, true);
             
         </script>
         </body></html>

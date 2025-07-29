@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZFE4PFF1ED01NZH"></div>
+        <div class="lime top_div" id="top_divW9ONBLDGOKKSBS7"></div>
         
         <script>
-        var top_div = d3.select('#top_divZFE4PFF1ED01NZH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divW9ONBLDGOKKSBS7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.54, 0.46]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["than", 0.11129574622548341], [".", 0.03219942826027494], ["themselves", 0.014397525708775625], ["staff", -0.011409899464730335], ["me", -0.0007042060643646078]], 1, exp_div);
+                exp.show([["now", 0.35144934995287774], ["542", 0.2919037555018526], ["customer", 0.266525844595872], ["FREEPHONE", 0.2606051799505815], ["service", -0.13634680298151672]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["than", 50, 0.11129574622548341], [".", 57, 0.03219942826027494], ["themselves", 39, 0.014397525708775625], ["staff", 5, -0.011409899464730335], ["me", 55, -0.0007042060643646078], ["than", 111, 0.11129574622548341], [".", 179, 0.03219942826027494], ["themselves", 222, 0.014397525708775625], ["staff", 249, -0.011409899464730335], ["me", 360, -0.0007042060643646078]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
+            exp.show_raw_text([["now", 82, 0.35144934995287774], ["542", 73, 0.2919037555018526], ["customer", 22, 0.266525844595872], ["FREEPHONE", 58, 0.2606051799505815], ["service", 31, -0.13634680298151672], ["now", 171, 0.35144934995287774], ["542", 251, 0.2919037555018526], ["customer", 289, 0.266525844595872], ["FREEPHONE", 414, 0.2606051799505815], ["service", 476, -0.13634680298151672]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

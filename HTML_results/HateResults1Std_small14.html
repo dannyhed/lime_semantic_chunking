@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBSSPHNZAN6KIL3M"></div>
+        <div class="lime top_div" id="top_divKE6Q746QKN84G34"></div>
         
         <script>
-        var top_div = d3.select('#top_divBSSPHNZAN6KIL3M').classed('lime top_div', true);
+        var top_div = d3.select('#top_divKE6Q746QKN84G34').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.02, 0.98]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.687667734859288e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["niggah", 0.03765628466966356], ["You", 0.02634745379350336], ["broke", -0.00939614512393845], ["be", 0.007323833802390484], ["messin", -0.005150827645595057]], 1, exp_div);
+                exp.show([["birds", -0.14565246212579316], ["songs", -0.09655754645917199], ["Singing", -0.09097178803771261], ["melodies", -0.07616802712178987], ["little", -0.06984227457954804]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["niggah", 49, 0.03765628466966356], ["You", 2, 0.02634745379350336], ["broke", 18, -0.00939614512393845], ["broke", 43, -0.00939614512393845], ["be", 40, 0.007323833802390484], ["messin", 6, -0.005150827645595057]], 1, "' You messin with broke niggahs you gon be broke niggah", raw_div, true);
+            exp.show_raw_text([["birds", 24, -0.14565246212579316], ["songs", 67, -0.09655754645917199], ["Singing", 53, -0.09097178803771261], ["melodies", 76, -0.07616802712178987], ["little", 17, -0.06984227457954804]], 1, "he was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...", raw_div, true);
             
         </script>
         </body></html>

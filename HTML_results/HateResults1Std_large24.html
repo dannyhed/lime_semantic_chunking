@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divG4VRQTRP0BDVXIG"></div>
+        <div class="lime top_div" id="top_divXF9NWSNY03222HQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divG4VRQTRP0BDVXIG').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXF9NWSNY03222HQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bitch", 0.05616477944333034], ["her", 0.03905756580553305], ["aint", 0.03324857450171134], ["got", 0.03021631379979978], ["down", -0.020496983594826025]], 1, exp_div);
+                exp.show([["lines", -0.3120388096162374], ["all", 0.2874681769367702], ["power", -0.22555816156967096], ["You", 0.20148944638694036], ["the", -0.13476049951962046]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bitch", 4, 0.05616477944333034], ["her", 56, 0.03905756580553305], ["aint", 39, 0.03324857450171134], ["got", 44, 0.03021631379979978], ["down", 16, -0.020496983594826025]], 1, "lil bitch thats down to make your bond aint got to tell her", raw_div, true);
+            exp.show_raw_text([["lines", 35, -0.3120388096162374], ["all", 7, 0.2874681769367702], ["power", 29, -0.22555816156967096], ["You", 0, 0.20148944638694036], ["the", 25, -0.13476049951962046]], 1, "You're all just crows on the power lines.", raw_div, true);
             
         </script>
         </body></html>

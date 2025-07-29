@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEZEP30JLRAXVFXV"></div>
+        <div class="lime top_div" id="top_divQTGUVQW58GE1J9Z"></div>
         
         <script>
-        var top_div = d3.select('#top_divEZEP30JLRAXVFXV').classed('lime top_div', true);
+        var top_div = d3.select('#top_divQTGUVQW58GE1J9Z').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [6.633715798898265e-11, 0.9999999999336628]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["alto18", 0.13180928089024382], ["wave", 0.07935582735651484], ["44345", 0.07204006227523262], ["A", 0.06475423430838737], ["You", 0.06348783517803817]], 1, exp_div);
+                exp.show([["Txt", 0.0007122648817131827], ["Customer", 0.0006548597065310504], ["Offer", 0.0006348812307277236], ["to", 0.000607609377610872], ["4T", 0.0006062440236573292]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["alto18", 62, 0.13180928089024382], ["wave", 75, 0.07935582735651484], ["wave", 80, 0.07935582735651484], ["44345", 91, 0.07204006227523262], ["A", 0, 0.06475423430838737], ["You", 38, 0.06348783517803817]], 1, "A link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345", raw_div, true);
+            exp.show_raw_text([["Txt", 77, 0.0007122648817131827], ["Customer", 0, 0.0006548597065310504], ["Offer", 17, 0.0006348812307277236], ["to", 93, 0.000607609377610872], ["4T", 123, 0.0006062440236573292]], 1, "Customer Loyalty Offer:The NEW Nokia6650 Mobile from ONLY \u00a310 at TXTAUCTION! Txt word: START to No: 81151 | get yours Now! 4T|Ctxt TC 150p/MTmsg", raw_div, true);
             
         </script>
         </body></html>

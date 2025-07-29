@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divL1L67RRJG7YKMRQ"></div>
+        <div class="lime top_div" id="top_divNN08T9D17AQM0HY"></div>
         
         <script>
-        var top_div = d3.select('#top_divL1L67RRJG7YKMRQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNN08T9D17AQM0HY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.04, 0.96]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["claim", 0.15795004876988913], ["prize", 0.12584345137887124], ["10p", 0.10589466364463343], ["000", 0.08782457853137468], ["rate", 0.08494422850385301]], 1, exp_div);
+                exp.show([["persons", 2.5997564259579745e-11], ["Howz", 2.4898853034964165e-11], ["story", 2.4173998603309298e-11], ["that", -2.0416064040762464e-11]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["claim", 77, 0.15795004876988913], ["prize", 68, 0.12584345137887124], ["10p", 124, 0.10589466364463343], ["000", 59, 0.08782457853137468], ["rate", 152, 0.08494422850385301]], 1, "Congratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.", raw_div, true);
+            exp.show_raw_text([["persons", 10, 2.5997564259579745e-11], ["Howz", 0, 2.4898853034964165e-11], ["story", 18, 2.4173998603309298e-11], ["that", 5, -2.0416064040762464e-11]], 1, "Howz that persons story", raw_div, true);
             
         </script>
         </body></html>

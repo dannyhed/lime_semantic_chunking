@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTWPNEGTLPJSXRBQ"></div>
+        <div class="lime top_div" id="top_divRMSADVOGK0N0NKS"></div>
         
         <script>
-        var top_div = d3.select('#top_divTWPNEGTLPJSXRBQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRMSADVOGK0N0NKS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.79, 0.21]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.1133441410730037e-38]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Worst", -0.08178139974141285], ["customer", -0.020702590779991953], [".", -0.01987275361025919], ["service", 8.778956738846355e-06]], 1, exp_div);
+                exp.show([["came", -2.208276942188061e-12], ["I", -1.7657870508123501e-12], ["'m", 1.2585956268630012e-12], ["also", -1.222051386567832e-12], ["room", -8.963010124451097e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Worst", 0, -0.08178139974141285], ["customer", 6, -0.020702590779991953], [".", 22, -0.01987275361025919], ["service", 15, 8.778956738846355e-06], ["Worst", 26, -0.08171654257547739], ["customer", 58, -0.020711369736730798], [".", 100, -0.019881532566998036], ["Worst", 104, -7.363612267430466e-05], ["Worst", 130, 8.778956738846355e-06], ["customer", 136, 8.778956738846355e-06], ["service", 145, 8.778956738846355e-06], [".", 152, 8.778956738846355e-06]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
+            exp.show_raw_text([["came", 9, -2.208276942188061e-12], ["I", 0, -1.7657870508123501e-12], ["'m", 1, 1.2585956268630012e-12], ["also", 4, -1.222051386567832e-12], ["room", 17, -8.963010124451097e-13], ["came", 34, -2.208276942188061e-12], ["I", 50, -1.7657870508123501e-12], ["'m", 76, 1.2585956268630012e-12], ["also", 104, -1.222051386567832e-12], ["room", 142, -8.963010124451097e-13]], 1, "I'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

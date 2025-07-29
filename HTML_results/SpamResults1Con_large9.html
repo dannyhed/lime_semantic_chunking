@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divAT9TVA100QJH6TB"></div>
+        <div class="lime top_div" id="top_div286QQHL8UFM9BG7"></div>
         
         <script>
-        var top_div = d3.select('#top_divAT9TVA100QJH6TB').classed('lime top_div', true);
+        var top_div = d3.select('#top_div286QQHL8UFM9BG7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0578310436234116e-25]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["possible", -6.989145467635463e-14], [".", -6.932939976505077e-14], ["to", 6.226544425909923e-14], ["How", -5.875626628795918e-14], ["And", -1.0423193951930814e-13], ["where", -1.0423193951930814e-13], [".", -1.0423193951930814e-13]], 1, exp_div);
+                exp.show([["that", -8.746384590662342e-12], ["persons", 4.0727052990926665e-11], ["Howz", 8.103212469132122e-12], ["story", 5.977048542767131e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["possible", 10, -6.989145467635463e-14], [".", 31, -6.932939976505077e-14], ["to", 19, 6.226544425909923e-14], ["How", 0, -5.875626628795918e-14], ["And", 33, -1.0423193951930814e-13], ["where", 37, -1.0423193951930814e-13], [".", 42, -1.0423193951930814e-13], ["And", 79, -1.0423193951930814e-13], ["where", 83, -1.0423193951930814e-13], [".", 88, -1.0423193951930814e-13], ["possible", 102, -6.989145467635463e-14], [".", 169, -6.932939976505077e-14], ["to", 203, 6.226544425909923e-14], ["How", 230, -5.875626628795918e-14]], 1, "How is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\n", raw_div, true);
+            exp.show_raw_text([["that", 5, -8.746384590662342e-12], ["persons", 10, 4.0727052990926665e-11], ["Howz", 0, 8.103212469132122e-12], ["story", 18, 5.977048542767131e-12], ["that", 31, -3.882076105710789e-11], ["that", 57, 3.007437646644555e-11], ["persons", 62, 3.007437646644555e-11], ["persons", 88, 1.0652676524481118e-11], ["Howz", 104, 8.103212469132122e-12], ["story", 148, 5.977048542767131e-12]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
             
         </script>
         </body></html>

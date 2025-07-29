@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divOWEA6H26OLQ91H6"></div>
+        <div class="lime top_div" id="top_divZQF8T4QCESDKC67"></div>
         
         <script>
-        var top_div = d3.select('#top_divOWEA6H26OLQ91H6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZQF8T4QCESDKC67').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.7364123376623377, 0.26358766233766234]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["trash", -0.5037845155076248], ["ain", 0.11232910778146143], ["Cole", 0.03301196053676262], ["t", 0.02219022997789486], ["J", 0.016547261471781444]], 1, exp_div);
+                exp.show([["fuck", 0.12130580303727374], ["bitches", 0.10435700637512804], ["with", -0.040411559396523855], ["s", -0.03641829238484279], ["em", 0.034971921428908724]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["trash", 13, -0.5037845155076248], ["ain", 7, 0.11232910778146143], ["Cole", 2, 0.03301196053676262], ["t", 11, 0.02219022997789486], ["J", 0, 0.016547261471781444]], 1, "J Cole ain't trash... Period.", raw_div, true);
+            exp.show_raw_text([["fuck", 113, 0.12130580303727374], ["bitches", 12, 0.10435700637512804], ["bitches", 50, 0.10435700637512804], ["with", 34, -0.040411559396523855], ["s", 87, -0.03641829238484279], ["em", 72, 0.034971921428908724]], 1, "I hate when bitches post pictures with other cute bitches and don't tag em in it. That's low key very selfish as fuck", raw_div, true);
             
         </script>
         </body></html>

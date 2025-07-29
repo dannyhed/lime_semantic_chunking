@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divS3WCP3EE87MZOAJ"></div>
+        <div class="lime top_div" id="top_divNECSTIBXXQGWR07"></div>
         
         <script>
-        var top_div = d3.select('#top_divS3WCP3EE87MZOAJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNECSTIBXXQGWR07').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.09333333333333332, 0.9066666666666666]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["to", 0.16863817641186823], ["cry", 0.022357784976265685], ["ready", 0.002767848188823467], ["I", -0.038604146680645116], ["'m", -0.06594355970215171], ["so", -0.06594355970215171], ["mad", -0.06594355970215171]], 1, exp_div);
+                exp.show([["'m", 0.12650356917410338], ["I", -0.1052841716760128], ["to", 0.07757289065885828], ["mad", 0.13798447991056056], ["so", 0.13798447991056056], ["'m", -0.2850307611736974]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["to", 10, 0.16863817641186823], ["cry", 13, 0.022357784976265685], ["ready", 4, 0.002767848188823467], ["I", 17, -0.038604146680645116], ["'m", 18, -0.06594355970215171], ["so", 21, -0.06594355970215171], ["mad", 24, -0.06594355970215171], ["to", 40, 0.20724232309251336], ["cry", 73, 0.0609619316569108], ["ready", 94, 0.04137199486946858], ["ready", 124, -0.038604146680645116], ["to", 130, -0.038604146680645116], ["cry", 133, -0.038604146680645116], ["I", 137, -0.038604146680645116], ["'m", 138, -0.038604146680645116], ["so", 141, -0.038604146680645116], ["mad", 144, -0.038604146680645116], ["'m", 168, 0.011264733659138517], ["so", 171, 0.011264733659138517], ["mad", 174, 0.011264733659138517]], 1, "I'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\n", raw_div, true);
+            exp.show_raw_text([["'m", 1, 0.12650356917410338], ["I", 17, -0.1052841716760128], ["to", 10, 0.07757289065885828], ["mad", 24, 0.13798447991056056], ["so", 21, 0.13798447991056056], ["'m", 18, -0.2850307611736974], ["mad", 54, 0.423015241084258], ["so", 51, 0.423015241084258], ["'m", 78, -0.2850307611736974], ["so", 81, -0.2850307611736974], ["mad", 84, -0.2850307611736974], ["'m", 91, 0.12650356917410338], ["I", 137, -0.1052841716760128], ["to", 160, 0.07757289065885828]], 1, "I'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\n", raw_div, true);
             
         </script>
         </body></html>

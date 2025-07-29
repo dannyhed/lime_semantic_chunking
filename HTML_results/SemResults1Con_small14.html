@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTOSL54BET0W1OSA"></div>
+        <div class="lime top_div" id="top_div0DKJQX7GJ7HW0EB"></div>
         
         <script>
-        var top_div = d3.select('#top_divTOSL54BET0W1OSA').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0DKJQX7GJ7HW0EB').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.06, 0.94]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["great", 0.4973619947793827], ["Overall", 0.06983349345515372], ["experience", -0.0540123021567412], [",", -0.008945259637261048], ["a", -0.006426558033691219]], 1, exp_div);
+                exp.show([["talking", -0.28774503099495335], ["me", -0.2496279411352809], ["spends", -0.21641392582259703], [".", 0.17945601295940053], ["than", -0.15655874529912792]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["great", 11, 0.4973619947793827], ["Overall", 0, 0.06983349345515372], ["experience", 17, -0.0540123021567412], [",", 7, -0.008945259637261048], ["a", 9, -0.006426558033691219], ["great", 42, 0.4973619947793827], ["Overall", 62, 0.06983349345515372], ["experience", 110, -0.0540123021567412], [",", 131, -0.008945259637261048], ["a", 164, -0.006426558033691219]], 1, "Overall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\n", raw_div, true);
+            exp.show_raw_text([["talking", 28, -0.28774503099495335], ["me", 55, -0.2496279411352809], ["spends", 11, -0.21641392582259703], [".", 57, 0.17945601295940053], ["than", 50, -0.15655874529912792], ["talking", 89, -0.28774503099495335], ["me", 177, -0.2496279411352809], ["spends", 194, -0.21641392582259703], [".", 301, 0.17945601295940053], ["than", 355, -0.15655874529912792]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

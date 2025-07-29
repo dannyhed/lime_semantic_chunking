@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div7LFYLHVC9RZ8L4U"></div>
+        <div class="lime top_div" id="top_divA43C1OFZHWZRKV7"></div>
         
         <script>
-        var top_div = d3.select('#top_div7LFYLHVC9RZ8L4U').classed('lime top_div', true);
+        var top_div = d3.select('#top_divA43C1OFZHWZRKV7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.063569268460371e-33]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["My", -2.2085753268050862e-12], ["da", -2.155117438902299e-12], ["to", -9.796314501447368e-13], ["more", 6.76784286882478e-13], ["going", 1.6022973104671863e-13]], 1, exp_div);
+                exp.show([["08718726971", 0.4474696216933943], ["Xmas", 0.2504972815718319], [".", 0.22936518119897675], ["BT", 0.19329910671079742], ["prize", 0.1623192594403449]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["My", 0, -2.2085753268050862e-12], ["da", 37, -2.155117438902299e-12], ["to", 16, -9.796314501447368e-13], ["more", 24, 6.76784286882478e-13], ["going", 10, 1.6022973104671863e-13], ["My", 43, -2.2085753268050862e-12], ["da", 123, -2.155117438902299e-12], ["to", 145, -9.796314501447368e-13], ["more", 196, 6.76784286882478e-13], ["going", 225, 1.6022973104671863e-13]], 1, "My sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\n", raw_div, true);
+            exp.show_raw_text([["08718726971", 102, 0.4474696216933943], ["Xmas", 63, 0.2504972815718319], [".", 156, 0.22936518119897675], ["BT", 140, 0.19329910671079742], ["prize", 68, 0.1623192594403449], ["08718726971", 262, 0.4474696216933943], ["Xmas", 383, 0.2504972815718319], [".", 636, 0.22936518119897675], ["BT", 780, 0.19329910671079742], ["prize", 868, 0.1623192594403449]], 1, "Congratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.\n\n\nCongratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.\n\n\nCongratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.\n\n\nCongratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.\n\n\nCongratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.\n\n\nCongratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divWY2JP69IZ8BSY8J"></div>
+        <div class="lime top_div" id="top_divZ6EGWC38NB5FVX6"></div>
         
         <script>
-        var top_div = d3.select('#top_divWY2JP69IZ8BSY8J').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZ6EGWC38NB5FVX6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["call", 0.07819603672833016], ["08000930705", 0.0720041817205858], ["DeliveredTomorrow", 0.050632726334548094], ["or", -0.037316861108216075], ["reply", 0.03638235594419716]], 1, exp_div);
+                exp.show([["me", -0.3164802575251238], ["talking", -0.24514338090408075], ["spends", -0.24338016759168396], ["Your", 0.13602585643709328], ["more", -0.1112582549373762]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["call", 141, 0.07819603672833016], ["08000930705", 146, 0.0720041817205858], ["DeliveredTomorrow", 43, 0.050632726334548094], ["or", 138, -0.037316861108216075], ["reply", 132, 0.03638235594419716]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705", raw_div, true);
+            exp.show_raw_text([["me", 55, -0.3164802575251238], ["talking", 28, -0.24514338090408075], ["spends", 11, -0.24338016759168396], ["Your", 0, 0.13602585643709328], ["more", 18, -0.1112582549373762]], 1, "Your staff spends more time talking to themselves than me.", raw_div, true);
             
         </script>
         </body></html>

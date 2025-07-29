@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div5JA3IZBWQFBPENV"></div>
+        <div class="lime top_div" id="top_div10XOT27WYXG6I3R"></div>
         
         <script>
-        var top_div = d3.select('#top_div5JA3IZBWQFBPENV').classed('lime top_div', true);
+        var top_div = d3.select('#top_div10XOT27WYXG6I3R').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.349075899275303e-25]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Me", 0.0], ["not", 0.0], ["waking", 0.0], ["up", 0.0], ["until", 0.0]], 1, exp_div);
+                exp.show([["spys", 2.0218909461811873e-07], ["Or", -1.765513963817587e-07], ["checking", -1.5432960859200638e-07], ["you", -1.5330871190364654e-07], ["wat", -1.507192487087343e-07]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Me", 0, 0.0], ["not", 3, 0.0], ["waking", 7, 0.0], ["up", 14, 0.0], ["until", 17, 0.0]], 1, "Me not waking up until 4 in the afternoon, sup", raw_div, true);
+            exp.show_raw_text([["spys", 52, 2.0218909461811873e-07], ["Or", 17, -1.765513963817587e-07], ["checking", 73, -1.5432960859200638e-07], ["you", 20, -1.5330871190364654e-07], ["wat", 57, -1.507192487087343e-07]], 1, "U sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..", raw_div, true);
             
         </script>
         </body></html>

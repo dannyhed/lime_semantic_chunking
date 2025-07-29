@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1WZXYTFEHPSZ1UG"></div>
+        <div class="lime top_div" id="top_divC3EPO43IM47PJO0"></div>
         
         <script>
-        var top_div = d3.select('#top_div1WZXYTFEHPSZ1UG').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC3EPO43IM47PJO0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.6, 0.4]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", 0.13876517934189686], ["work", -0.12844248402401542], ["just", -0.041414038333918], ["of", -0.03051056162857035], ["films", 0.02275701681651574]], 1, exp_div);
+                exp.show([["mmmm", 0.0036412752222519176], ["ravoli", 0.0036066906913912143], ["cranberry", 0.0034536835010415263], ["Cape", 0.003404019209002482], ["with", 0.0033843748681257747]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 7, 0.13876517934189686], ["you", 80, 0.13876517934189686], ["work", 74, -0.12844248402401542], ["just", 14, -0.041414038333918], ["of", 62, -0.03051056162857035], ["films", 56, 0.02275701681651574]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  ", raw_div, true);
+            exp.show_raw_text([["mmmm", 54, 0.0036412752222519176], ["ravoli", 21, 0.0036066906913912143], ["cranberry", 42, 0.0034536835010415263], ["Cape", 12, 0.003404019209002482], ["with", 37, 0.0033843748681257747]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div3BPFNY3KWVV9IXU"></div>
+        <div class="lime top_div" id="top_divZ0EAF4D420H4WPA"></div>
         
         <script>
-        var top_div = d3.select('#top_div3BPFNY3KWVV9IXU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZ0EAF4D420H4WPA').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.01, 0.99]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.021668074360604e-17]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["fags", 0.10715352468554634], ["Peace", -0.036235806602988516]], 1, exp_div);
+                exp.show([["McGregor", -0.21297959931889335], ["Chad", -0.20634654644319356], ["Mendes", -0.17643393370198943], ["oDnPOpL2oF", -0.08785442613630273], ["trash", -0.08760079155478814]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["fags", 6, 0.10715352468554634], ["Peace", 0, -0.036235806602988516]], 1, "Peace fags", raw_div, true);
+            exp.show_raw_text([["McGregor", 24, -0.21297959931889335], ["Chad", 47, -0.20634654644319356], ["Mendes", 52, -0.17643393370198943], ["oDnPOpL2oF", 7, -0.08785442613630273], ["trash", 33, -0.08760079155478814]], 1, "//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead", raw_div, true);
             
         </script>
         </body></html>

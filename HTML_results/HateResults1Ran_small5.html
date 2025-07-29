@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divS3WCP3EE87MZOAJ"></div>
+        <div class="lime top_div" id="top_divNECSTIBXXQGWR07"></div>
         
         <script>
-        var top_div = d3.select('#top_divS3WCP3EE87MZOAJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNECSTIBXXQGWR07').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.09333333333333332, 0.9066666666666666]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["'m", 0.10164366800888755], ["mad", 0.05531482434220459], ["ready", 0.03494171170168688], ["I", 0.017013386093286804], ["'m", 0.008768728708919964]], 1, exp_div);
+                exp.show([["'m", 0.5485901730203017], ["'m", 0.43735071256459035], ["mad", 0.20547913944229665], ["to", -0.11804570563624074], ["cry", 0.012478041459720838]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["'m", 1, 0.10164366800888755], ["mad", 24, 0.05531482434220459], ["ready", 4, 0.03494171170168688], ["I", 0, 0.017013386093286804], ["'m", 18, 0.008768728708919964], ["'m", 31, 0.10164366800888755], ["mad", 84, 0.05531482434220459], ["ready", 94, 0.03494171170168688], ["I", 120, 0.017013386093286804], ["'m", 168, 0.008768728708919964]], 1, "I'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\n", raw_div, true);
+            exp.show_raw_text([["'m", 1, 0.5485901730203017], ["'m", 18, 0.43735071256459035], ["mad", 24, 0.20547913944229665], ["to", 10, -0.11804570563624074], ["cry", 13, 0.012478041459720838], ["'m", 31, 0.5485901730203017], ["'m", 78, 0.43735071256459035], ["mad", 114, 0.20547913944229665], ["to", 130, -0.11804570563624074], ["cry", 163, 0.012478041459720838]], 1, "I'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\nI'm ready to cry I'm so mad\n\n\n", raw_div, true);
             
         </script>
         </body></html>

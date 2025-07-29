@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div54JQLNH8KCM6TVG"></div>
+        <div class="lime top_div" id="top_divKAQDBLTJ9IGYX8P"></div>
         
         <script>
-        var top_div = d3.select('#top_div54JQLNH8KCM6TVG').classed('lime top_div', true);
+        var top_div = d3.select('#top_divKAQDBLTJ9IGYX8P').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["this", 0.24438392661819378], ["happier", 0.389395734077208], [".", 0.3106612943964989], ["n't", -0.2955095779038025], ["for", -0.23379727173983747], ["headset", -0.23379727173983747]], 1, exp_div);
+                exp.show([["great", 1.0872558346837238], ["experience", 0.6797356906806785], ["Overall", 0.5674878873871977], [",", 0.49723090074802284], ["a", 0.49723090074802284], [".", 0.49723090074802284]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["this", 18, 0.24438392661819378], ["happier", 86, 0.389395734077208], [".", 93, 0.3106612943964989], ["n't", 79, -0.2955095779038025], ["for", 14, -0.23379727173983747], ["headset", 23, -0.23379727173983747], ["this", 115, 0.47818119835803125], ["happier", 280, 0.389395734077208], [".", 384, 0.3106612943964989], ["n't", 467, -0.2955095779038025], ["for", 499, -0.23379727173983747], ["this", 503, -0.23379727173983747], ["headset", 508, -0.23379727173983747]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
+            exp.show_raw_text([["great", 11, 1.0872558346837238], ["experience", 17, 0.6797356906806785], ["Overall", 0, 0.5674878873871977], [",", 7, 0.49723090074802284], ["a", 9, 0.49723090074802284], [".", 27, 0.49723090074802284], ["Overall", 31, 0.49723090074802284], [",", 38, 0.49723090074802284], ["a", 40, 0.49723090074802284], ["great", 42, 0.49723090074802284], ["experience", 48, 0.49723090074802284], [".", 58, 0.49723090074802284], ["great", 73, 0.18370657090201933], ["experience", 110, 0.18250478993265568], ["great", 135, -0.09091253771434125], ["Overall", 155, 0.07025698663917485]], 1, "Overall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

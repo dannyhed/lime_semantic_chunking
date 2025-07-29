@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divOVA6KVK0YJ9DGJV"></div>
+        <div class="lime top_div" id="top_divHTK1G7PYUC9UDYS"></div>
         
         <script>
-        var top_div = d3.select('#top_divOVA6KVK0YJ9DGJV').classed('lime top_div', true);
+        var top_div = d3.select('#top_divHTK1G7PYUC9UDYS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.6608936448392342e-13, 0.9999999999998339]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.16883978220557716, 0.8311602177944228]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Text", 0.13854574278780898], ["with", -0.09041225723839819], ["nigs", -0.1887744177903068], ["plans", -0.24012504361909215]], 1, exp_div);
+                exp.show([["anyway", 0.032984780720386714], ["ugly", 0.1116253699567851], ["You", 0.11590663724687225]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Text", 0, 0.13854574278780898], ["with", 8, -0.09041225723839819], ["nigs", 19, -0.1887744177903068], ["plans", 13, -0.24012504361909215], ["with", 34, -0.15009075380291273], ["plans", 39, -0.15009075380291273], ["nigs", 45, -0.15009075380291273], ["Text", 52, 0.13854574278780898], ["plans", 91, 0.0600564639867333], ["nigs", 97, 0.0600564639867333], ["with", 112, 0.05967849656451455], ["nigs", 149, 0.05135062582878535]], 1, "Text me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\n", raw_div, true);
+            exp.show_raw_text([["anyway", 9, 0.032984780720386714], ["ugly", 4, 0.1116253699567851], ["You", 0, 0.11590663724687225], ["anyway", 27, -0.16035374636416777], ["ugly", 40, 0.13506445755864419], ["anyway", 45, 0.13506445755864419], ["ugly", 58, -0.08171315712776939], ["You", 72, 0.0582740695259103], ["ugly", 76, 0.0582740695259103], ["anyway", 81, 0.0582740695259103], ["You", 90, 0.05763256772096195]], 1, "You ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\n", raw_div, true);
             
         </script>
         </body></html>

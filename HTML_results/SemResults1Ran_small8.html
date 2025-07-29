@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div296PC9S4GQBPWMI"></div>
+        <div class="lime top_div" id="top_div2NXHDEDDD64HCVQ"></div>
         
         <script>
-        var top_div = d3.select('#top_div296PC9S4GQBPWMI').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2NXHDEDDD64HCVQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.12, 0.88]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["300", 0.4048426527763473], ["New", 0.16679275143695943], ["Nokia", 0.0976642770797644], ["Delivered", 0.05840107686046962], ["3510i", 0.008831158507537129]], 1, exp_div);
+                exp.show([[".", 0.4739802050999601], ["Overall", 0.4180871784176896], ["experience", 0.2731606229916003], ["a", -0.22330944119185064], [",", 0.169746838311991]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["300", 67, 0.4048426527763473], ["New", 14, 0.16679275143695943], ["Nokia", 18, 0.0976642770797644], ["Delivered", 43, 0.05840107686046962], ["3510i", 24, 0.008831158507537129], ["300", 227, 0.4048426527763473], ["New", 334, 0.16679275143695943], ["Nokia", 498, 0.0976642770797644], ["Delivered", 683, 0.05840107686046962], ["3510i", 824, 0.008831158507537129]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 27, 0.4739802050999601], ["Overall", 0, 0.4180871784176896], ["experience", 17, 0.2731606229916003], ["a", 9, -0.22330944119185064], [",", 7, 0.169746838311991], [".", 58, 0.4739802050999601], ["Overall", 62, 0.4180871784176896], ["experience", 110, 0.2731606229916003], ["a", 133, -0.22330944119185064], [",", 162, 0.169746838311991]], 1, "Overall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

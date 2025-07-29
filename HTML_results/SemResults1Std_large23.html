@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divXL8WZMB2OBZT5O7"></div>
+        <div class="lime top_div" id="top_divUN6OXV7YS2XG3C9"></div>
         
         <script>
-        var top_div = d3.select('#top_divXL8WZMB2OBZT5O7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divUN6OXV7YS2XG3C9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.999999999999927, 7.307143381871251e-14]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.419257492084715e-38]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["GE", -6.677255223780179e-06], ["rightly", -5.884927748781378e-06], ["a", -5.652936441831392e-06], ["GN", 5.418940557919229e-06], ["speechless", 4.692403252088074e-06]], 1, exp_div);
+                exp.show([["in", -3.2367835930761063e-13], ["library", -2.8455639395054484e-13], ["you", -2.702828276936742e-13], ["Not", -2.6127615690706164e-13], ["this", 2.463344543626289e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["GE", 146, -6.677255223780179e-06], ["rightly", 11, -5.884927748781378e-06], ["a", 61, -5.652936441831392e-06], ["GN", 143, 5.418940557919229e-06], ["speechless", 115, 4.692403252088074e-06]], 1, "Edison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)", raw_div, true);
+            exp.show_raw_text([["in", 30, -3.2367835930761063e-13], ["library", 37, -2.8455639395054484e-13], ["you", 26, -2.702828276936742e-13], ["Not", 0, -2.6127615690706164e-13], ["this", 9, 2.463344543626289e-13]], 1, "Not from this campus. Are you in the library?", raw_div, true);
             
         </script>
         </body></html>

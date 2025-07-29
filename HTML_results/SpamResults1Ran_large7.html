@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divQ2AOBNQGNGD1AEO"></div>
+        <div class="lime top_div" id="top_divBUQ0KZHLKYOUCGX"></div>
         
         <script>
-        var top_div = d3.select('#top_divQ2AOBNQGNGD1AEO').classed('lime top_div', true);
+        var top_div = d3.select('#top_divBUQ0KZHLKYOUCGX').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.416836355311834e-29]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", -2.75339199396612e-12], ["plenty", -2.0645322614395104e-12], ["I", 6.878582968095022e-13], ["love", -6.876552308051716e-13], ["I", -1.3674904206702758e-16]], 1, exp_div);
+                exp.show([["until", -1.5480897019931e-10], ["in", 8.546230688310936e-11], ["sup", 5.2781327075418665e-11], ["not", 3.9638594470711264e-11], [",", 2.7066099813211044e-11]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 61, -2.75339199396612e-12], ["plenty", 65, -2.0645322614395104e-12], ["I", 0, 6.878582968095022e-13], ["love", 56, -6.876552308051716e-13], ["I", 54, -1.3674904206702758e-16], ["you", 136, -2.75339199396612e-12], ["plenty", 215, -2.0645322614395104e-12], ["I", 225, 6.878582968095022e-13], ["love", 356, -6.876552308051716e-13], ["I", 429, -1.3674904206702758e-16]], 1, "I thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\n", raw_div, true);
+            exp.show_raw_text([["until", 17, -1.5480897019931e-10], ["in", 25, 8.546230688310936e-11], ["sup", 43, 5.2781327075418665e-11], ["not", 3, 3.9638594470711264e-11], [",", 41, 2.7066099813211044e-11], ["until", 66, -1.5480897019931e-10], ["in", 123, 8.546230688310936e-11], ["sup", 190, 5.2781327075418665e-11], ["not", 199, 3.9638594470711264e-11], [",", 286, 2.7066099813211044e-11]], 1, "Me not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\n", raw_div, true);
             
         </script>
         </body></html>

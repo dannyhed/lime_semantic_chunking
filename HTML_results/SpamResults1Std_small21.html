@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div0SSJAC5JMPZ7Z5J"></div>
+        <div class="lime top_div" id="top_divWWM19H3P73F7R95"></div>
         
         <script>
-        var top_div = d3.select('#top_div0SSJAC5JMPZ7Z5J').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWWM19H3P73F7R95').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.1460702208902677e-36]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["phone", 0.011881272590168593], ["and", 0.009147575723236033], ["just", 0.006739163872875112], ["ur", 0.005091713601687146], ["are", 0.0038489126998253868]], 1, exp_div);
+                exp.show([["woulda", -0.0011417949015563409], ["my", -0.0011350647593498088], ["all", -0.001128746541104602], ["statement", 0.000922124972386197], ["nyc", 0.0009154270028676332]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["phone", 30, 0.011881272590168593], ["and", 44, 0.009147575723236033], ["just", 48, 0.006739163872875112], ["ur", 57, 0.005091713601687146], ["are", 79, 0.0038489126998253868]], 1, "What's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.", raw_div, true);
+            exp.show_raw_text([["woulda", 77, -0.0011417949015563409], ["my", 47, -0.0011350647593498088], ["all", 37, -0.001128746541104602], ["statement", 59, 0.000922124972386197], ["nyc", 123, 0.0009154270028676332]], 1, "Especially since i talk about boston all up in my personal statement, lol! I woulda changed that if i had realized it said nyc! It says boston now.", raw_div, true);
             
         </script>
         </body></html>

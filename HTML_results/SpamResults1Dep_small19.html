@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divWTHB2ASMCKTN1EK"></div>
+        <div class="lime top_div" id="top_divAUMK0M173H8OEEU"></div>
         
         <script>
-        var top_div = d3.select('#top_divWTHB2ASMCKTN1EK').classed('lime top_div', true);
+        var top_div = d3.select('#top_divAUMK0M173H8OEEU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0804003761360723e-29]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Ok", 0.0], [".", 0.0], ["I", 0.0], ["asked", 0.0], ["for", 0.0], ["money", 0.0], ["how", 0.0], ["far", 0.0]], 1, exp_div);
+                exp.show([["function", -2.767301458898944e-12], ["marriage", -2.390225645222188e-12], ["I", -5.220380486935484e-12], ["am", -2.4944528223736686e-12], ["in", -5.327635658487443e-12], ["a", -2.4944528223736686e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Ok", 0, 0.0], [".", 2, 0.0], ["I", 4, 0.0], ["asked", 6, 0.0], ["for", 12, 0.0], ["money", 16, 0.0], ["how", 22, 0.0], ["far", 26, 0.0], ["Ok", 32, 0.0], [".", 34, 0.0], ["I", 68, 0.0], ["asked", 70, 0.0], ["for", 76, 0.0], ["money", 80, 0.0], ["how", 86, 0.0], ["far", 90, 0.0], [".", 98, 0.0], ["Ok", 96, 0.0], [".", 130, 0.0], ["I", 164, 0.0]], 1, "Ok. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\n", raw_div, true);
+            exp.show_raw_text([["function", 19, -2.767301458898944e-12], ["marriage", 10, -2.390225645222188e-12], ["I", 0, -5.220380486935484e-12], ["am", 2, -2.4944528223736686e-12], ["in", 5, -5.327635658487443e-12], ["a", 8, -2.4944528223736686e-12], ["I", 30, -2.4944528223736686e-12], ["am", 32, -2.4944528223736686e-12], ["in", 35, -2.4944528223736686e-12], ["a", 38, -2.4944528223736686e-12], ["marriage", 40, -2.4944528223736686e-12], ["function", 49, -2.4944528223736686e-12], ["in", 65, -3.3873001374010527e-13], ["function", 109, -2.728486365252755e-13], ["I", 120, -2.314748421881472e-13], ["marriage", 160, 1.0422717715148033e-13]], 1, "I am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZIQI216D00INWQC"></div>
+        <div class="lime top_div" id="top_divP9OOU7ZP8KCW023"></div>
         
         <script>
-        var top_div = d3.select('#top_divZIQI216D00INWQC').classed('lime top_div', true);
+        var top_div = d3.select('#top_divP9OOU7ZP8KCW023').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0804003761360723e-29]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0231086626908561e-36]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["a", -6.473442157773117e-13], ["function", -6.159670002016488e-13], ["I", -6.142619419368667e-13], ["in", -5.803510516525974e-13], ["marriage", 2.4566085430413947e-13]], 1, exp_div);
+                exp.show([["on", 2.4748756494581197e-10], ["They", -2.38052618286929e-10], ["in", -2.2144928460773732e-10], ["Plus", -2.1444702688685792e-10], ["will", -2.0144243310470282e-10]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["a", 8, -6.473442157773117e-13], ["function", 19, -6.159670002016488e-13], ["I", 0, -6.142619419368667e-13], ["in", 5, -5.803510516525974e-13], ["marriage", 10, 2.4566085430413947e-13]], 1, "I am in a marriage function", raw_div, true);
+            exp.show_raw_text([["on", 104, 2.4748756494581197e-10], ["They", 5, -2.38052618286929e-10], ["in", 79, -2.2144928460773732e-10], ["Plus", 69, -2.1444702688685792e-10], ["will", 74, -2.0144243310470282e-10]], 1, "Yes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divH4ACYBB0CRFN771"></div>
+        <div class="lime top_div" id="top_divW7T31VPXDBN6722"></div>
         
         <script>
-        var top_div = d3.select('#top_divH4ACYBB0CRFN771').classed('lime top_div', true);
+        var top_div = d3.select('#top_divW7T31VPXDBN6722').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.915651005454199e-17]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["n", 0.0018040960968253627], ["Wen", -0.0015173351212584777], ["dat", -0.0015070854024740545], ["d", -0.0014510369433550613], ["his", -0.0014348540654696485]], 1, exp_div);
+                exp.show([["81618", 0.05405425082087308], ["08718727870", 0.051303903895113655], ["sms", 0.04862614381661095], ["weekly", 0.045269723426347074], ["free", 0.03191579580024782]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["n", 308, 0.0018040960968253627], ["Wen", 14, -0.0015173351212584777], ["dat", 148, -0.0015070854024740545], ["d", 25, -0.0014510369433550613], ["d", 62, -0.0014510369433550613], ["d", 99, -0.0014510369433550613], ["d", 183, -0.0014510369433550613], ["d", 257, -0.0014510369433550613], ["d", 306, -0.0014510369433550613], ["his", 284, -0.0014348540654696485]], 1, "Storming msg: Wen u lift d phne, u say \"HELLO\" Do u knw wt is d real meaning of HELLO?? . . . It's d name of a girl..! . . . Yes.. And u knw who is dat girl?? \"Margaret Hello\" She is d girlfrnd f Grahmbell who invnted telphone... . . . . Moral:One can 4get d name of a person, bt not his girlfrnd... G o o d n i g h t . . .@", raw_div, true);
+            exp.show_raw_text([["81618", 76, 0.05405425082087308], ["08718727870", 103, 0.051303903895113655], ["sms", 99, 0.04862614381661095], ["weekly", 26, 0.045269723426347074], ["free", 55, 0.03191579580024782]], 1, "Free Top ringtone -sub to weekly ringtone-get 1st week free-send SUBPOLY to 81618-?3 per week-stop sms-08718727870", raw_div, true);
             
         </script>
         </body></html>

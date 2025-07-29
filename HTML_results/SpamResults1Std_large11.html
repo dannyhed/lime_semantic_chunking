@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divWYCHQIB40LOG34P"></div>
+        <div class="lime top_div" id="top_divQT0QIKP05V0541P"></div>
         
         <script>
-        var top_div = d3.select('#top_divWYCHQIB40LOG34P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divQT0QIKP05V0541P').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 9.728936215777947e-34]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -3.0025234318813337e-09], ["the", -2.39776687619354e-09], ["4", 2.334710807350621e-09], ["sup", -2.255334206398095e-09], ["up", -2.0849390097668165e-09]], 1, exp_div);
+                exp.show([["Okay", -3.1717827272125984e-28], ["right", -2.823443539437679e-28], ["Sat", 6.211700834305893e-29], ["thanks", 4.862188985259593e-29]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 3, -3.0025234318813337e-09], ["the", 28, -2.39776687619354e-09], ["4", 23, 2.334710807350621e-09], ["sup", 43, -2.255334206398095e-09], ["up", 14, -2.0849390097668165e-09]], 1, "Me not waking up until 4 in the afternoon, sup", raw_div, true);
+            exp.show_raw_text([["Okay", 11, -3.1717827272125984e-28], ["right", 4, -2.823443539437679e-28], ["Sat", 0, 6.211700834305893e-29], ["thanks", 16, 4.862188985259593e-29]], 1, "Sat right? Okay thanks...", raw_div, true);
             
         </script>
         </body></html>

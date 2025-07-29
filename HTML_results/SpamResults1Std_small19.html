@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divL28OYIDPXJ116JT"></div>
+        <div class="lime top_div" id="top_divAUMK0M173H8OEEU"></div>
         
         <script>
-        var top_div = d3.select('#top_divL28OYIDPXJ116JT').classed('lime top_div', true);
+        var top_div = d3.select('#top_divAUMK0M173H8OEEU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0804003761360723e-29]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["anyone", 0.008033388685592115], ["them", -0.005807251217053916], ["love", -0.004300678650334358], ["someone", 0.0026784606242867604], ["as", 0.00238470559566538]], 1, exp_div);
+                exp.show([["function", -3.610530409959394e-13], ["in", -3.4210129554997557e-13], ["a", -3.3780024395275596e-13], ["I", -3.3054186429185985e-13], ["am", 1.7484835338531207e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["anyone", 119, 0.008033388685592115], ["them", 30, -0.005807251217053916], ["them", 71, -0.005807251217053916], ["love", 7, -0.004300678650334358], ["love", 38, -0.004300678650334358], ["someone", 12, 0.0026784606242867604], ["as", 45, 0.00238470559566538], ["as", 53, 0.00238470559566538]], 1, "When u love someone Dont make them to love u as much as u do. But Love them so much that they dont want to be loved by anyone except you... Gud nit.", raw_div, true);
+            exp.show_raw_text([["function", 19, -3.610530409959394e-13], ["in", 5, -3.4210129554997557e-13], ["a", 8, -3.3780024395275596e-13], ["I", 0, -3.3054186429185985e-13], ["am", 2, 1.7484835338531207e-13]], 1, "I am in a marriage function", raw_div, true);
             
         </script>
         </body></html>

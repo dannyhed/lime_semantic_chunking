@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divDLV6TAFQL17REWN"></div>
+        <div class="lime top_div" id="top_divC76GCNOAE68V5G7"></div>
         
         <script>
-        var top_div = d3.select('#top_divDLV6TAFQL17REWN').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC76GCNOAE68V5G7').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.3475614127846863e-18]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999281, 7.198497775893798e-14]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["miss", 0.005353450268345164], ["sound", -0.004886995169815941], ["much", -0.004302715922577617], ["desparate", -0.0041619539878422745], ["I", -0.004017419484435588]], 1, exp_div);
+                exp.show([["skip", -0.5252626272291371], ["collect", -0.4830248560604275], ["Austen", 0.2231097124286852], ["Unless", -0.13917204456817506], ["visually", 0.10834291689805253]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["miss", 2, 0.005353450268345164], ["sound", 128, -0.004886995169815941], ["much", 14, -0.004302715922577617], ["desparate", 26, -0.0041619539878422745], ["I", 0, -0.004017419484435588], ["I", 19, -0.004017419484435588], ["I", 36, -0.004017419484435588], ["I", 149, -0.004017419484435588]], 1, "I miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you", raw_div, true);
+            exp.show_raw_text([["skip", 88, -0.5252626272291371], ["collect", 36, -0.4830248560604275], ["Austen", 65, 0.2231097124286852], ["Unless", 0, -0.13917204456817506], ["visually", 26, 0.10834291689805253]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  ", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divA59MA186XUXX61Y"></div>
+        <div class="lime top_div" id="top_divT452FU4I8UN1NFD"></div>
         
         <script>
-        var top_div = d3.select('#top_divA59MA186XUXX61Y').classed('lime top_div', true);
+        var top_div = d3.select('#top_divT452FU4I8UN1NFD').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.08, 0.92]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.501550518600983e-20]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["0825", 0.20229378856609007], ["an", 0.18548923990608854], ["now", 0.17732344016525892], ["FREEPHONE", 0.17363598791384055], ["have", 0.11137353114916243]], 1, exp_div);
+                exp.show([["walk", 0.2997281244746073], ["to", 0.22939382785989018], ["out", -0.16872587473444317], ["to", -0.16587263375979158], ["for", -0.14428023042755744]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["0825", 77, 0.20229378856609007], ["an", 9, 0.18548923990608854], ["now", 82, 0.17732344016525892], ["FREEPHONE", 58, 0.17363598791384055], ["have", 4, 0.11137353114916243], ["0825", 166, 0.20229378856609007], ["an", 187, 0.18548923990608854], ["now", 349, 0.17732344016525892], ["FREEPHONE", 414, 0.17363598791384055], ["have", 449, 0.11137353114916243]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\n", raw_div, true);
+            exp.show_raw_text([["walk", 9, 0.2997281244746073], ["to", 56, 0.22939382785989018], ["out", 14, -0.16872587473444317], ["to", 6, -0.16587263375979158], ["for", 33, -0.14428023042755744], ["walk", 89, 0.2997281244746073], ["to", 216, 0.22939382785989018], ["out", 254, -0.16872587473444317], ["to", 326, -0.16587263375979158], ["for", 433, -0.14428023042755744]], 1, "I had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLLZUS4FONUXWRVN"></div>
+        <div class="lime top_div" id="top_divEPWCB779BRGVAI5"></div>
         
         <script>
-        var top_div = d3.select('#top_divLLZUS4FONUXWRVN').classed('lime top_div', true);
+        var top_div = d3.select('#top_divEPWCB779BRGVAI5').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.68, 0.32]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["birds", -0.5446480650310733], ["of", 0.050433626517819304], ["he", 0.019240246051496504], ["his", 0.017467614747831595], ["Saying", 0.009611620940215346]], 1, exp_div);
+                exp.show([["bitch", 0.0745163349756453], ["aint", 0.04320960158635068], ["lil", 0.03727353939637629], ["her", 0.029772970851442766], ["got", 0.02006605536660759]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["birds", 24, -0.5446480650310733], ["of", 73, 0.050433626517819304], ["he", 0, 0.019240246051496504], ["his", 39, 0.017467614747831595], ["Saying", 96, 0.009611620940215346]], 1, "he was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...", raw_div, true);
+            exp.show_raw_text([["bitch", 4, 0.0745163349756453], ["aint", 39, 0.04320960158635068], ["lil", 0, 0.03727353939637629], ["her", 56, 0.029772970851442766], ["got", 44, 0.02006605536660759]], 1, "lil bitch thats down to make your bond aint got to tell her", raw_div, true);
             
         </script>
         </body></html>

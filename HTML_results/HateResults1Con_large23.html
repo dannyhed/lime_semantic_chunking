@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divNDAL0ONQW2YYKOU"></div>
+        <div class="lime top_div" id="top_divPGFMMHQ1MKDC0F2"></div>
         
         <script>
-        var top_div = d3.select('#top_divNDAL0ONQW2YYKOU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPGFMMHQ1MKDC0F2').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.16883978220557716, 0.8311602177944228]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["anyway", 0.01592385419903357], ["ugly", 0.09145332467313287], ["You", 0.09378372562989382]], 1, exp_div);
+                exp.show([["you", 0.11031217442588773], ["gon", -0.10335954354388034], ["'", -0.04342977116841001], ["You", 0.13191440596290807], ["messin", 0.13191440596290807]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["anyway", 9, 0.01592385419903357], ["ugly", 4, 0.09145332467313287], ["You", 0, 0.09378372562989382], ["anyway", 27, -0.16022528662423538], ["ugly", 40, 0.123473908935731], ["anyway", 45, 0.123473908935731], ["ugly", 58, -0.08469581615013608], ["You", 72, 0.05267523188753795], ["ugly", 76, 0.05267523188753795], ["anyway", 81, 0.05267523188753795], ["You", 90, 0.04110849374235587]], 1, "You ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\n", raw_div, true);
+            exp.show_raw_text([["you", 32, 0.11031217442588773], ["gon", 36, -0.10335954354388034], ["'", 0, -0.04342977116841001], ["You", 2, 0.13191440596290807], ["messin", 6, 0.13191440596290807], ["you", 90, 0.16727030433793547], ["You", 118, 0.13191440596290807], ["messin", 122, 0.13191440596290807], ["you", 206, -0.056958129912047746], ["gon", 210, -0.056958129912047746], ["gon", 268, -0.046401413631832596], ["'", 290, -0.04342977116841001]], 1, "' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div061H0E3MDIKLCTU"></div>
+        <div class="lime top_div" id="top_divJONK7X0O133CJY3"></div>
         
         <script>
-        var top_div = d3.select('#top_div061H0E3MDIKLCTU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divJONK7X0O133CJY3').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.6, 0.4]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9998328523119173, 0.00016714768808273424]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bad", -0.08453266937847838], ["insult", -0.04038288510394394], ["couldn", -0.03544088204797773], ["trash", -0.03183310682577996], ["movie", -0.025908458038531576]], 1, exp_div);
+                exp.show([["inane", -0.03312629815084736], ["crap", -0.03274612549365325], ["actors", -0.029080617341727073], ["American", -0.02877126176936787], ["garbage", -0.026489400033489922]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bad", 6, -0.08453266937847838], ["bad", 31, -0.08453266937847838], ["bad", 86, -0.08453266937847838], ["bad", 141, -0.08453266937847838], ["insult", 424, -0.04038288510394394], ["couldn", 296, -0.03544088204797773], ["trash", 679, -0.03183310682577996], ["movie", 236, -0.025908458038531576]], 1, "Trash/bad movies usually ain't bad because I will find them enjoyable. This one is so bad that I am out of words to describe it - its below \"bad\". There is an instruction in the beginning of the film that tell you what to do during the movie. Needless to say, the instruction and a dozen of beer couldn't help me seat through the entire film. One tagliner compares this one to KILLBILL which is certainly unthinkable and an insult to our intelligent. Obviously. this tagliner had a plan to tempt you into buying this DVD.  If you are considering renting this one, put it down! If you are thinking of buying, Dont think! If you unlucky to have this dvd, dont play it, throw it in trash bin immediately.", raw_div, true);
+            exp.show_raw_text([["inane", 608, -0.03312629815084736], ["crap", 254, -0.03274612549365325], ["actors", 278, -0.029080617341727073], ["American", 658, -0.02877126176936787], ["garbage", 614, -0.026489400033489922]], 1, "I would rather have someone cut out my eyeballs with a razor blade than have to watch this movie again. I watched it from start to end thinking it couldn't get any worse....BUT IT DID. The writers and producers should be slapped for putting this kind of crap on television. The actors are ALL terrible. Get out of Hollywood you fools and go work at McDonalds sweeping the floors and emptying the trash. Anyone that thinks this movie is even remotely decent should be hung. They are an embarrassment to humanity. To think we have soldiers putting their lives on the line for anyone that produces this kind of inane garbage. Makes me embarrassed to say I'm an American.", raw_div, true);
             
         </script>
         </body></html>

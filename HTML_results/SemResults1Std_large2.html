@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divGWN4VLQUD6M5IM0"></div>
+        <div class="lime top_div" id="top_divDJ4E46ARTN2R2WJ"></div>
         
         <script>
-        var top_div = d3.select('#top_divGWN4VLQUD6M5IM0').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDJ4E46ARTN2R2WJ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.706796169615226e-28]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["we", -0.2236046682800739], ["s", -0.1953845016258518], ["mess", -0.19360742778890147], ["d", -0.16640386721854486], ["t", -0.1213188450273958]], 1, exp_div);
+                exp.show([["pls", -0.07689910705362643], ["drink", 0.0493850049236179], ["mail", 0.046000994084949676], ["model", 0.04567847396426388], ["send", 0.04217839513880287]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["we", 111, -0.2236046682800739], ["s", 3, -0.1953845016258518], ["s", 60, -0.1953845016258518], ["mess", 170, -0.19360742778890147], ["d", 114, -0.16640386721854486], ["t", 46, -0.1213188450273958]], 1, "It's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  ", raw_div, true);
+            exp.show_raw_text([["pls", 49, -0.07689910705362643], ["drink", 6, 0.0493850049236179], ["mail", 67, 0.046000994084949676], ["model", 43, 0.04567847396426388], ["send", 53, 0.04217839513880287]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.", raw_div, true);
             
         </script>
         </body></html>

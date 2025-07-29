@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divA59MA186XUXX61Y"></div>
+        <div class="lime top_div" id="top_divB5848C2W980LJBY"></div>
         
         <script>
-        var top_div = d3.select('#top_divA59MA186XUXX61Y').classed('lime top_div', true);
+        var top_div = d3.select('#top_divB5848C2W980LJBY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.08, 0.92]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["service", 0.21785057447675585], ["542", 0.14008896374227484], ["Call", 0.13568257213313636], ["customer", 0.1294343497481708], ["FREEPHONE", 0.08832050183441106]], 1, exp_div);
+                exp.show([["pls", 0.01227020869485107], ["I", -0.07419112987752788], ["srs", 0.20961271619114658], ["drink", 0.05335345643747975], ["model", 0.1403152398714811]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["service", 31, 0.21785057447675585], ["542", 73, 0.14008896374227484], ["Call", 53, 0.13568257213313636], ["customer", 22, 0.1294343497481708], ["FREEPHONE", 58, 0.08832050183441106], ["service", 120, 0.21785057447675585], ["542", 251, 0.14008896374227484], ["Call", 320, 0.13568257213313636], ["customer", 378, 0.1294343497481708], ["FREEPHONE", 503, 0.08832050183441106]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\n", raw_div, true);
+            exp.show_raw_text([["pls", 49, 0.01227020869485107], ["I", 32, -0.07419112987752788], ["srs", 39, 0.20961271619114658], ["drink", 6, 0.05335345643747975], ["model", 43, 0.1403152398714811], ["srs", 120, 0.1403152398714811], ["model", 124, 0.1403152398714811], ["pls", 130, 0.1403152398714811], ["pls", 211, -0.12804503117663002], ["I", 275, -0.07419112987752788], ["srs", 363, 0.06929747631966549], ["drink", 411, 0.05335345643747975]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

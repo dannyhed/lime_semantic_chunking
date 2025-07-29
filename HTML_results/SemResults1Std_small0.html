@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divAANHXDY2JT9PFFF"></div>
+        <div class="lime top_div" id="top_divGP8FXN8THT0NFXB"></div>
         
         <script>
-        var top_div = d3.select('#top_divAANHXDY2JT9PFFF').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGP8FXN8THT0NFXB').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["message", 0.0211489055812872], ["me", -0.011769003004508602], ["hear", 0.010809027254896908], ["you", -0.010344865220584226], ["the", 0.008572755387498517]], 1, exp_div);
+                exp.show([["08000930705", 0.06244982155799792], ["call", 0.05399891436367879], ["DeliveredTomorrow", 0.047777610424960926], ["minutes", 0.04089329242554916], ["Free", 0.03752662103590876]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["message", 56, 0.0211489055812872], ["me", 77, -0.011769003004508602], ["hear", 119, 0.010809027254896908], ["you", 7, -0.010344865220584226], ["you", 64, -0.010344865220584226], ["you", 156, -0.010344865220584226], ["the", 52, 0.008572755387498517], ["the", 80, 0.008572755387498517], ["the", 124, 0.008572755387498517]], 1, "I miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you", raw_div, true);
+            exp.show_raw_text([["08000930705", 146, 0.06244982155799792], ["call", 141, 0.05399891436367879], ["DeliveredTomorrow", 43, 0.047777610424960926], ["minutes", 76, 0.04089329242554916], ["Free", 117, 0.03752662103590876]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705", raw_div, true);
             
         </script>
         </body></html>

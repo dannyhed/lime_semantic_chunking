@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLY1F4JME2UG8ZIF"></div>
+        <div class="lime top_div" id="top_divTZCYXUV17OD0WU5"></div>
         
         <script>
-        var top_div = d3.select('#top_divLY1F4JME2UG8ZIF').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTZCYXUV17OD0WU5').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.82, 0.18]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.2784910346721191], ["this", 0.15250064880277886], ["will", 0.14966155669834552], ["Terrible", -0.044262454019195055], ["accept", 0.07926551519992994], ["cassette", 0.07926551519992994]], 1, exp_div);
+                exp.show([["and", 0.33490391966393557], [".", 0.2767088548242008], ["fine", 0.07366806624470273], ["friendly", 0.16076252350057257], ["was", -0.19792512034554044]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.2784910346721191], ["this", 34, 0.15250064880277886], ["will", 18, 0.14966155669834552], ["Terrible", 0, -0.044262454019195055], ["accept", 27, 0.07926551519992994], ["cassette", 39, 0.07926551519992994], ["not", 74, -0.3577565498720491], ["will", 120, 0.07926551519992994], ["not", 125, 0.07926551519992994], ["accept", 129, 0.07926551519992994], ["this", 136, 0.07926551519992994], ["cassette", 141, 0.07926551519992994], ["this", 187, 0.07323513360284892], ["will", 222, 0.07039604149841557], ["Terrible", 255, -0.044262454019195055]], 1, "Terrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\n", raw_div, true);
+            exp.show_raw_text([["and", 17, 0.33490391966393557], [".", 46, 0.2767088548242008], ["fine", 12, 0.07366806624470273], ["friendly", 38, 0.16076252350057257], ["was", 8, -0.19792512034554044], ["and", 67, 0.33490391966393557], [".", 146, 0.2767088548242008], ["fine", 162, 0.2715931865902432], ["was", 208, -0.19792512034554044], ["fine", 212, -0.19792512034554044], ["friendly", 288, 0.16076252350057257]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

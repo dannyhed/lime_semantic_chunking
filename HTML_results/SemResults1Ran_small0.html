@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divAANHXDY2JT9PFFF"></div>
+        <div class="lime top_div" id="top_divGP8FXN8THT0NFXB"></div>
         
         <script>
-        var top_div = d3.select('#top_divAANHXDY2JT9PFFF').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGP8FXN8THT0NFXB').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["me", 0.008064437079387582], ["you", 0.006140397699861115], ["I", 0.004911702583745989], ["to", 0.0029803425803168345], ["'m", 0.0015750508550586378]], 1, exp_div);
+                exp.show([["to", 0.4881042520522489], ["Free", 0.472212202829249], ["Nokia", 0.3515594469969017], ["want", -0.08113773373794105], ["reply", -0.017526361955427682]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["me", 77, 0.008064437079387582], ["you", 7, 0.006140397699861115], ["I", 0, 0.004911702583745989], ["to", 105, 0.0029803425803168345], ["'m", 20, 0.0015750508550586378], ["me", 239, 0.008064437079387582], ["you", 331, 0.006140397699861115], ["I", 486, 0.004911702583745989], ["to", 753, 0.0029803425803168345], ["'m", 830, 0.0015750508550586378]], 1, "I miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\n", raw_div, true);
+            exp.show_raw_text([["to", 84, 0.4881042520522489], ["Free", 117, 0.472212202829249], ["Nokia", 18, 0.3515594469969017], ["want", 7, -0.08113773373794105], ["reply", 132, -0.017526361955427682], ["to", 244, 0.4881042520522489], ["Free", 437, 0.472212202829249], ["Nokia", 498, 0.3515594469969017], ["want", 647, -0.08113773373794105], ["reply", 932, -0.017526361955427682]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\n", raw_div, true);
             
         </script>
         </body></html>

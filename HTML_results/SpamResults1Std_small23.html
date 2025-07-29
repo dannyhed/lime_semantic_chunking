@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div7P5VEYUJ3WVL3MY"></div>
+        <div class="lime top_div" id="top_divQZFBVJCAETYA66N"></div>
         
         <script>
-        var top_div = d3.select('#top_div7P5VEYUJ3WVL3MY').classed('lime top_div', true);
+        var top_div = d3.select('#top_divQZFBVJCAETYA66N').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.98, 0.02]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0231086626908561e-36]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["holiday", 0.01000189561765502], ["comes", 0.009907399987803208], ["number", 0.000122688935157371], ["that", -9.299809829785608e-05], ["Don", -7.757624950953473e-05]], 1, exp_div);
+                exp.show([["m", 6.966701920603916e-09], ["office", -6.354141081164831e-09], ["or", -6.010403551801943e-09], ["my", -5.977464484542208e-09], ["going", -5.741828952407697e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["holiday", 38, 0.01000189561765502], ["comes", 23, 0.009907399987803208], ["number", 87, 0.000122688935157371], ["that", 46, -9.299809829785608e-05], ["Don", 68, -7.757624950953473e-05]], 1, " gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.", raw_div, true);
+            exp.show_raw_text([["m", 29, 6.966701920603916e-09], ["office", 55, -6.354141081164831e-09], ["or", 101, -6.010403551801943e-09], ["my", 18, -5.977464484542208e-09], ["going", 31, -5.741828952407697e-09]], 1, "Yes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.", raw_div, true);
             
         </script>
         </body></html>

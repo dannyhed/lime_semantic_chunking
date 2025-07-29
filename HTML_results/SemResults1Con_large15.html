@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJJC6RJL83GPJOWL"></div>
+        <div class="lime top_div" id="top_div0OYM8PZOHXGV91X"></div>
         
         <script>
-        var top_div = d3.select('#top_divJJC6RJL83GPJOWL').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0OYM8PZOHXGV91X').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["pls", -0.028574198768675153], ["srs", 0.0877255317068934], ["drink", 0.02514041427233816], ["ill", -0.016504685660560937], ["model", 0.0563062933848781]], 1, exp_div);
+                exp.show([[".", 0.3643698679848822], ["and", 0.2794292346412827], ["friendly", -0.0005349499417388603], ["Service", 0.1719438489954213], ["the", -0.2263868321936222], ["waitress", -0.2263868321936222], ["was", -0.2263868321936222]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["pls", 49, -0.028574198768675153], ["srs", 39, 0.0877255317068934], ["drink", 6, 0.02514041427233816], ["ill", 2, -0.016504685660560937], ["model", 43, 0.0563062933848781], ["pls", 130, -0.08488049215355326], ["srs", 201, 0.0563062933848781], ["model", 205, 0.0563062933848781], ["pls", 211, 0.0563062933848781], ["srs", 282, 0.0314192383220153], ["drink", 330, 0.02514041427233816], ["ill", 407, -0.016504685660560937]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 46, 0.3643698679848822], ["and", 17, 0.2794292346412827], ["friendly", 38, -0.0005349499417388603], ["Service", 0, 0.1719438489954213], ["the", 21, -0.2263868321936222], ["waitress", 25, -0.2263868321936222], ["was", 34, -0.2263868321936222], [".", 96, 0.3643698679848822], ["and", 117, 0.2794292346412827], ["the", 171, -0.2263868321936222], ["waitress", 175, -0.2263868321936222], ["was", 184, -0.2263868321936222], ["friendly", 188, -0.2263868321936222], ["friendly", 238, 0.22585188225188335], ["Service", 250, 0.1719438489954213]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divS7KGPB6HFM8JYGX"></div>
+        <div class="lime top_div" id="top_div6M143CMNUJ4CL8E"></div>
         
         <script>
-        var top_div = d3.select('#top_divS7KGPB6HFM8JYGX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div6M143CMNUJ4CL8E').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Worst", -0.6094190289374146], ["service", 0.36255266233030203], ["customer", 0.151108798485368]], 1, exp_div);
+                exp.show([["0825", 0.06878778437386916], ["0800", 0.05742875054436699], ["FREEPHONE", 0.04742372929452554], ["542", 0.04289240683042484], ["Call", 0.03704667778601975]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Worst", 0, -0.6094190289374146], ["service", 15, 0.36255266233030203], ["customer", 6, 0.151108798485368]], 1, "Worst customer service.", raw_div, true);
+            exp.show_raw_text([["0825", 77, 0.06878778437386916], ["0800", 68, 0.05742875054436699], ["FREEPHONE", 58, 0.04742372929452554], ["542", 73, 0.04289240683042484], ["Call", 53, 0.03704667778601975]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!", raw_div, true);
             
         </script>
         </body></html>

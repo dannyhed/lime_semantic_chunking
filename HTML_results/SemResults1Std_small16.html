@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLY1F4JME2UG8ZIF"></div>
+        <div class="lime top_div" id="top_divGU1S2A29P9HSI7O"></div>
         
         <script>
-        var top_div = d3.select('#top_divLY1F4JME2UG8ZIF').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGU1S2A29P9HSI7O').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.82, 0.18]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.33488362279474254], ["Terrible", -0.08142455252172301], ["this", 0.08127684432739571], ["will", 0.044891630851568075], ["car", -0.04448285211463189]], 1, exp_div);
+                exp.show([["happier", 0.7397506909064929], ["this", 0.2584496418161368], ["it", 0.10646074299866101], ["that", -0.10252720396202267], ["t", -0.09158847995851988]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.33488362279474254], ["Terrible", 0, -0.08142455252172301], ["this", 34, 0.08127684432739571], ["will", 18, 0.044891630851568075], ["car", 14, -0.04448285211463189]], 1, "Terrible.. My car will not accept this cassette.", raw_div, true);
+            exp.show_raw_text([["happier", 86, 0.7397506909064929], ["this", 18, 0.2584496418161368], ["it", 69, 0.10646074299866101], ["that", 55, -0.10252720396202267], ["t", 81, -0.09158847995851988]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.", raw_div, true);
             
         </script>
         </body></html>

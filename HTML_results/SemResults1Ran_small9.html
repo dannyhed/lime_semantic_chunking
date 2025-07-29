@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divIIZLQ57218VMATX"></div>
+        <div class="lime top_div" id="top_divTZCYXUV17OD0WU5"></div>
         
         <script>
-        var top_div = d3.select('#top_divIIZLQ57218VMATX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTZCYXUV17OD0WU5').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Smith", 0.008753631634202499], [".", 2.9946859101454392e-05], ["wan", 2.9946859101454392e-05], ["waste", 5.973132549796389e-07], ["da", 5.973132549796389e-07], ["i", 5.973132549796389e-07], ["na", 5.973132549796389e-07], ["gayle", 5.973132549796389e-07], [".", 5.973132549796389e-07]], 1, exp_div);
+                exp.show([["friendly", 0.3774900948610384], ["Service", 0.3041340930963471], ["was", 0.2605918658546129], ["the", -0.13076749243555164], ["was", -0.08173846293080354]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Smith", 0, 0.008753631634202499], [".", 14, 2.9946859101454392e-05], ["wan", 17, 2.9946859101454392e-05], ["waste", 6, 5.973132549796389e-07], ["da", 12, 5.973132549796389e-07], ["i", 15, 5.973132549796389e-07], ["na", 20, 5.973132549796389e-07], ["gayle", 23, 5.973132549796389e-07], [".", 28, 5.973132549796389e-07], ["Smith", 32, 0.008723684775101045], [".", 78, 2.9349545846474753e-05], ["wan", 81, 2.9349545846474753e-05], ["Smith", 64, 2.9349545846474753e-05], ["Smith", 96, 5.953995034491649e-07], ["waste", 102, 5.953995034491649e-07], ["da", 108, 5.953995034491649e-07], [".", 110, 5.953995034491649e-07], ["i", 111, 5.953995034491649e-07], ["wan", 113, 5.953995034491649e-07], ["na", 116, 5.953995034491649e-07], ["gayle", 119, 5.953995034491649e-07], [".", 124, 5.953995034491649e-07], ["Smith", 128, 1.3187034141906991e-09], ["waste", 134, 1.3187034141906991e-09], ["da", 140, 1.3187034141906991e-09], [".", 142, 1.3187034141906991e-09], ["i", 143, 1.3187034141906991e-09], ["wan", 145, 1.3187034141906991e-09], ["na", 148, 1.3187034141906991e-09], ["gayle", 151, 1.3187034141906991e-09], [".", 156, 1.3187034141906991e-09], ["Smith", 160, 5.950481162832861e-10], ["waste", 166, 5.950481162832861e-10], ["da", 172, 5.950481162832861e-10], [".", 174, 5.950481162832861e-10], ["i", 175, 5.950481162832861e-10], ["wan", 177, 5.950481162832861e-10], ["na", 180, 5.950481162832861e-10], ["gayle", 183, 5.950481162832861e-10], [".", 188, 5.950481162832861e-10]], 1, "Smith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\n", raw_div, true);
+            exp.show_raw_text([["friendly", 38, 0.3774900948610384], ["Service", 0, 0.3041340930963471], ["was", 34, 0.2605918658546129], ["the", 21, -0.13076749243555164], ["was", 8, -0.08173846293080354], ["friendly", 88, 0.3774900948610384], ["Service", 100, 0.3041340930963471], ["was", 184, 0.2605918658546129], ["the", 221, -0.13076749243555164], ["was", 258, -0.08173846293080354]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

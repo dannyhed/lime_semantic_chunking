@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div79ABRLH1ZVLEO5G"></div>
+        <div class="lime top_div" id="top_divHTK1G7PYUC9UDYS"></div>
         
         <script>
-        var top_div = d3.select('#top_div79ABRLH1ZVLEO5G').classed('lime top_div', true);
+        var top_div = d3.select('#top_divHTK1G7PYUC9UDYS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.16883978220557716, 0.8311602177944228]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bitch", 0.543293570016506], ["the", 1.1565527666222595], ["you", 2.3559185599771206], ["know", 1.167804614181489], ["lingo", 1.167804614181489], ["hoe", 1.167804614181489], ["lol", 1.167804614181489]], 1, exp_div);
+                exp.show([["You", 1.6921577481155268], ["anyway", 1.4824323156276726], ["ugly", 0.8139986071716788]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bitch", 0, 0.543293570016506], ["the", 15, 1.1565527666222595], ["you", 6, 2.3559185599771206], ["know", 10, 1.167804614181489], ["lingo", 19, 1.167804614181489], ["hoe", 25, 1.167804614181489], ["lol", 29, 1.167804614181489], ["bitch", 35, 0.47112681321757044], ["you", 41, 0.47112681321757044], ["know", 45, 0.47112681321757044], ["the", 50, 0.47112681321757044], ["lingo", 54, 0.47112681321757044], ["hoe", 60, 0.47112681321757044], ["lol", 64, 0.47112681321757044], ["you", 76, 0.22555098774634832], ["know", 80, 0.22555098774634832], ["the", 85, 0.22555098774634832], ["lingo", 89, 0.22555098774634832], ["hoe", 95, 0.22555098774634832], ["lol", 99, 0.22555098774634832], ["bitch", 105, 0.07216675679893557], ["you", 146, 0.020309331614142247], ["the", 190, -0.011251847559229686]], 1, "bitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\nbitch you know the lingo hoe lol\n\n\n", raw_div, true);
+            exp.show_raw_text([["You", 0, 1.6921577481155268], ["anyway", 9, 1.4824323156276726], ["ugly", 4, 0.8139986071716788], ["You", 18, 0.8139986071716788], ["ugly", 22, 0.8139986071716788], ["anyway", 27, 0.8139986071716788], ["You", 36, 0.10873850019752958], ["anyway", 63, -0.10706355622387644], ["You", 72, -0.04457796642536035], ["anyway", 99, -0.03850134249180866]], 1, "You ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divIIZLQ57218VMATX"></div>
+        <div class="lime top_div" id="top_divC3EPO43IM47PJO0"></div>
         
         <script>
-        var top_div = d3.select('#top_divIIZLQ57218VMATX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC3EPO43IM47PJO0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Smith", 0.009960334945861505], ["waste", 0.0002885472048455454], ["da", 0.0002710298146180043], [".", 0.0002710298146180043], ["i", 2.573095680256203e-07], ["wan", 2.573095680256203e-07], ["na", 2.573095680256203e-07], ["gayle", 2.573095680256203e-07], [".", 2.573095680256203e-07]], 1, exp_div);
+                exp.show([["!", 0.2375636532464574], ["...", 0.6281488948203531], ["tried", 0.5057053609167258], ["the", 0.5477785363424366], ["Cape", 0.5477785363424366], ["Cod", 0.5477785363424366], ["ravoli", 0.5477785363424366], [",", 0.5477785363424366], ["chicken", 0.5477785363424366], [",", 0.5477785363424366], ["with", 1.158993609261277], ["cranberry", 1.158993609261277], ["mmmm", 0.5477785363424366]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Smith", 0, 0.009960334945861505], ["waste", 6, 0.0002885472048455454], ["da", 12, 0.0002710298146180043], [".", 14, 0.0002710298146180043], ["i", 15, 2.573095680256203e-07], ["wan", 17, 2.573095680256203e-07], ["na", 20, 2.573095680256203e-07], ["gayle", 23, 2.573095680256203e-07], [".", 28, 2.573095680256203e-07], ["Smith", 32, 0.009822784759935867], ["Smith", 64, 0.00013729287635761206], ["waste", 70, 0.00013729287635761206], ["da", 76, 0.00013729287635761206], [".", 78, 0.00013729287635761206], ["waste", 102, 1.7517390227541166e-05], ["waste", 134, -3.813247665245465e-06], ["da", 140, -3.813247665245465e-06], [".", 142, -3.813247665245465e-06], ["Smith", 160, 2.573095680256203e-07], ["waste", 166, 2.573095680256203e-07], ["da", 172, 2.573095680256203e-07], [".", 174, 2.573095680256203e-07], ["i", 175, 2.573095680256203e-07], ["wan", 177, 2.573095680256203e-07], ["na", 180, 2.573095680256203e-07], ["gayle", 183, 2.573095680256203e-07], [".", 188, 2.573095680256203e-07]], 1, "Smith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\n", raw_div, true);
+            exp.show_raw_text([["!", 58, 0.2375636532464574], ["...", 51, 0.6281488948203531], ["tried", 2, 0.5057053609167258], ["the", 8, 0.5477785363424366], ["Cape", 12, 0.5477785363424366], ["Cod", 17, 0.5477785363424366], ["ravoli", 21, 0.5477785363424366], [",", 27, 0.5477785363424366], ["chicken", 29, 0.5477785363424366], [",", 36, 0.5477785363424366], ["with", 37, 1.158993609261277], ["cranberry", 42, 1.158993609261277], ["mmmm", 54, 0.5477785363424366], ["tried", 64, 0.5477785363424366], ["the", 70, 0.5477785363424366], ["Cape", 74, 0.5477785363424366], ["Cod", 79, 0.5477785363424366], ["ravoli", 83, 0.5477785363424366], [",", 89, 0.5477785363424366], ["chicken", 91, 0.5477785363424366], [",", 98, 0.5477785363424366], ["with", 99, 0.5477785363424366], ["cranberry", 104, 0.5477785363424366], ["...", 113, 0.5477785363424366], ["mmmm", 116, 0.5477785363424366], ["!", 182, 0.2375636532464574], ["...", 237, 0.0803703584779165], ["cranberry", 290, 0.06343653657640376], ["with", 285, 0.06343653657640376], ["tried", 312, -0.042073175425710804]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

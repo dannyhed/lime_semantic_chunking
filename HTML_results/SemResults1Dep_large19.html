@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8QI4APLCTXIDMT0"></div>
+        <div class="lime top_div" id="top_div0OYM8PZOHXGV91X"></div>
         
         <script>
-        var top_div = d3.select('#top_div8QI4APLCTXIDMT0').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0OYM8PZOHXGV91X').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.472062631149295e-32]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["means", -1.20591271308107e-09], ["just", -9.034931601706896e-10], ["No", -7.150339495038595e-10], ["fat", 6.146089852736015e-10], ["you", 4.732077258467345e-10]], 1, exp_div);
+                exp.show([["and", 0.2812260898316866], [".", 0.23165962347760408], ["waitress", 0.16848710511346673], ["fine", 0.15981398807293137], ["Service", 0.1587786979968857]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["means", 13, -1.20591271308107e-09], ["just", 8, -9.034931601706896e-10], ["No", 0, -7.150339495038595e-10], ["fat", 30, 6.146089852736015e-10], ["you", 19, 4.732077258467345e-10], ["means", 54, -1.20591271308107e-09], ["just", 90, -9.034931601706896e-10], ["No", 123, -7.150339495038595e-10], ["fat", 194, 6.146089852736015e-10], ["you", 224, 4.732077258467345e-10]], 1, "No that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\n", raw_div, true);
+            exp.show_raw_text([["and", 17, 0.2812260898316866], [".", 46, 0.23165962347760408], ["waitress", 25, 0.16848710511346673], ["fine", 12, 0.15981398807293137], ["Service", 0, 0.1587786979968857], ["and", 67, 0.2812260898316866], [".", 146, 0.23165962347760408], ["waitress", 175, 0.16848710511346673], ["fine", 212, 0.15981398807293137], ["Service", 250, 0.1587786979968857]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJJC6RJL83GPJOWL"></div>
+        <div class="lime top_div" id="top_div9ZP6HON0LFDNT5E"></div>
         
         <script>
-        var top_div = d3.select('#top_divJJC6RJL83GPJOWL').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9ZP6HON0LFDNT5E').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["pls", -0.07587842344468847], ["drink", 0.05783660048324655], ["model", 0.05766397959860831], ["mail", 0.05521086148141041], ["ill", -0.04319621688235787]], 1, exp_div);
+                exp.show([["08000930705", 0.06694704176318346], ["call", 0.04880212396536537], ["100", 0.03883740858455084], ["free", 0.03789399436105648], ["Free", 0.03681629461445565]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["pls", 49, -0.07587842344468847], ["drink", 6, 0.05783660048324655], ["model", 43, 0.05766397959860831], ["mail", 67, 0.05521086148141041], ["ill", 2, -0.04319621688235787]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.", raw_div, true);
+            exp.show_raw_text([["08000930705", 146, 0.06694704176318346], ["call", 141, 0.04880212396536537], ["100", 100, 0.03883740858455084], ["free", 71, 0.03789399436105648], ["free", 104, 0.03789399436105648], ["Free", 117, 0.03681629461445565]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divNABNCIXG2JG7PJR"></div>
+        <div class="lime top_div" id="top_divWEWITEU12Y9MFOU"></div>
         
         <script>
-        var top_div = d3.select('#top_divNABNCIXG2JG7PJR').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWEWITEU12Y9MFOU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["da", -0.023182998611568917], ["Smith", -0.02035566123059398], ["wanna", -0.020157594958868562], ["i", -0.016963034391570833], ["waste", 0.0077388444731191]], 1, exp_div);
+                exp.show([["loyalty", 0.05890914365441073], ["0207", 0.058400594782989715], ["Offer", 0.05836806433572182], ["Call", 0.05295808683371979], ["now", 0.05136727903864581]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["da", 12, -0.023182998611568917], ["Smith", 0, -0.02035566123059398], ["wanna", 17, -0.020157594958868562], ["i", 15, -0.016963034391570833], ["waste", 6, 0.0077388444731191]], 1, "Smith waste da.i wanna gayle.", raw_div, true);
+            exp.show_raw_text([["loyalty", 87, 0.05890914365441073], ["0207", 108, 0.058400594782989715], ["Offer", 123, 0.05836806433572182], ["Call", 96, 0.05295808683371979], ["now", 37, 0.05136727903864581], ["now", 101, 0.05136727903864581]], 1, "UpgrdCentre Orange customer, you may now claim your FREE CAMERA PHONE upgrade for your loyalty. Call now on 0207 153 9153. Offer ends 26th July. T|C's apply. Opt-out available", raw_div, true);
             
         </script>
         </body></html>

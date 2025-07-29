@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBDMV5Z128G2Z6Z5"></div>
+        <div class="lime top_div" id="top_div7RM7T5INLZJES6F"></div>
         
         <script>
-        var top_div = d3.select('#top_divBDMV5Z128G2Z6Z5').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7RM7T5INLZJES6F').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.01, 0.99]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["hoes", 0.21867521376955476], ["If", 0.1339667354818554], ["and", 0.12760315591855428], ["But", -0.06507532493413318], ["get", -0.03148462423773192]], 1, exp_div);
+                exp.show([["lines", -0.451819190232532], ["'re", 0.37727471410224234], ["crows", 0.33922678418349667], ["You", 0.22185165486367975], ["the", 0.1872812847957606]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["hoes", 13, 0.21867521376955476], ["If", 64, 0.1339667354818554], ["and", 45, 0.12760315591855428], ["But", 31, -0.06507532493413318], ["get", 18, -0.03148462423773192], ["hoes", 124, 0.21867521376955476], ["If", 286, 0.1339667354818554], ["and", 378, 0.12760315591855428], ["But", 475, -0.06507532493413318], ["get", 573, -0.03148462423773192]], 1, "' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n' Mann these hoes get nothin ! But some dick and instructions ! If she with mee she fucccccckn ! I said I...\n\n\n", raw_div, true);
+            exp.show_raw_text([["lines", 35, -0.451819190232532], ["'re", 3, 0.37727471410224234], ["crows", 16, 0.33922678418349667], ["You", 0, 0.22185165486367975], ["the", 25, 0.1872812847957606], ["lines", 79, -0.451819190232532], ["'re", 91, 0.37727471410224234], ["crows", 148, 0.33922678418349667], ["You", 176, 0.22185165486367975], ["the", 245, 0.1872812847957606]], 1, "You're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

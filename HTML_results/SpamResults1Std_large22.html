@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9FSYZZU1RU6VD8P"></div>
+        <div class="lime top_div" id="top_divNIEENB4MHCJEJ9Q"></div>
         
         <script>
-        var top_div = d3.select('#top_div9FSYZZU1RU6VD8P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNIEENB4MHCJEJ9Q').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.6224664218731528e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.3322676295501878e-15, 0.9999999999999987]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", -3.345797343991633e-21], ["when", 2.097842330579686e-21], ["going", 1.9824284336045886e-21], ["are", 1.8832459937426602e-21], ["k", 1.8509224215987865e-21]], 1, exp_div);
+                exp.show([["09056242159", 0.1805550483515837], ["21870000", 0.08557382069314065], ["21", 0.0803025705787174], ["messages", 0.06046770422223861], ["Please", 0.05786057223046934]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 14, -3.345797343991633e-21], ["when", 5, 2.097842330579686e-21], ["going", 18, 1.9824284336045886e-21], ["are", 10, 1.8832459937426602e-21], ["k", 2, 1.8509224215987865e-21]], 1, "K.k:)when are you going?", raw_div, true);
+            exp.show_raw_text([["09056242159", 134, 0.1805550483515837], ["21870000", 16, 0.08557382069314065], ["21", 102, 0.0803025705787174], ["messages", 83, 0.06046770422223861], ["messages", 163, 0.06046770422223861], ["Please", 114, 0.05786057223046934]], 1, "|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches", raw_div, true);
             
         </script>
         </body></html>

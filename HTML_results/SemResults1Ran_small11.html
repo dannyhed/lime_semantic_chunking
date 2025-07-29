@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLY1F4JME2UG8ZIF"></div>
+        <div class="lime top_div" id="top_divC3EPO43IM47PJO0"></div>
         
         <script>
-        var top_div = d3.select('#top_divLY1F4JME2UG8ZIF').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC3EPO43IM47PJO0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.82, 0.18]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.1667257349278389], ["this", 0.1346954389292873], ["Terrible", -0.0760966736735186], ["car", -0.0703406288395134], [".", 0.06274754708971388]], 1, exp_div);
+                exp.show([["with", 0.517154332453959], ["...", 0.46251846111123324], ["!", 0.4619024488270834], ["Cod", -0.38417700488640655], ["I", -0.025720903590008188]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.1667257349278389], ["this", 34, 0.1346954389292873], ["Terrible", 0, -0.0760966736735186], ["car", 14, -0.0703406288395134], [".", 47, 0.06274754708971388], ["not", 74, -0.1667257349278389], ["this", 136, 0.1346954389292873], ["Terrible", 153, -0.0760966736735186], ["car", 218, -0.0703406288395134], [".", 302, 0.06274754708971388]], 1, "Terrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\n", raw_div, true);
+            exp.show_raw_text([["with", 37, 0.517154332453959], ["...", 51, 0.46251846111123324], ["!", 58, 0.4619024488270834], ["Cod", 17, -0.38417700488640655], ["I", 0, -0.025720903590008188], ["with", 99, 0.517154332453959], ["...", 175, 0.46251846111123324], ["!", 244, 0.4619024488270834], ["Cod", 265, -0.38417700488640655], ["I", 310, -0.025720903590008188]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

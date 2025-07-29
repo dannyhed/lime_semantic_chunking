@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divNEJQOONNS4PXOQE"></div>
+        <div class="lime top_div" id="top_divVODEKOECYLSQ3F9"></div>
         
         <script>
-        var top_div = d3.select('#top_divNEJQOONNS4PXOQE').classed('lime top_div', true);
+        var top_div = d3.select('#top_divVODEKOECYLSQ3F9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["I", 0.0], ["am", 0.0], ["in", 0.0], ["a", 0.0], ["marriage", 0.0], ["function", 0.0]], 1, exp_div);
+                exp.show([["09066361921", 0.7730701554768712], ["of", 0.35905886392963016], ["have", 0.23001763616844145], ["prize", -0.16357543456244134], ["the", 0.11883224591593747]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["I", 0, 0.0], ["am", 2, 0.0], ["in", 5, 0.0], ["a", 8, 0.0], ["marriage", 10, 0.0], ["function", 19, 0.0], ["I", 30, 0.0], ["am", 32, 0.0], ["in", 35, 0.0], ["a", 38, 0.0], ["marriage", 40, 0.0], ["function", 49, 0.0], ["I", 60, 0.0], ["am", 62, 0.0], ["in", 65, 0.0], ["a", 68, 0.0], ["marriage", 70, 0.0], ["function", 79, 0.0], ["I", 90, 0.0], ["am", 92, 0.0], ["in", 95, 0.0], ["a", 98, 0.0], ["marriage", 100, 0.0], ["function", 109, 0.0], ["I", 120, 0.0], ["am", 122, 0.0], ["a", 128, 0.0], ["in", 125, 0.0], ["marriage", 130, 0.0], ["function", 139, 0.0], ["a", 158, 0.0], ["I", 150, 0.0], ["am", 152, 0.0]], 1, "I am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\n", raw_div, true);
+            exp.show_raw_text([["09066361921", 119, 0.7730701554768712], ["of", 73, 0.35905886392963016], ["have", 43, 0.23001763616844145], ["prize", 67, -0.16357543456244134], ["the", 8, 0.11883224591593747], ["09066361921", 252, 0.7730701554768712], ["of", 339, 0.35905886392963016], ["have", 442, 0.23001763616844145], ["prize", 599, -0.16357543456244134], ["the", 673, 0.11883224591593747]], 1, "This is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\n", raw_div, true);
             
         </script>
         </body></html>

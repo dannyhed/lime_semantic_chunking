@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRUT522AEPGG7NQ9"></div>
+        <div class="lime top_div" id="top_divY55BQVPNVVSUZ6J"></div>
         
         <script>
-        var top_div = d3.select('#top_divRUT522AEPGG7NQ9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divY55BQVPNVVSUZ6J').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.2875307306239924e-28]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Sat", 0.00996473153584208], ["right", 0.0002892377076034593], ["?", 0.00014113891364925455], ["Okay", 8.561404039217567e-07], ["thanks", 8.561404039217567e-07], ["...", 8.561404039217567e-07]], 1, exp_div);
+                exp.show([["asked", 2.8518563506126267e-10], ["for", 1.8373978679800693e-09], ["money", 1.7356930808246907e-09], ["I", 1.0765702167734376e-09], ["how", 8.118318882083521e-10], ["far", 8.118318882083521e-10]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Sat", 0, 0.00996473153584208], ["right", 4, 0.0002892377076034593], ["?", 9, 0.00014113891364925455], ["Okay", 11, 8.561404039217567e-07], ["thanks", 16, 8.561404039217567e-07], ["...", 22, 8.561404039217567e-07], ["Sat", 28, 0.009823592622192826], ["Sat", 56, 0.00013750397057707994], ["right", 60, 0.00013750397057707994], ["?", 65, 0.00013750397057707994], ["right", 88, 1.0594823377124796e-05], ["Sat", 112, 3.6349430721746176e-06], ["right", 116, 3.6349430721746176e-06], ["?", 121, 3.6349430721746176e-06], ["Okay", 151, 8.561404039217567e-07], ["thanks", 156, 8.561404039217567e-07], ["...", 162, 8.561404039217567e-07]], 1, "Sat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\n", raw_div, true);
+            exp.show_raw_text([["asked", 6, 2.8518563506126267e-10], ["for", 12, 1.8373978679800693e-09], ["money", 16, 1.7356930808246907e-09], ["I", 4, 1.0765702167734376e-09], ["how", 22, 8.118318882083521e-10], ["far", 26, 8.118318882083521e-10], ["for", 44, 9.238611926163387e-10], ["money", 48, 9.238611926163387e-10], ["for", 76, -8.221564054609601e-10], ["I", 100, 8.118318882083521e-10], ["asked", 102, 8.118318882083521e-10], ["for", 108, 8.118318882083521e-10], ["money", 112, 8.118318882083521e-10], ["how", 118, 8.118318882083521e-10], ["far", 122, 8.118318882083521e-10], ["I", 132, -5.470935596432668e-10], ["asked", 166, -5.266462531470895e-10]], 1, "Ok. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divD2TK0AHRQ96Q5MT"></div>
+        <div class="lime top_div" id="top_divNOILBV8FCEDA4QE"></div>
         
         <script>
-        var top_div = d3.select('#top_divD2TK0AHRQ96Q5MT').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNOILBV8FCEDA4QE').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999905, 9.570029900776654e-15]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.706796169615226e-28]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.31715380451430153], ["Terrible", -0.2673130426631425], ["car", -0.12803712896408628], ["will", 0.12106137970523857], ["accept", -0.11587920650884959]], 1, exp_div);
+                exp.show([["we", -0.2345450355777818], ["s", -0.20399381102362768], ["didn", -0.14827240241490316], ["mess", -0.1429244592901782], ["d", -0.11482367111897823]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.31715380451430153], ["Terrible", 0, -0.2673130426631425], ["car", 14, -0.12803712896408628], ["will", 18, 0.12106137970523857], ["accept", 27, -0.11587920650884959]], 1, "Terrible.. My car will not accept this cassette.", raw_div, true);
+            exp.show_raw_text([["we", 111, -0.2345450355777818], ["s", 3, -0.20399381102362768], ["s", 60, -0.20399381102362768], ["didn", 41, -0.14827240241490316], ["mess", 170, -0.1429244592901782], ["d", 114, -0.11482367111897823]], 1, "It's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  ", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUQ3CEY07ODDFG7M"></div>
+        <div class="lime top_div" id="top_div9WI9OVOPZI0FBG6"></div>
         
         <script>
-        var top_div = d3.select('#top_divUQ3CEY07ODDFG7M').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9WI9OVOPZI0FBG6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.834074077520548e-19]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["questions", 0.026472533787155094], ["during", 0.011164357406203713], ["why", -0.005245179188950003], ["fool", -0.0037076972402569136], ["answer", 0.003084538110472378]], 1, exp_div);
+                exp.show([["I", -0.0002329486064992024], ["ten", 0.00022262768698131906], ["owe", -0.00021646426985553362], ["half", -0.00020301676492241345], ["you", -0.0002006243300865132]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["questions", 46, 0.026472533787155094], ["during", 126, 0.011164357406203713], ["why", 97, -0.005245179188950003], ["fool", 28, -0.0037076972402569136], ["answer", 76, 0.003084538110472378]], 1, "Edison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)", raw_div, true);
+            exp.show_raw_text([["I", 16, -0.0002329486064992024], ["I", 53, -0.0002329486064992024], ["ten", 49, 0.00022262768698131906], ["owe", 55, -0.00021646426985553362], ["half", 38, -0.00020301676492241345], ["you", 4, -0.0002006243300865132], ["you", 59, -0.0002006243300865132]], 1, "Hey you around? I've got enough for a half + the ten I owe you", raw_div, true);
             
         </script>
         </body></html>

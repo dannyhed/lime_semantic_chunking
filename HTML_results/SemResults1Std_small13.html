@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUACAZCEAHDPXAM9"></div>
+        <div class="lime top_div" id="top_divYFRJ1X5YVD2PV23"></div>
         
         <script>
-        var top_div = d3.select('#top_divUACAZCEAHDPXAM9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divYFRJ1X5YVD2PV23').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999281, 7.198497775893798e-14]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["K", 0.0], ["ill", 0.0], ["drink", 0.0], ["pa", 0.0], ["then", 0.0]], 1, exp_div);
+                exp.show([["collect", -0.5115825334599848], ["skip", -0.44616121674098125], ["Austen", 0.2561920324768611], ["Unless", -0.19792376096425854], ["can", 0.12384492874544346]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["K", 0, 0.0], ["ill", 2, 0.0], ["drink", 6, 0.0], ["pa", 12, 0.0], ["pa", 75, 0.0], ["then", 15, 0.0]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.", raw_div, true);
+            exp.show_raw_text([["collect", 36, -0.5115825334599848], ["skip", 88, -0.44616121674098125], ["Austen", 65, 0.2561920324768611], ["Unless", 0, -0.19792376096425854], ["can", 84, 0.12384492874544346]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  ", raw_div, true);
             
         </script>
         </body></html>

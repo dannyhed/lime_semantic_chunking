@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divL71IYE2F8MY806B"></div>
+        <div class="lime top_div" id="top_divY55BQVPNVVSUZ6J"></div>
         
         <script>
-        var top_div = d3.select('#top_divL71IYE2F8MY806B').classed('lime top_div', true);
+        var top_div = d3.select('#top_divY55BQVPNVVSUZ6J').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.43, 0.57]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.2875307306239924e-28]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["call", 0.15095435889336833], ["SMS", 0.12058099990887204], ["alert", 0.11732360250866929], ["Forwarded", 0.07749485959530913], ["have", 0.05665240066928145]], 1, exp_div);
+                exp.show([["asked", 2.335729478191712e-11], ["I", -9.385137415045391e-11], ["how", 1.7495258126948002e-10], ["for", 8.397063230755867e-11], ["money", 1.2743396946450007e-10], ["far", 1.2743396946450007e-10]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["call", 121, 0.15095435889336833], ["SMS", 61, 0.12058099990887204], ["alert", 65, 0.11732360250866929], ["Forwarded", 1, 0.07749485959530913], ["have", 97, 0.05665240066928145], ["call", 307, 0.15095435889336833], ["SMS", 433, 0.12058099990887204], ["alert", 623, 0.11732360250866929], ["Forwarded", 745, 0.07749485959530913], ["have", 1027, 0.05665240066928145]], 1, "|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n|Forwarded from 21870000|Hi - this is your Mailbox Messaging SMS alert. You have 4 messages. You have 21 matches. Please call back on 09056242159 to retrieve your messages and matches\n\n\n", raw_div, true);
+            exp.show_raw_text([["asked", 6, 2.335729478191712e-11], ["I", 4, -9.385137415045391e-11], ["how", 22, 1.7495258126948002e-10], ["for", 12, 8.397063230755867e-11], ["money", 16, 1.2743396946450007e-10], ["far", 26, 1.2743396946450007e-10], ["asked", 38, 1.2743396946450007e-10], ["for", 44, 1.2743396946450007e-10], ["money", 48, 1.2743396946450007e-10], ["how", 54, 1.2743396946450007e-10], ["far", 58, 1.2743396946450007e-10], ["asked", 70, -1.0407667468258295e-10], ["I", 100, -9.385137415045391e-11], ["how", 150, 4.751861180497996e-11], ["for", 172, -4.34633371569414e-11]], 1, "Ok. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div5OKBKG4RL5FM7N0"></div>
+        <div class="lime top_div" id="top_divTAUT42SGCA3OLID"></div>
         
         <script>
-        var top_div = d3.select('#top_div5OKBKG4RL5FM7N0').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTAUT42SGCA3OLID').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9979474615188508, 0.0020525384811492064]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["mad", 0.07950077778408526], ["ready", 0.050872224946418736], ["I", -0.04368562155975919], ["m", -0.03355994292174318], ["so", 0.03000467290997205]], 1, exp_div);
+                exp.show([["J", 0.3252754351981597], ["trash", -0.2982452393560478], ["t", -0.23915608969005195], ["ain", 0.1375601837331485], ["Period", -0.10791012768331622]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["mad", 24, 0.07950077778408526], ["ready", 4, 0.050872224946418736], ["I", 0, -0.04368562155975919], ["I", 17, -0.04368562155975919], ["m", 2, -0.03355994292174318], ["m", 19, -0.03355994292174318], ["so", 21, 0.03000467290997205]], 1, "I'm ready to cry I'm so mad", raw_div, true);
+            exp.show_raw_text([["J", 0, 0.3252754351981597], ["trash", 13, -0.2982452393560478], ["t", 11, -0.23915608969005195], ["ain", 7, 0.1375601837331485], ["Period", 22, -0.10791012768331622]], 1, "J Cole ain't trash... Period.", raw_div, true);
             
         </script>
         </body></html>

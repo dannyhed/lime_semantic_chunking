@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divIFUSQ0VYG6EHLK7"></div>
+        <div class="lime top_div" id="top_divXF9NWSNY03222HQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divIFUSQ0VYG6EHLK7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXF9NWSNY03222HQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["died", 0.3242383857984254], ["who", 0.3242039039461819], ["thats", 0.3012853412194019], ["both", 0.2685882688993539], ["they", -0.04584186813439923]], 1, exp_div);
+                exp.show([["just", -0.5719851378350285], ["You", 0.3783469788312152], [".", 0.3386250744157394], ["'re", 0.25564522359122316], ["all", 0.11951781169282648]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["died", 47, 0.3242383857984254], ["who", 43, 0.3242039039461819], ["thats", 26, 0.3012853412194019], ["both", 15, 0.2685882688993539], ["they", 10, -0.04584186813439923], ["died", 101, 0.3242383857984254], ["who", 151, 0.3242039039461819], ["thats", 188, 0.3012853412194019], ["both", 231, 0.2685882688993539], ["they", 280, -0.04584186813439923]], 1, "null bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\n", raw_div, true);
+            exp.show_raw_text([["just", 11, -0.5719851378350285], ["You", 0, 0.3783469788312152], [".", 40, 0.3386250744157394], ["'re", 3, 0.25564522359122316], ["all", 7, 0.11951781169282648], ["just", 55, -0.5719851378350285], ["You", 88, 0.3783469788312152], [".", 172, 0.3386250744157394], ["'re", 179, 0.25564522359122316], ["all", 227, 0.11951781169282648]], 1, "You're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

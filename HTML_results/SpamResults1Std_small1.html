@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div5I54SMVBNWUXVF5"></div>
+        <div class="lime top_div" id="top_divTIBISCZJEYTQ7EE"></div>
         
         <script>
-        var top_div = d3.select('#top_div5I54SMVBNWUXVF5').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTIBISCZJEYTQ7EE').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.05, 0.95]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.532107773982716e-14, 0.9999999999999847]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["STOP", 0.34367892260838845], ["18", 0.24414786634273752], ["to", 0.0883363313913655], ["latest", 0.05732400606273941], ["results", 0.04605859354481266]], 1, exp_div);
+                exp.show([["83222", 0.2351767641843726], ["Euro2004", 0.21278147078167153], ["EURO", 0.15840678572936198], ["send", 0.07295198977377317], ["U", -0.059951476874775214]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["STOP", 121, 0.34367892260838845], ["18", 0, 0.24414786634273752], ["to", 8, 0.0883363313913655], ["to", 126, 0.0883363313913655], ["latest", 64, 0.05732400606273941], ["results", 80, 0.04605859354481266]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.", raw_div, true);
+            exp.show_raw_text([["83222", 129, 0.2351767641843726], ["Euro2004", 11, 0.21278147078167153], ["EURO", 116, 0.15840678572936198], ["send", 107, 0.07295198977377317], ["U", 29, -0.059951476874775214]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.", raw_div, true);
             
         </script>
         </body></html>

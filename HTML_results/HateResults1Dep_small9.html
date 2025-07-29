@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divDV6Y6OQV88UAFDE"></div>
+        <div class="lime top_div" id="top_div7RM7T5INLZJES6F"></div>
         
         <script>
-        var top_div = d3.select('#top_divDV6Y6OQV88UAFDE').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7RM7T5INLZJES6F').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.58, 0.42]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["trash", -0.4050403451834881], ["my", 0.07870406260482696], ["your", 0.06503174251659422], ["Mendes", -0.04905985838288146], ["can", 0.03605420468373158]], 1, exp_div);
+                exp.show([["power", -0.3357736647536313], ["all", 0.23484970537969638], ["lines", -0.22929997933292667], [".", 0.2015485295108778], ["You", 0.1463520904950922]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["trash", 33, -0.4050403451834881], ["my", 71, 0.07870406260482696], ["your", 83, 0.06503174251659422], ["Mendes", 52, -0.04905985838288146], ["can", 62, 0.03605420468373158], ["trash", 132, -0.4050403451834881], ["my", 269, 0.07870406260482696], ["your", 380, 0.06503174251659422], ["Mendes", 448, -0.04905985838288146], ["can", 557, 0.03605420468373158]], 1, "//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead\n\n\n//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead\n\n\n//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead\n\n\n//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead\n\n\n//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead\n\n\n//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead\n\n\n", raw_div, true);
+            exp.show_raw_text([["power", 29, -0.3357736647536313], ["all", 7, 0.23484970537969638], ["lines", 35, -0.22929997933292667], [".", 40, 0.2015485295108778], ["You", 0, 0.1463520904950922], ["power", 73, -0.3357736647536313], ["all", 95, 0.23484970537969638], ["lines", 167, -0.22929997933292667], [".", 216, 0.2015485295108778], ["You", 220, 0.1463520904950922]], 1, "You're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divIY0IGU8VYN46Z2B"></div>
+        <div class="lime top_div" id="top_divYIC9BVYMTGUS19Q"></div>
         
         <script>
-        var top_div = d3.select('#top_divIY0IGU8VYN46Z2B').classed('lime top_div', true);
+        var top_div = d3.select('#top_divYIC9BVYMTGUS19Q').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.472062631149295e-32]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["great", 0.4407801421869065], ["experience", 0.3726346053617529], ["a", 0.1497989998112204], ["Overall", 0.13795375563260356]], 1, exp_div);
+                exp.show([["means", -5.970486573317965e-14], ["just", -5.792047015823056e-14], ["No", -5.5201939558169324e-14], ["head", -5.0348333790467435e-14], ["that", 4.75208222304966e-14]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["great", 11, 0.4407801421869065], ["experience", 17, 0.3726346053617529], ["a", 9, 0.1497989998112204], ["Overall", 0, 0.13795375563260356]], 1, "Overall, a great experience.", raw_div, true);
+            exp.show_raw_text([["means", 13, -5.970486573317965e-14], ["just", 8, -5.792047015823056e-14], ["No", 0, -5.5201939558169324e-14], ["head", 34, -5.0348333790467435e-14], ["that", 3, 4.75208222304966e-14]], 1, "No that just means you have a fat head", raw_div, true);
             
         </script>
         </body></html>

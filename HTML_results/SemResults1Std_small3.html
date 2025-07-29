@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZFE4PFF1ED01NZH"></div>
+        <div class="lime top_div" id="top_divB5848C2W980LJBY"></div>
         
         <script>
-        var top_div = d3.select('#top_divZFE4PFF1ED01NZH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divB5848C2W980LJBY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.54, 0.46]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["staff", 0.05296996301179105], ["more", 0.04823193695713866], ["Your", -0.04380358780606454], ["talking", -0.04358187853328089], ["than", 0.04158389736656034]], 1, exp_div);
+                exp.show([["pls", -0.0742988594540538], ["model", 0.06840889965236935], ["drink", 0.06722655311580826], ["K", 0.05740262580189116], ["ill", -0.051536532649494]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["staff", 5, 0.05296996301179105], ["more", 18, 0.04823193695713866], ["Your", 0, -0.04380358780606454], ["talking", 28, -0.04358187853328089], ["than", 50, 0.04158389736656034]], 1, "Your staff spends more time talking to themselves than me.", raw_div, true);
+            exp.show_raw_text([["pls", 49, -0.0742988594540538], ["model", 43, 0.06840889965236935], ["drink", 6, 0.06722655311580826], ["K", 0, 0.05740262580189116], ["ill", 2, -0.051536532649494]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divYDHIV9VV15L3HGA"></div>
+        <div class="lime top_div" id="top_div1IEBAFZVX81GZ6V"></div>
         
         <script>
-        var top_div = d3.select('#top_divYDHIV9VV15L3HGA').classed('lime top_div', true);
+        var top_div = d3.select('#top_div1IEBAFZVX81GZ6V').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 6.915065525061897e-39]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.999999999999927, 7.307143381871251e-14]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["have", -1.1743463917191221e-20], ["love", -1.164632915963837e-20], ["like", -1.152610350731564e-20], ["arrange", -1.1325642575499111e-20], ["to", -9.788598381223517e-21]], 1, exp_div);
+                exp.show([["why", -1.4228262554485074e-09], ["fool", -1.3254938224148277e-09], ["rightly", -1.3205635737018851e-09], ["more", 1.143878001263951e-09], ["speechless", 1.1247641021273146e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["have", 6, -1.1743463917191221e-20], ["have", 25, -1.1743463917191221e-20], ["love", 30, -1.164632915963837e-20], ["like", 17, -1.152610350731564e-20], ["arrange", 39, -1.1325642575499111e-20], ["to", 11, -9.788598381223517e-21], ["to", 22, -9.788598381223517e-21]], 1, "But i have to. I like to have love and arrange.", raw_div, true);
+            exp.show_raw_text([["why", 97, -1.4228262554485074e-09], ["fool", 28, -1.3254938224148277e-09], ["rightly", 11, -1.3205635737018851e-09], ["more", 41, 1.143878001263951e-09], ["speechless", 115, 1.1247641021273146e-09]], 1, "Edison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)", raw_div, true);
             
         </script>
         </body></html>

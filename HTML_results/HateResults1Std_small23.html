@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div21FPSEH5CSUSWR7"></div>
+        <div class="lime top_div" id="top_divWYVD1M73216AWFL"></div>
         
         <script>
-        var top_div = d3.select('#top_div21FPSEH5CSUSWR7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWYVD1M73216AWFL').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.12, 0.88]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["pussy", 0.1388854669422245], ["away", -0.04349336300435101], ["Sunday", -0.030741936492776255], ["me", 0.021903088317264556], ["the", -0.02093073585951793]], 1, exp_div);
+                exp.show([["messin", 0.08296360689857857], ["You", 0.07636669094416633], ["you", 0.056823347040795884], ["broke", 0.052992230053476204], ["niggahs", -0.04256505447943324]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["pussy", 17, 0.1388854669422245], ["away", 94, -0.04349336300435101], ["Sunday", 78, -0.030741936492776255], ["me", 35, 0.021903088317264556], ["the", 13, -0.02093073585951793]], 1, "I don't want the pussy if it makes me want to pay your bills and not sleep my Sunday mornings away", raw_div, true);
+            exp.show_raw_text([["messin", 6, 0.08296360689857857], ["You", 2, 0.07636669094416633], ["you", 32, 0.056823347040795884], ["broke", 18, 0.052992230053476204], ["broke", 43, 0.052992230053476204], ["niggahs", 24, -0.04256505447943324]], 1, "' You messin with broke niggahs you gon be broke niggah", raw_div, true);
             
         </script>
         </body></html>

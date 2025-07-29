@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div765B2VGZV62BDP7"></div>
+        <div class="lime top_div" id="top_divWYVD1M73216AWFL"></div>
         
         <script>
-        var top_div = d3.select('#top_div765B2VGZV62BDP7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWYVD1M73216AWFL').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.12, 0.88]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["to", 0.17056930044856614], ["dead", 0.1226917362850661], ["Zimmerman", 0.09388269549235678], ["16", -0.09187766736450677], ["cracker", 0.061988326182177776]], 1, exp_div);
+                exp.show([["You", 0.5106342463114908], ["you", 0.4604193899066772], ["niggahs", -0.3610402307788534], ["broke", 0.3466391979726986], ["with", 0.2914304566512106]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["to", 26, 0.17056930044856614], ["dead", 88, 0.1226917362850661], ["Zimmerman", 97, 0.09388269549235678], ["16", 14, -0.09187766736450677], ["cracker", 62, 0.061988326182177776], ["to", 150, 0.17056930044856614], ["dead", 336, 0.1226917362850661], ["Zimmerman", 469, 0.09388269549235678], ["16", 510, -0.09187766736450677], ["cracker", 682, 0.061988326182177776]], 1, "he was 17 not 16 he tried to beat up a much weaker creepy ass cracker that is why he is dead. If Zimmerman was a woman...\n\n\nhe was 17 not 16 he tried to beat up a much weaker creepy ass cracker that is why he is dead. If Zimmerman was a woman...\n\n\nhe was 17 not 16 he tried to beat up a much weaker creepy ass cracker that is why he is dead. If Zimmerman was a woman...\n\n\nhe was 17 not 16 he tried to beat up a much weaker creepy ass cracker that is why he is dead. If Zimmerman was a woman...\n\n\nhe was 17 not 16 he tried to beat up a much weaker creepy ass cracker that is why he is dead. If Zimmerman was a woman...\n\n\nhe was 17 not 16 he tried to beat up a much weaker creepy ass cracker that is why he is dead. If Zimmerman was a woman...\n\n\n", raw_div, true);
+            exp.show_raw_text([["You", 2, 0.5106342463114908], ["you", 32, 0.4604193899066772], ["niggahs", 24, -0.3610402307788534], ["broke", 18, 0.3466391979726986], ["with", 13, 0.2914304566512106], ["You", 60, 0.5106342463114908], ["you", 148, 0.4604193899066772], ["niggahs", 198, -0.3610402307788534], ["broke", 250, 0.3466391979726986], ["with", 303, 0.2914304566512106]], 1, "' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n' You messin with broke niggahs you gon be broke niggah\n\n\n", raw_div, true);
             
         </script>
         </body></html>

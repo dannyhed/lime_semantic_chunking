@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZFE4PFF1ED01NZH"></div>
+        <div class="lime top_div" id="top_divTMK0AW0MV9EPSMH"></div>
         
         <script>
-        var top_div = d3.select('#top_divZFE4PFF1ED01NZH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTMK0AW0MV9EPSMH').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.54, 0.46]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.3475614127846863e-18]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["staff", 0.05221472957210545], ["Your", -0.04912751106168488], ["talking", -0.042289960773208735], ["than", 0.034583568062023014], ["more", 0.0338693924167769]], 1, exp_div);
+                exp.show([["you", -5.240711522749762e-10], ["the", 1.753376651684813e-09], [".", -1.5426895018589898e-09], ["it", -1.4211794282163875e-09], ["love", 1.3963531622803614e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["staff", 5, 0.05221472957210545], ["Your", 0, -0.04912751106168488], ["talking", 28, -0.042289960773208735], ["than", 50, 0.034583568062023014], ["more", 18, 0.0338693924167769], ["staff", 66, 0.05221472957210545], ["Your", 122, -0.04912751106168488], ["talking", 211, -0.042289960773208735], ["than", 294, 0.034583568062023014], ["more", 323, 0.0338693924167769]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
+            exp.show_raw_text([["you", 156, -5.240711522749762e-10], ["the", 52, 1.753376651684813e-09], [".", 147, -1.5426895018589898e-09], ["it", 108, -1.4211794282163875e-09], ["love", 151, 1.3963531622803614e-09], ["you", 318, -1.9204243145553376e-09], ["the", 376, 1.753376651684813e-09], [".", 633, -1.5426895018589898e-09], ["it", 756, -1.4211794282163875e-09], ["you", 966, 1.3963531622803614e-09], ["love", 961, 1.3963531622803614e-09]], 1, "I miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\nI miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you\n\n\n", raw_div, true);
             
         </script>
         </body></html>

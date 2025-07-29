@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJZRBZUWFUN54FP9"></div>
+        <div class="lime top_div" id="top_divKND3MR3ULJBF4KC"></div>
         
         <script>
-        var top_div = d3.select('#top_divJZRBZUWFUN54FP9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divKND3MR3ULJBF4KC').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.532107773982716e-14, 0.9999999999999847]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.915651005454199e-17]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["83222", 0.22558589216276628], ["Euro2004", 0.1840011287946225], ["Unsubscribe", 0.11454455443525785], ["EURO", 0.11312883284030677], ["latest", 0.10190671136757137]], 1, exp_div);
+                exp.show([["telphone", 0.00512905909897323], ["person", -0.004302476487929698], ["u", -0.00407073417553659], ["And", -0.003973648982126969], ["can", -0.0039036340971554733]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["83222", 129, 0.22558589216276628], ["Euro2004", 11, 0.1840011287946225], ["Unsubscribe", 95, 0.11454455443525785], ["EURO", 116, 0.11312883284030677], ["latest", 64, 0.10190671136757137]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.", raw_div, true);
+            exp.show_raw_text([["telphone", 218, 0.00512905909897323], ["person", 269, -0.004302476487929698], ["u", 18, -0.00407073417553659], ["u", 33, -0.00407073417553659], ["u", 50, -0.00407073417553659], ["u", 135, -0.00407073417553659], ["And", 131, -0.003973648982126969], ["can", 248, -0.0039036340971554733]], 1, "Storming msg: Wen u lift d phne, u say \"HELLO\" Do u knw wt is d real meaning of HELLO?? . . . It's d name of a girl..! . . . Yes.. And u knw who is dat girl?? \"Margaret Hello\" She is d girlfrnd f Grahmbell who invnted telphone... . . . . Moral:One can 4get d name of a person, bt not his girlfrnd... G o o d n i g h t . . .@", raw_div, true);
             
         </script>
         </body></html>

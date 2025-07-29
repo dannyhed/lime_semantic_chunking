@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRW2K9LIC86C35FC"></div>
+        <div class="lime top_div" id="top_divLHWKGB51GUWB182"></div>
         
         <script>
-        var top_div = d3.select('#top_divRW2K9LIC86C35FC').classed('lime top_div', true);
+        var top_div = d3.select('#top_divLHWKGB51GUWB182').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.01, 0.99]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bitch", 0.037816165829978036], ["hoe", 0.03074160445657234], ["lingo", 0.02702436024004601], ["the", -0.0055452358552622845], ["know", -0.005485877381605341]], 1, exp_div);
+                exp.show([["bitch", 0.05260675017937537], ["know", 0.042697827959985675], ["hoe", 0.03587495205692969], ["you", 0.030577965996203334], ["the", -0.02894531385382179]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bitch", 0, 0.037816165829978036], ["hoe", 25, 0.03074160445657234], ["lingo", 19, 0.02702436024004601], ["the", 15, -0.0055452358552622845], ["know", 10, -0.005485877381605341]], 1, "bitch you know the lingo hoe lol", raw_div, true);
+            exp.show_raw_text([["bitch", 0, 0.05260675017937537], ["know", 10, 0.042697827959985675], ["hoe", 25, 0.03587495205692969], ["you", 6, 0.030577965996203334], ["the", 15, -0.02894531385382179]], 1, "bitch you know the lingo hoe lol", raw_div, true);
             
         </script>
         </body></html>

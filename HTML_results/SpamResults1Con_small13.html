@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMK5W8REYOGPJ24O"></div>
+        <div class="lime top_div" id="top_divDKIU77HRWALJ6WC"></div>
         
         <script>
-        var top_div = d3.select('#top_divMK5W8REYOGPJ24O').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDKIU77HRWALJ6WC').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0578310436234116e-25]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Howz", 0.0], ["that", 0.0], ["persons", 0.0], ["story", 0.0]], 1, exp_div);
+                exp.show([[".", -2.411601209862217e-13], ["is", -3.864544701315329e-14], ["teach", 3.634850807392449e-13], ["And", -1.5633643717254236e-13], ["it", 1.968482088081211e-13], ["possible", 1.968482088081211e-13], ["to", 1.968482088081211e-13], ["you", 1.968482088081211e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Howz", 0, 0.0], ["that", 5, 0.0], ["persons", 10, 0.0], ["story", 18, 0.0], ["Howz", 26, 0.0], ["that", 31, 0.0], ["persons", 36, 0.0], ["story", 44, 0.0], ["Howz", 52, 0.0], ["that", 83, 0.0], ["persons", 88, 0.0], ["that", 109, 0.0], ["persons", 140, 0.0]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 31, -2.411601209862217e-13], ["is", 4, -3.864544701315329e-14], ["teach", 22, 3.634850807392449e-13], ["And", 33, -1.5633643717254236e-13], ["it", 7, 1.968482088081211e-13], ["possible", 10, 1.968482088081211e-13], ["to", 19, 1.968482088081211e-13], ["you", 28, 1.968482088081211e-13], [".", 77, -2.411601209862217e-13], ["is", 96, -2.354936558212744e-13], ["is", 142, 1.968482088081211e-13], ["it", 145, 1.968482088081211e-13], ["possible", 148, 1.968482088081211e-13], ["to", 157, 1.968482088081211e-13], ["teach", 160, 1.968482088081211e-13], ["you", 166, 1.968482088081211e-13], ["teach", 206, 1.6663687193112378e-13], ["And", 263, -1.5633643717254236e-13]], 1, "How is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\nHow is it possible to teach you. And where.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

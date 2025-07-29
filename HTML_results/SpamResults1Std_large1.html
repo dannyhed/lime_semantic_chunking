@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divD02GJREF61QBBPH"></div>
+        <div class="lime top_div" id="top_divPQZB8PEVYBC8XIT"></div>
         
         <script>
-        var top_div = d3.select('#top_divD02GJREF61QBBPH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPQZB8PEVYBC8XIT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Howz", 2.589393783378163e-11], ["story", 2.5595523823465452e-11], ["persons", 2.443778921778107e-11], ["that", -2.0491434295922367e-11]], 1, exp_div);
+                exp.show([["09066361921", 0.08170632488875505], ["top", 0.04932916264977925], ["prize", 0.04915650002417811], ["you", 0.04718743647420218], ["call", 0.0463735309108887]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Howz", 0, 2.589393783378163e-11], ["story", 18, 2.5595523823465452e-11], ["persons", 10, 2.443778921778107e-11], ["that", 5, -2.0491434295922367e-11]], 1, "Howz that persons story", raw_div, true);
+            exp.show_raw_text([["09066361921", 119, 0.08170632488875505], ["top", 63, 0.04932916264977925], ["prize", 67, 0.04915650002417811], ["prize", 102, 0.04915650002417811], ["you", 39, 0.04718743647420218], ["call", 114, 0.0463735309108887]], 1, "This is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divNABNCIXG2JG7PJR"></div>
+        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
         
         <script>
-        var top_div = d3.select('#top_divNABNCIXG2JG7PJR').classed('lime top_div', true);
+        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([[".", 0.0014016249873054902], ["na", -0.0012423441380710247], ["Smith", 0.008602004773251095], ["waste", 0.005860677865459413], ["da", 0.008412012193573175], [".", 0.005860677865459413]], 1, exp_div);
+                exp.show([["this", 0.37079651099310884], ["happier", 0.3367821364877772], ["n't", -0.3122607073628458], [".", 0.25326783746818954], ["could", 0.23237329464626943]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([[".", 28, 0.0014016249873054902], ["na", 20, -0.0012423441380710247], ["Smith", 0, 0.008602004773251095], ["waste", 6, 0.005860677865459413], ["da", 12, 0.008412012193573175], [".", 14, 0.005860677865459413], ["Smith", 32, 0.005860677865459413], ["waste", 38, 0.005860677865459413], ["da", 44, 0.005860677865459413], [".", 46, 0.005860677865459413], ["da", 76, -0.0033093435373456525], ["Smith", 96, -0.003119350957667732], [".", 156, 0.0014016249873054902], ["na", 180, -0.0012423441380710247]], 1, "Smith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\n", raw_div, true);
+            exp.show_raw_text([["this", 18, 0.37079651099310884], ["happier", 86, 0.3367821364877772], ["n't", 79, -0.3122607073628458], [".", 93, 0.25326783746818954], ["could", 74, 0.23237329464626943], ["this", 115, 0.37079651099310884], ["happier", 280, 0.3367821364877772], ["n't", 370, -0.3122607073628458], [".", 481, 0.25326783746818954], ["could", 559, 0.23237329464626943]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

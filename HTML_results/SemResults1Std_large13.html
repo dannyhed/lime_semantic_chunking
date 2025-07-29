@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divURKTZKECHEFHR4K"></div>
+        <div class="lime top_div" id="top_div0OYM8PZOHXGV91X"></div>
         
         <script>
-        var top_div = d3.select('#top_divURKTZKECHEFHR4K').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0OYM8PZOHXGV91X').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.501550518600983e-20]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["to", -0.17060779944463916], ["minutes", -0.14233951840709286], ["had", -0.10782458500983762], ["get", -0.09846130335502358], ["out", -0.09578210026947902]], 1, exp_div);
+                exp.show([["Service", 0.36994983518694696], ["and", 0.26598651510353377], ["fine", 0.2357049904896461], ["friendly", 0.2239480952646356], ["waitress", 0.16961470959576078]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["to", 6, -0.17060779944463916], ["to", 56, -0.17060779944463916], ["minutes", 43, -0.14233951840709286], ["had", 2, -0.10782458500983762], ["get", 59, -0.09846130335502358], ["out", 14, -0.09578210026947902]], 1, "I had to walk out of the theatre for a few minutes just to get some relief!  ", raw_div, true);
+            exp.show_raw_text([["Service", 0, 0.36994983518694696], ["and", 17, 0.26598651510353377], ["fine", 12, 0.2357049904896461], ["friendly", 38, 0.2239480952646356], ["waitress", 25, 0.16961470959576078]], 1, "Service was fine and the waitress was friendly.", raw_div, true);
             
         </script>
         </body></html>

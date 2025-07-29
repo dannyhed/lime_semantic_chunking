@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLINIAOQG5U4MP37"></div>
+        <div class="lime top_div" id="top_div1596BWPDP19VVIN"></div>
         
         <script>
-        var top_div = d3.select('#top_divLINIAOQG5U4MP37').classed('lime top_div', true);
+        var top_div = d3.select('#top_div1596BWPDP19VVIN').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["I", 0.0], ["m", 0.0], ["also", 0.0], ["came", 0.0], ["to", 0.0]], 1, exp_div);
+                exp.show([["da", -0.026958275462911543], ["Smith", -0.02424994975618273], ["wanna", -0.024111305457923476], ["i", -0.021376974193145767], ["waste", 0.008156959794872859]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["I", 0, 0.0], ["m", 2, 0.0], ["also", 4, 0.0], ["came", 9, 0.0], ["to", 14, 0.0]], 1, "I'm also came to room.", raw_div, true);
+            exp.show_raw_text([["da", 12, -0.026958275462911543], ["Smith", 0, -0.02424994975618273], ["wanna", 17, -0.024111305457923476], ["i", 15, -0.021376974193145767], ["waste", 6, 0.008156959794872859]], 1, "Smith waste da.i wanna gayle.", raw_div, true);
             
         </script>
         </body></html>

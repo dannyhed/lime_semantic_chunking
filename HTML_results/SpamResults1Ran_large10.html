@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9FSYZZU1RU6VD8P"></div>
+        <div class="lime top_div" id="top_divW200TTA1RG3MDS0"></div>
         
         <script>
-        var top_div = d3.select('#top_div9FSYZZU1RU6VD8P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divW200TTA1RG3MDS0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.6224664218731528e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.063569268460371e-33]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["K.k", 5.584461591681298e-09], [":", 4.2229292178894986e-09], ["when", -3.633771950912146e-09], ["are", -2.9730590827977615e-09], ["you", -4.5053645135688933e-10]], 1, exp_div);
+                exp.show([["than", -1.520476927774883e-12], ["more", -1.202422159747869e-12], ["da", -1.1640536764762106e-12], ["to", -6.673173804041164e-13], ["going", -4.022018178490543e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["K.k", 0, 5.584461591681298e-09], [":", 3, 4.2229292178894986e-09], ["when", 5, -3.633771950912146e-09], ["are", 10, -2.9730590827977615e-09], ["you", 14, -4.5053645135688933e-10], ["K.k", 27, 5.584461591681298e-09], [":", 57, 4.2229292178894986e-09], ["when", 86, -3.633771950912146e-09], ["are", 118, -2.9730590827977615e-09], ["you", 149, -4.5053645135688933e-10]], 1, "K.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\n", raw_div, true);
+            exp.show_raw_text([["than", 29, -1.520476927774883e-12], ["more", 24, -1.202422159747869e-12], ["da", 37, -1.1640536764762106e-12], ["to", 16, -6.673173804041164e-13], ["going", 10, -4.022018178490543e-13], ["than", 72, -1.520476927774883e-12], ["more", 110, -1.202422159747869e-12], ["da", 166, -1.1640536764762106e-12], ["to", 188, -6.673173804041164e-13], ["going", 225, -4.022018178490543e-13]], 1, "My sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divXT1BUW4H2FPV93J"></div>
+        <div class="lime top_div" id="top_div0L51J4Z78S8RF5Y"></div>
         
         <script>
-        var top_div = d3.select('#top_divXT1BUW4H2FPV93J').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0L51J4Z78S8RF5Y').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.11, 0.89]);
+            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["ham", "spam"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["ringtone", 0.20040531521561328], ["Free", 0.15529626031941476], ["weekly", 0.13738093334372695], ["per", 0.13436912412992846], ["free", 0.09426213349272479]], 1, exp_div);
+                exp.show([["81618", 0.05616622748812515], ["08718727870", 0.05400665596744515], ["sms", 0.04754751246145193], ["weekly", 0.03652640648733937], ["per", 0.036043198354634945]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["ringtone", 9, 0.20040531521561328], ["ringtone", 33, 0.20040531521561328], ["Free", 0, 0.15529626031941476], ["weekly", 26, 0.13738093334372695], ["per", 85, 0.13436912412992846], ["free", 55, 0.09426213349272479]], 1, "Free Top ringtone -sub to weekly ringtone-get 1st week free-send SUBPOLY to 81618-?3 per week-stop sms-08718727870", raw_div, true);
+            exp.show_raw_text([["81618", 76, 0.05616622748812515], ["08718727870", 103, 0.05400665596744515], ["sms", 99, 0.04754751246145193], ["weekly", 26, 0.03652640648733937], ["per", 85, 0.036043198354634945]], 1, "Free Top ringtone -sub to weekly ringtone-get 1st week free-send SUBPOLY to 81618-?3 per week-stop sms-08718727870", raw_div, true);
             
         </script>
         </body></html>

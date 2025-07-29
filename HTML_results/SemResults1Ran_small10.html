@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRF47CMF7ONTGAWF"></div>
+        <div class="lime top_div" id="top_div5LAPHYD8Q42NEQR"></div>
         
         <script>
-        var top_div = d3.select('#top_divRF47CMF7ONTGAWF').classed('lime top_div', true);
+        var top_div = d3.select('#top_div5LAPHYD8Q42NEQR').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.53, 0.47]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["it", 0.12471344320926042], ["headset", -0.09971123802196669], ["I", 0.06262560953489607], ["got", 0.02988505047376443], ["could", 0.009864379350423086]], 1, exp_div);
+                exp.show([["service", 0.5935178132902533], ["Worst", -0.4546349978384635], ["customer", -0.15817811560460457], [".", 0.12683432359835847]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["it", 69, 0.12471344320926042], ["headset", 23, -0.09971123802196669], ["I", 0, 0.06262560953489607], ["got", 65, 0.02988505047376443], ["could", 74, 0.009864379350423086], ["it", 166, 0.12471344320926042], ["headset", 217, -0.09971123802196669], ["I", 291, 0.06262560953489607], ["got", 453, 0.02988505047376443], ["could", 559, 0.009864379350423086]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
+            exp.show_raw_text([["service", 15, 0.5935178132902533], ["Worst", 0, -0.4546349978384635], ["customer", 6, -0.15817811560460457], [".", 22, 0.12683432359835847], ["service", 41, 0.5935178132902533], ["Worst", 52, -0.4546349978384635], ["customer", 84, -0.15817811560460457], [".", 126, 0.11960955738879148], [".", 152, 0.0072247662095670075]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

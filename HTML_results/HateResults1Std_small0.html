@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divQ4IY6Y8P7UN6J76"></div>
+        <div class="lime top_div" id="top_divJ7UVXZCANSHZB1U"></div>
         
         <script>
-        var top_div = d3.select('#top_divQ4IY6Y8P7UN6J76').classed('lime top_div', true);
+        var top_div = d3.select('#top_divJ7UVXZCANSHZB1U').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.07, 0.93]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bitches", 0.1252267675796682], ["feel", -0.055302561656460636], ["you", -0.02921913883505723], ["deal", 0.02338196635052699], ["with", 0.01689175889834328]], 1, exp_div);
+                exp.show([["bitch", 0.06714697067350132], ["ova", 0.04345368899350761], ["ass", 0.02723113721800004], ["dat", 0.02329556147762917], ["to", -0.020606305473425998]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bitches", 14, 0.1252267675796682], ["feel", 29, -0.055302561656460636], ["you", 10, -0.02921913883505723], ["deal", 0, 0.02338196635052699], ["with", 5, 0.01689175889834328]], 1, "deal with you bitches when I feel like it", raw_div, true);
+            exp.show_raw_text([["bitch", 32, 0.06714697067350132], ["ova", 38, 0.04345368899350761], ["ass", 5, 0.02723113721800004], ["dat", 28, 0.02329556147762917], ["to", 19, -0.020606305473425998]], 1, "Slaw ass team time to start dat bitch ova", raw_div, true);
             
         </script>
         </body></html>

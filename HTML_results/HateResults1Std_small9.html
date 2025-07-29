@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div62YU9YCAKIV1FF9"></div>
+        <div class="lime top_div" id="top_div7RM7T5INLZJES6F"></div>
         
         <script>
-        var top_div = d3.select('#top_div62YU9YCAKIV1FF9').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7RM7T5INLZJES6F').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.29, 0.71]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["redneck", -0.06856279268761237], ["game", -0.0359933203635014], ["Giants", -0.03287297944857961], ["is", 0.032790879202472895], ["like", 0.027349835864082853]], 1, exp_div);
+                exp.show([["all", 0.33085808428215335], ["lines", -0.31629604203031453], ["power", -0.25492402625582694], ["You", 0.2185317299184202], ["the", -0.14316165994539787]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["redneck", 90, -0.06856279268761237], ["game", 63, -0.0359933203635014], ["Giants", 56, -0.03287297944857961], ["is", 4, 0.032790879202472895], ["like", 83, 0.027349835864082853]], 1, "WTF is this chick singing the 7th inning stretch at the Giants game wearing? She's like a redneck Carmen Miranda. #nlds", raw_div, true);
+            exp.show_raw_text([["all", 7, 0.33085808428215335], ["lines", 35, -0.31629604203031453], ["power", 29, -0.25492402625582694], ["You", 0, 0.2185317299184202], ["the", 25, -0.14316165994539787]], 1, "You're all just crows on the power lines.", raw_div, true);
             
         </script>
         </body></html>

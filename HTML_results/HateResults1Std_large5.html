@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divVY7PE73UMZGB431"></div>
+        <div class="lime top_div" id="top_divPGFMMHQ1MKDC0F2"></div>
         
         <script>
-        var top_div = d3.select('#top_divVY7PE73UMZGB431').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPGFMMHQ1MKDC0F2').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.687667734859288e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["birds", -0.17317863667728697], ["Singing", -0.09951797574592004], ["he", -0.09331948412783024], ["songs", -0.07336353304350046], ["melodies", -0.06965803357917852]], 1, exp_div);
+                exp.show([["messin", 0.08570718529234977], ["you", 0.06934109927686283], ["You", 0.06016793311026588], ["niggahs", -0.04146495454841142], ["broke", 0.025505653701406998]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["birds", 24, -0.17317863667728697], ["Singing", 53, -0.09951797574592004], ["he", 0, -0.09331948412783024], ["songs", 67, -0.07336353304350046], ["melodies", 76, -0.06965803357917852]], 1, "he was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...", raw_div, true);
+            exp.show_raw_text([["messin", 6, 0.08570718529234977], ["you", 32, 0.06934109927686283], ["You", 2, 0.06016793311026588], ["niggahs", 24, -0.04146495454841142], ["broke", 18, 0.025505653701406998], ["broke", 43, 0.025505653701406998]], 1, "' You messin with broke niggahs you gon be broke niggah", raw_div, true);
             
         </script>
         </body></html>
