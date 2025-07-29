@@ -1,6 +1,7 @@
 #%%
 from __future__ import print_function
 
+import shap.maskers
 import stanza
 import random as rand
 import numpy as np
@@ -76,7 +77,7 @@ def clear_lines(n):
 
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
-                       skip_existing=False, just_desc=False, shap_train=None):
+                       skip_existing=False, just_desc=False, shap_too=None):
 
     def save_name(j, m, i, p, desc):
         name = desc["disting"] + "_" + desc["parses"][j] + "_" + desc["models"][m] + "_" + str(p) + "_" + str(i)
@@ -102,6 +103,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
     clear_lines(28)
     explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
+    tokenizer = AutoTokenizer()
     explanations = []
     
     tot_insts = len(instances)
@@ -152,21 +154,18 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     explanations.append(explainerStd.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
+                    
+                if shap_too:
+                    name = save_desc(4,m,p,i,num_feats,num_samples,descriptions)[0]
+                    if not (skip_existing and os.path.exists(path+name+".pkl")):
+                        print("\n" + name)
+                        teacher_forcing_model = shap.models.TeacherForcing(
+                            model, similarity_model=model, similarity_tokenizer=tokenizer, device=model.device)
+                        mask = shap.maskers.Text(tokenizer)
+                        sh = shap.Explainer(teacher_forcing_model, mask)
+                    elif just_desc:
+                        explanations.append(SavedExplanation(name, path).get_exp())
 
-                # name = save_desc(4,m,p,i,desc=descriptions)[0]
-                # if not (skip_existing and os.path.exists(path+name+".pkl")):
-                #     print("\n" + name)
-                #     shap_inputs = [x.decode("utf-8") if isinstance(x, bytes) else x for x in shap_train[:num_feats]]
-                #     background_data = model.named_steps['tfidfvectorizer'].transform(shap_inputs).toarray()
-                #     #background_data = model.named_steps['tfidfvectorizer'].transform(shap_train[:num_feats]).toarray()
-                #     #sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
-                #     #sh = shap.KernelExplainer(model.predict_proba, background_data)
-                #     sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
-                #     # sh = shap.KernelExplainer(model.predict_proba, background_data)
-                #     #sh = shap.KernelExplainer(model, shap_train[:num_feats])
-                #     explanations.append(sh(inst))
-                # elif just_desc:
-                #     explanations.append(SavedExplanation(name, path).get_exp())
                 
 
                 if just_desc:
