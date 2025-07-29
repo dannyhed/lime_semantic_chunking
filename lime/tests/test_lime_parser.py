@@ -663,22 +663,22 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
 
 
 INSTANCE_IDXS = list(range(25))
+params = [6]
 models_1 = [-1]
 dists_1 = ["SpamResults1", "SemResults1", "IMDBResults1",
             "HateResults1"]
-# run_all_datasets(dists_1, models_1, params)
+run_all_datasets(dists_1, models_1, params)
 
 
 INSTANCE_IDXS = list(range(25, 50))
 models_2 = [0]
-params = [6]
 # "spam", "sem", "imdb", "hate"
 dists_2 = ["SpamResults2", "SemResults2", 
             "IMDBResults2", "HateResults2"]
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
-# run_all_datasets(dists_2, models_2, params)
+run_all_datasets(dists_2, models_2, params)
 
 
 all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
