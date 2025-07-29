@@ -78,7 +78,7 @@ def clear_lines(n):
 
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
-                       skip_existing=False, just_desc=False, shap_too=None):
+                       skip_existing=False, just_desc=False, shap_train=None):
 
     def save_name(j, m, i, p, desc):
         name = desc["disting"] + "_" + desc["parses"][j] + "_" + desc["models"][m] + "_" + str(p) + "_" + str(i)
@@ -112,7 +112,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     total = tot_insts*tot_params*tot_models
     progress = 0
 
-    tokenizer = None
+    vectorizer = None
 
     for m, model in enumerate(models):
         for i, inst in enumerate(instances):
@@ -175,22 +175,24 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     explanations.append(SavedExplanation(name, path).get_exp())
                     new_expls += 1
                     
-                if shap_too:
+                if shap_train != None:
                     name = save_desc(4,m,p,i,num_feats,num_samples,descriptions)[0]
                     if not (skip_existing and os.path.exists(path+name+".pkl")):
                         print("\n" + name)
                         try:
-                            tokenizer = model.named_steps["tfidfvectorizer"]
+                            vectorizer = model.named_steps["tfidfvectorizer"]
                         except:
                             print(model.named_steps)
-                            tokenizer = model.named_steps["bertvectorizer"].tokenizer
+                            vectorizer = model.named_steps["bertvectorizer"].tokenizer
                         # teacher_forcing_model = shap.models.TeacherForcing(
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
                         # mask = shap.maskers.Text(tokenizer)
-                        print(f"Instance: {inst}")
+                        #background = vectorizer(shap_train[:100]).toarray()
+                        #print(f"Instance: {inst}")
+                        background = shap_train[:100]
                         mask = shap.maskers.Text(r"\W+")
-                        sh = shap.Explainer(model.predict_proba, mask)
+                        sh = shap.KernelExplainer(model.predict_proba, background)
                         explanations.append(sh(inst))
                         new_expls += 1
                     elif just_desc:
