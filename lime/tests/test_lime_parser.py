@@ -171,7 +171,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         try:
                             tokenizer = model.named_steps["TfidfVectorizer"]
                         except:
-                            tokenizer = model.named_steps["bertvectorizer"]
+                            tokenizer = model.named_steps["bertvectorizer"].tokenizer
                         teacher_forcing_model = shap.models.TeacherForcing(
                             model, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
