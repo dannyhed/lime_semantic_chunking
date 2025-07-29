@@ -450,7 +450,7 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
             pathname = HTML_PATH + disting + more_name + str(f)
             exp = SavedExplanation(file, EXPL_PATH).get_exp()
             exp.save_to_file(pathname + ".html")
-            #print(pathname)
+            print(pathname)
             with open(pathname + ".txt", "w+") as file:
                 file.write(str(exp.predict_proba[0]))
 
@@ -459,7 +459,7 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
             pathname = HTML_PATH + disting + more_name + name
             exp = SavedExplanation(file, EXPL_PATH).get_exp()
             exp.save_to_file(pathname + ".html")
-            #print(HTML_PATH + disting + more_name + name)
+            print(pathname)
             with open(pathname + ".txt", "w+") as file:
                 file.write(str(exp.predict_proba[0]))
 
@@ -662,24 +662,29 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
                         instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
+INSTANCE_IDXS = list(range(25))
+models_1 = [-1]
+dists_1 = ["SpamResults1", "SemResults1", "IMDBResults1",
+            "HateResults1"]
+# run_all_datasets(dists_1, models_1, params)
+
 
 INSTANCE_IDXS = list(range(25, 50))
-models = [0]
+models_2 = [0]
 params = [6]
 # "spam", "sem", "imdb", "hate"
-all_dists = ["SpamResults2", "SemResults2", 
+dists_2 = ["SpamResults2", "SemResults2", 
             "IMDBResults2", "HateResults2"]
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
-# run_all_datasets(all_dists, models, params)
+# run_all_datasets(dists_2, models_2, params)
 
-INSTANCE_IDXS = list(range(25))
-models = [-1]
+
 all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
-            "HateResults1"]
-# run_all_datasets(all_dists, models, params)
-
+            "HateResults1", "SpamResults2", "SemResults2", 
+            "IMDBResults2", "HateResults2"]
+models = [0, -1]
 
 comp_descs = {
     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
@@ -770,17 +775,30 @@ ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"]
 #             "HateResults1", "SpamResults2", "SemResults2", 
 #             "IMDBResults2", "HateResults2"]
 
-more_name = ''
-models = comp_descs["models"]
-for dist, ds in zip(all_dists, ALL_DATASETS):
+# more_name = ''
+# models = comp_descs["models"]
+# for dist, ds in zip(all_dists, ALL_DATASETS):
+#     for parse in comp_descs["parses"]:
+#         for m in models:
+#             if m == models[0]:
+#                 more_name = "small"
+#             else:
+#                 more_name = "large"
+#             print(more_name)
+#             print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
+
+
+more_name = "large"
+m = model_save_name(MODEL_PARAMS[models_1[0]], ext=False)
+for dist, ds in zip(dists_1, ALL_DATASETS):
     for parse in comp_descs["parses"]:
-        for m in models:
-            if m == models[0]:
-                more_name = "small"
-            else:
-                more_name = "large"
-            print(more_name)
-            print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
+        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
+
+more_name = "small"
+m = model_save_name(MODEL_PARAMS[models_2[0]], ext=False)
+for dist, ds in zip(dists_2, ALL_DATASETS):
+    for parse in comp_descs["parses"]:
+        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
