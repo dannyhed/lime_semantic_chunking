@@ -670,13 +670,14 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         instances = [t_test[i] for i in instance_idxs]
         # for i in instances:
         #     print(i)
-
+        t_train = list(t_train)
+        t_test = list(t_test)
         #all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS)
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
                         instances, save=True, descriptions=descs, path=EXPL_PATH, 
-                        skip_existing=True, just_desc=False, shap_train=list(t_train))
+                        skip_existing=True, just_desc=False, shap_train=t_train)
 
 
 # instance_idxs = list(range(25))
