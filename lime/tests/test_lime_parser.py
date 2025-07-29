@@ -159,7 +159,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     shap_inputs = [x.decode("utf-8") if isinstance(x, bytes) else x for x in shap_train[:num_feats]]
                     background_data = model.named_steps['tfidfvectorizer'].transform(shap_inputs).toarray()
                     #background_data = model.named_steps['tfidfvectorizer'].transform(shap_train[:num_feats]).toarray()
-                    sh = shap.KernelExplainer(model.predict_proba, background_data)
+                    sh = shap.KernelExplainer(model.predict_proba, shap_train[:num_feats])
+                    # sh = shap.KernelExplainer(model.predict_proba, background_data)
                     #sh = shap.KernelExplainer(model, shap_train[:num_feats])
                     explanations.append(sh(inst))
                 elif just_desc:
