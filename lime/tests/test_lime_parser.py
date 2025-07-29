@@ -667,7 +667,7 @@ params = [6]
 models_1 = [-1]
 dists_1 = ["SpamResults1", "SemResults1", "IMDBResults1",
             "HateResults1"]
-run_all_datasets(dists_1, models_1, params)
+# run_all_datasets(dists_1, models_1, params)
 
 
 INSTANCE_IDXS = list(range(25, 50))
@@ -678,7 +678,7 @@ dists_2 = ["SpamResults2", "SemResults2",
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
-run_all_datasets(dists_2, models_2, params)
+# run_all_datasets(dists_2, models_2, params)
 
 
 all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
@@ -828,7 +828,38 @@ for dist, ds in zip(dists_2, ALL_DATASETS):
 
 
 
-
+# SemResults2_Dep_sem-rf-i-100_0_9.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_8.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_1.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_15.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_12.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_6.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_23.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_24.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_15.pkl
+# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_15.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_12.pkl
+# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_12.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_18.pkl
+# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_7.pkl
+# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_0.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_20.pkl
+# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_20.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_11.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_16.pkl
+# ./saved_explanations/SemResults2_Con_sem-rf-i-100_0_9.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_13.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_7.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_0.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_14.pkl
+# ./saved_explanations/SemResults2_Ran_sem-rf-i-100_0_9.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_7.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_8.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_0.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_1.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_21.pkl
+# ./saved_explanations/SemResults2_Std_sem-rf-i-100_0_9.pkl
+# ./saved_explanations/SemResults2_Dep_sem-rf-i-100_0_6.pkl
 
 
 
