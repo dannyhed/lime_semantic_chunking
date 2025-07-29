@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divC76GCNOAE68V5G7"></div>
+        <div class="lime top_div" id="top_divTR0PA6SDFPBJ8UY"></div>
         
         <script>
-        var top_div = d3.select('#top_divC76GCNOAE68V5G7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTR0PA6SDFPBJ8UY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999281, 7.198497775893798e-14]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["just", -0.5119118343398132], ["Austen", 0.5096752017984867], ["'s", 0.38619308871321445], ["of", -0.3419787125762687], [".", 0.3042279775174839]], 1, exp_div);
+                exp.show([["considered", 0.530485621798337], ["done", 0.3622272466103406], ["job", 0.35435910346222477], ["a", -0.08313304564297594], [",", -0.06213987958625199]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["just", 14, -0.5119118343398132], ["Austen", 65, 0.5096752017984867], ["'s", 71, 0.38619308871321445], ["of", 62, -0.3419787125762687], [".", 101, 0.3042279775174839], ["just", 121, -0.5119118343398132], ["Austen", 279, 0.5096752017984867], ["'s", 392, 0.38619308871321445], ["of", 490, -0.3419787125762687], [".", 636, 0.3042279775174839]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\n", raw_div, true);
+            exp.show_raw_text([["considered", 11, 0.530485621798337], ["done", 39, 0.3622272466103406], ["job", 25, 0.35435910346222477], ["a", 23, -0.08313304564297594], [",", 21, -0.06213987958625199], ["considered", 60, 0.530485621798337], ["done", 137, 0.3622272466103406], ["job", 172, 0.35435910346222477], ["a", 219, -0.08313304564297594], [",", 266, -0.06213987958625199]], 1, "All things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZCNNE6I4KQH99IH"></div>
+        <div class="lime top_div" id="top_div8L27A58UXWIMMRX"></div>
         
         <script>
-        var top_div = d3.select('#top_divZCNNE6I4KQH99IH').classed('lime top_div', true);
+        var top_div = d3.select('#top_div8L27A58UXWIMMRX').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.8783766089043049, 0.12162339109569505]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.021485464266026155, 0.9785145357339738]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["power", 0.07978965215135592], ["awful", -0.07783210329748645], ["Awful", -0.057444256401031714], ["Zaphoid", -0.05594950863489402], ["directed", -0.03902427982940921]], 1, exp_div);
+                exp.show([["day", 0.09206889298168511], ["i", 0.08801174551278762], ["love", 0.07491647631363224], ["dont", -0.07283315667220434], ["great", 0.07281290441797802]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["power", 53, 0.07978965215135592], ["power", 466, 0.07978965215135592], ["power", 492, 0.07978965215135592], ["power", 597, 0.07978965215135592], ["awful", 14, -0.07783210329748645], ["Awful", 0, -0.057444256401031714], ["Zaphoid", 431, -0.05594950863489402], ["directed", 113, -0.03902427982940921], ["directed", 164, -0.03902427982940921]], 1, "Awful, simply awful. It proves my theory about \"star power.\" This is supposed to be great TV because the guy who directed (battlestar) Titanica is the same guy who directed this shlop schtock schtick about a chick. B O R I N G.  Find something a thousand times more interesting to do - like watch your TV with no picture and no sound. 1/10 (I rated it so high b/c there aren't any negative scores in the IMDb.com rating system.)  -Zaphoid  PS: My theory about \"star power\" is: the more \"star power\" used in a show, the weaker the show is. (It's called an indirect proportionality: quality 1/\"star power\", less \"sp\" makes for better quality, etc. Another way to look at it is: \"more is less.\")  -Z", raw_div, true);
+            exp.show_raw_text([["day", 246, 0.09206889298168511], ["i", 44, 0.08801174551278762], ["i", 60, 0.08801174551278762], ["i", 85, 0.08801174551278762], ["i", 230, 0.08801174551278762], ["love", 93, 0.07491647631363224], ["dont", 250, -0.07283315667220434], ["great", 134, 0.07281290441797802]], 1, "This movie is so good! I first seen it when i was six, then i bought it recently and i still love it, im 15 now. Plus, the acting was great, and Madonna is my idol and she did a phat job! Alot of people didnt like this movie, and i still to this day dont understand why.", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
+        <div class="lime top_div" id="top_divVKGU2B46JKA6RWN"></div>
         
         <script>
-        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
+        var top_div = d3.select('#top_divVKGU2B46JKA6RWN').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999996, 4.2349350549464464e-16]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["this", 0.37079651099310884], ["happier", 0.3367821364877772], ["n't", -0.3122607073628458], [".", 0.25326783746818954], ["could", 0.23237329464626943]], 1, exp_div);
+                exp.show([["unusable", -0.10491039410018829], ["freeway", 0.013428688072135403], ["is", 0.3241083156168534], ["moving", 0.30262199954882635], ["It", 0.20899632952847133], ["in", 0.20899632952847133], ["a", 0.20899632952847133], ["car", 0.20899632952847133], ["at", 0.20899632952847133], ["speed", 0.20899632952847133], [".", 0.20899632952847133]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["this", 18, 0.37079651099310884], ["happier", 86, 0.3367821364877772], ["n't", 79, -0.3122607073628458], [".", 93, 0.25326783746818954], ["could", 74, 0.23237329464626943], ["this", 115, 0.37079651099310884], ["happier", 280, 0.3367821364877772], ["n't", 370, -0.3122607073628458], [".", 481, 0.25326783746818954], ["could", 559, 0.23237329464626943]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
+            exp.show_raw_text([["unusable", 6, -0.10491039410018829], ["freeway", 34, 0.013428688072135403], ["is", 3, 0.3241083156168534], ["moving", 20, 0.30262199954882635], ["It", 0, 0.20899632952847133], ["in", 15, 0.20899632952847133], ["a", 18, 0.20899632952847133], ["car", 27, 0.20899632952847133], ["at", 31, 0.20899632952847133], ["speed", 42, 0.20899632952847133], [".", 47, 0.20899632952847133], ["unusable", 57, -0.3139067236286596], ["It", 102, 0.20899632952847133], ["is", 105, 0.20899632952847133], ["unusable", 108, 0.20899632952847133], ["in", 117, 0.20899632952847133], ["a", 120, 0.20899632952847133], ["moving", 122, 0.20899632952847133], ["car", 129, 0.20899632952847133], ["at", 133, 0.20899632952847133], ["freeway", 136, 0.20899632952847133], ["speed", 144, 0.20899632952847133], [".", 149, 0.20899632952847133], ["freeway", 187, -0.19556764145633593], ["is", 207, 0.11511198608838205], ["moving", 275, 0.09362567002035503]], 1, "It is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\nIt is unusable in a moving car at freeway speed.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

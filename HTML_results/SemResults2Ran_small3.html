@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divVPNB1AY2QH9SZYX"></div>
+        <div class="lime top_div" id="top_div3H9WGL3SEFJP66C"></div>
         
         <script>
-        var top_div = d3.select('#top_divVPNB1AY2QH9SZYX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3H9WGL3SEFJP66C').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.65, 0.35]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.2, 0.8]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.14782918789778177], ["n't", -0.09374538454974328], ["trust", 0.07755919244213567], ["their", 0.04634188517254168], ["helpful", -0.020274693954590486]], 1, exp_div);
+                exp.show([["good", 0.3336163492230674], ["and", 0.14559972936807186], ["directing", 0.08316710749886864], ["cinematography", -0.0627319001923633], ["as", -0.004479120390040182]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 26, 0.14782918789778177], ["n't", 2, -0.09374538454974328], ["trust", 6, 0.07755919244213567], ["their", 12, 0.04634188517254168], ["helpful", 47, -0.020274693954590486], ["and", 92, 0.14782918789778177], ["n't", 134, -0.09374538454974328], ["trust", 204, 0.07755919244213567], ["their", 276, 0.04634188517254168], ["helpful", 377, -0.020274693954590486]], 1, "Don't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\n", raw_div, true);
+            exp.show_raw_text([["good", 53, 0.3336163492230674], ["and", 14, 0.14559972936807186], ["directing", 4, 0.08316710749886864], ["cinematography", 22, -0.0627319001923633], ["as", 50, -0.004479120390040182], ["good", 116, 0.3336163492230674], ["and", 140, 0.14559972936807186], ["directing", 193, 0.08316710749886864], ["cinematography", 274, -0.0627319001923633], ["as", 365, -0.004479120390040182]], 1, "The directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

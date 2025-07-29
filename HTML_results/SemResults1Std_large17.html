@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZ6EGWC38NB5FVX6"></div>
+        <div class="lime top_div" id="top_div3FEE581E66FNONI"></div>
         
         <script>
-        var top_div = d3.select('#top_divZ6EGWC38NB5FVX6').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3FEE581E66FNONI').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999905, 9.570029900776995e-15]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["me", -0.3164802575251238], ["talking", -0.24514338090408075], ["spends", -0.24338016759168396], ["Your", 0.13602585643709328], ["more", -0.1112582549373762]], 1, exp_div);
+                exp.show([["not", -0.31565315951528106], ["Terrible", -0.25487768303857167], ["car", -0.14710691345054616], ["accept", -0.11314564853909449], ["will", 0.10463137800065725]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["me", 55, -0.3164802575251238], ["talking", 28, -0.24514338090408075], ["spends", 11, -0.24338016759168396], ["Your", 0, 0.13602585643709328], ["more", 18, -0.1112582549373762]], 1, "Your staff spends more time talking to themselves than me.", raw_div, true);
+            exp.show_raw_text([["not", 23, -0.31565315951528106], ["Terrible", 0, -0.25487768303857167], ["car", 14, -0.14710691345054616], ["accept", 27, -0.11314564853909449], ["will", 18, 0.10463137800065725]], 1, "Terrible.. My car will not accept this cassette.", raw_div, true);
             
         </script>
         </body></html>

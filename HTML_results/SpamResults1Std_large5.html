@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divC75S0WVVQJXMIQY"></div>
+        <div class="lime top_div" id="top_divYTBWFQGU7W2EVMF"></div>
         
         <script>
-        var top_div = d3.select('#top_divC75S0WVVQJXMIQY').classed('lime top_div', true);
+        var top_div = d3.select('#top_divYTBWFQGU7W2EVMF').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.532107773982716e-14, 0.9999999999999847]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 9.728936215778085e-34]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["83222", 0.2183452713521053], ["Euro2004", 0.15957704514319693], ["EURO", 0.12526571505337325], ["daily", 0.0984257559051974], ["latest", 0.09610186321314072]], 1, exp_div);
+                exp.show([["Okay", -3.164810920264752e-28], ["right", -2.813691884659195e-28], ["thanks", 8.752231985908376e-29], ["Sat", 8.707191810929727e-29]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["83222", 129, 0.2183452713521053], ["Euro2004", 11, 0.15957704514319693], ["EURO", 116, 0.12526571505337325], ["daily", 88, 0.0984257559051974], ["latest", 64, 0.09610186321314072]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.", raw_div, true);
+            exp.show_raw_text([["Okay", 11, -3.164810920264752e-28], ["right", 4, -2.813691884659195e-28], ["thanks", 16, 8.752231985908376e-29], ["Sat", 0, 8.707191810929727e-29]], 1, "Sat right? Okay thanks...", raw_div, true);
             
         </script>
         </body></html>

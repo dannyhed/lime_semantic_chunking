@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divD1ZC834CFI18U5F"></div>
+        <div class="lime top_div" id="top_divRDYPENGX8QI9JIT"></div>
         
         <script>
-        var top_div = d3.select('#top_divD1ZC834CFI18U5F').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRDYPENGX8QI9JIT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.99, 0.01]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["I", 0.0], ["have", 0.0], ["to", 0.0], ["take", 0.0], ["exam", 0.0]], 1, exp_div);
+                exp.show([["chat", 0.009799466814218824], ["was", -0.007049017327010881], ["regular", 0.002686958375912296], ["see", 0.00048089573324243846], ["her", 0.00039458195955876976]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["I", 0, 0.0], ["have", 2, 0.0], ["to", 7, 0.0], ["take", 10, 0.0], ["exam", 15, 0.0]], 1, "I have to take exam with in march 3", raw_div, true);
+            exp.show_raw_text([["chat", 10, 0.009799466814218824], ["was", 15, -0.007049017327010881], ["regular", 45, 0.002686958375912296], ["see", 68, 0.00048089573324243846], ["her", 72, 0.00039458195955876976]], 1, "Also that chat was awesome but don't make it regular unless you can see her in person", raw_div, true);
             
         </script>
         </body></html>

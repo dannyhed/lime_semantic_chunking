@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBDI1VA5XHRFDXKL"></div>
+        <div class="lime top_div" id="top_divHUV75CUKL7NBTCZ"></div>
         
         <script>
-        var top_div = d3.select('#top_divBDI1VA5XHRFDXKL').classed('lime top_div', true);
+        var top_div = d3.select('#top_divHUV75CUKL7NBTCZ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.98, 0.02]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["No", 0.0], ["he", 0.0], ["joined", 0.0], ["today", 0.0], ["itself", 0.0]], 1, exp_div);
+                exp.show([["Make", 0.01799232410112726], ["law", -0.0027646416366509437], ["are", 0.0024254277670961466], ["love", 0.002183842924427973], ["Gud", -0.0013782534485684715]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["No", 0, 0.0], ["he", 4, 0.0], ["joined", 7, 0.0], ["today", 14, 0.0], ["itself", 20, 0.0]], 1, "No..he joined today itself.", raw_div, true);
+            exp.show_raw_text([["Make", 18, 0.01799232410112726], ["law", 13, -0.0027646416366509437], ["law", 85, -0.0027646416366509437], ["are", 132, 0.0024254277670961466], ["love", 44, 0.002183842924427973], ["Gud", 146, -0.0013782534485684715]], 1, "Love has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night", raw_div, true);
             
         </script>
         </body></html>

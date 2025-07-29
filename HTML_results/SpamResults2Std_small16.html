@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divSURW6YJO02UGQSX"></div>
+        <div class="lime top_div" id="top_div0RG7PZ2EI53MPWD"></div>
         
         <script>
-        var top_div = d3.select('#top_divSURW6YJO02UGQSX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0RG7PZ2EI53MPWD').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.07, 0.93]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["on", -0.006731359847333117], ["see", 0.003254489153632426], ["ya", 0.00027787296828471025], ["not", 0.00026831784008275354], ["the", 0.00025596844106495244]], 1, exp_div);
+                exp.show([["STOP", 0.14540019170031002], ["18", 0.11119900172016972], ["To", 0.10315597949271237], ["150p", 0.09698576434740638], ["unsubscribe", 0.07399418678537932]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["on", 15, -0.006731359847333117], ["see", 4, 0.003254489153632426], ["ya", 8, 0.00027787296828471025], ["not", 11, 0.00026831784008275354], ["the", 18, 0.00025596844106495244]], 1, "Yes see ya not on the dot", raw_div, true);
+            exp.show_raw_text([["STOP", 111, 0.14540019170031002], ["18", 127, 0.11119900172016972], ["To", 72, 0.10315597949271237], ["150p", 122, 0.09698576434740638], ["unsubscribe", 75, 0.07399418678537932]], 1, "This message is free. Welcome to the new | improved Sex | Dogging club! To unsubscribe from this service reply STOP. msgs@150p 18+only", raw_div, true);
             
         </script>
         </body></html>

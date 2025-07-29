@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divSURW6YJO02UGQSX"></div>
+        <div class="lime top_div" id="top_divNMGUBTQQPC3PQ5K"></div>
         
         <script>
-        var top_div = d3.select('#top_divSURW6YJO02UGQSX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNMGUBTQQPC3PQ5K').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["on", -0.002782087485252045], ["see", 0.008020960547434414], ["not", 0.004457716807489455], ["the", 0.004757595312672481], ["ya", 0.0048985297644096], ["dot", 0.0048985297644096]], 1, exp_div);
+                exp.show([["Msg", 0.019932589479627984], ["comes", 0.010155930294628187], ["me", 0.000286101324707619], ["when", 0.0002326076113141095], ["rajini", 0.0002326076113141095], [".", 1.5810976382020187e-06]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["on", 15, -0.002782087485252045], ["see", 4, 0.008020960547434414], ["not", 11, 0.004457716807489455], ["the", 18, 0.004757595312672481], ["ya", 8, 0.0048985297644096], ["dot", 22, 0.0048985297644096], ["on", 43, -0.007680617249661645], ["see", 60, 0.0048985297644096], ["ya", 64, 0.0048985297644096], ["not", 67, 0.0048985297644096], ["on", 71, 0.0048985297644096], ["the", 74, 0.0048985297644096], ["dot", 78, 0.0048985297644096], ["see", 88, 0.0031224307830248136], ["not", 123, -0.00044081295692014524], ["the", 158, -0.00014093445173711983]], 1, "Yes see ya not on the dot\n\n\nYes see ya not on the dot\n\n\nYes see ya not on the dot\n\n\nYes see ya not on the dot\n\n\nYes see ya not on the dot\n\n\nYes see ya not on the dot\n\n\nYes see ya not on the dot\n\n\n", raw_div, true);
+            exp.show_raw_text([["Msg", 0, 0.019932589479627984], ["comes", 19, 0.010155930294628187], ["me", 4, 0.000286101324707619], ["when", 7, 0.0002326076113141095], ["rajini", 12, 0.0002326076113141095], [".", 24, 1.5810976382020187e-06], ["Msg", 28, 0.019699981868313874], ["comes", 75, 0.009923322683314077], ["Msg", 84, 0.00023102651367590748], ["me", 88, 0.00023102651367590748], ["when", 91, 0.00023102651367590748], ["rajini", 96, 0.00023102651367590748], ["comes", 103, 0.00023102651367590748], ["me", 116, 5.349371339350953e-05], ["Msg", 140, 1.5810976382020187e-06], ["me", 144, 1.5810976382020187e-06], ["when", 147, 1.5810976382020187e-06], ["rajini", 152, 1.5810976382020187e-06], ["comes", 159, 1.5810976382020187e-06], [".", 164, 1.5810976382020187e-06]], 1, "Msg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

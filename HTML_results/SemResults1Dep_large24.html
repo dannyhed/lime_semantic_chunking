@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divNOILBV8FCEDA4QE"></div>
+        <div class="lime top_div" id="top_div76NPOP3WS7B42JQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divNOILBV8FCEDA4QE').classed('lime top_div', true);
+        var top_div = d3.select('#top_div76NPOP3WS7B42JQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.706796169615226e-28]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bad", -0.16654135668381734], ["n't", -0.13736895859168302], [".", 0.08640458061349039], ["than", -0.07973457047837566], ["'d", -0.061503040020558494]], 1, exp_div);
+                exp.show([["awesome", 0.744921619457834], [".", 0.6995019081085101], ["How", 0.6910417865525593], ["that", 0.6176515322845294], ["is", 0.643039588462789]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bad", 9, -0.16654135668381734], ["n't", 44, -0.13736895859168302], [".", 174, 0.08640458061349039], ["than", 152, -0.07973457047837566], ["'d", 113, -0.061503040020558494], ["bad", 189, -0.16654135668381734], ["n't", 404, -0.13736895859168302], [".", 714, 0.08640458061349039], ["than", 872, -0.07973457047837566], ["'d", 1013, -0.061503040020558494]], 1, "It's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\n", raw_div, true);
+            exp.show_raw_text([["awesome", 4, 0.744921619457834], [".", 19, 0.6995019081085101], ["How", 0, 0.6910417865525593], ["that", 15, 0.6176515322845294], ["is", 12, 0.643039588462789], ["How", 23, 0.643039588462789], ["awesome", 27, 0.643039588462789], ["is", 35, 0.643039588462789], ["that", 38, 0.643039588462789], [".", 42, 0.643039588462789], ["awesome", 50, 0.10188203099504502], [".", 88, 0.05646231964572116], ["How", 92, 0.048002198089770326], ["that", 130, -0.025388056178259528]], 1, "How awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

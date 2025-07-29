@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div921ZV7NNVWQ3DBA"></div>
+        <div class="lime top_div" id="top_divGKZQ43Q2PDTEVQ1"></div>
         
         <script>
-        var top_div = d3.select('#top_div921ZV7NNVWQ3DBA').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGKZQ43Q2PDTEVQ1').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.6224664218731528e-22]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.532107773982716e-14, 0.9999999999999847]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([[":", -1.5578566296560919e-12], ["you", -1.1136816319626665e-12], ["going", -9.824037040727066e-13], [")", -7.650484300450384e-13], ["K.k", -7.521087355984724e-13]], 1, exp_div);
+                exp.show([[".", 0.5436756868001861], ["STOP", 0.4331250448180867], ["kept", -0.2965275070220037], ["daily", 0.2329153008136449], ["will", 0.1329157219873243]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([[":", 3, -1.5578566296560919e-12], ["you", 14, -1.1136816319626665e-12], ["going", 18, -9.824037040727066e-13], [")", 4, -7.650484300450384e-13], ["K.k", 0, -7.521087355984724e-13], [":", 30, -1.5578566296560919e-12], ["you", 68, -1.1136816319626665e-12], ["going", 99, -9.824037040727066e-13], [")", 112, -7.650484300450384e-13], ["K.k", 135, -7.521087355984724e-13]], 1, "K.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\nK.k:)when are you going?\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 134, 0.5436756868001861], ["STOP", 121, 0.4331250448180867], ["kept", 39, -0.2965275070220037], ["daily", 88, 0.2329153008136449], ["will", 31, 0.1329157219873243], [".", 272, 0.5436756868001861], ["STOP", 397, 0.4331250448180867], ["kept", 453, -0.2965275070220037], ["daily", 640, 0.2329153008136449], ["will", 721, 0.1329157219873243]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

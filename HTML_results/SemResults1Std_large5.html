@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEIT6FFY4AMQ546U"></div>
+        <div class="lime top_div" id="top_divOQDP22VV4UQWZBK"></div>
         
         <script>
-        var top_div = d3.select('#top_divEIT6FFY4AMQ546U').classed('lime top_div', true);
+        var top_div = d3.select('#top_divOQDP22VV4UQWZBK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["wanna", -0.025430372552778625], ["Smith", -0.02518738068171953], ["da", -0.025016854340366712], ["i", -0.02107002493437642], ["waste", 0.012001047433121253]], 1, exp_div);
+                exp.show([["The", 0.24094449258807832], ["powerful", 0.15596698788905838], ["and", 0.1547290144529851], ["stories", -0.12322230852395988], ["of", 0.1109336060115602]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["wanna", 17, -0.025430372552778625], ["Smith", 0, -0.02518738068171953], ["da", 12, -0.025016854340366712], ["i", 15, -0.02107002493437642], ["waste", 6, 0.012001047433121253]], 1, "Smith waste da.i wanna gayle.", raw_div, true);
+            exp.show_raw_text([["The", 0, 0.24094449258807832], ["powerful", 17, 0.15596698788905838], ["and", 60, 0.1547290144529851], ["stories", 4, -0.12322230852395988], ["of", 39, 0.1109336060115602], ["of", 53, 0.1109336060115602], ["of", 64, 0.1109336060115602]], 1, "The stories were powerful explorations of the nature of man and of art.  ", raw_div, true);
             
         </script>
         </body></html>

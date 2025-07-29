@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divA43C1OFZHWZRKV7"></div>
+        <div class="lime top_div" id="top_divJ7M8ZEKGPL36EUN"></div>
         
         <script>
-        var top_div = d3.select('#top_divA43C1OFZHWZRKV7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divJ7M8ZEKGPL36EUN').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 5.416836355311834e-29]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["10p", 0.018941877591499495], ["08718726971", 0.017860973367401556], ["WON", 0.015861651076615007], ["2", 0.015017881144912136], ["BT", 0.013673245972652362]], 1, exp_div);
+                exp.show([["thank", -7.356469663776448e-11], ["love", -6.971331687821013e-11], ["plenty", -6.72062884791935e-11], ["do", 6.633832718424013e-11], ["I", -6.063531483177456e-11]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["10p", 124, 0.018941877591499495], ["08718726971", 102, 0.017860973367401556], ["WON", 48, 0.015861651076615007], ["2", 57, 0.015017881144912136], ["2", 75, 0.015017881144912136], ["BT", 140, 0.013673245972652362]], 1, "Congratulations! Thanks to a good friend U have WON the \u00a32,000 Xmas prize. 2 claim is easy, just call 08718726971 NOW! Only 10p per minute. BT-national-rate.", raw_div, true);
+            exp.show_raw_text([["thank", 2, -7.356469663776448e-11], ["love", 56, -6.971331687821013e-11], ["plenty", 65, -6.72062884791935e-11], ["do", 32, 6.633832718424013e-11], ["I", 0, -6.063531483177456e-11], ["I", 54, -6.063531483177456e-11]], 1, "I thank you so much for all you do with selflessness. I love you plenty.", raw_div, true);
             
         </script>
         </body></html>

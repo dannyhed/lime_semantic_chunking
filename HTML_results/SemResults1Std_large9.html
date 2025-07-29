@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJVRDK26B1EUZ8YM"></div>
+        <div class="lime top_div" id="top_divYJ3TG8X31DQNU93"></div>
         
         <script>
-        var top_div = d3.select('#top_divJVRDK26B1EUZ8YM').classed('lime top_div', true);
+        var top_div = d3.select('#top_divYJ3TG8X31DQNU93').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 6.915065525061897e-39]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["have", -3.5341639017088973e-20], ["love", -3.2648121840400223e-20], ["arrange", -3.248873788225009e-20], ["But", -3.1316213596592376e-20], ["I", 2.4902923954712067e-20]], 1, exp_div);
+                exp.show([["Service", 0.337352573713134], ["and", 0.31046359399206785], ["fine", 0.21701771124089467], ["friendly", 0.17864505603934408], ["waitress", 0.13830418869675437]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["have", 6, -3.5341639017088973e-20], ["have", 25, -3.5341639017088973e-20], ["love", 30, -3.2648121840400223e-20], ["arrange", 39, -3.248873788225009e-20], ["But", 0, -3.1316213596592376e-20], ["I", 15, 2.4902923954712067e-20]], 1, "But i have to. I like to have love and arrange.", raw_div, true);
+            exp.show_raw_text([["Service", 0, 0.337352573713134], ["and", 17, 0.31046359399206785], ["fine", 12, 0.21701771124089467], ["friendly", 38, 0.17864505603934408], ["waitress", 25, 0.13830418869675437]], 1, "Service was fine and the waitress was friendly.", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div286QQHL8UFM9BG7"></div>
+        <div class="lime top_div" id="top_div44GAN4G2IL3M5IJ"></div>
         
         <script>
-        var top_div = d3.select('#top_div286QQHL8UFM9BG7').classed('lime top_div', true);
+        var top_div = d3.select('#top_div44GAN4G2IL3M5IJ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.0804003761360723e-29]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["that", -1.853990142794246e-11], ["persons", 6.708197270114955e-12], ["Howz", 6.642054460947618e-12], ["story", 4.038634604252203e-12]], 1, exp_div);
+                exp.show([["function", -2.383601433825753e-12], ["am", -2.2588209747743526e-12], ["marriage", -6.718971169369977e-13], ["I", 5.731235131654323e-13], ["in", 1.491933974514516e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["that", 5, -1.853990142794246e-11], ["persons", 10, 6.708197270114955e-12], ["Howz", 0, 6.642054460947618e-12], ["story", 18, 4.038634604252203e-12], ["that", 31, -1.722938027579784e-11], ["persons", 62, 6.708197270114955e-12], ["Howz", 78, 6.642054460947618e-12], ["story", 122, 4.038634604252203e-12], ["that", 135, -1.3105211521446192e-12]], 1, "Howz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\nHowz that persons story\n\n\n", raw_div, true);
+            exp.show_raw_text([["function", 19, -2.383601433825753e-12], ["am", 2, -2.2588209747743526e-12], ["marriage", 10, -6.718971169369977e-13], ["I", 0, 5.731235131654323e-13], ["in", 5, 1.491933974514516e-13], ["function", 49, -2.383601433825753e-12], ["am", 62, -2.2588209747743526e-12], ["marriage", 100, -6.718971169369977e-13], ["I", 120, 5.731235131654323e-13], ["in", 155, 1.491933974514516e-13]], 1, "I am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\n", raw_div, true);
             
         </script>
         </body></html>

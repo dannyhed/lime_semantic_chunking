@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBUQ0KZHLKYOUCGX"></div>
+        <div class="lime top_div" id="top_divMKOXC3XOFFMJCMI"></div>
         
         <script>
-        var top_div = d3.select('#top_divBUQ0KZHLKYOUCGX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMKOXC3XOFFMJCMI').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.9156510054542265e-17]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -6.12180767462139e-09], ["4", 4.520950762325744e-09], ["sup", -4.1081663101397664e-09], ["in", -4.031474521840644e-09], ["Me", -3.780844235346068e-09]], 1, exp_div);
+                exp.show([["o", 0.002373129274427606], ["his", -0.0020541066812317975], ["who", -0.0019382511961194982], ["i", -0.0017711318293483053], ["Moral", -0.0017488459600576896]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 3, -6.12180767462139e-09], ["4", 23, 4.520950762325744e-09], ["sup", 43, -4.1081663101397664e-09], ["in", 25, -4.031474521840644e-09], ["Me", 0, -3.780844235346068e-09]], 1, "Me not waking up until 4 in the afternoon, sup", raw_div, true);
+            exp.show_raw_text([["o", 302, 0.002373129274427606], ["o", 304, 0.002373129274427606], ["his", 284, -0.0020541066812317975], ["who", 141, -0.0019382511961194982], ["who", 206, -0.0019382511961194982], ["i", 310, -0.0017711318293483053], ["Moral", 238, -0.0017488459600576896]], 1, "Storming msg: Wen u lift d phne, u say \"HELLO\" Do u knw wt is d real meaning of HELLO?? . . . It's d name of a girl..! . . . Yes.. And u knw who is dat girl?? \"Margaret Hello\" She is d girlfrnd f Grahmbell who invnted telphone... . . . . Moral:One can 4get d name of a person, bt not his girlfrnd... G o o d n i g h t . . .@", raw_div, true);
             
         </script>
         </body></html>

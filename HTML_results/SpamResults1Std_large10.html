@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEBIYHWSFD84MFS7"></div>
+        <div class="lime top_div" id="top_divC6034YNIQ25A84E"></div>
         
         <script>
-        var top_div = d3.select('#top_divEBIYHWSFD84MFS7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC6034YNIQ25A84E').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.4385024784097376e-35]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 5.063569268460514e-33]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["still", -3.2857236023987295e-23], ["Hmmm", 1.5939822689630944e-23], ["have", -8.031897230677105e-24], ["dont", -7.54883871732202e-24], ["we", -6.683535675700328e-24]], 1, exp_div);
+                exp.show([["My", -1.9323240691976267e-18], ["than", -1.8929045617701946e-18], ["da", -1.870413324746873e-18], ["sister", -1.7221292245043705e-18], ["going", -1.4315658951653654e-18]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["still", 5, -3.2857236023987295e-23], ["Hmmm", 0, 1.5939822689630944e-23], ["have", 19, -8.031897230677105e-24], ["dont", 14, -7.54883871732202e-24], ["we", 11, -6.683535675700328e-24]], 1, "Hmmm.still we dont have opener?", raw_div, true);
+            exp.show_raw_text([["My", 0, -1.9323240691976267e-18], ["than", 29, -1.8929045617701946e-18], ["da", 37, -1.870413324746873e-18], ["sister", 3, -1.7221292245043705e-18], ["going", 10, -1.4315658951653654e-18]], 1, "My sister going to earn more than me da.", raw_div, true);
             
         </script>
         </body></html>

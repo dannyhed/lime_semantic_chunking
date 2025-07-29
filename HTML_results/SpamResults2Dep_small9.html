@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLB495OMKX0PDF0D"></div>
+        <div class="lime top_div" id="top_divPS10APVCF1IUP9N"></div>
         
         <script>
-        var top_div = d3.select('#top_divLB495OMKX0PDF0D').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPS10APVCF1IUP9N').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Wish", 0.0], ["u", 0.0], ["many", 0.0], ["many", 0.0], ["returns", 0.0], ["of", 0.0], ["the", 0.0], ["day", 0.0], ["..", 0.0], ["Happy", 0.0], ["birthday", 0.0], ["vikky", 0.0], ["..", 0.0]], 1, exp_div);
+                exp.show([["The", 0.010897608477044468], ["waiting", 0.011479985088254025], ["by", 0.004560783480997784], ["table", 0.0007732893146396658]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Wish", 0, 0.0], ["u", 5, 0.0], ["many", 7, 0.0], ["many", 12, 0.0], ["returns", 17, 0.0], ["of", 25, 0.0], ["the", 28, 0.0], ["day", 32, 0.0], ["..", 35, 0.0], ["Happy", 38, 0.0], ["birthday", 44, 0.0], ["vikky", 53, 0.0], ["..", 58, 0.0], ["Wish", 63, 0.0], ["u", 68, 0.0], ["many", 70, 0.0], ["many", 75, 0.0], ["returns", 80, 0.0], ["of", 88, 0.0], ["the", 91, 0.0], ["day", 95, 0.0], ["..", 98, 0.0], ["Happy", 164, 0.0], ["birthday", 170, 0.0], ["vikky", 179, 0.0], ["..", 184, 0.0], ["Wish", 189, 0.0], ["u", 194, 0.0], ["many", 196, 0.0], ["many", 201, 0.0], ["returns", 206, 0.0], ["of", 214, 0.0], ["the", 217, 0.0], ["day", 221, 0.0], ["..", 224, 0.0], ["u", 257, 0.0], ["many", 322, 0.0]], 1, "Wish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\nWish u many many returns of the day.. Happy birthday vikky..\n\n\n", raw_div, true);
+            exp.show_raw_text([["The", 0, 0.010897608477044468], ["waiting", 26, 0.011479985088254025], ["by", 34, 0.004560783480997784], ["table", 4, 0.0007732893146396658], ["The", 48, 0.013573703262747665], ["waiting", 122, 0.011479985088254025], ["by", 178, 0.004560783480997784], ["table", 196, 0.0034493841003428627], ["The", 240, -0.002676094785703197], ["table", 244, -0.002676094785703197]], 1, "The table's occupied, I'm waiting by the tree\n\n\nThe table's occupied, I'm waiting by the tree\n\n\nThe table's occupied, I'm waiting by the tree\n\n\nThe table's occupied, I'm waiting by the tree\n\n\nThe table's occupied, I'm waiting by the tree\n\n\n", raw_div, true);
             
         </script>
         </body></html>

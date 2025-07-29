@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div3VXZI1JIFRZK57Z"></div>
+        <div class="lime top_div" id="top_divRDYPENGX8QI9JIT"></div>
         
         <script>
-        var top_div = d3.select('#top_div3VXZI1JIFRZK57Z').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRDYPENGX8QI9JIT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.99, 0.01]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Okie", 0.0]], 1, exp_div);
+                exp.show([["it", 0.005572419373593022], ["can", 0.005076978103095609], ["that", -0.005068995493525943], ["chat", 0.0038832713548053116], ["Also", 0.0024405881821257355]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Okie", 0, 0.0], ["Okie", 7, 0.0], ["Okie", 14, 0.0], ["Okie", 21, 0.0]], 1, "Okie\n\n\nOkie\n\n\n", raw_div, true);
+            exp.show_raw_text([["it", 42, 0.005572419373593022], ["can", 64, 0.005076978103095609], ["that", 5, -0.005068995493525943], ["chat", 10, 0.0038832713548053116], ["Also", 0, 0.0024405881821257355], ["it", 130, 0.005572419373593022], ["can", 240, 0.005076978103095609], ["that", 269, -0.005068995493525943], ["chat", 362, 0.0038832713548053116], ["Also", 440, 0.0024405881821257355]], 1, "Also that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\n", raw_div, true);
             
         </script>
         </body></html>

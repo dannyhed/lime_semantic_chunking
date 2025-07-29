@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZQGGXATETDO76GQ"></div>
+        <div class="lime top_div" id="top_divYKE5P3G8LZ109FA"></div>
         
         <script>
-        var top_div = d3.select('#top_divZQGGXATETDO76GQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divYKE5P3G8LZ109FA').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0804003761360723e-29]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.7868306530318608e-33]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["in", -4.136539891684138e-12], ["am", 2.969775290243553e-12], ["a", -2.8620080188257586e-12], ["I", -1.8430799400343633e-12], ["marriage", 1.8415832092227417e-12]], 1, exp_div);
+                exp.show([["Do", -0.23511333385850847], ["n't", -0.17657402187402135], [".", 0.17635669610777294], ["4get2text", 0.17626781127339106], ["number", 0.08806836065351967]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["in", 5, -4.136539891684138e-12], ["am", 2, 2.969775290243553e-12], ["a", 8, -2.8620080188257586e-12], ["I", 0, -1.8430799400343633e-12], ["marriage", 10, 1.8415832092227417e-12], ["in", 35, -4.136539891684138e-12], ["am", 62, 2.969775290243553e-12], ["a", 98, -2.8620080188257586e-12], ["I", 120, -1.8430799400343633e-12], ["marriage", 160, 1.8415832092227417e-12]], 1, "I am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\n", raw_div, true);
+            exp.show_raw_text([["Do", 68, -0.23511333385850847], ["n't", 70, -0.17657402187402135], [".", 93, 0.17635669610777294], ["4get2text", 73, 0.17626781127339106], ["number", 87, 0.08806836065351967], ["Do", 165, -0.23511333385850847], ["n't", 264, -0.17657402187402135], [".", 384, 0.17635669610777294], ["4get2text", 461, 0.17626781127339106], ["number", 572, 0.08806836065351967]], 1, " gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

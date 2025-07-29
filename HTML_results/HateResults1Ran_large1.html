@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divHTK1G7PYUC9UDYS"></div>
+        <div class="lime top_div" id="top_divMEZJZ4BER4TN7XU"></div>
         
         <script>
-        var top_div = d3.select('#top_divHTK1G7PYUC9UDYS').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMEZJZ4BER4TN7XU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.16883978220557716, 0.8311602177944228]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["You", 0.4406850362855412], ["anyway", 0.35735147091410296], ["ugly", 0.2172602665922358]], 1, exp_div);
+                exp.show([["you", 0.4958699560186566], ["ass", 0.44321222711181674], ["sick", 0.30497057235292924], ["So", -0.23258817407378388], ["hoes", 0.20367925285222788]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["You", 0, 0.4406850362855412], ["anyway", 9, 0.35735147091410296], ["ugly", 4, 0.2172602665922358], ["You", 18, 0.41108103651313893], ["anyway", 45, 0.3299720488749236], ["ugly", 58, 0.18765626681983352], ["ugly", 76, 0.029603999772402266], ["You", 72, 0.029603999772402266], ["anyway", 99, 0.027379422039179365]], 1, "You ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\nYou ugly anyway\n\n\n", raw_div, true);
+            exp.show_raw_text([["you", 11, 0.4958699560186566], ["ass", 20, 0.44321222711181674], ["sick", 3, 0.30497057235292924], ["So", 0, -0.23258817407378388], ["hoes", 24, 0.20367925285222788], ["you", 42, 0.4958699560186566], ["ass", 82, 0.44321222711181674], ["sick", 96, 0.30497057235292924], ["So", 124, -0.23258817407378388], ["hoes", 179, 0.20367925285222788]], 1, "So sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\n", raw_div, true);
             
         </script>
         </body></html>

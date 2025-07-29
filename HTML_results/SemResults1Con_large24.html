@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divCJIWCHBRCOSUKCX"></div>
+        <div class="lime top_div" id="top_div76NPOP3WS7B42JQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divCJIWCHBRCOSUKCX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div76NPOP3WS7B42JQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999905, 9.570029900776654e-15]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.7149482776888407], ["car", -0.6078548913934525], ["will", -0.31904739749514666], ["Terrible", -0.09889522873467188], ["My", -0.4371121505068571], ["accept", -0.4371121505068571], ["this", -0.4371121505068571], ["cassette", -0.4371121505068571], [".", -0.4371121505068571]], 1, exp_div);
+                exp.show([[".", 0.19000433446190637], ["that", 0.09457968701481953], ["How", 0.19807462205334636], ["awesome", 0.19807462205334636], ["is", 0.1377398969499819]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.7149482776888407], ["car", 14, -0.6078548913934525], ["will", 18, -0.31904739749514666], ["Terrible", 0, -0.09889522873467188], ["My", 11, -0.4371121505068571], ["accept", 27, -0.4371121505068571], ["this", 34, -0.4371121505068571], ["cassette", 39, -0.4371121505068571], [".", 47, -0.4371121505068571], ["My", 62, -0.4371121505068571], ["car", 65, -0.4371121505068571], ["will", 69, -0.4371121505068571], ["not", 74, -0.4371121505068571], ["accept", 78, -0.4371121505068571], ["this", 85, -0.4371121505068571], ["cassette", 90, -0.4371121505068571], [".", 98, -0.4371121505068571], ["not", 125, -0.2778361271819836], ["car", 167, -0.17074274088659547], ["will", 222, 0.11806475301171043], ["Terrible", 255, -0.09889522873467188]], 1, "Terrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 19, 0.19000433446190637], ["that", 15, 0.09457968701481953], ["How", 0, 0.19807462205334636], ["awesome", 4, 0.19807462205334636], ["is", 12, 0.1377398969499819], ["How", 23, 0.1445436795215562], ["awesome", 27, 0.1445436795215562], [".", 65, 0.1364733919301162], ["How", 69, 0.053530942531790165], ["awesome", 73, 0.053530942531790165], ["is", 81, 0.053530942531790165], ["that", 84, 0.053530942531790165], [".", 88, 0.053530942531790165], ["that", 107, -0.04316020993516236], ["is", 127, 0.03067801188640156], ["that", 130, 0.03067801188640156]], 1, "How awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\nHow awesome is that.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

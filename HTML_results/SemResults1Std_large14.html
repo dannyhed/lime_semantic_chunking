@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRMYWDRUPI5864I3"></div>
+        <div class="lime top_div" id="top_divXSDQNIGSEY70JZS"></div>
         
         <script>
-        var top_div = d3.select('#top_divRMYWDRUPI5864I3').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXSDQNIGSEY70JZS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.770601422455102e-20]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["mmmm", 0.010625635720427429], ["the", 0.010002496247166192], ["with", 0.009682179291928108], ["cranberry", 0.009305770887089403], ["tried", -0.008858117509668919]], 1, exp_div);
+                exp.show([["me", -0.31425904846833086], ["talking", -0.28355286026755394], ["spends", -0.2149928663949654], ["Your", 0.1598113768377179], ["than", -0.15837586576263035]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["mmmm", 54, 0.010625635720427429], ["the", 8, 0.010002496247166192], ["with", 37, 0.009682179291928108], ["cranberry", 42, 0.009305770887089403], ["tried", 2, -0.008858117509668919]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!", raw_div, true);
+            exp.show_raw_text([["me", 55, -0.31425904846833086], ["talking", 28, -0.28355286026755394], ["spends", 11, -0.2149928663949654], ["Your", 0, 0.1598113768377179], ["than", 50, -0.15837586576263035]], 1, "Your staff spends more time talking to themselves than me.", raw_div, true);
             
         </script>
         </body></html>

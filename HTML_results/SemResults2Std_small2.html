@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divV7QHUK0MEING5VL"></div>
+        <div class="lime top_div" id="top_div416KZJLZXNM9OAV"></div>
         
         <script>
-        var top_div = d3.select('#top_divV7QHUK0MEING5VL').classed('lime top_div', true);
+        var top_div = d3.select('#top_div416KZJLZXNM9OAV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.25, 0.75]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bad", -0.251101491095232], ["how", -0.043618543871433706], ["describe", -0.037179811894953625], ["has", 0.03461886747511095], ["with", 0.029440611530187788]], 1, exp_div);
+                exp.show([["good", 0.4108344825477485], ["The", -0.07774101863362869], ["are", -0.015593408885806674], ["insanely", 0.007256890823694176], ["Macarons", 0.0058926622026042475]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bad", 39, -0.251101491095232], ["how", 35, -0.043618543871433706], ["describe", 26, -0.037179811894953625], ["has", 74, 0.03461886747511095], ["with", 83, 0.029440611530187788]], 1, "It would take too long to describe how bad my customer service experience has been with Amazon.", raw_div, true);
+            exp.show_raw_text([["good", 31, 0.4108344825477485], ["The", 0, -0.07774101863362869], ["are", 18, -0.015593408885806674], ["insanely", 22, 0.007256890823694176], ["Macarons", 4, 0.0058926622026042475]], 1, "The Macarons here are insanely good.", raw_div, true);
             
         </script>
         </body></html>

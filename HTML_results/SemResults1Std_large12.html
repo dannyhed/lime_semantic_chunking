@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLT3KEZLCVBYJKAZ"></div>
+        <div class="lime top_div" id="top_divVKGU2B46JKA6RWN"></div>
         
         <script>
-        var top_div = d3.select('#top_divLT3KEZLCVBYJKAZ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divVKGU2B46JKA6RWN').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.024251970019192e-42]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999996, 4.2349350549464464e-16]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["umma", -1.5675793375812584e-10], ["vava", -1.3107085315656522e-10], ["and", -1.2454908046781994e-10], ["dear", -1.2202243021166916e-10], ["life", 1.1728871077277067e-10]], 1, exp_div);
+                exp.show([["unusable", -0.3489981555852266], ["freeway", -0.2812786902417319], ["is", 0.17768465466945962], ["speed", 0.12139056038417463], ["moving", 0.0731037853989258]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["umma", 22, -1.5675793375812584e-10], ["vava", 17, -1.3107085315656522e-10], ["and", 13, -1.2454908046781994e-10], ["dear", 40, -1.2202243021166916e-10], ["life", 8, 1.1728871077277067e-10]], 1, "Umma my life and vava umma love you lot dear", raw_div, true);
+            exp.show_raw_text([["unusable", 6, -0.3489981555852266], ["freeway", 34, -0.2812786902417319], ["is", 3, 0.17768465466945962], ["speed", 42, 0.12139056038417463], ["moving", 20, 0.0731037853989258]], 1, "It is unusable in a moving car at freeway speed.", raw_div, true);
             
         </script>
         </body></html>

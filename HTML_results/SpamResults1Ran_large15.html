@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divC75S0WVVQJXMIQY"></div>
+        <div class="lime top_div" id="top_divK3W78L6Q060AHPT"></div>
         
         <script>
-        var top_div = d3.select('#top_divC75S0WVVQJXMIQY').classed('lime top_div', true);
+        var top_div = d3.select('#top_divK3W78L6Q060AHPT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.532107773982716e-14, 0.9999999999999847]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.4807555285410268e-26]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["83222", 0.37432633414518685], ["send", 0.32061267101474283], ["!", 0.30564650657725406], ["EURO", 0.18423344374109216], ["kickoff", -0.10814784271389649]], 1, exp_div);
+                exp.show([["What", -1.7611456351968316e-12], ["?", -8.802371762941711e-13], ["'s", -8.800874642058489e-13], ["the", -5.869884849040767e-13], ["significance", -5.862022005509827e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["83222", 129, 0.37432633414518685], ["send", 107, 0.32061267101474283], ["!", 27, 0.30564650657725406], ["EURO", 116, 0.18423344374109216], ["kickoff", 20, -0.10814784271389649], ["83222", 267, 0.37432633414518685], ["send", 383, 0.32061267101474283], ["!", 441, 0.30564650657725406], ["EURO", 668, 0.18423344374109216], ["kickoff", 710, -0.10814784271389649]], 1, "18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n18 days to Euro2004 kickoff! U will be kept informed of all the latest news and results daily. Unsubscribe send GET EURO STOP to 83222.\n\n\n", raw_div, true);
+            exp.show_raw_text([["What", 0, -1.7611456351968316e-12], ["?", 23, -8.802371762941711e-13], ["'s", 4, -8.800874642058489e-13], ["the", 7, -5.869884849040767e-13], ["significance", 11, -5.862022005509827e-13], ["What", 27, -1.7611456351968316e-12], ["?", 77, -8.802371762941711e-13], ["'s", 85, -8.800874642058489e-13], ["the", 115, -5.869884849040767e-13], ["significance", 146, -5.862022005509827e-13]], 1, "What's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\n", raw_div, true);
             
         </script>
         </body></html>

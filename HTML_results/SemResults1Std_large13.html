@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div0OYM8PZOHXGV91X"></div>
+        <div class="lime top_div" id="top_div0WKT8LDGIIL61E3"></div>
         
         <script>
-        var top_div = d3.select('#top_div0OYM8PZOHXGV91X').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0WKT8LDGIIL61E3').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999281, 7.198497775893798e-14]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Service", 0.36994983518694696], ["and", 0.26598651510353377], ["fine", 0.2357049904896461], ["friendly", 0.2239480952646356], ["waitress", 0.16961470959576078]], 1, exp_div);
+                exp.show([["collect", -0.5079179818430462], ["skip", -0.5017913903648729], ["Austen", 0.2142082338291385], ["Unless", -0.12247107963389446], ["extant", 0.11427920941794574]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Service", 0, 0.36994983518694696], ["and", 17, 0.26598651510353377], ["fine", 12, 0.2357049904896461], ["friendly", 38, 0.2239480952646356], ["waitress", 25, 0.16961470959576078]], 1, "Service was fine and the waitress was friendly.", raw_div, true);
+            exp.show_raw_text([["collect", 36, -0.5079179818430462], ["skip", 88, -0.5017913903648729], ["Austen", 65, 0.2142082338291385], ["Unless", 0, -0.12247107963389446], ["extant", 49, 0.11427920941794574]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  ", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divDJ4E46ARTN2R2WJ"></div>
+        <div class="lime top_div" id="top_div7Y35LMA4P96COKT"></div>
         
         <script>
-        var top_div = d3.select('#top_divDJ4E46ARTN2R2WJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7Y35LMA4P96COKT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["pls", -0.05887357752383658], ["model", 0.12106168465788608], ["mail", 0.034308726010281315], ["srs", 0.11246434388477075]], 1, exp_div);
+                exp.show([["!", 0.30966824326160397], ["awesome", 0.1374571924338025], ["Era", -0.021074021658168487], ["Jawbone", -0.020855246015795737], ["is", -0.03905841732177302], ["too", -0.03905841732177302]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["pls", 49, -0.05887357752383658], ["model", 43, 0.12106168465788608], ["mail", 67, 0.034308726010281315], ["srs", 39, 0.11246434388477075], ["pls", 130, -0.1442013521809248], ["srs", 201, 0.08532777465708823], ["model", 205, 0.08532777465708823], ["pls", 211, 0.08532777465708823], ["model", 286, 0.03573391000079785], ["mail", 391, 0.034308726010281315], ["srs", 444, 0.027136569227682518]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\nK ill drink.pa then what doing. I need srs model pls send it to my mail id pa.\n\n\n", raw_div, true);
+            exp.show_raw_text([["!", 26, 0.30966824326160397], ["awesome", 15, 0.1374571924338025], ["Era", 8, -0.021074021658168487], ["Jawbone", 0, -0.020855246015795737], ["is", 12, -0.03905841732177302], ["too", 23, -0.03905841732177302], ["!", 56, 0.30966824326160397], ["awesome", 75, 0.1765156097555755], ["is", 102, -0.03905841732177302], ["awesome", 105, -0.03905841732177302], ["too", 113, -0.03905841732177302], ["Era", 128, -0.021074021658168487], ["Jawbone", 150, -0.020855246015795737]], 1, "Jawbone Era is awesome too!\n\n\nJawbone Era is awesome too!\n\n\nJawbone Era is awesome too!\n\n\nJawbone Era is awesome too!\n\n\nJawbone Era is awesome too!\n\n\nJawbone Era is awesome too!\n\n\nJawbone Era is awesome too!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

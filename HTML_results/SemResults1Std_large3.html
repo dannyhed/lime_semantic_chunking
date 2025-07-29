@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divCJIWCHBRCOSUKCX"></div>
+        <div class="lime top_div" id="top_div4CRVP3YVYNH83V9"></div>
         
         <script>
-        var top_div = d3.select('#top_divCJIWCHBRCOSUKCX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div4CRVP3YVYNH83V9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999905, 9.570029900776654e-15]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.27894699226180947], ["Terrible", -0.2684084302744238], ["car", -0.15773232164792264], ["will", 0.13049702828730342], ["accept", -0.10082445573594333]], 1, exp_div);
+                exp.show([["secure", 0.06330409909269824], ["durable", 0.06240424923029072], ["strong", 0.05354357639843914], ["glove", 0.03310101609717957], ["fits", 0.02427818899915081]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.27894699226180947], ["Terrible", 0, -0.2684084302744238], ["car", 14, -0.15773232164792264], ["will", 18, 0.13049702828730342], ["accept", 27, -0.10082445573594333]], 1, "Terrible.. My car will not accept this cassette.", raw_div, true);
+            exp.show_raw_text([["secure", 38, 0.06330409909269824], ["durable", 50, 0.06240424923029072], ["strong", 30, 0.05354357639843914], ["glove", 17, 0.03310101609717957], ["fits", 5, 0.02427818899915081]], 1, "It's fits like a glove and is strong, secure, and durable.", raw_div, true);
             
         </script>
         </body></html>

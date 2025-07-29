@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divV7QHUK0MEING5VL"></div>
+        <div class="lime top_div" id="top_divZT9SHYQLLCMP0ZK"></div>
         
         <script>
-        var top_div = d3.select('#top_divV7QHUK0MEING5VL').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZT9SHYQLLCMP0ZK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.87, 0.13]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bad", -0.2492731448061815], ["how", -0.04617651571357795], ["would", 0.03674584251017152], ["to", 0.025735055751125998], ["describe", -0.025412096098167587]], 1, exp_div);
+                exp.show([["bad", -0.28130914476557506], ["is", 0.05477854428426013], ["such", -0.04230962655853393], ["Which", -0.010270104317508733], ["a", -0.02332125675749703], ["review", -0.02332125675749703]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bad", 39, -0.2492731448061815], ["how", 35, -0.04617651571357795], ["would", 3, 0.03674584251017152], ["to", 23, 0.025735055751125998], ["describe", 26, -0.025412096098167587], ["bad", 137, -0.2492731448061815], ["how", 231, -0.04617651571357795], ["would", 297, 0.03674584251017152], ["to", 415, 0.025735055751125998], ["describe", 516, -0.025412096098167587]], 1, "It would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\n", raw_div, true);
+            exp.show_raw_text([["bad", 45, -0.28130914476557506], ["is", 6, 0.05477854428426013], ["such", 38, -0.04230962655853393], ["Which", 0, -0.010270104317508733], ["a", 43, -0.02332125675749703], ["review", 49, -0.02332125675749703], ["bad", 106, -0.25798788800807804], ["is", 128, 0.05477854428426013], ["such", 221, -0.02332125675749703], ["a", 226, -0.02332125675749703], ["bad", 228, -0.02332125675749703], ["review", 232, -0.02332125675749703], ["such", 282, -0.018988369801036905], ["Which", 305, -0.010270104317508733]], 1, "Which is precisely why I am giving it such a bad review!  \n\n\nWhich is precisely why I am giving it such a bad review!  \n\n\nWhich is precisely why I am giving it such a bad review!  \n\n\nWhich is precisely why I am giving it such a bad review!  \n\n\nWhich is precisely why I am giving it such a bad review!  \n\n\nWhich is precisely why I am giving it such a bad review!  \n\n\nWhich is precisely why I am giving it such a bad review!  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

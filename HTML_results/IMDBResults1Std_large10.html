@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div6WI09C1DNSRW83I"></div>
+        <div class="lime top_div" id="top_divUS9KLGDYK0066YP"></div>
         
         <script>
-        var top_div = d3.select('#top_div6WI09C1DNSRW83I').classed('lime top_div', true);
+        var top_div = d3.select('#top_divUS9KLGDYK0066YP').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9484500357777924, 0.051549964222207575]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9660303963674127, 0.03396960363258726]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["stink", -0.14501840765063462], ["nudity", -0.13413071150333752], ["Maybe", -0.11986032945296772], ["not", -0.11577738113441625], ["filmmakers", -0.11058010834223389]], 1, exp_div);
+                exp.show([["trash", -0.061970544733990836], ["throw", -0.0540869409336001], ["Trash", -0.04399980186235673], ["insult", -0.04202887740779167], ["the", -0.03753177552399279]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["stink", 274, -0.14501840765063462], ["nudity", 668, -0.13413071150333752], ["Maybe", 812, -0.11986032945296772], ["not", 120, -0.11577738113441625], ["filmmakers", 12, -0.11058010834223389]], 1, "Some of the filmmakers who are participating in this series have made some really great films but they sure as heck are not showing much skill with this series. Particularly the writing. OK, the first season was somewhat better but these new episodes they are creating just stink. I'm a huge fan of horror and in my opinion the vast majority of these episodes are total garbage. Nothing new or genuinely interesting. Few of them are visually creative. It's just typical fabricated Hollywood crap, uninteresting, childish, poorly conceived and in some cases, flat out laughable. Much like Tales from the Crypt the only good thing this series has been offering is great nudity! Other then that this series blows hard. I get the impression sometimes that they hired a bunch of eighth-graders to write the episodes. Maybe they did.", raw_div, true);
+            exp.show_raw_text([["trash", 679, -0.061970544733990836], ["throw", 667, -0.0540869409336001], ["Trash", 0, -0.04399980186235673], ["insult", 424, -0.04202887740779167], ["the", 174, -0.03753177552399279], ["the", 191, -0.03753177552399279], ["the", 232, -0.03753177552399279], ["the", 260, -0.03753177552399279], ["the", 326, -0.03753177552399279]], 1, "Trash/bad movies usually ain't bad because I will find them enjoyable. This one is so bad that I am out of words to describe it - its below \"bad\". There is an instruction in the beginning of the film that tell you what to do during the movie. Needless to say, the instruction and a dozen of beer couldn't help me seat through the entire film. One tagliner compares this one to KILLBILL which is certainly unthinkable and an insult to our intelligent. Obviously. this tagliner had a plan to tempt you into buying this DVD.  If you are considering renting this one, put it down! If you are thinking of buying, Dont think! If you unlucky to have this dvd, dont play it, throw it in trash bin immediately.", raw_div, true);
             
         </script>
         </body></html>

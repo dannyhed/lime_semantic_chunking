@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divOA40UW45NL2STDB"></div>
+        <div class="lime top_div" id="top_divRDYPENGX8QI9JIT"></div>
         
         <script>
-        var top_div = d3.select('#top_divOA40UW45NL2STDB').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRDYPENGX8QI9JIT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.99, 0.01]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Msg", 0.019905193771371742], ["comes", 0.010127867316328504], ["me", 0.00046977908378554044], ["when", 0.00021593766875526907], ["rajini", 0.00021593766875526907], [".", 0.00021593766875526907]], 1, exp_div);
+                exp.show([["chat", 0.009651227060989424], ["was", -0.007124938979960197], ["regular", 0.0036006207239218197], ["but", -0.000843930243498184]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Msg", 0, 0.019905193771371742], ["comes", 19, 0.010127867316328504], ["me", 4, 0.00046977908378554044], ["when", 7, 0.00021593766875526907], ["rajini", 12, 0.00021593766875526907], [".", 24, 0.00021593766875526907], ["Msg", 28, 0.019689256102616477], ["comes", 75, 0.009911929647573234], ["Msg", 84, 0.00020984047417933914], ["me", 88, 0.00020984047417933914], ["when", 91, 0.00020984047417933914], ["rajini", 96, 0.00020984047417933914], ["comes", 103, 0.00020984047417933914], [".", 108, 0.00020984047417933914], ["me", 116, 4.4000940850932216e-05], ["Msg", 140, 6.097194575929924e-06], ["me", 144, 6.097194575929924e-06], ["when", 147, 6.097194575929924e-06], ["rajini", 152, 6.097194575929924e-06], ["comes", 159, 6.097194575929924e-06], [".", 164, 6.097194575929924e-06]], 1, "Msg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\nMsg me when rajini comes.\n\n\n", raw_div, true);
+            exp.show_raw_text([["chat", 10, 0.009651227060989424], ["was", 15, -0.007124938979960197], ["regular", 45, 0.0036006207239218197], ["but", 27, -0.000843930243498184], ["chat", 98, 0.009651227060989424], ["was", 191, -0.007124938979960197], ["regular", 309, 0.002155891428569366], ["regular", 397, 0.0014447292953524541], ["but", 467, -0.000843930243498184]], 1, "Also that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\nAlso that chat was awesome but don't make it regular unless you can see her in person\n\n\n", raw_div, true);
             
         </script>
         </body></html>

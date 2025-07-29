@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div95Z9WZ9I4NI5I4P"></div>
+        <div class="lime top_div" id="top_divQACFOPAIW6H6IUC"></div>
         
         <script>
-        var top_div = d3.select('#top_div95Z9WZ9I4NI5I4P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divQACFOPAIW6H6IUC').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["chat", 0.009981941611584506], ["was", -0.006435736064048084], ["regular", 0.00315375832690073], ["you", -0.0003762755326786747], ["awesome", -0.00033982741731101307]], 1, exp_div);
+                exp.show([["on", -0.006499516637263511], ["see", 0.003539945004405217], ["not", 0.00031778686897652596], ["the", 0.00027043241150264937], ["Yes", 0.00018289595437896773]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["chat", 10, 0.009981941611584506], ["was", 15, -0.006435736064048084], ["regular", 45, 0.00315375832690073], ["you", 60, -0.0003762755326786747], ["awesome", 19, -0.00033982741731101307]], 1, "Also that chat was awesome but don't make it regular unless you can see her in person", raw_div, true);
+            exp.show_raw_text([["on", 15, -0.006499516637263511], ["see", 4, 0.003539945004405217], ["not", 11, 0.00031778686897652596], ["the", 18, 0.00027043241150264937], ["Yes", 0, 0.00018289595437896773]], 1, "Yes see ya not on the dot", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,10 +37089,10 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divVOO6M72ZC4B2EQ4"></div>
+        <div class="lime top_div" id="top_divRJU05JKFV6D91L2"></div>
         
         <script>
-        var top_div = d3.select('#top_divVOO6M72ZC4B2EQ4').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRJU05JKFV6D91L2').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -37104,10 +37104,10 @@
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Great", 0.0], ["to", 0.0], ["hear", 0.0], ["you", 0.0], ["are", 0.0]], 1, exp_div);
+                exp.show([["Like", 0.0], ["lt", 0.0], ["gt", 0.0], ["same", 0.0], ["question", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Great", 0, 0.0], ["to", 6, 0.0], ["hear", 9, 0.0], ["you", 14, 0.0], ["are", 18, 0.0]], 1, "Great to hear you are settling well. So what's happenin wit ola?", raw_div, true);
+            exp.show_raw_text([["Like", 0, 0.0], ["lt", 7, 0.0], ["gt", 12, 0.0], ["same", 18, 0.0], ["question", 23, 0.0]], 1, "Like  |lt;#|gt; , same question", raw_div, true);
             
         </script>
         </body></html>

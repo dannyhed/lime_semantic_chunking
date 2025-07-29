@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divXF9NWSNY03222HQ"></div>
+        <div class="lime top_div" id="top_divMEZJZ4BER4TN7XU"></div>
         
         <script>
-        var top_div = d3.select('#top_divXF9NWSNY03222HQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMEZJZ4BER4TN7XU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.4101155227091262, 0.5898844772908738]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["lines", -0.3469257399566923], ["power", -0.2890900787776259], ["all", 0.26414035058613194], [".", 0.2351098590494776], ["'re", 0.21943209622266063]], 1, exp_div);
+                exp.show([["sick", 0.6741433835986452], ["you", 0.6483393311794605], ["hoes", 0.6438814701877933], ["So", 0.6159074936702919], ["of", 0.6159074936702919], ["fake", 0.6159074936702919], ["ass", 1.2517298688562641]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["lines", 35, -0.3469257399566923], ["power", 29, -0.2890900787776259], ["all", 7, 0.26414035058613194], [".", 40, 0.2351098590494776], ["'re", 3, 0.21943209622266063], ["lines", 79, -0.3469257399566923], ["power", 117, -0.2890900787776259], ["all", 139, 0.26414035058613194], [".", 216, 0.2351098590494776], ["'re", 223, 0.21943209622266063]], 1, "You're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\nYou're all just crows on the power lines.\n\n\n", raw_div, true);
+            exp.show_raw_text([["sick", 3, 0.6741433835986452], ["you", 11, 0.6483393311794605], ["hoes", 24, 0.6438814701877933], ["So", 0, 0.6159074936702919], ["of", 8, 0.6159074936702919], ["fake", 15, 0.6159074936702919], ["ass", 20, 1.2517298688562641], ["So", 31, 0.6159074936702919], ["sick", 34, 0.6159074936702919], ["of", 39, 0.6159074936702919], ["you", 42, 0.6159074936702919], ["fake", 46, 0.6159074936702919], ["ass", 51, 0.6159074936702919], ["hoes", 55, 0.6159074936702919], ["sick", 65, 0.05823588992835333], ["you", 104, 0.03243183750916864], ["hoes", 148, 0.02797397651750147], ["ass", 175, 0.019914881515680407]], 1, "So sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\n", raw_div, true);
             
         </script>
         </body></html>

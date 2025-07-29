@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTVKO8JP676CQ0LF"></div>
+        <div class="lime top_div" id="top_div0XEWKFCSR4RO7OF"></div>
         
         <script>
-        var top_div = d3.select('#top_divTVKO8JP676CQ0LF').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0XEWKFCSR4RO7OF').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.3475614127846863e-18]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["message", 0.0001699438893785466], ["recorded", -0.00016075145532741688], ["to", -0.00015210664660047994], ["just", -0.00014604086972259847], ["have", -0.00014187158182806425]], 1, exp_div);
+                exp.show([["with", 0.008332224063477727], ["ravoli", 0.008235053584113625], ["the", 0.008034118213154615], ["cranberry", 0.00726904034806409], ["tried", -0.006458234011442779]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["message", 56, 0.0001699438893785466], ["recorded", 43, -0.00016075145532741688], ["to", 105, -0.00015210664660047994], ["to", 116, -0.00015210664660047994], ["just", 111, -0.00014604086972259847], ["have", 38, -0.00014187158182806425]], 1, "I miss you so much I'm so desparate I have recorded the message you left for me the other day and listen to it just to hear the sound of your voice. I love you", raw_div, true);
+            exp.show_raw_text([["with", 37, 0.008332224063477727], ["ravoli", 21, 0.008235053584113625], ["the", 8, 0.008034118213154615], ["cranberry", 42, 0.00726904034806409], ["tried", 2, -0.006458234011442779]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!", raw_div, true);
             
         </script>
         </body></html>

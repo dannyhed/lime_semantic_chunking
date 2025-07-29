@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUSI2LIGCLFUBTAN"></div>
+        <div class="lime top_div" id="top_divFSWNXSF9JXJRFZV"></div>
         
         <script>
-        var top_div = d3.select('#top_divUSI2LIGCLFUBTAN').classed('lime top_div', true);
+        var top_div = d3.select('#top_divFSWNXSF9JXJRFZV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.6506482440123065, 0.34935175598769347]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.8549607328403321, 0.14503926715966792]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["stinks", -0.10007125030039768], ["of", -0.07924354164551425], ["looks", -0.05520448954834669], ["Lee", 0.05016134097904499], ["beautiful", 0.03971397056579507]], 1, exp_div);
+                exp.show([["movie", -0.1569951171796786], ["mediocre", -0.1511319955372669], ["flounder", -0.14927795168693211], ["mess", -0.10454328838314592], ["end", -0.08746757831642497]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["stinks", 52, -0.10007125030039768], ["of", 556, -0.07924354164551425], ["looks", 437, -0.05520448954834669], ["Lee", 151, 0.05016134097904499], ["Lee", 267, 0.05016134097904499], ["beautiful", 443, 0.03971397056579507]], 1, "First a quick 'shut up!' to those saying this movie stinks. You can't go to every movie expecting 'Citizen Kane'. This was actually a fun movie. Jason Lee is good in everything he does. The only flaw in this movie is, I don't think there was enough chemestry between Lee and Julia Stiles. They should have dwelled more on that. Other than that, the movie is good fun. Selma Blair needs to eat something. She's worrying me. But she still looks beautiful. So yes, I recommend this movie for a date or light saturday afternoon fun. Go see.  RATING: **1/2 out of ****", raw_div, true);
+            exp.show_raw_text([["movie", 137, -0.1569951171796786], ["movie", 287, -0.1569951171796786], ["movie", 370, -0.1569951171796786], ["mediocre", 273, -0.1511319955372669], ["flounder", 646, -0.14927795168693211], ["mess", 127, -0.10454328838314592], ["end", 354, -0.08746757831642497]], 1, "How could I possibly pass up the chance to see Orlando Bloom and Heath Ledger together? Well, I couldn't and so, I rented this mess of a movie.  I had never heard of Ned Kelly and was surprised by what I found out about this young man's legend. I was also surprised at how mediocre this movie was. Perhaps the fact that it was very, very late and at the end of a 4 hour movie marathon or maybe it was because it really is a little slow, I found this story difficult to follow. Not because the story is complicated, but because it is slow. Even with a slow story, Ledger and Bloom managed to create interesting, dimensional characters.   Though I flounder to recommend this as a must see, it is a great story of Australian history (considering how young the country is, this is very rare and should be appreciated) and the film does have some good actions sequences.   6/10 see it for historical value....(yeah right...and that's the only reason to see it... ;) )", raw_div, true);
             
         </script>
         </body></html>

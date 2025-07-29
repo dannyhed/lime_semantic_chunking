@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRAP7X1PK411Y7B9"></div>
+        <div class="lime top_div" id="top_div3H9WGL3SEFJP66C"></div>
         
         <script>
-        var top_div = d3.select('#top_divRAP7X1PK411Y7B9').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3H9WGL3SEFJP66C').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.3, 0.7]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.2, 0.8]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["film", 0.08941689139661058], ["you", 0.07556086512579113], ["you", 0.07431604396785293], ["you", 0.06995386509577678], ["away", -0.05121829636155566]], 1, exp_div);
+                exp.show([["good", 0.2961847517606422], ["and", 0.12687391113854415], ["The", -0.07186564616959867], ["as", -0.04633618331477422], ["the", -0.033427120954907893]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["film", 21, 0.08941689139661058], ["you", 27, 0.07556086512579113], ["you", 3, 0.07431604396785293], ["you", 51, 0.06995386509577678], ["away", 70, -0.05121829636155566], ["film", 131, 0.08941689139661058], ["you", 247, 0.07556086512579113], ["you", 333, 0.07431604396785293], ["you", 491, 0.06995386509577678], ["away", 620, -0.05121829636155566]], 1, "If you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  \n\n\nIf you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  \n\n\nIf you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  \n\n\nIf you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  \n\n\nIf you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  \n\n\nIf you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  \n\n\n", raw_div, true);
+            exp.show_raw_text([["good", 53, 0.2961847517606422], ["and", 14, 0.12687391113854415], ["The", 0, -0.07186564616959867], ["as", 50, -0.04633618331477422], ["the", 18, -0.033427120954907893], ["good", 116, 0.2961847517606422], ["and", 140, 0.12687391113854415], ["The", 189, -0.07186564616959867], ["as", 302, -0.04633618331477422], ["the", 333, -0.033427120954907893]], 1, "The directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZ6EGWC38NB5FVX6"></div>
+        <div class="lime top_div" id="top_divDKYQBO8CW0TPJ64"></div>
         
         <script>
-        var top_div = d3.select('#top_divZ6EGWC38NB5FVX6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDKYQBO8CW0TPJ64').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
+            var pp = new lime.PredictProba(pp_svg, [], [3.3859257261292797e-06, 0.9999966140742739]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([[".", 0.5831876965503515], ["talking", -0.43516518892866773], ["spends", -0.2123258178347916], ["themselves", 0.1392089276713039], ["staff", 0.12277393552096344]], 1, exp_div);
+                exp.show([["into", 0.43888382886310356], ["enough", 0.28560927494422594], ["docking", -0.18588537776790748], ["its", 0.15129820186689374], ["fit", 0.11701943125807746]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([[".", 57, 0.5831876965503515], ["talking", 28, -0.43516518892866773], ["spends", 11, -0.2123258178347916], ["themselves", 39, 0.1392089276713039], ["staff", 5, 0.12277393552096344], [".", 118, 0.5831876965503515], ["talking", 150, -0.43516518892866773], ["spends", 194, -0.2123258178347916], ["themselves", 283, 0.1392089276713039], ["staff", 310, 0.12277393552096344]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
+            exp.show_raw_text([["into", 28, 0.43888382886310356], ["enough", 14, 0.28560927494422594], ["docking", 48, -0.18588537776790748], ["its", 5, 0.15129820186689374], ["fit", 24, 0.11701943125807746], ["into", 121, 0.43888382886310356], ["enough", 200, 0.28560927494422594], ["docking", 327, -0.18588537776790748], ["its", 377, 0.15129820186689374], ["fit", 489, 0.11701943125807746]], 1, "Also its slim enough to fit into my alarm clock docking station without removing the case.\n\n\nAlso its slim enough to fit into my alarm clock docking station without removing the case.\n\n\nAlso its slim enough to fit into my alarm clock docking station without removing the case.\n\n\nAlso its slim enough to fit into my alarm clock docking station without removing the case.\n\n\nAlso its slim enough to fit into my alarm clock docking station without removing the case.\n\n\nAlso its slim enough to fit into my alarm clock docking station without removing the case.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

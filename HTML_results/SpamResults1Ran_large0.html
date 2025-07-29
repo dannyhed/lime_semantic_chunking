@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTPFKN0IP5V4QDCO"></div>
+        <div class="lime top_div" id="top_divWJ703MNVFC4ZB4C"></div>
         
         <script>
-        var top_div = d3.select('#top_divTPFKN0IP5V4QDCO').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWJ703MNVFC4ZB4C').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.480755528541006e-26]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 3.287530730623969e-28]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["'s", -1.6495976300573322e-12], ["?", -1.2921683535519907e-12], ["What", -1.4437405489576959e-12], ["significance", -7.922480347940941e-13]], 1, exp_div);
+                exp.show([[".", -3.4917275742682924e-12], ["I", -9.728320235121896e-13], ["how", -7.786910956803982e-13], ["for", 3.8356418121468283e-13], ["money", -8.777824725285086e-14]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["'s", 4, -1.6495976300573322e-12], ["?", 23, -1.2921683535519907e-12], ["What", 0, -1.4437405489576959e-12], ["significance", 11, -7.922480347940941e-13], ["'s", 31, -1.474846698881328e-12], ["?", 77, -1.2921683535519907e-12], ["What", 81, -1.2689896177816916e-12], ["significance", 119, -7.922480347940941e-13], ["What", 135, -1.747509311760043e-13], ["'s", 139, -1.747509311760043e-13]], 1, "What's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 2, -3.4917275742682924e-12], ["I", 4, -9.728320235121896e-13], ["how", 22, -7.786910956803982e-13], ["for", 12, 3.8356418121468283e-13], ["money", 16, -8.777824725285086e-14], [".", 34, -3.4917275742682924e-12], ["I", 68, -9.728320235121896e-13], ["how", 118, -7.786910956803982e-13], ["for", 140, 3.8356418121468283e-13], ["money", 176, -8.777824725285086e-14]], 1, "Ok. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\n", raw_div, true);
             
         </script>
         </body></html>

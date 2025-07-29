@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZYORA9C7QQXBV17"></div>
+        <div class="lime top_div" id="top_div7Y35LMA4P96COKT"></div>
         
         <script>
-        var top_div = d3.select('#top_divZYORA9C7QQXBV17').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7Y35LMA4P96COKT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.501550518600983e-20]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["to", -0.1297442037894484], ["minutes", -0.11653919679910374], ["out", -0.11100516646044943], ["had", -0.105156343119421], ["get", -0.09944944350666073]], 1, exp_div);
+                exp.show([["too", 5.86152552041901e-07], ["Jawbone", 5.376306448164271e-07], ["is", 3.018457362310704e-07], ["awesome", 1.5336474466776988e-07], ["Era", -5.9330004596390436e-08]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["to", 6, -0.1297442037894484], ["to", 56, -0.1297442037894484], ["minutes", 43, -0.11653919679910374], ["out", 14, -0.11100516646044943], ["had", 2, -0.105156343119421], ["get", 59, -0.09944944350666073]], 1, "I had to walk out of the theatre for a few minutes just to get some relief!  ", raw_div, true);
+            exp.show_raw_text([["too", 23, 5.86152552041901e-07], ["Jawbone", 0, 5.376306448164271e-07], ["is", 12, 3.018457362310704e-07], ["awesome", 15, 1.5336474466776988e-07], ["Era", 8, -5.9330004596390436e-08]], 1, "Jawbone Era is awesome too!", raw_div, true);
             
         </script>
         </body></html>

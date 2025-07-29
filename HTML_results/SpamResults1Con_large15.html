@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8STE94XBU49I8HJ"></div>
+        <div class="lime top_div" id="top_divK3W78L6Q060AHPT"></div>
         
         <script>
-        var top_div = d3.select('#top_div8STE94XBU49I8HJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divK3W78L6Q060AHPT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.2875307306239924e-28]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.4807555285410268e-26]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["asked", 1.0886004937379702e-11], ["for", 1.610948590780478e-11], ["money", 9.780354078053545e-11], ["I", -3.9643185690169746e-11], ["how", 5.798740742856585e-11], ["far", 5.798740742856585e-11]], 1, exp_div);
+                exp.show([["?", -3.5100903771267153e-13], ["What", -3.4406000309940905e-13], ["'s", -3.179150283285989e-13], ["the", -6.19974337689339e-13], ["significance", -6.19974337689339e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["asked", 6, 1.0886004937379702e-11], ["for", 12, 1.610948590780478e-11], ["money", 16, 9.780354078053545e-11], ["I", 4, -3.9643185690169746e-11], ["how", 22, 5.798740742856585e-11], ["far", 26, 5.798740742856585e-11], ["asked", 38, 5.798740742856585e-11], ["for", 44, 5.798740742856585e-11], ["money", 48, 5.798740742856585e-11], ["how", 54, 5.798740742856585e-11], ["far", 58, 5.798740742856585e-11], ["asked", 70, -4.710140249118615e-11], ["for", 108, -4.187792152076107e-11], ["money", 144, 3.981613335196959e-11], ["I", 164, -3.9643185690169746e-11]], 1, "Ok. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\nOk. I asked for money how far\n\n\n", raw_div, true);
+            exp.show_raw_text([["?", 23, -3.5100903771267153e-13], ["What", 0, -3.4406000309940905e-13], ["'s", 4, -3.179150283285989e-13], ["the", 7, -6.19974337689339e-13], ["significance", 11, -6.19974337689339e-13], ["What", 27, -2.885643279120279e-13], ["'s", 31, -2.885643279120279e-13], ["the", 34, -2.885643279120279e-13], ["significance", 38, -2.885643279120279e-13], ["?", 50, -2.885643279120279e-13], ["?", 77, -6.244470980064361e-14], ["What", 81, -5.5495675187381134e-14], ["the", 115, -4.2845681865283285e-14], ["significance", 119, -4.2845681865283285e-14], ["'s", 139, -2.935070041657098e-14]], 1, "What's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\n", raw_div, true);
             
         </script>
         </body></html>

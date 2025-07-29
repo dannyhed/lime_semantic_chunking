@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEGVT8Q1AMGKISDG"></div>
+        <div class="lime top_div" id="top_div6IFCH2KBAB01KGS"></div>
         
         <script>
-        var top_div = d3.select('#top_divEGVT8Q1AMGKISDG').classed('lime top_div', true);
+        var top_div = d3.select('#top_div6IFCH2KBAB01KGS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 3.349075899275303e-25]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["n", -4.051877461588184e-10], ["replying", -3.7068099117931556e-10], ["checking", -3.624575512083199e-10], ["online", 3.051172513680951e-10], ["Me", 3.035545934870522e-10]], 1, exp_div);
+                exp.show([["09066361921", 0.0827405174801986], ["prize", 0.06025216349186243], ["top", 0.05734896960823298], ["call", 0.053195165229136775], ["you", 0.048456896490164256]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["n", 82, -4.051877461588184e-10], ["replying", 84, -3.7068099117931556e-10], ["checking", 73, -3.624575512083199e-10], ["online", 66, 3.051172513680951e-10], ["Me", 63, 3.035545934870522e-10]], 1, "U sleeping now.. Or you going to take? Haha.. I got spys wat.. Me online checking n replying mails lor..", raw_div, true);
+            exp.show_raw_text([["09066361921", 119, 0.0827405174801986], ["prize", 67, 0.06025216349186243], ["prize", 102, 0.06025216349186243], ["top", 63, 0.05734896960823298], ["call", 114, 0.053195165229136775], ["you", 39, 0.048456896490164256]], 1, "This is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921", raw_div, true);
             
         </script>
         </body></html>

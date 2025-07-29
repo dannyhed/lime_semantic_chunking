@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divGH5UWVGNR8OI1P6"></div>
+        <div class="lime top_div" id="top_divXSDQNIGSEY70JZS"></div>
         
         <script>
-        var top_div = d3.select('#top_divGH5UWVGNR8OI1P6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXSDQNIGSEY70JZS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.770601422455102e-20]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Worst", 0.2860779569250401], ["service", 0.8538394470812718], ["customer", 0.48887805356350633], [".", 0.5739175411502102]], 1, exp_div);
+                exp.show([["talking", -0.2928182165013268], ["me", -0.18771689445778403], ["more", -0.1415093857451862], ["Your", 0.13291361523702144], ["than", -0.11858704323101127]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Worst", 0, 0.2860779569250401], ["service", 15, 0.8538394470812718], ["customer", 6, 0.48887805356350633], [".", 22, 0.5739175411502102], ["Worst", 26, -0.7627837895967595], ["Worst", 52, 0.5739175411502102], ["customer", 58, 0.5739175411502102], ["service", 67, 0.5739175411502102], [".", 74, 0.5739175411502102], ["service", 93, 0.27992190593106153], ["Worst", 104, -0.09897333577862076], ["customer", 136, -0.08503948758670385]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
+            exp.show_raw_text([["talking", 28, -0.2928182165013268], ["me", 55, -0.18771689445778403], ["more", 18, -0.1415093857451862], ["Your", 0, 0.13291361523702144], ["than", 50, -0.11858704323101127], ["talking", 89, -0.2928182165013268], ["me", 177, -0.18771689445778403], ["more", 201, -0.1415093857451862], ["Your", 244, 0.13291361523702144], ["than", 355, -0.11858704323101127]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

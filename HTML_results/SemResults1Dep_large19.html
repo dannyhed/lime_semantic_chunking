@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div0OYM8PZOHXGV91X"></div>
+        <div class="lime top_div" id="top_divXYQISIVT07FUZLI"></div>
         
         <script>
-        var top_div = d3.select('#top_div0OYM8PZOHXGV91X').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXYQISIVT07FUZLI').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999973575323, 2.642467699522532e-09]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.2812260898316866], [".", 0.23165962347760408], ["waitress", 0.16848710511346673], ["fine", 0.15981398807293137], ["Service", 0.1587786979968857]], 1, exp_div);
+                exp.show([["at", -0.11244848362593537], ["bit", -0.2401807275242288], [".", 0.20426838420632148], ["is", 0.19030949672116917], ["Mellow", 0.1798627932619162], ["Mushroom", 0.1798627932619162]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 17, 0.2812260898316866], [".", 46, 0.23165962347760408], ["waitress", 25, 0.16848710511346673], ["fine", 12, 0.15981398807293137], ["Service", 0, 0.1587786979968857], ["and", 67, 0.2812260898316866], [".", 146, 0.23165962347760408], ["waitress", 175, 0.16848710511346673], ["fine", 212, 0.15981398807293137], ["Service", 250, 0.1587786979968857]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
+            exp.show_raw_text([["at", 30, -0.11244848362593537], ["bit", 13, -0.2401807275242288], [".", 48, 0.20426838420632148], ["is", 8, 0.19030949672116917], ["Mellow", 33, 0.1798627932619162], ["Mushroom", 40, 0.1798627932619162], ["at", 82, -0.2923112768878516], ["bit", 117, -0.2401807275242288], [".", 204, 0.20426838420632148], ["is", 216, 0.19030949672116917], ["at", 290, 0.1798627932619162], ["Mellow", 293, 0.1798627932619162], ["Mushroom", 300, 0.1798627932619162]], 1, "Pricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

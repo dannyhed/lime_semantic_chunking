@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divB8JFVURDBE3LFXY"></div>
+        <div class="lime top_div" id="top_div9R86T1S2N9K0PNV"></div>
         
         <script>
-        var top_div = d3.select('#top_divB8JFVURDBE3LFXY').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9R86T1S2N9K0PNV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.7868306530318608e-33]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999997, 3.848940441946363e-16]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["4get2text", 0.18220575761517524], ["me", -0.07721059429963055], ["number", -0.05339745040350555], ["gon", -0.04947336708764824], ["me", 0.015622636089190596]], 1, exp_div);
+                exp.show([["Me", -2.9505087256003318e-12], ["afternoon", -1.5471867860096055e-12], ["until", -5.903672988700071e-13], ["not", 2.2057385362359946e-13], ["in", 2.2052157876279357e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["4get2text", 73, 0.18220575761517524], ["me", 83, -0.07721059429963055], ["number", 87, -0.05339745040350555], ["gon", 1, -0.04947336708764824], ["me", 11, 0.015622636089190596], ["4get2text", 170, 0.18220575761517524], ["me", 277, -0.07721059429963055], ["number", 378, -0.05339745040350555], ["gon", 389, -0.04947336708764824], ["me", 496, 0.015622636089190596]], 1, " gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n gonna let me know cos comes bak from holiday that day.  is coming. Don't4get2text me  number.\n\n\n", raw_div, true);
+            exp.show_raw_text([["Me", 0, -2.9505087256003318e-12], ["afternoon", 32, -1.5471867860096055e-12], ["until", 17, -5.903672988700071e-13], ["not", 3, 2.2057385362359946e-13], ["in", 25, 2.2052157876279357e-13], ["Me", 49, -2.9505087256003318e-12], ["afternoon", 130, -1.5471867860096055e-12], ["until", 164, -5.903672988700071e-13], ["not", 199, 2.2057385362359946e-13], ["in", 270, 2.2052157876279357e-13]], 1, "Me not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\n", raw_div, true);
             
         </script>
         </body></html>

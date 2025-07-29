@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divM0JVPKZ8FKNN60R"></div>
+        <div class="lime top_div" id="top_div310OOCPGJXP806J"></div>
         
         <script>
-        var top_div = d3.select('#top_divM0JVPKZ8FKNN60R').classed('lime top_div', true);
+        var top_div = d3.select('#top_div310OOCPGJXP806J').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.49, 0.51]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.44, 0.56]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["is", 0.06934482852015779], ["other", 0.047903816951549445], ["phones", 0.035353907654868295], ["today", 0.03202254465232599], ["picture", -0.013772695974792698]], 1, exp_div);
+                exp.show([["wonderful", 0.19213463054620053], ["a", 0.06469444498690391], ["of", -0.041959524926871536], ["location", -0.03826454822276284], ["contrast", 0.035779396249982956]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["is", 23, 0.06934482852015779], ["other", 41, 0.047903816951549445], ["phones", 65, 0.035353907654868295], ["today", 85, 0.03202254465232599], ["picture", 4, -0.013772695974792698], ["is", 117, 0.06934482852015779], ["other", 229, 0.047903816951549445], ["phones", 347, 0.035353907654868295], ["today", 461, 0.03202254465232599], ["picture", 474, -0.013772695974792698]], 1, "The picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\n", raw_div, true);
+            exp.show_raw_text([["wonderful", 10, 0.19213463054620053], ["a", 34, 0.06469444498690391], ["of", 42, -0.041959524926871536], ["location", 20, -0.03826454822276284], ["contrast", 45, 0.035779396249982956], ["wonderful", 69, 0.19213463054620053], ["a", 152, 0.06469444498690391], ["of", 219, -0.041959524926871536], ["location", 256, -0.03826454822276284], ["contrast", 340, 0.035779396249982956]], 1, "In a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

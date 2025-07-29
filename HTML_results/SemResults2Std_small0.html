@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRAP7X1PK411Y7B9"></div>
+        <div class="lime top_div" id="top_divNE2RH1Z2JT9DGVG"></div>
         
         <script>
-        var top_div = d3.select('#top_divRAP7X1PK411Y7B9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNE2RH1Z2JT9DGVG').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.3, 0.7]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.24, 0.76]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", 0.17796233627232133], ["film", 0.10817925491739451], ["far", 0.06110318890549921], ["away", -0.025986022677698267], ["that", -0.01935663067021508]], 1, exp_div);
+                exp.show([["and", 0.2670178011437505], ["friendly", 0.1533302396329171], ["The", -0.07303048220611459], ["it", -0.03511282119324384], ["etc", -0.03188002666622179]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 3, 0.17796233627232133], ["you", 27, 0.17796233627232133], ["you", 51, 0.17796233627232133], ["film", 21, 0.10817925491739451], ["far", 89, 0.06110318890549921], ["away", 70, -0.025986022677698267], ["that", 46, -0.01935663067021508]], 1, "If you act in such a film, you should be glad that you're gonna drift away from earth as far as possible!  ", raw_div, true);
+            exp.show_raw_text([["and", 37, 0.2670178011437505], ["friendly", 28, 0.1533302396329171], ["The", 0, -0.07303048220611459], ["it", 47, -0.03511282119324384], ["etc", 67, -0.03188002666622179]], 1, "The tracfonewebsite is user friendly and makes it easy toactivate, etc.", raw_div, true);
             
         </script>
         </body></html>

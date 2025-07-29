@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divGO911VIP3I3LTJV"></div>
+        <div class="lime top_div" id="top_divDE4XQQ6U098VYXR"></div>
         
         <script>
-        var top_div = d3.select('#top_divGO911VIP3I3LTJV').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDE4XQQ6U098VYXR').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.55, 0.45]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.49, 0.51]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.13641240534563423], ["battery", -0.09093576367975593], ["hours", -0.05740339118179963], ["talk", -0.0519997092244867], ["would", 0.04377183109726918]], 1, exp_div);
+                exp.show([["The", -0.10528970973241598], ["far", 0.08538694452310222], ["priced", 0.07923009597472506], ["is", 0.05980589717070838], ["what", -0.049134024061757695]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 41, 0.13641240534563423], ["and", 84, 0.13641240534563423], ["battery", 49, -0.09093576367975593], ["hours", 35, -0.05740339118179963], ["talk", 10, -0.0519997092244867], ["would", 57, 0.04377183109726918]], 1, "I used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.", raw_div, true);
+            exp.show_raw_text([["The", 0, -0.10528970973241598], ["far", 26, 0.08538694452310222], ["priced", 58, 0.07923009597472506], ["is", 23, 0.05980589717070838], ["what", 36, -0.049134024061757695]], 1, "The picture resolution is far below what other comparably-priced phones are offering today.", raw_div, true);
             
         </script>
         </body></html>

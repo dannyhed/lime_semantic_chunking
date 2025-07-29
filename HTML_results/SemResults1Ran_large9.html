@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9ZP6HON0LFDNT5E"></div>
+        <div class="lime top_div" id="top_divYJ3TG8X31DQNU93"></div>
         
         <script>
-        var top_div = d3.select('#top_div9ZP6HON0LFDNT5E').classed('lime top_div', true);
+        var top_div = d3.select('#top_divYJ3TG8X31DQNU93').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["08000930705", 0.5332145165748293], ["call", 0.38585736563966755], ["Free", 0.2320102248492112], ["100", 0.15486560314835543], ["want", -0.08446237621286877]], 1, exp_div);
+                exp.show([[".", 0.5978573946347291], ["Service", 0.19803065236435177], ["fine", 0.09954525523799684], ["the", 0.09485558074881897], ["was", -0.002204987590320611]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["08000930705", 146, 0.5332145165748293], ["call", 141, 0.38585736563966755], ["Free", 117, 0.2320102248492112], ["100", 100, 0.15486560314835543], ["want", 7, -0.08446237621286877], ["08000930705", 306, 0.5332145165748293], ["call", 461, 0.38585736563966755], ["Free", 597, 0.2320102248492112], ["100", 740, 0.15486560314835543], ["want", 807, -0.08446237621286877]], 1, "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\nDo you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 46, 0.5978573946347291], ["Service", 0, 0.19803065236435177], ["fine", 12, 0.09954525523799684], ["the", 21, 0.09485558074881897], ["was", 8, -0.002204987590320611], [".", 96, 0.5978573946347291], ["Service", 100, 0.19803065236435177], ["fine", 162, 0.09954525523799684], ["the", 221, 0.09485558074881897], ["was", 258, -0.002204987590320611]], 1, "Service was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\nService was fine and the waitress was friendly.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJVRDK26B1EUZ8YM"></div>
+        <div class="lime top_div" id="top_div2AXZC3RWP88HDSQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divJVRDK26B1EUZ8YM').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2AXZC3RWP88HDSQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 6.915065525061897e-39]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["like", -1.2382318868493192e-11], ["love", 8.785620073725654e-12], ["arrange", 6.069560618796107e-12], [".", -7.154587782891872e-12], ["But", -2.5824460063885666e-12], ["i", -2.5824460063885666e-12], ["have", -2.5824460063885666e-12], ["to", -2.5824460063885666e-12]], 1, exp_div);
+                exp.show([[".", 0.577950958770012], ["and", 0.47631872289591687], ["good", 0.23674258600294332], ["The", -0.19541907017281113], ["her", -0.0026775193311647347]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["like", 17, -1.2382318868493192e-11], ["love", 30, 8.785620073725654e-12], ["arrange", 39, 6.069560618796107e-12], [".", 13, -7.154587782891872e-12], ["But", 0, -2.5824460063885666e-12], ["i", 4, -2.5824460063885666e-12], ["have", 6, -2.5824460063885666e-12], ["to", 11, -2.5824460063885666e-12], ["like", 67, -1.2382318868493192e-11], ["love", 130, 8.785620073725654e-12], ["arrange", 189, 6.069560618796107e-12], [".", 213, -4.572141776503305e-12], ["But", 250, -2.5824460063885666e-12], ["i", 254, -2.5824460063885666e-12], ["have", 256, -2.5824460063885666e-12], ["to", 261, -2.5824460063885666e-12], [".", 263, -2.5824460063885666e-12]], 1, "But i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\nBut i have to. I like to have love and arrange.\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 78, 0.577950958770012], ["and", 39, 0.47631872289591687], ["good", 4, 0.23674258600294332], ["The", 0, -0.19541907017281113], ["her", 35, -0.0026775193311647347], [".", 162, 0.577950958770012], ["and", 207, 0.47631872289591687], ["good", 256, 0.23674258600294332], ["The", 336, -0.19541907017281113], ["her", 455, -0.0026775193311647347]], 1, "The good cinematography also makes her and Monica Bellucci look very beautiful.  \n\n\nThe good cinematography also makes her and Monica Bellucci look very beautiful.  \n\n\nThe good cinematography also makes her and Monica Bellucci look very beautiful.  \n\n\nThe good cinematography also makes her and Monica Bellucci look very beautiful.  \n\n\nThe good cinematography also makes her and Monica Bellucci look very beautiful.  \n\n\nThe good cinematography also makes her and Monica Bellucci look very beautiful.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

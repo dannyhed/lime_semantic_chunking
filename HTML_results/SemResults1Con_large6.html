@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZ6EGWC38NB5FVX6"></div>
+        <div class="lime top_div" id="top_divTR0PA6SDFPBJ8UY"></div>
         
         <script>
-        var top_div = d3.select('#top_divZ6EGWC38NB5FVX6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTR0PA6SDFPBJ8UY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["me", -0.9468779243709333], [".", 0.1390501774076525], ["more", -0.11544112162017546], ["talking", -0.3088002928088593], ["to", -0.3088002928088593], ["themselves", -0.3088002928088593], ["than", -0.7468051385619238]], 1, exp_div);
+                exp.show([[".", 0.17888517099125498], ["job", -0.3963830866209915], ["well", -0.425052342759726], ["considered", -0.49224424507711295], [",", -0.49224424507711295], ["a", -0.5601515944827402], ["very", -0.5601515944827402], ["done", -0.5601515944827402]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["me", 55, -0.9468779243709333], [".", 57, 0.1390501774076525], ["more", 18, -0.11544112162017546], ["talking", 28, -0.3088002928088593], ["to", 36, -0.3088002928088593], ["themselves", 39, -0.3088002928088593], ["than", 50, -0.7468051385619238], ["talking", 89, -0.3088002928088593], ["to", 97, -0.3088002928088593], ["themselves", 100, -0.3088002928088593], ["than", 111, -0.3088002928088593], ["me", 116, -0.3088002928088593], ["me", 177, -0.2000727858090095], [".", 240, 0.1390501774076525], ["me", 299, -0.1292045529442052], ["than", 294, -0.1292045529442052], ["more", 323, -0.11544112162017546]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 43, 0.17888517099125498], ["job", 25, -0.3963830866209915], ["well", 34, -0.425052342759726], ["considered", 11, -0.49224424507711295], [",", 21, -0.49224424507711295], ["a", 23, -0.5601515944827402], ["very", 29, -0.5601515944827402], ["done", 39, -0.5601515944827402], ["considered", 60, -0.49224424507711295], [",", 70, -0.49224424507711295], ["a", 72, -0.49224424507711295], ["job", 74, -0.49224424507711295], ["very", 78, -0.49224424507711295], ["well", 83, -0.49224424507711295], ["done", 88, -0.49224424507711295], ["a", 121, 0.42433689567148564], ["job", 123, 0.42433689567148564], ["very", 127, 0.42433689567148564], ["well", 132, 0.42433689567148564], ["done", 137, 0.42433689567148564], [".", 190, 0.17888517099125498], ["job", 221, 0.16376850786174876], ["well", 279, 0.13509925172301432]], 1, "All things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\nAll things considered, a job very well done.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divHTMVHHIHQQ8AX0P"></div>
+        <div class="lime top_div" id="top_divWSY5J2Q0P2YPMQH"></div>
         
         <script>
-        var top_div = d3.select('#top_divHTMVHHIHQQ8AX0P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWSY5J2Q0P2YPMQH').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Hello", 0.013604900030458035], ["your", 0.008618032936769474], ["some", 0.006282993523494921], ["and", 0.0061921217358373885], ["well", 0.006162168780446702]], 1, exp_div);
+                exp.show([["not", -0.0038128598415926914], ["on", 0.00204027404606356], ["You", 0.0019832940152966607], ["you", -0.001764194145257479], ["have", 0.0013326897107970221]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Hello", 0, 0.013604900030458035], ["your", 43, 0.008618032936769474], ["some", 90, 0.006282993523494921], ["and", 53, 0.0061921217358373885], ["and", 67, 0.0061921217358373885], ["well", 48, 0.006162168780446702]], 1, "Hello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*", raw_div, true);
+            exp.show_raw_text([["not", 62, -0.0038128598415926914], ["on", 59, 0.00204027404606356], ["You", 0, 0.0019832940152966607], ["you", 81, -0.001764194145257479], ["have", 98, 0.0013326897107970221]], 1, "You might want to pull out more just in case and just plan on not spending it if you can, I don't have much confidence in derek and taylor's money management", raw_div, true);
             
         </script>
         </body></html>

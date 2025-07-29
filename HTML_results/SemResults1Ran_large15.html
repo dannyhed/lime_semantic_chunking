@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
+        <div class="lime top_div" id="top_divEGXGX0LOM5R58FW"></div>
         
         <script>
-        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
+        var top_div = d3.select('#top_divEGXGX0LOM5R58FW').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 5.706796169615266e-28]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["this", 0.4483020079882493], ["happier", 0.42549702119422395], ["n't", -0.3293287423766485], ["a", 0.17020341013572085], ["and", 0.15845500552784833]], 1, exp_div);
+                exp.show([["It", 0.5467373567293801], ["bad", -0.4449748151033366], ["sub", -0.39086567833983477], ["to", 0.17821798013128975], ["on", 0.16764215956158687]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["this", 18, 0.4483020079882493], ["happier", 86, 0.42549702119422395], ["n't", 79, -0.3293287423766485], ["a", 35, 0.17020341013572085], ["and", 47, 0.15845500552784833], ["this", 115, 0.4483020079882493], ["happier", 280, 0.42549702119422395], ["n't", 370, -0.3293287423766485], ["a", 423, 0.17020341013572085], ["and", 532, 0.15845500552784833]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
+            exp.show_raw_text([["It", 0, 0.5467373567293801], ["bad", 9, -0.4449748151033366], ["sub", 162, -0.39086567833983477], ["to", 82, 0.17821798013128975], ["on", 139, 0.16764215956158687], ["It", 180, 0.5467373567293801], ["bad", 369, -0.4449748151033366], ["sub", 702, -0.39086567833983477], ["to", 802, 0.17821798013128975], ["on", 1039, 0.16764215956158687]], 1, "It's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\nIt's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

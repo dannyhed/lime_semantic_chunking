@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLT3KEZLCVBYJKAZ"></div>
+        <div class="lime top_div" id="top_divDYE40V4NIVDL93U"></div>
         
         <script>
-        var top_div = d3.select('#top_divLT3KEZLCVBYJKAZ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDYE40V4NIVDL93U').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.024251970019192e-42]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", -1.1898316539858388e-12], ["life", -1.0901434989253216e-12], ["umma", -1.0188674590259713e-12], ["my", -9.367699099847867e-13], ["dear", -8.696416230645492e-13]], 1, exp_div);
+                exp.show([["Food", 0.4279375970204197], ["good", 0.3667522945457978], ["was", 0.27861400533453745], ["were", 0.16997901052712772], ["Prices", -0.1276403261460092]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 13, -1.1898316539858388e-12], ["life", 8, -1.0901434989253216e-12], ["umma", 22, -1.0188674590259713e-12], ["my", 5, -9.367699099847867e-13], ["dear", 40, -8.696416230645492e-13], ["and", 60, -1.1898316539858388e-12], ["life", 102, -1.0901434989253216e-12], ["umma", 163, -1.0188674590259713e-12], ["my", 193, -9.367699099847867e-13], ["dear", 275, -8.696416230645492e-13]], 1, "Umma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\nUmma my life and vava umma love you lot dear\n\n\n", raw_div, true);
+            exp.show_raw_text([["Food", 0, 0.4279375970204197], ["good", 9, 0.3667522945457978], ["was", 5, 0.27861400533453745], ["were", 40, 0.16997901052712772], ["Prices", 33, -0.1276403261460092], ["Food", 53, 0.4279375970204197], ["good", 115, 0.3667522945457978], ["was", 164, 0.27861400533453745], ["were", 252, 0.16997901052712772], ["Prices", 298, -0.1276403261460092]], 1, "Food was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

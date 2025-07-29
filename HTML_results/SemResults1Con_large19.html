@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUN6OXV7YS2XG3C9"></div>
+        <div class="lime top_div" id="top_divXYQISIVT07FUZLI"></div>
         
         <script>
-        var top_div = d3.select('#top_divUN6OXV7YS2XG3C9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXYQISIVT07FUZLI').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.419257492084715e-38]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999973575323, 2.642467699522532e-09]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Are", -1.8510572965413394e-15], ["?", -1.670958163162301e-15], ["in", -1.5209348241906174e-15], ["library", 1.0714370459264202e-15], ["Not", -5.555797735231763e-15], ["from", -5.555797735231763e-15], ["this", -5.555797735231763e-15], ["campus", -5.555797735231763e-15], [".", -5.555797735231763e-15], ["Not", -5.555797735231763e-15]], 1, exp_div);
+                exp.show([["is", 0.23509917233056027], [".", 0.21985879967264468], ["a", -0.21285538894435965], ["at", -0.20277365005322834], ["a", 0.12752617881308176]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Are", 22, -1.8510572965413394e-15], ["?", 44, -1.670958163162301e-15], ["in", 30, -1.5209348241906174e-15], ["library", 37, 1.0714370459264202e-15], ["Not", 0, -5.555797735231763e-15], ["from", 4, -5.555797735231763e-15], ["this", 9, -5.555797735231763e-15], ["campus", 14, -5.555797735231763e-15], [".", 20, -5.555797735231763e-15], ["Not", 48, -5.555797735231763e-15], ["from", 52, -5.555797735231763e-15], ["this", 57, -5.555797735231763e-15], ["campus", 62, -5.555797735231763e-15], [".", 68, -5.555797735231763e-15], ["Are", 118, -1.8510572965413394e-15], ["?", 188, -1.670958163162301e-15], ["in", 222, -1.5209348241906174e-15], ["library", 277, 1.0714370459264202e-15]], 1, "Not from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\n", raw_div, true);
+            exp.show_raw_text([["is", 8, 0.23509917233056027], [".", 48, 0.21985879967264468], ["a", 20, -0.21285538894435965], ["at", 30, -0.20277365005322834], ["a", 11, 0.12752617881308176], ["is", 60, 0.23509917233056027], [".", 152, 0.21985879967264468], ["a", 176, -0.21285538894435965], ["at", 238, -0.20277365005322834], ["a", 271, 0.12752617881308176]], 1, "Pricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

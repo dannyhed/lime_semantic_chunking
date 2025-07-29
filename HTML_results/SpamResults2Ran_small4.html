@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divSP8CY51QK83ZDUP"></div>
+        <div class="lime top_div" id="top_div5EE5B379GHH6DW3"></div>
         
         <script>
-        var top_div = d3.select('#top_divSP8CY51QK83ZDUP').classed('lime top_div', true);
+        var top_div = d3.select('#top_div5EE5B379GHH6DW3').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Like", 0.0], ["&lt", 0.0], [";", 0.0], ["#&gt", 0.0], [";", 0.0], [",", 0.0], ["same", 0.0], ["question", 0.0]], 1, exp_div);
+                exp.show([["...", 0.008975637013152654], ["*", 0.00795556530367927], ["well", 0.006722711490791435], ["wish", 0.006081415315154877], ["my", -0.0019248758464752184]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Like", 0, 0.0], ["&lt", 6, 0.0], [";", 9, 0.0], ["#&gt", 10, 0.0], [";", 14, 0.0], [",", 16, 0.0], ["same", 18, 0.0], ["question", 23, 0.0], ["Like", 34, 0.0], ["&lt", 40, 0.0], [";", 43, 0.0], ["#&gt", 44, 0.0], [";", 48, 0.0], [",", 50, 0.0], ["same", 52, 0.0], ["question", 57, 0.0], ["Like", 68, 0.0], ["&lt", 74, 0.0], [";", 77, 0.0], ["#&gt", 78, 0.0], [";", 82, 0.0], [",", 84, 0.0], ["same", 86, 0.0], ["question", 91, 0.0], ["Like", 102, 0.0], ["&lt", 108, 0.0], [";", 111, 0.0], ["question", 125, 0.0], ["#&gt", 112, 0.0], [";", 116, 0.0], [",", 118, 0.0], ["same", 120, 0.0], ["Like", 136, 0.0], [";", 145, 0.0], ["question", 159, 0.0], ["&lt", 176, 0.0], ["#&gt", 180, 0.0], [",", 186, 0.0], [";", 184, 0.0], ["same", 188, 0.0]], 1, "Like  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\nLike  |lt;#|gt; , same question\n\n\n", raw_div, true);
+            exp.show_raw_text([["...", 129, 0.008975637013152654], ["*", 133, 0.00795556530367927], ["well", 48, 0.006722711490791435], ["wish", 38, 0.006081415315154877], ["my", 7, -0.0019248758464752184], ["...", 281, 0.008975637013152654], ["*", 437, 0.00795556530367927], ["well", 504, 0.006722711490791435], ["wish", 646, 0.006081415315154877], ["my", 767, -0.0019248758464752184]], 1, "Hello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\n", raw_div, true);
             
         </script>
         </body></html>

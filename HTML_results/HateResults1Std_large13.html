@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1Y8K9CKDODTRZ7G"></div>
+        <div class="lime top_div" id="top_divVR0XX864R91L73P"></div>
         
         <script>
-        var top_div = d3.select('#top_div1Y8K9CKDODTRZ7G').classed('lime top_div', true);
+        var top_div = d3.select('#top_divVR0XX864R91L73P').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.021668074360604e-17]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["McGregor", -0.2754859789153903], ["Chad", -0.1804836643242441], ["Conor", -0.16553085294215011], ["Mendes", -0.14479673147925243], ["trash", -0.10883979976221726]], 1, exp_div);
+                exp.show([["bitch", 0.029054442770164574], ["damn", 0.02202038876989805], ["ass", 0.018353869397396035], ["I", -0.013590970490980823], ["my", 0.012523657586970105]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["McGregor", 24, -0.2754859789153903], ["Chad", 47, -0.1804836643242441], ["Conor", 18, -0.16553085294215011], ["Mendes", 52, -0.14479673147925243], ["trash", 33, -0.10883979976221726]], 1, "//t.co/oDnPOpL2oF Conor McGregor trash talking Chad Mendes: I can rest my balls on your forehead", raw_div, true);
+            exp.show_raw_text([["bitch", 71, 0.029054442770164574], ["damn", 5, 0.02202038876989805], ["ass", 35, 0.018353869397396035], ["I", 0, -0.013590970490980823], ["my", 32, 0.012523657586970105]], 1, "I be damn if i go ova dea n get my ass blown up i kno wat it look like bitch i play Call Of Duty frequently", raw_div, true);
             
         </script>
         </body></html>

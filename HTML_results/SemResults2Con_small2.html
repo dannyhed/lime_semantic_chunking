@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divPDAZK7KF8YW6YNR"></div>
+        <div class="lime top_div" id="top_div416KZJLZXNM9OAV"></div>
         
         <script>
-        var top_div = d3.select('#top_divPDAZK7KF8YW6YNR').classed('lime top_div', true);
+        var top_div = d3.select('#top_div416KZJLZXNM9OAV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.43, 0.57]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.25, 0.75]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["an", 0.10038481468333621], ["game", -0.027569149306892013], ["It", -0.03298052761441149], ["is", 0.01650585401785799], ["insane", 0.033915880170742464]], 1, exp_div);
+                exp.show([["good", 0.4258441245828576], ["The", -0.10124013475727506], ["are", 0.001668021713199977], ["Macarons", -0.023196217254942805], ["here", -0.023196217254942805], ["insanely", 0.0226759679341309]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["an", 6, 0.10038481468333621], ["game", 16, -0.027569149306892013], ["It", 0, -0.03298052761441149], ["is", 3, 0.01650585401785799], ["insane", 9, 0.033915880170742464], ["an", 32, 0.06646893451259374], ["game", 68, -0.06148502947763448], ["an", 84, 0.033915880170742464], ["insane", 87, 0.033915880170742464], ["game", 94, 0.033915880170742464], ["It", 104, -0.03298052761441149], ["is", 133, 0.01650585401785799]], 1, "It is an insane game.  \n\n\nIt is an insane game.  \n\n\nIt is an insane game.  \n\n\nIt is an insane game.  \n\n\nIt is an insane game.  \n\n\nIt is an insane game.  \n\n\n", raw_div, true);
+            exp.show_raw_text([["good", 31, 0.4258441245828576], ["The", 0, -0.10124013475727506], ["are", 18, 0.001668021713199977], ["Macarons", 4, -0.023196217254942805], ["here", 13, -0.023196217254942805], ["insanely", 22, 0.0226759679341309], ["good", 70, 0.4031681566487267], ["The", 78, -0.07804391750233225], ["The", 117, -0.023196217254942805], ["Macarons", 121, -0.023196217254942805], ["here", 130, -0.023196217254942805], ["are", 174, 0.0226759679341309], ["insanely", 178, 0.0226759679341309], ["good", 187, 0.0226759679341309], ["are", 213, -0.021007946220930922]], 1, "The Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

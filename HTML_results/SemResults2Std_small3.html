@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRCSIN6S3RJIF5TV"></div>
+        <div class="lime top_div" id="top_div3H9WGL3SEFJP66C"></div>
         
         <script>
-        var top_div = d3.select('#top_divRCSIN6S3RJIF5TV').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3H9WGL3SEFJP66C').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.76, 0.24]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.2, 0.8]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["good", 0.15803776299018085], ["crap", -0.08176499115321421], ["only", -0.07710158138787096], ["because", -0.06940731097518749], ["dollars", -0.061397643690702906]], 1, exp_div);
+                exp.show([["good", 0.2556719082349058], ["and", 0.17263042665095432], ["The", -0.0622661886026649], ["as", -0.03675377497624219], ["quite", 0.025971157413599174]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["good", 9, 0.15803776299018085], ["crap", 118, -0.08176499115321421], ["only", 37, -0.07710158138787096], ["because", 60, -0.06940731097518749], ["dollars", 52, -0.061397643690702906]], 1, "It was a good thing that the tickets only cost five dollars because I would be mad if I'd have paid $7.50 to see this crap.  ", raw_div, true);
+            exp.show_raw_text([["good", 53, 0.2556719082349058], ["and", 14, 0.17263042665095432], ["The", 0, -0.0622661886026649], ["as", 50, -0.03675377497624219], ["quite", 44, 0.025971157413599174]], 1, "The directing and the cinematography aren't quite as good.  ", raw_div, true);
             
         </script>
         </body></html>

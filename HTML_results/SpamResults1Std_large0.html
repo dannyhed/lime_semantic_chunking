@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divW7T31VPXDBN6722"></div>
+        <div class="lime top_div" id="top_divWJ703MNVFC4ZB4C"></div>
         
         <script>
-        var top_div = d3.select('#top_divW7T31VPXDBN6722').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWJ703MNVFC4ZB4C').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 3.287530730623969e-28]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["81618", 0.05405425082087308], ["08718727870", 0.051303903895113655], ["sms", 0.04862614381661095], ["weekly", 0.045269723426347074], ["free", 0.03191579580024782]], 1, exp_div);
+                exp.show([["asked", -2.0690072954540863e-11], ["I", -2.0493016488172925e-11], ["for", -1.80845108673329e-11], ["Ok", 1.1013310310801928e-11], ["far", 1.0913399336488785e-11]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["81618", 76, 0.05405425082087308], ["08718727870", 103, 0.051303903895113655], ["sms", 99, 0.04862614381661095], ["weekly", 26, 0.045269723426347074], ["free", 55, 0.03191579580024782]], 1, "Free Top ringtone -sub to weekly ringtone-get 1st week free-send SUBPOLY to 81618-?3 per week-stop sms-08718727870", raw_div, true);
+            exp.show_raw_text([["asked", 6, -2.0690072954540863e-11], ["I", 4, -2.0493016488172925e-11], ["for", 12, -1.80845108673329e-11], ["Ok", 0, 1.1013310310801928e-11], ["far", 26, 1.0913399336488785e-11]], 1, "Ok. I asked for money how far", raw_div, true);
             
         </script>
         </body></html>

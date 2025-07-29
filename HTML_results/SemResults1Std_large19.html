@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1IEBAFZVX81GZ6V"></div>
+        <div class="lime top_div" id="top_divXYQISIVT07FUZLI"></div>
         
         <script>
-        var top_div = d3.select('#top_div1IEBAFZVX81GZ6V').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXYQISIVT07FUZLI').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.999999999999927, 7.307143381871251e-14]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999973575323, 2.642467699522532e-09]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["why", -1.4228262554485074e-09], ["fool", -1.3254938224148277e-09], ["rightly", -1.3205635737018851e-09], ["more", 1.143878001263951e-09], ["speechless", 1.1247641021273146e-09]], 1, exp_div);
+                exp.show([["is", 0.37412804029938], ["at", -0.280358054791527], ["bit", -0.16181331268794213], ["Pricing", 0.11827338192271286], ["Mushroom", 0.10841211404662236]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["why", 97, -1.4228262554485074e-09], ["fool", 28, -1.3254938224148277e-09], ["rightly", 11, -1.3205635737018851e-09], ["more", 41, 1.143878001263951e-09], ["speechless", 115, 1.1247641021273146e-09]], 1, "Edison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)", raw_div, true);
+            exp.show_raw_text([["is", 8, 0.37412804029938], ["at", 30, -0.280358054791527], ["bit", 13, -0.16181331268794213], ["Pricing", 0, 0.11827338192271286], ["Mushroom", 40, 0.10841211404662236]], 1, "Pricing is a bit of a concern at Mellow Mushroom.", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9ANI1JYL7DWZJEH"></div>
+        <div class="lime top_div" id="top_divD7OKQE4954D20UG"></div>
         
         <script>
-        var top_div = d3.select('#top_div9ANI1JYL7DWZJEH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divD7OKQE4954D20UG').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.87, 0.13]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.71, 0.29]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["poor", -0.24411748519317575], ["voice", 0.049530432841836884], ["clarity", 0.005797627917244722], [".", 0.006895768929243451]], 1, exp_div);
+                exp.show([["not", -0.23422695470730537], ["definitely", 0.0581008738963834], ["allow", -0.04952720678274874], ["your", -0.09590178863268062], ["state", -0.05274359901598229]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["poor", 0, -0.24411748519317575], ["voice", 5, 0.049530432841836884], ["clarity", 11, 0.005797627917244722], [".", 18, 0.006895768929243451], ["poor", 22, -0.2510132541224192], ["voice", 49, 0.03663252661808355], ["poor", 66, 0.006895768929243451], ["voice", 71, 0.006895768929243451], ["clarity", 77, 0.006895768929243451], [".", 84, 0.006895768929243451], ["clarity", 99, -0.0010981410119987297], ["voice", 115, -0.000893631634733567]], 1, "poor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\n", raw_div, true);
+            exp.show_raw_text([["not", 50, -0.23422695470730537], ["definitely", 8, 0.0581008738963834], ["allow", 54, -0.04952720678274874], ["your", 34, -0.09590178863268062], ["state", 39, -0.05274359901598229], ["not", 144, -0.23422695470730537], ["definitely", 196, 0.0581008738963834], ["your", 316, -0.05274359901598229], ["state", 321, -0.05274359901598229], ["allow", 430, -0.04952720678274874], ["your", 504, -0.04315818961669833]], 1, "This is definitely a must have if your state does not allow cell phone usage while driving.\n\n\nThis is definitely a must have if your state does not allow cell phone usage while driving.\n\n\nThis is definitely a must have if your state does not allow cell phone usage while driving.\n\n\nThis is definitely a must have if your state does not allow cell phone usage while driving.\n\n\nThis is definitely a must have if your state does not allow cell phone usage while driving.\n\n\nThis is definitely a must have if your state does not allow cell phone usage while driving.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

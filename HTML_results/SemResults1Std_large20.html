@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8D9L8VNEA8RRC1O"></div>
+        <div class="lime top_div" id="top_divPEIQMFZGWL2EQMK"></div>
         
         <script>
-        var top_div = d3.select('#top_div8D9L8VNEA8RRC1O').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPEIQMFZGWL2EQMK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.834074077520548e-19]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 2.7099539736244735e-30]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["half", -0.0009055475242527468], ["owe", -0.0008898474989596485], ["I", -0.0008502350146595164], ["a", 0.0007777701509878585], ["got", -0.000749262578808558]], 1, exp_div);
+                exp.show([["disgusting", -0.09153075505536105], ["felt", -0.08841917097667286], ["two", -0.08118521330471117], ["After", 0.01690097912170495], ["I", -0.014771974193136821]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["half", 38, -0.0009055475242527468], ["owe", 55, -0.0008898474989596485], ["I", 16, -0.0008502350146595164], ["I", 53, -0.0008502350146595164], ["a", 36, 0.0007777701509878585], ["got", 21, -0.000749262578808558]], 1, "Hey you around? I've got enough for a half + the ten I owe you", raw_div, true);
+            exp.show_raw_text([["disgusting", 17, -0.09153075505536105], ["felt", 12, -0.08841917097667286], ["two", 6, -0.08118521330471117], ["After", 0, 0.01690097912170495], ["I", 10, -0.014771974193136821]], 1, "After two I felt disgusting.", raw_div, true);
             
         </script>
         </body></html>

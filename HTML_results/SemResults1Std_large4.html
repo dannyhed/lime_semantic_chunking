@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
+        <div class="lime top_div" id="top_div2AXZC3RWP88HDSQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2AXZC3RWP88HDSQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["happier", 0.7494441468789199], ["this", 0.2574560641720165], ["t", -0.1288336815560695], ["that", -0.1009478059625276], ["it", 0.08987566236872373]], 1, exp_div);
+                exp.show([["very", 0.0855986301828005], ["good", 0.0826252463458963], ["cinematography", 0.06757449286380356], ["beautiful", 0.06000005712625614], ["Bellucci", 0.05486362143274513]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["happier", 86, 0.7494441468789199], ["this", 18, 0.2574560641720165], ["t", 81, -0.1288336815560695], ["that", 55, -0.1009478059625276], ["it", 69, 0.08987566236872373]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.", raw_div, true);
+            exp.show_raw_text([["very", 64, 0.0855986301828005], ["good", 4, 0.0826252463458963], ["cinematography", 9, 0.06757449286380356], ["beautiful", 69, 0.06000005712625614], ["Bellucci", 50, 0.05486362143274513]], 1, "The good cinematography also makes her and Monica Bellucci look very beautiful.  ", raw_div, true);
             
         </script>
         </body></html>

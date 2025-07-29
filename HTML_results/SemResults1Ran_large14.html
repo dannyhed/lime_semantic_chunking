@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divCJIWCHBRCOSUKCX"></div>
+        <div class="lime top_div" id="top_divXSDQNIGSEY70JZS"></div>
         
         <script>
-        var top_div = d3.select('#top_divCJIWCHBRCOSUKCX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXSDQNIGSEY70JZS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999905, 9.570029900776654e-15]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.770601422455102e-20]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["..", 0.6505015147063046], ["My", -0.1657974482213232], ["car", -0.16216572406006785], ["not", -0.1260632520736735]], 1, exp_div);
+                exp.show([["time", 0.009345375833116981], ["me", -0.0065787859139625135], ["Your", 0.002888148804129687], ["themselves", -0.0027345373960988998], ["staff", -0.0018298420431754894]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["..", 8, 0.6505015147063046], ["My", 11, -0.1657974482213232], ["car", 14, -0.16216572406006785], ["not", 23, -0.1260632520736735], ["..", 59, 0.6505015147063046], ["My", 113, -0.22592052606311444], ["car", 167, -0.22228880190185912], ["not", 227, -0.1260632520736735], ["My", 266, 0.06012307784179126], ["car", 269, 0.06012307784179126]], 1, "Terrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\n", raw_div, true);
+            exp.show_raw_text([["time", 23, 0.009345375833116981], ["me", 55, -0.0065787859139625135], ["Your", 0, 0.002888148804129687], ["themselves", 39, -0.0027345373960988998], ["staff", 5, -0.0018298420431754894], ["time", 84, 0.009345375833116981], ["me", 177, -0.0065787859139625135], ["Your", 183, 0.002888148804129687], ["themselves", 283, -0.0027345373960988998], ["staff", 310, -0.0018298420431754894]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divQT0QIKP05V0541P"></div>
+        <div class="lime top_div" id="top_div9R86T1S2N9K0PNV"></div>
         
         <script>
-        var top_div = d3.select('#top_divQT0QIKP05V0541P').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9R86T1S2N9K0PNV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 9.728936215777947e-34]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999997, 3.848940441946363e-16]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["thanks", 2.9544050159451957e-15], ["...", 3.070924604430436e-15], ["Okay", 3.2732828243833653e-15], ["Sat", -1.4892660363827567e-14], ["right", -1.4892660363827567e-14], ["?", -1.4892660363827567e-14], ["Sat", -1.4892660363827567e-14]], 1, exp_div);
+                exp.show([["afternoon", 3.3682769467355864e-09], [",", -2.2892889955657074e-09], ["the", -2.2172509120910064e-09], ["not", -2.1831675320268237e-09], ["until", -1.7248150236519193e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["thanks", 16, 2.9544050159451957e-15], ["...", 22, 3.070924604430436e-15], ["Okay", 11, 3.2732828243833653e-15], ["Sat", 0, -1.4892660363827567e-14], ["right", 4, -1.4892660363827567e-14], ["?", 9, -1.4892660363827567e-14], ["Sat", 28, -1.4892660363827567e-14], ["right", 32, -1.4892660363827567e-14], ["?", 37, -1.4892660363827567e-14], ["Okay", 67, 8.54462686475011e-15], ["thanks", 72, 8.54462686475011e-15], ["...", 78, 8.54462686475011e-15], ["thanks", 100, -5.5902218488049136e-15], ["...", 134, -5.4737022603196734e-15], ["Okay", 151, -5.271344040366744e-15]], 1, "Sat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\n", raw_div, true);
+            exp.show_raw_text([["afternoon", 32, 3.3682769467355864e-09], [",", 41, -2.2892889955657074e-09], ["the", 28, -2.2172509120910064e-09], ["not", 3, -2.1831675320268237e-09], ["until", 17, -1.7248150236519193e-09], ["afternoon", 81, 3.3682769467355864e-09], [",", 139, -2.2892889955657074e-09], ["the", 175, -2.2172509120910064e-09], ["not", 199, -2.1831675320268237e-09], ["until", 262, -1.7248150236519193e-09]], 1, "Me not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\n", raw_div, true);
             
         </script>
         </body></html>

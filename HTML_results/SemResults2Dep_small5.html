@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJE1IOX2OKWQCYQS"></div>
+        <div class="lime top_div" id="top_divDE4XQQ6U098VYXR"></div>
         
         <script>
-        var top_div = d3.select('#top_divJE1IOX2OKWQCYQS').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDE4XQQ6U098VYXR').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.2, 0.8]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.49, 0.51]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["good", 0.2912128970427508], ["and", 0.10386908301786432], ["The", -0.06743710097503514], ["as", -0.056921658631176986], ["quite", 0.03583928999269739]], 1, exp_div);
+                exp.show([["priced", 0.09556248788718179], ["The", -0.0822997132669409], ["far", 0.07704519604164352], ["is", 0.05443292457255861], ["what", -0.0482881278909962]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["good", 53, 0.2912128970427508], ["and", 14, 0.10386908301786432], ["The", 0, -0.06743710097503514], ["as", 50, -0.056921658631176986], ["quite", 44, 0.03583928999269739], ["good", 116, 0.2912128970427508], ["and", 140, 0.10386908301786432], ["The", 189, -0.06743710097503514], ["as", 302, -0.056921658631176986], ["quite", 359, 0.03583928999269739]], 1, "The directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\nThe directing and the cinematography aren't quite as good.  \n\n\n", raw_div, true);
+            exp.show_raw_text([["priced", 58, 0.09556248788718179], ["The", 0, -0.0822997132669409], ["far", 26, 0.07704519604164352], ["is", 23, 0.05443292457255861], ["what", 36, -0.0482881278909962], ["priced", 152, 0.09556248788718179], ["The", 188, -0.0822997132669409], ["far", 308, 0.07704519604164352], ["is", 399, 0.05443292457255861], ["what", 506, -0.0482881278909962]], 1, "The picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

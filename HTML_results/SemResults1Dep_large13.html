@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divCJIWCHBRCOSUKCX"></div>
+        <div class="lime top_div" id="top_div0WKT8LDGIIL61E3"></div>
         
         <script>
-        var top_div = d3.select('#top_divCJIWCHBRCOSUKCX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0WKT8LDGIIL61E3').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999905, 9.570029900776654e-15]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999281, 7.198497775893798e-14]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["not", -0.5581657982928485], ["accept", -0.48242640668685766], ["Terrible", -0.08679522303880657], ["My", -0.2638963648893551], ["car", -0.34937910922565013], ["will", -0.34937910922565013], ["this", -0.34937910922565013], ["cassette", -0.34937910922565013], [".", -0.34937910922565013]], 1, exp_div);
+                exp.show([["skip", -0.429357779374091], ["Austen", 0.21989084484389795], ["Unless", -0.19440403694794436], ["of", -0.09252003933823606], ["one", -0.07208974344149387]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["not", 23, -0.5581657982928485], ["accept", 27, -0.48242640668685766], ["Terrible", 0, -0.08679522303880657], ["My", 11, -0.2638963648893551], ["car", 14, -0.34937910922565013], ["will", 18, -0.34937910922565013], ["this", 34, -0.34937910922565013], ["cassette", 39, -0.34937910922565013], [".", 47, -0.34937910922565013], ["My", 62, -0.34937910922565013], ["car", 65, -0.34937910922565013], ["will", 69, -0.34937910922565013], ["not", 74, -0.34937910922565013], ["accept", 78, -0.34937910922565013], ["this", 85, -0.34937910922565013], ["cassette", 90, -0.34937910922565013], [".", 98, -0.34937910922565013], ["not", 125, -0.20878668906719833], ["accept", 180, -0.13304729746120753], ["Terrible", 204, -0.08679522303880657], ["My", 266, 0.08548274433629505]], 1, "Terrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\nTerrible.. My car will not accept this cassette.\n\n\n", raw_div, true);
+            exp.show_raw_text([["skip", 88, -0.429357779374091], ["Austen", 65, 0.21989084484389795], ["Unless", 0, -0.19440403694794436], ["of", 62, -0.09252003933823606], ["one", 98, -0.07208974344149387], ["skip", 195, -0.429357779374091], ["Austen", 279, 0.21989084484389795], ["Unless", 321, -0.19440403694794436], ["of", 490, -0.09252003933823606], ["one", 633, -0.07208974344149387]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

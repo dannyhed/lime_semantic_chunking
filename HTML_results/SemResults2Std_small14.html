@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divR9AWT1D6U9TJDN1"></div>
+        <div class="lime top_div" id="top_divD7OKQE4954D20UG"></div>
         
         <script>
-        var top_div = d3.select('#top_divR9AWT1D6U9TJDN1').classed('lime top_div', true);
+        var top_div = d3.select('#top_divD7OKQE4954D20UG').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.24, 0.76]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.71, 0.29]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.26244376596924185], ["friendly", 0.14928500336359046], ["The", -0.06834353278858009], ["user", -0.039099746747655234], ["it", -0.03794144450359945]], 1, exp_div);
+                exp.show([["not", -0.24134171909652913], ["definitely", 0.05764843704434177], ["driving", -0.04195770438768804], ["your", -0.041797346022654835], ["allow", -0.040059948110359365]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 37, 0.26244376596924185], ["friendly", 28, 0.14928500336359046], ["The", 0, -0.06834353278858009], ["user", 23, -0.039099746747655234], ["it", 47, -0.03794144450359945]], 1, "The tracfonewebsite is user friendly and makes it easy toactivate, etc.", raw_div, true);
+            exp.show_raw_text([["not", 50, -0.24134171909652913], ["definitely", 8, 0.05764843704434177], ["driving", 83, -0.04195770438768804], ["your", 34, -0.041797346022654835], ["allow", 54, -0.040059948110359365]], 1, "This is definitely a must have if your state does not allow cell phone usage while driving.", raw_div, true);
             
         </script>
         </body></html>

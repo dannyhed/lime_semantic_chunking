@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divGH5UWVGNR8OI1P6"></div>
+        <div class="lime top_div" id="top_divPEIQMFZGWL2EQMK"></div>
         
         <script>
-        var top_div = d3.select('#top_divGH5UWVGNR8OI1P6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPEIQMFZGWL2EQMK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 2.7099539736244735e-30]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Worst", -0.7819858597285378], ["service", 0.22227249174707708], [".", 0.012012056213956492], ["customer", 0.01306436706750952]], 1, exp_div);
+                exp.show([["two", -0.07533183931030504], ["felt", -0.10436277460914296], ["disgusting", -0.06545004048380702], ["After", 0.20784227763486646]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Worst", 0, -0.7819858597285378], ["service", 15, 0.22227249174707708], [".", 22, 0.012012056213956492], ["customer", 6, 0.01306436706750952], ["Worst", 26, -0.8282856648788122], ["service", 67, 0.17597268659680276], ["Worst", 78, 0.04629980515027433], ["customer", 84, 0.04629980515027433], ["service", 93, 0.04629980515027433], [".", 100, 0.04629980515027433], [".", 126, -0.034287748936317836], ["customer", 136, -0.03323543808276481]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
+            exp.show_raw_text([["two", 6, -0.07533183931030504], ["felt", 12, -0.10436277460914296], ["disgusting", 17, -0.06545004048380702], ["After", 0, 0.20784227763486646], ["two", 37, -0.22388255389908784], ["After", 62, 0.1485507145887828], ["two", 68, 0.1485507145887828], ["felt", 105, -0.10436277460914296], ["disgusting", 141, -0.06545004048380702], ["After", 155, 0.05929156304608367]], 1, "After two I felt disgusting.\n\n\nAfter two I felt disgusting.\n\n\nAfter two I felt disgusting.\n\n\nAfter two I felt disgusting.\n\n\nAfter two I felt disgusting.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

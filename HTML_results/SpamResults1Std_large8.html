@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div286QQHL8UFM9BG7"></div>
+        <div class="lime top_div" id="top_div9R86T1S2N9K0PNV"></div>
         
         <script>
-        var top_div = d3.select('#top_div286QQHL8UFM9BG7').classed('lime top_div', true);
+        var top_div = d3.select('#top_div9R86T1S2N9K0PNV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 2.4877025759458554e-22]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999997, 3.848940441946363e-16]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Howz", 2.8958170905336798e-11], ["persons", 2.8544337271726358e-11], ["story", 2.7483936359611568e-11], ["that", -2.28091669553152e-11]], 1, exp_div);
+                exp.show([["not", -7.948627575818292e-09], ["up", -7.116621820596537e-09], ["in", -6.763925772821781e-09], ["the", -6.416624811076844e-09], ["4", 6.039317417696191e-09]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Howz", 0, 2.8958170905336798e-11], ["persons", 10, 2.8544337271726358e-11], ["story", 18, 2.7483936359611568e-11], ["that", 5, -2.28091669553152e-11]], 1, "Howz that persons story", raw_div, true);
+            exp.show_raw_text([["not", 3, -7.948627575818292e-09], ["up", 14, -7.116621820596537e-09], ["in", 25, -6.763925772821781e-09], ["the", 28, -6.416624811076844e-09], ["4", 23, 6.039317417696191e-09]], 1, "Me not waking up until 4 in the afternoon, sup", raw_div, true);
             
         </script>
         </body></html>

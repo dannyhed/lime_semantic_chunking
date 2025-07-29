@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9ANI1JYL7DWZJEH"></div>
+        <div class="lime top_div" id="top_div2EZ5OH4DXUCB0IR"></div>
         
         <script>
-        var top_div = d3.select('#top_div9ANI1JYL7DWZJEH').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2EZ5OH4DXUCB0IR').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.87, 0.13]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.57, 0.43]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["poor", -0.24654710410792655], ["voice", 0.040750890810377055], ["clarity", 0.005928661060007313]], 1, exp_div);
+                exp.show([["is", 0.09925128136221105], ["Voice", -0.029647862166539807], ["tremendous", -0.01395230295489656], ["recognition", -0.010689348461027048]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["poor", 0, -0.24654710410792655], ["voice", 5, 0.040750890810377055], ["clarity", 11, 0.005928661060007313]], 1, "poor voice clarity.", raw_div, true);
+            exp.show_raw_text([["is", 18, 0.09925128136221105], ["Voice", 0, -0.029647862166539807], ["tremendous", 21, -0.01395230295489656], ["recognition", 6, -0.010689348461027048]], 1, "Voice recognition is tremendous!", raw_div, true);
             
         </script>
         </body></html>

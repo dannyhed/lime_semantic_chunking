@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divGO911VIP3I3LTJV"></div>
+        <div class="lime top_div" id="top_div416KZJLZXNM9OAV"></div>
         
         <script>
-        var top_div = d3.select('#top_divGO911VIP3I3LTJV').classed('lime top_div', true);
+        var top_div = d3.select('#top_div416KZJLZXNM9OAV').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.55, 0.45]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.25, 0.75]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.08316527646947025], ["battery", -0.0602255913821609], ["talk", -0.05358965823729372], ["hours", -0.045406726563192494], ["and", 0.04148443964718972]], 1, exp_div);
+                exp.show([["good", 0.5387550638086211], ["The", -0.01067753299687095], ["here", 0.06643794597950473], ["are", 0.07227083375674208], ["Macarons", 0.09449636641471879], ["insanely", 0.09449636641471879], [".", 0.09449636641471879]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 41, 0.08316527646947025], ["battery", 49, -0.0602255913821609], ["talk", 10, -0.05358965823729372], ["hours", 35, -0.045406726563192494], ["and", 84, 0.04148443964718972], ["and", 138, 0.08316527646947025], ["battery", 243, -0.0602255913821609], ["talk", 301, -0.05358965823729372], ["hours", 423, -0.045406726563192494], ["and", 569, 0.04148443964718972]], 1, "I used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.\n\n\nI used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.\n\n\nI used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.\n\n\nI used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.\n\n\nI used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.\n\n\nI used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.\n\n\n", raw_div, true);
+            exp.show_raw_text([["good", 31, 0.5387550638086211], ["The", 0, -0.01067753299687095], ["here", 13, 0.06643794597950473], ["are", 18, 0.07227083375674208], ["Macarons", 4, 0.09449636641471879], ["insanely", 22, 0.09449636641471879], [".", 35, 0.09449636641471879], ["good", 70, 0.4442586973939024], ["The", 78, -0.10517389941158974], ["The", 117, 0.09449636641471879], ["Macarons", 121, 0.09449636641471879], ["here", 130, 0.09449636641471879], ["are", 135, 0.09449636641471879], ["insanely", 139, 0.09449636641471879], ["good", 148, 0.09449636641471879], [".", 152, 0.09449636641471879], ["here", 169, -0.028058420435214067], ["are", 213, -0.022225532657976707]], 1, "The Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

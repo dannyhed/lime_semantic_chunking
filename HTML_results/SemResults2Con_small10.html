@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divSUWSULLCUZ943CC"></div>
+        <div class="lime top_div" id="top_div2EZ5OH4DXUCB0IR"></div>
         
         <script>
-        var top_div = d3.select('#top_divSUWSULLCUZ943CC').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2EZ5OH4DXUCB0IR').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.44, 0.56]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.57, 0.43]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["wonderful", 0.29933178924599035], ["of", -0.057385804960519995], ["In", -0.029006975096336502], ["story", 0.01943781129688116], ["contrast", 0.017479139902033296]], 1, exp_div);
+                exp.show([["is", 0.10612706680614994], ["Voice", -0.03172421092010724], ["tremendous", -0.009240037100774525], ["recognition", -0.01237808168366604]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["wonderful", 10, 0.29933178924599035], ["of", 42, -0.057385804960519995], ["In", 0, -0.029006975096336502], ["story", 36, 0.01943781129688116], ["contrast", 45, 0.017479139902033296], ["wonderful", 69, 0.29933178924599035], ["of", 160, -0.057385804960519995], ["In", 177, -0.029006975096336502], ["story", 272, 0.01943781129688116], ["contrast", 340, 0.017479139902033296]], 1, "In a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\n", raw_div, true);
+            exp.show_raw_text([["is", 18, 0.10612706680614994], ["Voice", 0, -0.03172421092010724], ["tremendous", 21, -0.009240037100774525], ["recognition", 6, -0.01237808168366604], ["is", 53, 0.10612706680614994], ["Voice", 70, -0.025183154301717508], ["tremendous", 126, -0.009240037100774525], ["Voice", 140, -0.006541056618389736], ["recognition", 146, -0.006541056618389736], ["recognition", 181, -0.005837025065276304]], 1, "Voice recognition is tremendous!\n\n\nVoice recognition is tremendous!\n\n\nVoice recognition is tremendous!\n\n\nVoice recognition is tremendous!\n\n\nVoice recognition is tremendous!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

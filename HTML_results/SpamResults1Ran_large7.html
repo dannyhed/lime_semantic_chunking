@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBUQ0KZHLKYOUCGX"></div>
+        <div class="lime top_div" id="top_div6IFCH2KBAB01KGS"></div>
         
         <script>
-        var top_div = d3.select('#top_divBUQ0KZHLKYOUCGX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div6IFCH2KBAB01KGS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [0.9999999999999997, 3.84894044194639e-16]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["until", -1.5480897019931e-10], ["in", 8.546230688310936e-11], ["sup", 5.2781327075418665e-11], ["not", 3.9638594470711264e-11], [",", 2.7066099813211044e-11]], 1, exp_div);
+                exp.show([["09066361921", 0.8638210009823691], ["this", -0.22598185313377772], ["This", 0.1987118024090827], ["the", 0.1491018443760458], ["of", 0.1345236732946089]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["until", 17, -1.5480897019931e-10], ["in", 25, 8.546230688310936e-11], ["sup", 43, 5.2781327075418665e-11], ["not", 3, 3.9638594470711264e-11], [",", 41, 2.7066099813211044e-11], ["until", 66, -1.5480897019931e-10], ["in", 123, 8.546230688310936e-11], ["sup", 190, 5.2781327075418665e-11], ["not", 199, 3.9638594470711264e-11], [",", 286, 2.7066099813211044e-11]], 1, "Me not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\nMe not waking up until 4 in the afternoon, sup\n\n\n", raw_div, true);
+            exp.show_raw_text([["09066361921", 119, 0.8638210009823691], ["this", 52, -0.22598185313377772], ["This", 0, 0.1987118024090827], ["the", 8, 0.1491018443760458], ["of", 73, 0.1345236732946089], ["09066361921", 252, 0.8638210009823691], ["this", 318, -0.22598185313377772], ["This", 399, 0.1987118024090827], ["the", 540, 0.1491018443760458], ["of", 738, 0.1345236732946089]], 1, "This is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\nThis is the 2nd attempt to contract U, you have won this weeks top prize of either \u00a31000 cash or \u00a3200 prize. Just call 09066361921\n\n\n", raw_div, true);
             
         </script>
         </body></html>

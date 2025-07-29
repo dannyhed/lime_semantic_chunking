@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divYIC9BVYMTGUS19Q"></div>
+        <div class="lime top_div" id="top_divOQDP22VV4UQWZBK"></div>
         
         <script>
-        var top_div = d3.select('#top_divYIC9BVYMTGUS19Q').classed('lime top_div', true);
+        var top_div = d3.select('#top_divOQDP22VV4UQWZBK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.472062631149295e-32]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", -1.7841283425606135e-12], ["fat", -1.437971436226656e-12], ["have", -1.3874969810004725e-12], ["means", -1.3729528079239683e-12], ["that", 9.231783179248792e-13]], 1, exp_div);
+                exp.show([["stories", 0.6085684657496555], ["of", 0.3884936274300511], [".", 0.31797840780509323], ["were", -0.11577861605698565], ["powerful", -0.09980415093679926]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 19, -1.7841283425606135e-12], ["fat", 30, -1.437971436226656e-12], ["have", 23, -1.3874969810004725e-12], ["means", 13, -1.3729528079239683e-12], ["that", 3, 9.231783179248792e-13], ["you", 60, -1.7841283425606135e-12], ["fat", 112, -1.437971436226656e-12], ["have", 146, -1.3874969810004725e-12], ["means", 177, -1.3729528079239683e-12], ["that", 208, 9.231783179248792e-13]], 1, "No that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\nNo that just means you have a fat head\n\n\n", raw_div, true);
+            exp.show_raw_text([["stories", 4, 0.6085684657496555], ["of", 39, 0.3884936274300511], [".", 70, 0.31797840780509323], ["were", 12, -0.11577861605698565], ["powerful", 17, -0.09980415093679926], ["stories", 80, 0.6085684657496555], ["of", 191, 0.3884936274300511], [".", 298, 0.31797840780509323], ["were", 316, -0.11577861605698565], ["powerful", 397, -0.09980415093679926]], 1, "The stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

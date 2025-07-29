@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divSUWSULLCUZ943CC"></div>
+        <div class="lime top_div" id="top_divIYDNMJED4TQEJC4"></div>
         
         <script>
-        var top_div = d3.select('#top_divSUWSULLCUZ943CC').classed('lime top_div', true);
+        var top_div = d3.select('#top_divIYDNMJED4TQEJC4').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.44, 0.56]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["wonderful", 0.21961376657808104], ["story", 0.02791052553775443], ["In", -0.020442234825891], ["a", -0.01619454980801685], ["of", -0.005183916093448563]], 1, exp_div);
+                exp.show([["bad", -0.259366204254436], ["long", 0.050862716433117024], ["been", 0.04129319596787573], ["service", 0.02873563790574778], ["would", -0.015397076290686831]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["wonderful", 10, 0.21961376657808104], ["story", 36, 0.02791052553775443], ["In", 0, -0.020442234825891], ["a", 3, -0.01619454980801685], ["of", 42, -0.005183916093448563], ["wonderful", 69, 0.21961376657808104], ["story", 154, 0.02791052553775443], ["In", 177, -0.020442234825891], ["a", 239, -0.01619454980801685], ["of", 337, -0.005183916093448563]], 1, "In a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\nIn a most wonderful location lies a story of contrast.  \n\n\n", raw_div, true);
+            exp.show_raw_text([["bad", 39, -0.259366204254436], ["long", 18, 0.050862716433117024], ["been", 78, 0.04129319596787573], ["service", 55, 0.02873563790574778], ["would", 3, -0.015397076290686831], ["bad", 137, -0.259366204254436], ["long", 214, 0.050862716433117024], ["been", 372, 0.04129319596787573], ["service", 447, 0.02873563790574778], ["would", 493, -0.015397076290686831]], 1, "It would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

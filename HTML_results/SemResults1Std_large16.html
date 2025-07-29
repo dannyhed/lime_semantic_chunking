@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divROH4VKATKT7D6US"></div>
+        <div class="lime top_div" id="top_divFS0Q3CFWDF35YR8"></div>
         
         <script>
-        var top_div = d3.select('#top_divROH4VKATKT7D6US').classed('lime top_div', true);
+        var top_div = d3.select('#top_divFS0Q3CFWDF35YR8').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.1133441410730037e-38]);
+            var pp = new lime.PredictProba(pp_svg, [], [2.220446049250313e-16, 0.9999999999999998]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["came", -4.375433504426082e-28], ["room", -4.173069338258849e-28], ["to", -3.2145118087021827e-28], ["m", 2.024631296146441e-28], ["also", 1.1347108562497312e-28]], 1, exp_div);
+                exp.show([["happier", 0.7082823787235892], ["this", 0.27415184303451473], ["it", 0.08827731145441498], ["that", -0.08563237127636261], ["t", -0.0828095847936142]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["came", 9, -4.375433504426082e-28], ["room", 17, -4.173069338258849e-28], ["to", 14, -3.2145118087021827e-28], ["m", 2, 2.024631296146441e-28], ["also", 4, 1.1347108562497312e-28]], 1, "I'm also came to room.", raw_div, true);
+            exp.show_raw_text([["happier", 86, 0.7082823787235892], ["this", 18, 0.27415184303451473], ["it", 69, 0.08827731145441498], ["that", 55, -0.08563237127636261], ["t", 81, -0.0828095847936142]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.", raw_div, true);
             
         </script>
         </body></html>

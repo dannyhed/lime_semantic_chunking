@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBDI1VA5XHRFDXKL"></div>
+        <div class="lime top_div" id="top_divMPQQVNLOUPDRWLO"></div>
         
         <script>
-        var top_div = d3.select('#top_divBDI1VA5XHRFDXKL').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMPQQVNLOUPDRWLO').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["No", 0.0], ["..he", 0.0], ["joined", 0.0], ["today", 0.0], ["itself", 0.0], [".", 0.0]], 1, exp_div);
+                exp.show([["and", 0.01295894544761315], ["for", 0.01107910554105302], ["comes", 0.008528817969216586], ["P", -0.0013916038723810278], ["morning", -0.0009025570777769881]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["No", 0, 0.0], ["..he", 2, 0.0], ["joined", 7, 0.0], ["today", 14, 0.0], ["itself", 20, 0.0], [".", 26, 0.0], ["No", 30, 0.0], ["..he", 32, 0.0], ["joined", 37, 0.0], ["today", 44, 0.0], ["itself", 50, 0.0], [".", 56, 0.0], ["No", 60, 0.0], ["..he", 62, 0.0], ["joined", 67, 0.0], ["today", 74, 0.0], ["itself", 80, 0.0], [".", 86, 0.0], ["No", 90, 0.0], ["..he", 92, 0.0], ["joined", 97, 0.0], ["today", 104, 0.0], ["itself", 110, 0.0], [".", 116, 0.0], ["today", 134, 0.0], ["joined", 157, 0.0], ["itself", 170, 0.0]], 1, "No..he joined today itself.\n\n\nNo..he joined today itself.\n\n\nNo..he joined today itself.\n\n\nNo..he joined today itself.\n\n\nNo..he joined today itself.\n\n\nNo..he joined today itself.\n\n\nNo..he joined today itself.\n\n\n", raw_div, true);
+            exp.show_raw_text([["and", 30, 0.01295894544761315], ["for", 40, 0.01107910554105302], ["comes", 34, 0.008528817969216586], ["P", 7, -0.0013916038723810278], ["morning", 61, -0.0009025570777769881], ["and", 101, 0.01295894544761315], ["for", 182, 0.01107910554105302], ["comes", 247, 0.008528817969216586], ["P", 291, -0.0013916038723810278], ["morning", 416, -0.0009025570777769881]], 1, "Great. P diddy is my neighbor and comes for toothpaste every morning\n\n\nGreat. P diddy is my neighbor and comes for toothpaste every morning\n\n\nGreat. P diddy is my neighbor and comes for toothpaste every morning\n\n\nGreat. P diddy is my neighbor and comes for toothpaste every morning\n\n\nGreat. P diddy is my neighbor and comes for toothpaste every morning\n\n\nGreat. P diddy is my neighbor and comes for toothpaste every morning\n\n\n", raw_div, true);
             
         </script>
         </body></html>

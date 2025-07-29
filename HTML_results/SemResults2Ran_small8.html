@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTDWV81TNT26843C"></div>
+        <div class="lime top_div" id="top_divICOHFHD7J59AR4L"></div>
         
         <script>
-        var top_div = d3.select('#top_divTDWV81TNT26843C').classed('lime top_div', true);
+        var top_div = d3.select('#top_divICOHFHD7J59AR4L').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.38, 0.62]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.52, 0.48]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["family", 0.15271985870903257], ["for", 0.08589068865367638], ["our", 0.03477553969452231], [".", 0.022075630652420998], ["whole", -0.003749282506637684]], 1, exp_div);
+                exp.show([["it", 0.2874028796626756], ["Do", -0.010905026511676266], ["n't", 0.0009694175764358497]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["family", 22, 0.15271985870903257], ["for", 8, 0.08589068865367638], ["our", 12, 0.03477553969452231], [".", 28, 0.022075630652420998], ["whole", 16, -0.003749282506637684], ["family", 54, 0.15271985870903257], ["for", 72, 0.08589068865367638], ["our", 108, 0.03477553969452231], [".", 156, 0.022075630652420998], ["whole", 176, -0.003749282506637684]], 1, "Comfort for our whole family.\n\n\nComfort for our whole family.\n\n\nComfort for our whole family.\n\n\nComfort for our whole family.\n\n\nComfort for our whole family.\n\n\nComfort for our whole family.\n\n\n", raw_div, true);
+            exp.show_raw_text([["it", 11, 0.2874028796626756], ["Do", 0, -0.010905026511676266], ["n't", 2, 0.0009694175764358497], ["it", 30, 0.2874028796626756], ["Do", 38, -0.011325413243889377], ["Do", 57, -0.000549030844222737], ["n't", 78, 0.00048713586801178585], ["Do", 76, 0.00048713586801178585], ["n't", 97, 0.0004822817084240638], ["Do", 95, 0.0004822817084240638]], 1, "Don't miss it.  \n\n\nDon't miss it.  \n\n\nDon't miss it.  \n\n\nDon't miss it.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

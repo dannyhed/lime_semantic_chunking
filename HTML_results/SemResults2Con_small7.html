@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div9ANI1JYL7DWZJEH"></div>
+        <div class="lime top_div" id="top_divIYDNMJED4TQEJC4"></div>
         
         <script>
-        var top_div = d3.select('#top_div9ANI1JYL7DWZJEH').classed('lime top_div', true);
+        var top_div = d3.select('#top_divIYDNMJED4TQEJC4').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.87, 0.13]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["poor", -0.2533390085431231], ["voice", 0.03372379101951246], [".", 0.00012824621808789143], ["clarity", 0.0003714176184964087]], 1, exp_div);
+                exp.show([["bad", -0.23504674192529296], ["how", -0.05596394399066399], ["describe", -0.048710077019392686], ["would", 0.046461358151795334], ["take", -0.045170936012245706]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["poor", 0, -0.2533390085431231], ["voice", 5, 0.03372379101951246], [".", 18, 0.00012824621808789143], ["clarity", 11, 0.0003714176184964087], ["poor", 22, -0.2541986475400177], ["voice", 49, 0.032864152022617846], ["poor", 66, 0.0008596389968946115], ["voice", 71, 0.0008596389968946115], ["clarity", 77, 0.0008596389968946115], [".", 84, 0.0008596389968946115], [".", 106, -0.00073139277880672], ["clarity", 121, -0.0004882213783982028]], 1, "poor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\n", raw_div, true);
+            exp.show_raw_text([["bad", 39, -0.23504674192529296], ["how", 35, -0.05596394399066399], ["describe", 26, -0.048710077019392686], ["would", 3, 0.046461358151795334], ["take", 9, -0.045170936012245706], ["bad", 137, -0.23504674192529296], ["how", 231, -0.05596394399066399], ["describe", 320, -0.048710077019392686], ["would", 395, 0.046461358151795334], ["take", 499, -0.045170936012245706]], 1, "It would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

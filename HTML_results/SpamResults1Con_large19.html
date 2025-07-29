@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divW200TTA1RG3MDS0"></div>
+        <div class="lime top_div" id="top_div44GAN4G2IL3M5IJ"></div>
         
         <script>
-        var top_div = d3.select('#top_divW200TTA1RG3MDS0').classed('lime top_div', true);
+        var top_div = d3.select('#top_div44GAN4G2IL3M5IJ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 5.063569268460371e-33]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.0804003761360723e-29]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([[".", -7.677500366254262e-13], ["going", -6.683142909940391e-13], ["more", 1.4196312938013119e-12], ["than", -1.2686489923146634e-13], ["me", -1.2686489923146634e-13], ["da", -1.2686489923146634e-13]], 1, exp_div);
+                exp.show([["I", -4.0476295081569967e-13], ["marriage", 3.669818112908567e-13], ["a", -2.395941077605265e-13], ["in", -2.147277454991455e-13], ["function", -2.105156852176435e-13]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([[".", 39, -7.677500366254262e-13], ["going", 10, -6.683142909940391e-13], ["more", 24, 1.4196312938013119e-12], ["than", 29, -1.2686489923146634e-13], ["me", 34, -1.2686489923146634e-13], ["da", 37, -1.2686489923146634e-13], ["than", 72, -1.2050417768685686e-12], ["me", 77, -1.2050417768685686e-12], ["da", 80, -1.2050417768685686e-12], ["more", 110, 1.0781768776371022e-12], ["than", 115, 1.0781768776371022e-12], ["me", 120, 1.0781768776371022e-12], ["da", 123, 1.0781768776371022e-12], [".", 168, -7.677500366254262e-13], ["going", 182, -6.683142909940391e-13], ["more", 239, 3.4145441616420963e-13]], 1, "My sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\nMy sister going to earn more than me da.\n\n\n", raw_div, true);
+            exp.show_raw_text([["I", 0, -4.0476295081569967e-13], ["marriage", 10, 3.669818112908567e-13], ["a", 8, -2.395941077605265e-13], ["in", 5, -2.147277454991455e-13], ["function", 19, -2.105156852176435e-13], ["I", 30, -4.0476295081569967e-13], ["marriage", 70, 3.669818112908567e-13], ["a", 98, -2.395941077605265e-13], ["in", 125, -2.147277454991455e-13], ["function", 169, -2.105156852176435e-13]], 1, "I am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\nI am in a marriage function\n\n\n", raw_div, true);
             
         </script>
         </body></html>

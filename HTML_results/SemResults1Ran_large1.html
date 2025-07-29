@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1IEBAFZVX81GZ6V"></div>
+        <div class="lime top_div" id="top_div3VR18QJTFMBB31L"></div>
         
         <script>
-        var top_div = d3.select('#top_div1IEBAFZVX81GZ6V').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3VR18QJTFMBB31L').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.999999999999927, 7.307143381871251e-14]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([[":-)", -0.1065010622732661], ["you", 0.10551577024453179], ["are", 0.09448173663471696], ["why", -0.0841551733616102], ["can", 0.03619016308527762]], 1, exp_div);
+                exp.show([["I", 0.47751184580095374], ["Just", 0.2165067842747851], ["what", 0.1814257326115868], [".", 0.09617914425605495]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([[":-)", 152, -0.1065010622732661], ["you", 88, 0.10551577024453179], ["are", 111, 0.09448173663471696], ["why", 97, -0.0841551733616102], ["can", 72, 0.03619016308527762], [":-)", 310, -0.1065010622732661], ["you", 404, 0.10551577024453179], ["are", 585, 0.09448173663471696], ["why", 729, -0.0841551733616102], ["can", 862, 0.03619016308527762]], 1, "Edison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)\n\n\nEdison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)\n\n\nEdison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)\n\n\nEdison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)\n\n\nEdison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)\n\n\nEdison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)\n\n\n", raw_div, true);
+            exp.show_raw_text([["I", 10, 0.47751184580095374], ["Just", 0, 0.2165067842747851], ["what", 5, 0.1814257326115868], [".", 18, 0.09617914425605495], ["I", 32, 0.48467596660238377], ["Just", 44, 0.2165067842747851], ["what", 71, 0.1814257326115868], [".", 106, 0.09617914425605495], ["I", 120, -0.007164120801430022]], 1, "Just what I wanted.\n\n\nJust what I wanted.\n\n\nJust what I wanted.\n\n\nJust what I wanted.\n\n\nJust what I wanted.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divV7QHUK0MEING5VL"></div>
+        <div class="lime top_div" id="top_div4F57DO26AII5EIM"></div>
         
         <script>
-        var top_div = d3.select('#top_divV7QHUK0MEING5VL').classed('lime top_div', true);
+        var top_div = d3.select('#top_div4F57DO26AII5EIM').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.44, 0.56]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bad", -0.12107362170346284], ["to", -0.11452193294657534], ["It", 0.09823642526441621], ["would", 0.07552881176240715], ["too", -0.027199316548820494]], 1, exp_div);
+                exp.show([["It", 0.20109638664462837], ["!", 0.0006316982789120987], ["AGGRAVATING", 1.2314248973911531e-05], ["'s", 1.2314248973911531e-05]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bad", 39, -0.12107362170346284], ["to", 23, -0.11452193294657534], ["It", 0, 0.09823642526441621], ["would", 3, 0.07552881176240715], ["too", 14, -0.027199316548820494], ["bad", 137, -0.12107362170346284], ["to", 219, -0.11452193294657534], ["It", 294, 0.09823642526441621], ["would", 395, 0.07552881176240715], ["too", 504, -0.027199316548820494]], 1, "It would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\nIt would take too long to describe how bad my customer service experience has been with Amazon.\n\n\n", raw_div, true);
+            exp.show_raw_text([["It", 0, 0.20109638664462837], ["!", 16, 0.0006316982789120987], ["AGGRAVATING", 5, 1.2314248973911531e-05], ["'s", 2, 1.2314248973911531e-05], ["It", 20, 0.20108407239565446], ["!", 56, 0.0006193840299381871], ["AGGRAVATING", 65, 1.2267750694207646e-05], ["!", 76, 1.2267750694207646e-05], ["It", 60, 1.2267750694207646e-05], ["'s", 62, 1.2267750694207646e-05], ["It", 80, 3.365945028600144e-08], ["'s", 82, 3.365945028600144e-08], ["AGGRAVATING", 85, 3.365945028600144e-08], ["!", 96, 3.365945028600144e-08], ["It", 100, 1.2838829417884277e-08], ["'s", 102, 1.2838829417884277e-08], ["AGGRAVATING", 105, 1.2838829417884277e-08], ["!", 116, 1.2838829417884277e-08]], 1, "It's AGGRAVATING!\n\n\nIt's AGGRAVATING!\n\n\nIt's AGGRAVATING!\n\n\nIt's AGGRAVATING!\n\n\nIt's AGGRAVATING!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

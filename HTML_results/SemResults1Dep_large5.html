@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divZ6EGWC38NB5FVX6"></div>
+        <div class="lime top_div" id="top_divOQDP22VV4UQWZBK"></div>
         
         <script>
-        var top_div = d3.select('#top_divZ6EGWC38NB5FVX6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divOQDP22VV4UQWZBK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.7706014224550897e-20]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["me", -0.3608728535898627], ["talking", -0.22907952618836758], ["Your", 0.01700882835206291], ["themselves", -0.13523142616661435], ["staff", -0.1981488794243806]], 1, exp_div);
+                exp.show([["The", 0.04042937430951171], ["powerful", 0.17445418203124544], ["explorations", 0.11571834348779017], ["and", 0.07495178581279825], ["stories", -0.269367153852972]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["me", 55, -0.3608728535898627], ["talking", 28, -0.22907952618836758], ["Your", 0, 0.01700882835206291], ["themselves", 39, -0.13523142616661435], ["staff", 5, -0.1981488794243806], ["me", 116, -0.3608728535898627], ["talking", 150, -0.22907952618836758], ["Your", 183, 0.2151577077764435], ["Your", 244, -0.1981488794243806], ["staff", 249, -0.1981488794243806], ["themselves", 344, -0.13523142616661435]], 1, "Your staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\nYour staff spends more time talking to themselves than me.\n\n\n", raw_div, true);
+            exp.show_raw_text([["The", 0, 0.04042937430951171], ["powerful", 17, 0.17445418203124544], ["explorations", 26, 0.11571834348779017], ["and", 60, 0.07495178581279825], ["stories", 4, -0.269367153852972], ["The", 76, 0.3097965281624837], ["stories", 156, -0.269367153852972], ["The", 152, -0.269367153852972], ["powerful", 245, 0.17445418203124544], ["explorations", 330, 0.11571834348779017], ["and", 440, 0.07495178581279825]], 1, "The stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\nThe stories were powerful explorations of the nature of man and of art.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

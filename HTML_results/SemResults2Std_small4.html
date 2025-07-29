@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divVPNB1AY2QH9SZYX"></div>
+        <div class="lime top_div" id="top_div85U06COSKAUHSYQ"></div>
         
         <script>
-        var top_div = d3.select('#top_divVPNB1AY2QH9SZYX').classed('lime top_div', true);
+        var top_div = d3.select('#top_div85U06COSKAUHSYQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.65, 0.35]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.76, 0.24]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.23400094729372312], ["don", -0.1988723036928547], ["Don", -0.07378137892594845], ["their", 0.034580394406224964], ["helpful", -0.016022068174999536]], 1, exp_div);
+                exp.show([["good", 0.14415534557470577], ["crap", -0.07598733252524466], ["mad", -0.06501632029549027], ["because", -0.06457442498467825], ["only", -0.053895693661365096]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 26, 0.23400094729372312], ["don", 30, -0.1988723036928547], ["Don", 0, -0.07378137892594845], ["their", 12, 0.034580394406224964], ["helpful", 47, -0.016022068174999536]], 1, "Don't trust their website and don't expect any helpful support.", raw_div, true);
+            exp.show_raw_text([["good", 9, 0.14415534557470577], ["crap", 118, -0.07598733252524466], ["mad", 79, -0.06501632029549027], ["because", 60, -0.06457442498467825], ["only", 37, -0.053895693661365096]], 1, "It was a good thing that the tickets only cost five dollars because I would be mad if I'd have paid $7.50 to see this crap.  ", raw_div, true);
             
         </script>
         </body></html>

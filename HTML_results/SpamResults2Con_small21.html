@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divHTMVHHIHQQ8AX0P"></div>
+        <div class="lime top_div" id="top_div3F3JFX0XHNWMQVM"></div>
         
         <script>
-        var top_div = d3.select('#top_divHTMVHHIHQQ8AX0P').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3F3JFX0XHNWMQVM').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["well", 0.010486917785114716], ["your", 0.009032988925438731], ["some", 0.008676005881070556], ["Hello", 0.008135638115614487], ["love", -0.0027532401542220302]], 1, exp_div);
+                exp.show([["I", 0.0], ["m", 0.0], ["good", 0.0], ["!", 0.0], ["I", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["well", 48, 0.010486917785114716], ["your", 43, 0.009032988925438731], ["some", 90, 0.008676005881070556], ["Hello", 0, 0.008135638115614487], ["love", 10, -0.0027532401542220302], ["well", 200, 0.010486917785114716], ["your", 347, 0.009032988925438731], ["some", 546, 0.008676005881070556], ["Hello", 608, 0.008135638115614487], ["love", 770, -0.0027532401542220302]], 1, "Hello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\nHello, my love! How goes that day ? I wish your well and fine babe and hope that you find some job prospects. I miss you, boytoy ... *a teasing kiss*\n\n\n", raw_div, true);
+            exp.show_raw_text([["I", 0, 0.0], ["m", 1, 0.0], ["good", 3, 0.0], ["!", 7, 0.0], ["I", 45, 0.0], ["m", 46, 0.0], ["good", 48, 0.0], ["!", 52, 0.0], ["I", 90, 0.0], ["m", 136, 0.0], ["good", 138, 0.0], ["m", 181, 0.0], ["good", 228, 0.0]], 1, "Im good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\n", raw_div, true);
             
         </script>
         </body></html>

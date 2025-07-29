@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divLZRY1EDPIGIK48U"></div>
+        <div class="lime top_div" id="top_divGXKC6ZU9CYQU1BW"></div>
         
         <script>
-        var top_div = d3.select('#top_divLZRY1EDPIGIK48U').classed('lime top_div', true);
+        var top_div = d3.select('#top_divGXKC6ZU9CYQU1BW').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.99, 0.01]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["I", 0.0], ["m", 0.0], ["good", 0.0], ["!", 0.0], ["I", 0.0], ["have", 0.0], ["been", 0.0], ["thinking", 0.0], ["about", 0.0], ["you", 0.0], ["...", 0.0]], 1, exp_div);
+                exp.show([["What", 0.0026273326437455573], ["up", 0.002015279274196188], ["throat", 0.0018184744532572835], ["well", 0.0017890187990230602], ["was", 0.0015839527134775733]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["I", 0, 0.0], ["m", 1, 0.0], ["good", 3, 0.0], ["!", 7, 0.0], ["I", 9, 0.0], ["have", 11, 0.0], ["been", 16, 0.0], ["thinking", 21, 0.0], ["about", 30, 0.0], ["you", 36, 0.0], ["...", 39, 0.0], ["I", 45, 0.0], ["m", 46, 0.0], ["good", 48, 0.0], ["!", 52, 0.0], ["I", 99, 0.0], ["have", 101, 0.0], ["been", 106, 0.0], ["thinking", 111, 0.0], ["about", 120, 0.0], ["you", 126, 0.0], ["...", 129, 0.0], ["I", 135, 0.0], ["m", 181, 0.0], ["I", 225, 0.0], ["m", 226, 0.0], ["good", 228, 0.0], ["!", 232, 0.0]], 1, "Im good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\nIm good! I have been thinking about you...\n\n\n", raw_div, true);
+            exp.show_raw_text([["What", 59, 0.0026273326437455573], ["up", 76, 0.002015279274196188], ["throat", 48, 0.0018184744532572835], ["well", 9, 0.0017890187990230602], ["was", 2, 0.0015839527134775733], ["What", 148, 0.0026273326437455573], ["up", 254, 0.002015279274196188], ["throat", 315, 0.0018184744532572835], ["well", 365, 0.0017890187990230602], ["was", 447, 0.0015839527134775733]], 1, "I wasn't well babe, i have swollen glands at my throat ... What did you end up doing ?\n\n\nI wasn't well babe, i have swollen glands at my throat ... What did you end up doing ?\n\n\nI wasn't well babe, i have swollen glands at my throat ... What did you end up doing ?\n\n\nI wasn't well babe, i have swollen glands at my throat ... What did you end up doing ?\n\n\nI wasn't well babe, i have swollen glands at my throat ... What did you end up doing ?\n\n\nI wasn't well babe, i have swollen glands at my throat ... What did you end up doing ?\n\n\n", raw_div, true);
             
         </script>
         </body></html>

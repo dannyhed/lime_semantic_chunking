@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divKZW599ECZD4IXXX"></div>
+        <div class="lime top_div" id="top_divOTGEIDM6FBEYLL1"></div>
         
         <script>
-        var top_div = d3.select('#top_divKZW599ECZD4IXXX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divOTGEIDM6FBEYLL1').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.07, 0.93]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["STOP", 0.14356189439121678], ["18", 0.11036524470150624], ["To", 0.10470061741320215], ["150p", 0.10380931636120659], ["service", 0.07370744957912186]], 1, exp_div);
+                exp.show([["No", 0.0], ["he", 0.0], ["joined", 0.0], ["today", 0.0], ["itself", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["STOP", 111, 0.14356189439121678], ["18", 127, 0.11036524470150624], ["To", 72, 0.10470061741320215], ["150p", 122, 0.10380931636120659], ["service", 97, 0.07370744957912186]], 1, "This message is free. Welcome to the new | improved Sex | Dogging club! To unsubscribe from this service reply STOP. msgs@150p 18+only", raw_div, true);
+            exp.show_raw_text([["No", 0, 0.0], ["he", 4, 0.0], ["joined", 7, 0.0], ["today", 14, 0.0], ["itself", 20, 0.0]], 1, "No..he joined today itself.", raw_div, true);
             
         </script>
         </body></html>

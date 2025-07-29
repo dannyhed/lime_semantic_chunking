@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divQT0QIKP05V0541P"></div>
+        <div class="lime top_div" id="top_divK3W78L6Q060AHPT"></div>
         
         <script>
-        var top_div = d3.select('#top_divQT0QIKP05V0541P').classed('lime top_div', true);
+        var top_div = d3.select('#top_divK3W78L6Q060AHPT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 9.728936215777947e-34]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.4807555285410268e-26]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["thanks", -2.0762580471828743e-13], ["Sat", -1.8847525922114702e-13], ["...", -9.325650258873999e-14], ["right", -7.557914034315118e-14], ["?", -7.557914034315118e-14]], 1, exp_div);
+                exp.show([["What", -3.2042018731081393e-12], ["'s", -6.220055654633616e-12], ["the", -6.250910042559825e-12], ["significance", -3.0869802189366077e-12], ["?", -3.0869802189366077e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["thanks", 16, -2.0762580471828743e-13], ["Sat", 0, -1.8847525922114702e-13], ["...", 22, -9.325650258873999e-14], ["right", 4, -7.557914034315118e-14], ["?", 9, -7.557914034315118e-14], ["Sat", 28, -2.5044693385084346e-13], ["right", 32, -2.5044693385084346e-13], ["?", 37, -2.5044693385084346e-13], ["thanks", 72, -2.0762580471828743e-13], ["Sat", 84, 1.7486779350769228e-13], ["right", 88, 1.7486779350769228e-13], ["?", 93, 1.7486779350769228e-13], ["Sat", 112, -1.1289611887799583e-13], ["...", 162, -9.325650258873999e-14]], 1, "Sat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\n", raw_div, true);
+            exp.show_raw_text([["What", 0, -3.2042018731081393e-12], ["'s", 4, -6.220055654633616e-12], ["the", 7, -6.250910042559825e-12], ["significance", 11, -3.0869802189366077e-12], ["?", 23, -3.0869802189366077e-12], ["What", 27, -3.0869802189366077e-12], ["'s", 31, -3.0869802189366077e-12], ["the", 34, -3.0869802189366077e-12], ["significance", 38, -3.0869802189366077e-12], ["?", 50, -3.0869802189366077e-12], ["What", 54, -1.1722165417153165e-13], ["'s", 85, -9.213623838871936e-14], ["the", 115, -7.694960468660998e-14], ["'s", 139, 4.604102162831942e-14]], 1, "What's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\nWhat's the significance?\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div35JWXAHK770TUMU"></div>
+        <div class="lime top_div" id="top_divTAUT42SGCA3OLID"></div>
         
         <script>
-        var top_div = d3.select('#top_div35JWXAHK770TUMU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divTAUT42SGCA3OLID').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9979474615188508, 0.0020525384811492064]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["bruh", 0.3981384593390417], ["hans", 0.2642182120739564], ["they", 0.2562692240192962], ["bitch", 0.3000222583230649]], 1, exp_div);
+                exp.show([["Period", 0.6178247931713727], ["ai", 0.2664334081103652], ["Cole", 0.2612233446660618], ["trash", -0.07083645807462799]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["bruh", 5, 0.3981384593390417], ["hans", 32, 0.2642182120739564], ["they", 10, 0.2562692240192962], ["bitch", 37, 0.3000222583230649], ["bruh", 59, 0.3981384593390417], ["hans", 140, 0.2642182120739564], ["they", 172, 0.2562692240192962], ["bitch", 253, 0.2505848189712159], ["bitch", 307, 0.049437439351849]], 1, "null bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\nnull bruh they both alive thats hans bitch who died\n\n\n", raw_div, true);
+            exp.show_raw_text([["Period", 22, 0.6178247931713727], ["ai", 7, 0.2664334081103652], ["Cole", 2, 0.2612233446660618], ["trash", 13, -0.07083645807462799], ["Period", 54, 0.6178247931713727], ["ai", 71, 0.2664334081103652], ["Cole", 98, 0.2612233446660618], ["trash", 141, -0.13782916184078817], ["trash", 173, 0.06699270376616018]], 1, "J Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\nJ Cole ain't trash... Period.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

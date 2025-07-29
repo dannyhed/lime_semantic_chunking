@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEIT6FFY4AMQ546U"></div>
+        <div class="lime top_div" id="top_div4CRVP3YVYNH83V9"></div>
         
         <script>
-        var top_div = d3.select('#top_divEIT6FFY4AMQ546U').classed('lime top_div', true);
+        var top_div = d3.select('#top_div4CRVP3YVYNH83V9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Smith", -0.00018140684019851932], [".", 0.003479675086281506], ["da", 0.0001624094121186171], ["wan", -0.002425614892132293], ["na", -0.002425614892132293], ["gayle", -0.002425614892132293], ["waste", 0.0017980741768540635]], 1, exp_div);
+                exp.show([["durable", 0.05839861905921736], [".", 0.04795976230208017], ["glove", 0.047024229464083016], ["secure", 0.04601388345685065], ["It", 0.040033385033432234]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Smith", 0, -0.00018140684019851932], [".", 14, 0.003479675086281506], ["da", 12, 0.0001624094121186171], ["wan", 17, -0.002425614892132293], ["na", 20, -0.002425614892132293], ["gayle", 23, -0.002425614892132293], ["waste", 6, 0.0017980741768540635], ["wan", 49, -0.002425614892132293], ["na", 52, -0.002425614892132293], ["gayle", 55, -0.002425614892132293], ["Smith", 64, -0.001979481017052583], ["Smith", 96, 0.0017980741768540635], ["waste", 102, 0.0017980741768540635], ["da", 108, 0.0017980741768540635], [".", 110, 0.0017980741768540635], [".", 142, 0.0016816009094274423], ["da", 172, -0.0016356647647354464]], 1, "Smith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\n", raw_div, true);
+            exp.show_raw_text([["durable", 50, 0.05839861905921736], [".", 57, 0.04795976230208017], ["glove", 17, 0.047024229464083016], ["secure", 38, 0.04601388345685065], ["It", 0, 0.040033385033432234], ["durable", 111, 0.05839861905921736], [".", 179, 0.04795976230208017], ["glove", 200, 0.047024229464083016], ["secure", 282, 0.04601388345685065], ["It", 305, 0.040033385033432234]], 1, "It's fits like a glove and is strong, secure, and durable.\n\n\nIt's fits like a glove and is strong, secure, and durable.\n\n\nIt's fits like a glove and is strong, secure, and durable.\n\n\nIt's fits like a glove and is strong, secure, and durable.\n\n\nIt's fits like a glove and is strong, secure, and durable.\n\n\nIt's fits like a glove and is strong, secure, and durable.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

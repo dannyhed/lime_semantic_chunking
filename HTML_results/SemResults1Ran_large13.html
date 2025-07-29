@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUN6OXV7YS2XG3C9"></div>
+        <div class="lime top_div" id="top_div0WKT8LDGIIL61E3"></div>
         
         <script>
-        var top_div = d3.select('#top_divUN6OXV7YS2XG3C9').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0WKT8LDGIIL61E3').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.419257492084715e-38]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999999999281, 7.198497775893798e-14]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Are", -1.5464706669542015e-12], ["from", -1.5213625705719477e-12], ["in", -1.390113105438985e-12], ["Not", -1.46985076655162e-12], [".", -4.900457022105999e-13]], 1, exp_div);
+                exp.show([["work", 0.6683253619867081], ["out", -0.4980769043028341], ["Austen", 0.37721773973638406], ["extant", -0.23895437859527915], ["you", -0.21376329066502167]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Are", 22, -1.5464706669542015e-12], ["from", 4, -1.5213625705719477e-12], ["in", 30, -1.390113105438985e-12], ["Not", 0, -1.46985076655162e-12], [".", 20, -4.900457022105999e-13], ["Are", 70, -1.5464706669542015e-12], ["from", 100, -1.5213625705719477e-12], ["in", 174, -1.390113105438985e-12], ["Not", 192, -9.798050643410201e-13], [".", 260, -4.900457022105999e-13], ["Not", 240, -4.900457022105999e-13]], 1, "Not from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\n", raw_div, true);
+            exp.show_raw_text([["work", 74, 0.6683253619867081], ["out", 19, -0.4980769043028341], ["Austen", 65, 0.37721773973638406], ["extant", 49, -0.23895437859527915], ["you", 80, -0.21376329066502167], ["work", 181, 0.6683253619867081], ["out", 233, -0.4980769043028341], ["Austen", 386, 0.37721773973638406], ["extant", 477, -0.23895437859527915], ["you", 615, -0.21376329066502167]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\nUnless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

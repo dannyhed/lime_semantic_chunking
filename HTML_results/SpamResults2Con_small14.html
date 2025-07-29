@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEB5NHTX5AXDFHF1"></div>
+        <div class="lime top_div" id="top_div5LD4FLCW6PW9BVT"></div>
         
         <script>
-        var top_div = d3.select('#top_divEB5NHTX5AXDFHF1').classed('lime top_div', true);
+        var top_div = d3.select('#top_div5LD4FLCW6PW9BVT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.98, 0.02]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Make", 0.020418180497942185], ["law", -0.0017477957397378405], ["are", 0.0015946095938984006], ["love", 0.0014429279406405846], ["one", -0.002086339451015998], ["law", -0.002086339451015998]], 1, exp_div);
+                exp.show([["Okie", 0.0], ["Okie", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Make", 18, 0.020418180497942185], ["law", 85, -0.0017477957397378405], ["are", 132, 0.0015946095938984006], ["love", 44, 0.0014429279406405846], ["one", 9, -0.002086339451015998], ["law", 13, -0.002086339451015998], ["Make", 176, 0.020418180497942185], ["one", 325, -0.002086339451015998], ["law", 329, -0.002086339451015998], ["law", 559, -0.0017477957397378405], ["are", 764, 0.0015946095938984006], ["love", 834, 0.0014429279406405846]], 1, "Love has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\nLove has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\nLove has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\nLove has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\nLove has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\nLove has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\nLove has one law; Make happy the person you love. In the same way friendship has one law; Never make ur friend feel alone until you are alive.... Gud night\n\n\n", raw_div, true);
+            exp.show_raw_text([["Okie", 0, 0.0], ["Okie", 7, 0.0]], 1, "Okie\n\n\nOkie\n\n\n", raw_div, true);
             
         </script>
         </body></html>

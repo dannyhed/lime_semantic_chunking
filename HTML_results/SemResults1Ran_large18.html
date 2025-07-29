@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divGH5UWVGNR8OI1P6"></div>
+        <div class="lime top_div" id="top_divZIKW2E3AP036RT6"></div>
         
         <script>
-        var top_div = d3.select('#top_divGH5UWVGNR8OI1P6').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZIKW2E3AP036RT6').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.0530167214618617e-64]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Worst", -0.4772516884112191], ["service", 0.32769535157260044], [".", 0.1601725603290761], ["customer", 0.18826706432354604]], 1, exp_div);
+                exp.show([["service", 0.3825626316370653], ["Great", 0.3519549825095824], ["and", 0.2852423778160648], [",", 0.20454771846562148], ["and", -0.1638311835948562]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Worst", 0, -0.4772516884112191], ["service", 15, 0.32769535157260044], [".", 22, 0.1601725603290761], ["customer", 6, 0.18826706432354604], ["Worst", 26, -0.5066849709993798], ["service", 67, 0.32769535157260044], [".", 100, 0.1601725603290761], ["customer", 110, 0.15883378173538532], ["customer", 136, 0.02943328258816071], ["Worst", 130, 0.02943328258816071]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
+            exp.show_raw_text([["service", 15, 0.3825626316370653], ["Great", 0, 0.3519549825095824], ["and", 11, 0.2852423778160648], [",", 22, 0.20454771846562148], ["and", 38, -0.1638311835948562], ["service", 90, 0.3825626316370653], ["Great", 150, 0.3519549825095824], ["and", 236, 0.2852423778160648], [",", 322, 0.20454771846562148], ["and", 413, -0.1638311835948562]], 1, "Great food and service, huge portions and they give a military discount.\n\n\nGreat food and service, huge portions and they give a military discount.\n\n\nGreat food and service, huge portions and they give a military discount.\n\n\nGreat food and service, huge portions and they give a military discount.\n\n\nGreat food and service, huge portions and they give a military discount.\n\n\nGreat food and service, huge portions and they give a military discount.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

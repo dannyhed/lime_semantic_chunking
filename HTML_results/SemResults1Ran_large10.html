@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div6M143CMNUJ4CL8E"></div>
+        <div class="lime top_div" id="top_divH06EHNJZC5AFHHO"></div>
         
         <script>
-        var top_div = d3.select('#top_div6M143CMNUJ4CL8E').classed('lime top_div', true);
+        var top_div = d3.select('#top_divH06EHNJZC5AFHHO').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 2.053016721461803e-64]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["542", 0.3331621028485326], ["0800", 0.25693655185513786], ["0825", 0.24089806390288707], ["FREEPHONE", 0.19716377813836924], [".", 0.10486537438370838]], 1, exp_div);
+                exp.show([["service", 0.49446386432176137], ["Worst", -0.3916199264990318], [".", -0.09028535212151917], ["customer", 0.05183892556613791]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["542", 73, 0.3331621028485326], ["0800", 68, 0.25693655185513786], ["0825", 77, 0.24089806390288707], ["FREEPHONE", 58, 0.19716377813836924], [".", 51, 0.10486537438370838], ["542", 162, 0.3331621028485326], ["0800", 246, 0.25693655185513786], ["0825", 344, 0.24089806390288707], ["FREEPHONE", 414, 0.19716377813836924], [".", 496, 0.10486537438370838]], 1, "You have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\nYou have an important customer service announcement. Call FREEPHONE 0800 542 0825 now!\n\n\n", raw_div, true);
+            exp.show_raw_text([["service", 15, 0.49446386432176137], ["Worst", 0, -0.3916199264990318], [".", 22, -0.09028535212151917], ["customer", 6, 0.05183892556613791], ["service", 41, 0.49446386432176137], ["Worst", 52, -0.3818771913348713], [".", 100, -0.09028535212151917], ["customer", 110, 0.06158166073029842], ["Worst", 130, -0.009742735164160512], ["customer", 136, -0.009742735164160512]], 1, "Worst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\nWorst customer service.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

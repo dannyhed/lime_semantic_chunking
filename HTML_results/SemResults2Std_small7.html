@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divSUWSULLCUZ943CC"></div>
+        <div class="lime top_div" id="top_divIYDNMJED4TQEJC4"></div>
         
         <script>
-        var top_div = d3.select('#top_divSUWSULLCUZ943CC').classed('lime top_div', true);
+        var top_div = d3.select('#top_divIYDNMJED4TQEJC4').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.44, 0.56]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["wonderful", 0.29290585189248564], ["of", -0.056019367285204194], ["contrast", 0.03173436365356428], ["story", 0.016432113236713303], ["In", -0.015404616822307452]], 1, exp_div);
+                exp.show([["bad", -0.23981763966974254], ["how", -0.047323315950097505], ["has", 0.03556805186701904], ["describe", -0.03541213922193878], ["with", 0.03355882626173436]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["wonderful", 10, 0.29290585189248564], ["of", 42, -0.056019367285204194], ["contrast", 45, 0.03173436365356428], ["story", 36, 0.016432113236713303], ["In", 0, -0.015404616822307452]], 1, "In a most wonderful location lies a story of contrast.  ", raw_div, true);
+            exp.show_raw_text([["bad", 39, -0.23981763966974254], ["how", 35, -0.047323315950097505], ["has", 74, 0.03556805186701904], ["describe", 26, -0.03541213922193878], ["with", 83, 0.03355882626173436]], 1, "It would take too long to describe how bad my customer service experience has been with Amazon.", raw_div, true);
             
         </script>
         </body></html>

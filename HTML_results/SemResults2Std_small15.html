@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divKT3K7Y51Q7NH3ZO"></div>
+        <div class="lime top_div" id="top_divH5UWDR9ORIHJ4V9"></div>
         
         <script>
-        var top_div = d3.select('#top_divKT3K7Y51Q7NH3ZO').classed('lime top_div', true);
+        var top_div = d3.select('#top_divH5UWDR9ORIHJ4V9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.26, 0.74]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.72, 0.28]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.2273017004232316], ["very", 0.09005923067078161], ["from", -0.043551886739687094], ["definitely", 0.025208581331906153], ["them", 0.022542625284732026]], 1, exp_div);
+                exp.show([["it", 0.14877736601501018], ["like", -0.10705184621149351], ["was", -0.10055783594617541], ["charge", -0.0765973834177817], ["holds", -0.04848289724447288]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 33, 0.2273017004232316], ["very", 14, 0.09005923067078161], ["from", 69, -0.043551886739687094], ["definitely", 54, 0.025208581331906153], ["them", 74, 0.022542625284732026]], 1, "The seller is very understanding and patient, I would definitely buy from them again.", raw_div, true);
+            exp.show_raw_text([["it", 28, 0.14877736601501018], ["it", 40, 0.14877736601501018], ["like", 23, -0.10705184621149351], ["was", 43, -0.10055783594617541], ["charge", 16, -0.0765973834177817], ["holds", 10, -0.04848289724447288]], 1, "Phone now holds charge like it did when it was new.", raw_div, true);
             
         </script>
         </body></html>

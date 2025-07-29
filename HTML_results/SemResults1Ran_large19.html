@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divROH4VKATKT7D6US"></div>
+        <div class="lime top_div" id="top_divXYQISIVT07FUZLI"></div>
         
         <script>
-        var top_div = d3.select('#top_divROH4VKATKT7D6US').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXYQISIVT07FUZLI').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.1133441410730037e-38]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9999999973575323, 2.642467699522532e-09]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["to", -1.664566902523767e-12], ["'m", -1.3957924427629203e-12], ["also", -1.3410916399655467e-12], [".", -9.44522276650729e-13]], 1, exp_div);
+                exp.show([["Mushroom", -0.3784434000851725], ["is", 0.31108671939163884], [".", 0.162862203337301], ["Mellow", 0.08190554679057396], ["bit", -0.018899767741212447]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["to", 14, -1.664566902523767e-12], ["'m", 1, -1.3957924427629203e-12], ["also", 4, -1.3410916399655467e-12], [".", 21, -9.44522276650729e-13], ["to", 39, -1.664566902523767e-12], ["'m", 51, -1.1362341573156476e-12], ["also", 79, -1.0815333545182738e-12], [".", 121, -9.44522276650729e-13], ["also", 129, -2.5955828544727283e-13], ["'m", 126, -2.5955828544727283e-13]], 1, "I'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\nI'm also came to room.\n\n\n", raw_div, true);
+            exp.show_raw_text([["Mushroom", 40, -0.3784434000851725], ["is", 8, 0.31108671939163884], [".", 48, 0.162862203337301], ["Mellow", 33, 0.08190554679057396], ["bit", 13, -0.018899767741212447], ["Mushroom", 92, -0.3784434000851725], ["is", 112, 0.31108671939163884], [".", 204, 0.162862203337301], ["Mellow", 241, 0.08190554679057396], ["bit", 273, -0.018899767741212447]], 1, "Pricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\nPricing is a bit of a concern at Mellow Mushroom.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

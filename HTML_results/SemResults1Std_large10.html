@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divNOILBV8FCEDA4QE"></div>
+        <div class="lime top_div" id="top_divH06EHNJZC5AFHHO"></div>
         
         <script>
-        var top_div = d3.select('#top_divNOILBV8FCEDA4QE').classed('lime top_div', true);
+        var top_div = d3.select('#top_divH06EHNJZC5AFHHO').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 5.706796169615226e-28]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 2.053016721461803e-64]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["we", -0.2345450355777818], ["s", -0.20399381102362768], ["didn", -0.14827240241490316], ["mess", -0.1429244592901782], ["d", -0.11482367111897823]], 1, exp_div);
+                exp.show([["Worst", -0.6106098570935591], ["service", 0.40030893067671836], ["customer", 0.16661092200404917]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["we", 111, -0.2345450355777818], ["s", 3, -0.20399381102362768], ["s", 60, -0.20399381102362768], ["didn", 41, -0.14827240241490316], ["mess", 170, -0.1429244592901782], ["d", 114, -0.11482367111897823]], 1, "It's too bad that everyone else involved didn't share Crowe's level of dedication to quality, for if they did, we'd have a far better film on our hands than this sub-par mess.  ", raw_div, true);
+            exp.show_raw_text([["Worst", 0, -0.6106098570935591], ["service", 15, 0.40030893067671836], ["customer", 6, 0.16661092200404917]], 1, "Worst customer service.", raw_div, true);
             
         </script>
         </body></html>

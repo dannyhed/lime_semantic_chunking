@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divFEKSOGQHP496AQD"></div>
+        <div class="lime top_div" id="top_divDE4XQQ6U098VYXR"></div>
         
         <script>
-        var top_div = d3.select('#top_divFEKSOGQHP496AQD').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDE4XQQ6U098VYXR').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.25, 0.75]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.49, 0.51]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["good", 0.4057737718260008], ["The", -0.11647439730751455], ["are", -0.015434657846182892], ["here", -0.03079780836916704], ["Macarons", -0.041484593701244805]], 1, exp_div);
+                exp.show([["The", -0.10574701850117073], ["far", 0.08262060592489008], ["priced", 0.06642034132632087], ["phones", 0.05435958540108898], ["is", 0.04737674772818046]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["good", 31, 0.4057737718260008], ["The", 0, -0.11647439730751455], ["are", 18, -0.015434657846182892], ["here", 13, -0.03079780836916704], ["Macarons", 4, -0.041484593701244805], ["good", 70, 0.4057737718260008], ["The", 78, -0.07498980360626974], ["The", 117, -0.041484593701244805], ["Macarons", 121, -0.041484593701244805], ["here", 130, -0.041484593701244805], ["are", 174, -0.015434657846182892], ["here", 208, 0.010686785332077765]], 1, "The Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\nThe Macarons here are insanely good.\n\n\n", raw_div, true);
+            exp.show_raw_text([["The", 0, -0.10574701850117073], ["far", 26, 0.08262060592489008], ["priced", 58, 0.06642034132632087], ["phones", 65, 0.05435958540108898], ["is", 23, 0.04737674772818046], ["The", 94, -0.10574701850117073], ["far", 214, 0.08262060592489008], ["priced", 340, 0.06642034132632087], ["phones", 441, 0.05435958540108898], ["is", 493, 0.04737674772818046]], 1, "The picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\nThe picture resolution is far below what other comparably-priced phones are offering today.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

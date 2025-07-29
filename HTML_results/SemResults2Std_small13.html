@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divW2NIV9MKPFGJ15A"></div>
+        <div class="lime top_div" id="top_divY9IRPBOTCS0OTAJ"></div>
         
         <script>
-        var top_div = d3.select('#top_divW2NIV9MKPFGJ15A').classed('lime top_div', true);
+        var top_div = d3.select('#top_divY9IRPBOTCS0OTAJ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.15, 0.85]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.81, 0.19]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["good", 0.44319391085641496], ["real", -0.07357211920801923], ["Battery", -0.03961379999272716], ["is", -0.00515118853883702], ["life", -0.0019846045148592404]], 1, exp_div);
+                exp.show([["was", -0.08850264035781572], ["off", -0.08094343698456868], ["and", 0.06783069795252225], ["between", -0.06196010337622476], ["there", -0.052734451885550156]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["good", 21, 0.44319391085641496], ["real", 16, -0.07357211920801923], ["Battery", 0, -0.03961379999272716], ["is", 13, -0.00515118853883702], ["life", 8, -0.0019846045148592404]], 1, "Battery life is real good.", raw_div, true);
+            exp.show_raw_text([["was", 69, -0.08850264035781572], ["was", 111, -0.08850264035781572], ["off", 26, -0.08094343698456868], ["and", 52, 0.06783069795252225], ["between", 37, -0.06196010337622476], ["between", 125, -0.06196010337622476], ["there", 105, -0.052734451885550156]], 1, "Considering the relations off screen between Taylor and Stanwyck, it was surprising how little chemistry there was on screen between the two of them.  ", raw_div, true);
             
         </script>
         </body></html>

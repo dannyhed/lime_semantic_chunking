@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUN6OXV7YS2XG3C9"></div>
+        <div class="lime top_div" id="top_div2ZKCR7LPJJEEQZT"></div>
         
         <script>
-        var top_div = d3.select('#top_divUN6OXV7YS2XG3C9').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2ZKCR7LPJJEEQZT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.419257492084715e-38]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9825610378290156, 0.017438962170984416]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["this", -3.7628966714254375e-14], ["campus", -1.1553109447459784e-13], ["Are", -1.8132791019465263e-13], ["you", -1.8132791019465263e-13], ["in", -1.8132791019465263e-13], ["the", -1.8132791019465263e-13], ["library", -1.8132791019465263e-13], ["?", -1.8132791019465263e-13], ["Not", -5.56421906675513e-14], ["from", -5.56421906675513e-14], [".", -5.56421906675513e-14]], 1, exp_div);
+                exp.show([["when", -0.4121378371028491], ["phone", -0.31082704985510734], ["finds", 0.276781024915194], [".", 0.22953480413774024], ["enter", 0.12370319692283765]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["this", 9, -3.7628966714254375e-14], ["campus", 14, -1.1553109447459784e-13], ["Are", 22, -1.8132791019465263e-13], ["you", 26, -1.8132791019465263e-13], ["in", 30, -1.8132791019465263e-13], ["the", 33, -1.8132791019465263e-13], ["library", 37, -1.8132791019465263e-13], ["?", 44, -1.8132791019465263e-13], ["Not", 0, -5.56421906675513e-14], ["from", 4, -5.56421906675513e-14], [".", 20, -5.56421906675513e-14], ["Are", 70, -1.8132791019465263e-13], ["you", 74, -1.8132791019465263e-13], ["in", 78, -1.8132791019465263e-13], ["the", 81, -1.8132791019465263e-13], ["library", 85, -1.8132791019465263e-13], ["?", 92, -1.8132791019465263e-13], ["this", 105, 1.0013585367963652e-13], ["this", 153, -8.21226297263396e-14], ["campus", 206, -5.988890380704653e-14], ["Not", 240, -5.56421906675513e-14], ["from", 244, -5.56421906675513e-14], ["this", 249, -5.56421906675513e-14], ["campus", 254, -5.56421906675513e-14], [".", 260, -5.56421906675513e-14]], 1, "Not from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\nNot from this campus. Are you in the library?\n\n\n", raw_div, true);
+            exp.show_raw_text([["when", 34, -0.4121378371028491], ["phone", 17, -0.31082704985510734], ["finds", 3, 0.276781024915194], [".", 54, 0.22953480413774024], ["enter", 41, 0.12370319692283765], ["when", 92, -0.4121378371028491], ["phone", 133, -0.31082704985510734], ["finds", 177, 0.276781024915194], [".", 286, 0.22953480413774024], ["enter", 331, 0.12370319692283765]], 1, "It finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

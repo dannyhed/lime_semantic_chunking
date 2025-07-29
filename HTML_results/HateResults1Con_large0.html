@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divHLZQSKRBMH19T67"></div>
+        <div class="lime top_div" id="top_divXBI8PCQ4KEGAQQJ"></div>
         
         <script>
-        var top_div = d3.select('#top_divHLZQSKRBMH19T67').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXBI8PCQ4KEGAQQJ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.008831596394676677, 0.9911684036053233]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["fags", 0.04153412687373946], ["Peace", 0.0416480527270328]], 1, exp_div);
+                exp.show([["Slaw", 0.14574660316100002], ["ova", 0.20151337390789834], ["start", -0.05733008618154629], ["dat", 0.12031739810013474], ["bitch", 0.12031739810013474], ["ass", 0.05593606798526218], ["team", 0.05593606798526218]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["fags", 6, 0.04153412687373946], ["Peace", 0, 0.0416480527270328], ["Peace", 13, 0.04980868030270173], ["fags", 19, 0.04980868030270173], ["fags", 32, -0.008274553428962274], ["Peace", 39, -0.00816062757566893]], 1, "Peace fags\n\n\nPeace fags\n\n\nPeace fags\n\n\n", raw_div, true);
+            exp.show_raw_text([["Slaw", 0, 0.14574660316100002], ["ova", 38, 0.20151337390789834], ["start", 22, -0.05733008618154629], ["dat", 28, 0.12031739810013474], ["bitch", 32, 0.12031739810013474], ["ass", 5, 0.05593606798526218], ["team", 9, 0.05593606798526218], ["dat", 72, 0.12031739810013474], ["bitch", 76, 0.12031739810013474], ["ova", 82, 0.12031739810013474], ["Slaw", 88, 0.08981053517573782], ["ova", 170, 0.0811959758077636], ["start", 198, -0.05733008618154629], ["Slaw", 220, 0.05593606798526218], ["ass", 225, 0.05593606798526218], ["team", 229, 0.05593606798526218]], 1, "Slaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\nSlaw ass team time to start dat bitch ova\n\n\n", raw_div, true);
             
         </script>
         </body></html>

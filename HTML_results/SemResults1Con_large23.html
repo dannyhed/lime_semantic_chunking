@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divBKQJF7XIPCH964A"></div>
+        <div class="lime top_div" id="top_div2ZKCR7LPJJEEQZT"></div>
         
         <script>
-        var top_div = d3.select('#top_divBKQJF7XIPCH964A').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2ZKCR7LPJJEEQZT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [2.220446049250313e-16, 0.9999999999999998]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9825610378290156, 0.017438962170984416]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["happier", 0.591368948590803], ["this", 0.1649544625251736], ["n't", -0.3025179653685633], [".", 0.1778066883337936], ["for", -0.34659772989107157], ["headset", -0.34659772989107157]], 1, exp_div);
+                exp.show([["when", -0.41736820280717746], ["phone", -0.31437054963871525], [".", 0.22899813937753719], ["enter", 0.17914124010370874], ["cell", -0.15966437644705622]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["happier", 86, 0.591368948590803], ["this", 18, 0.1649544625251736], ["n't", 79, -0.3025179653685633], [".", 93, 0.1778066883337936], ["for", 14, -0.34659772989107157], ["headset", 23, -0.34659772989107157], ["happier", 183, 0.591368948590803], ["this", 212, 0.5115521924162452], ["for", 305, -0.34659772989107157], ["this", 309, -0.34659772989107157], ["headset", 314, -0.34659772989107157], ["n't", 467, -0.3025179653685633], [".", 578, 0.1778066883337936]], 1, "I was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\nI was looking for this headset for a long time and now that I've got it I couldn't be happier.\n\n\n", raw_div, true);
+            exp.show_raw_text([["when", 34, -0.41736820280717746], ["phone", 17, -0.31437054963871525], [".", 54, 0.22899813937753719], ["enter", 41, 0.17914124010370874], ["cell", 12, -0.15966437644705622], ["when", 92, -0.41736820280717746], ["phone", 133, -0.31437054963871525], [".", 228, 0.22899813937753719], ["enter", 273, 0.17914124010370874], ["cell", 302, -0.15966437644705622]], 1, "It finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\nIt finds my cell phone right away when I enter the car.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

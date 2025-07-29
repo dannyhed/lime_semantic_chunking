@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divP9OOU7ZP8KCW023"></div>
+        <div class="lime top_div" id="top_divJ7M8ZEKGPL36EUN"></div>
         
         <script>
-        var top_div = d3.select('#top_divP9OOU7ZP8KCW023').classed('lime top_div', true);
+        var top_div = d3.select('#top_divJ7M8ZEKGPL36EUN').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 1.0231086626908561e-36]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 5.416836355311834e-29]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["mail", 1.9981277433629712e-10], ["They", -1.1120008510122984e-10], ["bank", 9.698623434848468e-11], ["replied", -8.62079624393413e-11], ["also", -8.424738890345676e-11]], 1, exp_div);
+                exp.show([["all", -2.2094565778575905e-12], [".", -1.9430727332438703e-12], ["I", -1.942971506065108e-12], ["do", 1.4773557633643866e-12], ["much", -1.2852640382705085e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["mail", 21, 1.9981277433629712e-10], ["They", 5, -1.1120008510122984e-10], ["bank", 85, 9.698623434848468e-11], ["replied", 10, -8.62079624393413e-11], ["also", 96, -8.424738890345676e-11], ["mail", 141, 1.9981277433629712e-10], ["They", 245, -1.1120008510122984e-10], ["bank", 445, 9.698623434848468e-11], ["replied", 490, -8.62079624393413e-11], ["also", 696, -8.424738890345676e-11]], 1, "Yes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\n", raw_div, true);
+            exp.show_raw_text([["all", 24, -2.2094565778575905e-12], [".", 71, -1.9430727332438703e-12], ["I", 54, -1.942971506065108e-12], ["do", 32, 1.4773557633643866e-12], ["much", 15, -1.2852640382705085e-12], ["all", 99, -2.2094565778575905e-12], [".", 221, -1.9430727332438703e-12], ["I", 279, -1.942971506065108e-12], ["do", 332, 1.4773557633643866e-12], ["much", 390, -1.2852640382705085e-12]], 1, "I thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\nI thank you so much for all you do with selflessness. I love you plenty.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

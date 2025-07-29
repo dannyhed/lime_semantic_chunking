@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divX8QQU5XWK364ME5"></div>
+        <div class="lime top_div" id="top_divH5UWDR9ORIHJ4V9"></div>
         
         <script>
-        var top_div = d3.select('#top_divX8QQU5XWK364ME5').classed('lime top_div', true);
+        var top_div = d3.select('#top_divH5UWDR9ORIHJ4V9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.62, 0.38]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.72, 0.28]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["in", 0.2253280262032462], ["disappointed", -0.1601987802043158], ["Very", -0.13209794586628149], ["AccessoryOne", -0.038837036320781934], [".", -0.038837036320781934]], 1, exp_div);
+                exp.show([["like", -0.1061303728860157], ["was", -0.1048333043914021], ["it", 0.08488372334987695], ["charge", -0.07510303218317213], ["it", 0.05934092604132118]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["in", 18, 0.2253280262032462], ["disappointed", 5, -0.1601987802043158], ["Very", 0, -0.13209794586628149], ["AccessoryOne", 21, -0.038837036320781934], [".", 33, -0.038837036320781934], ["in", 55, 0.26416506252402816], ["disappointed", 79, -0.12136174388353387], ["Very", 111, -0.05688943290531579], ["Very", 148, -0.038837036320781934], ["disappointed", 153, -0.038837036320781934], ["in", 166, -0.038837036320781934], ["AccessoryOne", 169, -0.038837036320781934], [".", 181, -0.038837036320781934], ["Very", 185, 0.002465559680598188]], 1, "Very disappointed in AccessoryOne.\n\n\nVery disappointed in AccessoryOne.\n\n\nVery disappointed in AccessoryOne.\n\n\nVery disappointed in AccessoryOne.\n\n\nVery disappointed in AccessoryOne.\n\n\nVery disappointed in AccessoryOne.\n\n\n", raw_div, true);
+            exp.show_raw_text([["like", 23, -0.1061303728860157], ["was", 43, -0.1048333043914021], ["it", 40, 0.08488372334987695], ["charge", 16, -0.07510303218317213], ["it", 28, 0.05934092604132118], ["like", 77, -0.1061303728860157], ["was", 151, -0.1048333043914021], ["it", 202, 0.08488372334987695], ["charge", 232, -0.07510303218317213], ["it", 298, 0.05934092604132118]], 1, "Phone now holds charge like it did when it was new.\n\n\nPhone now holds charge like it did when it was new.\n\n\nPhone now holds charge like it did when it was new.\n\n\nPhone now holds charge like it did when it was new.\n\n\nPhone now holds charge like it did when it was new.\n\n\nPhone now holds charge like it did when it was new.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

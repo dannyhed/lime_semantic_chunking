@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divTDWV81TNT26843C"></div>
+        <div class="lime top_div" id="top_divZT9SHYQLLCMP0ZK"></div>
         
         <script>
-        var top_div = d3.select('#top_divTDWV81TNT26843C').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZT9SHYQLLCMP0ZK').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.38, 0.62]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.87, 0.13]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["family", 0.21528224924078765], ["for", 0.12588159705338722], ["whole", -0.04583050261136934], ["our", -0.02943452838742741], ["Comfort", 0.005301003287336722]], 1, exp_div);
+                exp.show([["bad", -0.2609532112212784], ["is", 0.05317236489905092], ["such", -0.014776281699789059], ["review", -0.012909425382918355], ["Which", -0.009626801774218268]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["family", 22, 0.21528224924078765], ["for", 8, 0.12588159705338722], ["whole", 16, -0.04583050261136934], ["our", 12, -0.02943452838742741], ["Comfort", 0, 0.005301003287336722]], 1, "Comfort for our whole family.", raw_div, true);
+            exp.show_raw_text([["bad", 45, -0.2609532112212784], ["is", 6, 0.05317236489905092], ["such", 38, -0.014776281699789059], ["review", 49, -0.012909425382918355], ["Which", 0, -0.009626801774218268]], 1, "Which is precisely why I am giving it such a bad review!  ", raw_div, true);
             
         </script>
         </body></html>

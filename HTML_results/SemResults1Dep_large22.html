@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divRMYWDRUPI5864I3"></div>
+        <div class="lime top_div" id="top_divDYE40V4NIVDL93U"></div>
         
         <script>
-        var top_div = d3.select('#top_divRMYWDRUPI5864I3').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDYE40V4NIVDL93U').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["!", 0.34747369852691073], ["...", 0.12286092442337593], ["tried", -0.10629916529083595], [",", 0.09998197744845282], ["chicken", -0.07516080311166087]], 1, exp_div);
+                exp.show([[".", 0.2621451519698341], ["was", 0.18939070158368806], ["good", 0.15552824135254514], ["good", 0.15175729302077343], ["Prices", -0.09587839525379224]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["!", 58, 0.34747369852691073], ["...", 51, 0.12286092442337593], ["tried", 2, -0.10629916529083595], [",", 36, 0.09998197744845282], ["chicken", 29, -0.07516080311166087], ["!", 120, 0.34747369852691073], ["...", 175, 0.12286092442337593], ["tried", 188, -0.10629916529083595], [",", 284, 0.09998197744845282], ["chicken", 339, -0.07516080311166087]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\n", raw_div, true);
+            exp.show_raw_text([[".", 49, 0.2621451519698341], ["was", 5, 0.18939070158368806], ["good", 27, 0.15552824135254514], ["good", 9, 0.15175729302077343], ["Prices", 33, -0.09587839525379224], [".", 102, 0.2621451519698341], ["was", 111, 0.18939070158368806], ["good", 186, 0.15552824135254514], ["good", 221, 0.15175729302077343], ["Prices", 298, -0.09587839525379224]], 1, "Food was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\nFood was good, service was good, Prices were good.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

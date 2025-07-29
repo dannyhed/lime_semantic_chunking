@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div390I8XG4IYOMW5S"></div>
+        <div class="lime top_div" id="top_divDJJGU7N2TU93GWU"></div>
         
         <script>
-        var top_div = d3.select('#top_div390I8XG4IYOMW5S').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDJJGU7N2TU93GWU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 6.711881359524352e-22]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 2.9594738178299807e-31]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["own", -1.6485939842831555e-07], ["my", -1.3133494907734396e-07], ["and", -1.2440043646394085e-07], ["phone", 1.2409824593162964e-07], ["home", 1.2036158704592622e-07]], 1, exp_div);
+                exp.show([["My", -3.4455140259988394e-18], ["lor", -3.4037510566306153e-18], ["go", -3.151517325056112e-18], ["4", 2.9951118239763015e-18], ["fri", -2.894089324382359e-18]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["own", 13, -1.6485939842831555e-07], ["my", 10, -1.3133494907734396e-07], ["my", 27, -1.3133494907734396e-07], ["and", 44, -1.2440043646394085e-07], ["phone", 30, 1.2409824593162964e-07], ["home", 39, 1.2036158704592622e-07]], 1, "What's up my own oga. Left my phone at home and just saw ur messages. Hope you are good. Have a great weekend.", raw_div, true);
+            exp.show_raw_text([["My", 0, -3.4455140259988394e-18], ["lor", 18, -3.4037510566306153e-18], ["go", 43, -3.151517325056112e-18], ["4", 27, 2.9951118239763015e-18], ["fri", 3, -2.894089324382359e-18]], 1, "My fri ah... Okie lor,goin 4 my drivin den go shoppin after tt...", raw_div, true);
             
         </script>
         </body></html>

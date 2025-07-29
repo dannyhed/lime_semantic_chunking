@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEBH0IWCM06N2O4B"></div>
+        <div class="lime top_div" id="top_div5LD4FLCW6PW9BVT"></div>
         
         <script>
-        var top_div = d3.select('#top_divEBH0IWCM06N2O4B').classed('lime top_div', true);
+        var top_div = d3.select('#top_div5LD4FLCW6PW9BVT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["waiting", 0.011595483814938343], ["The", 0.011465376096615828], ["tree", 0.0019902512604354004], ["table", 0.0018583963580455283], ["by", 0.0016254205167286432]], 1, exp_div);
+                exp.show([["Okie", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["waiting", 26, 0.011595483814938343], ["The", 0, 0.011465376096615828], ["tree", 41, 0.0019902512604354004], ["table", 4, 0.0018583963580455283], ["by", 34, 0.0016254205167286432]], 1, "The table's occupied, I'm waiting by the tree", raw_div, true);
+            exp.show_raw_text([["Okie", 0, 0.0]], 1, "Okie", raw_div, true);
             
         </script>
         </body></html>

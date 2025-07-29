@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMEZJZ4BER4TN7XU"></div>
+        <div class="lime top_div" id="top_divRCKWJ6XDPDS6SDB"></div>
         
         <script>
-        var top_div = d3.select('#top_divMEZJZ4BER4TN7XU').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRCKWJ6XDPDS6SDB').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.6608936448392342e-13, 0.9999999999998339]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["you", 0.4958699560186566], ["ass", 0.44321222711181674], ["sick", 0.30497057235292924], ["So", -0.23258817407378388], ["hoes", 0.20367925285222788]], 1, exp_div);
+                exp.show([["with", 0.3577025571666521], ["Text", 0.26030577345340056], ["me", 0.2477629431587447], ["nigs", 0.1730876938495338], ["plans", 0.12953292320903703]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["you", 11, 0.4958699560186566], ["ass", 20, 0.44321222711181674], ["sick", 3, 0.30497057235292924], ["So", 0, -0.23258817407378388], ["hoes", 24, 0.20367925285222788], ["you", 42, 0.4958699560186566], ["ass", 82, 0.44321222711181674], ["sick", 96, 0.30497057235292924], ["So", 124, -0.23258817407378388], ["hoes", 179, 0.20367925285222788]], 1, "So sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\nSo sick of you fake ass hoes\n\n\n", raw_div, true);
+            exp.show_raw_text([["with", 8, 0.3577025571666521], ["Text", 0, 0.26030577345340056], ["me", 5, 0.2477629431587447], ["nigs", 19, 0.1730876938495338], ["plans", 13, 0.12953292320903703], ["with", 34, 0.3577025571666521], ["Text", 52, 0.26030577345340056], ["me", 83, 0.2477629431587447], ["nigs", 123, 0.1730876938495338], ["plans", 143, 0.12953292320903703]], 1, "Text me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\nText me with plans nigs\n\n\n", raw_div, true);
             
         </script>
         </body></html>

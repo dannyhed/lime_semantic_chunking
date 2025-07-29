@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divQT0QIKP05V0541P"></div>
+        <div class="lime top_div" id="top_div2Q565R293KAXLQO"></div>
         
         <script>
-        var top_div = d3.select('#top_divQT0QIKP05V0541P').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2Q565R293KAXLQO').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["ham", "spam"], [1.0, 9.728936215777947e-34]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 1.0231086626908561e-36]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["ham", "spam"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Sat", -1.8433581997816535e-12], ["right", -1.811552341947512e-12], ["thanks", -1.5196396095466229e-12], ["Okay", -1.3125170863798733e-12]], 1, exp_div);
+                exp.show([["Yes", -3.1219749583003555e-12], ["or", -2.652835466976958e-12], ["office", 2.574004968681428e-12], ["Plus", -1.6101851484111327e-12], ["They", -1.0538617677027293e-12]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Sat", 0, -1.8433581997816535e-12], ["right", 4, -1.811552341947512e-12], ["thanks", 16, -1.5196396095466229e-12], ["Okay", 11, -1.3125170863798733e-12], ["Sat", 28, -1.5770514440319101e-12], ["right", 60, -1.5452455861977687e-12], ["thanks", 100, -1.5196396095466229e-12], ["Okay", 123, -1.3125170863798733e-12], ["Sat", 140, -2.6630675574974334e-13], ["right", 144, -2.6630675574974334e-13]], 1, "Sat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\nSat right? Okay thanks...\n\n\n", raw_div, true);
+            exp.show_raw_text([["Yes", 0, -3.1219749583003555e-12], ["or", 101, -2.652835466976958e-12], ["office", 55, 2.574004968681428e-12], ["Plus", 69, -1.6101851484111327e-12], ["They", 5, -1.0538617677027293e-12], ["Yes", 120, -3.1219749583003555e-12], ["or", 341, -2.652835466976958e-12], ["office", 415, 2.574004968681428e-12], ["Plus", 549, -1.6101851484111327e-12], ["They", 605, -1.0538617677027293e-12]], 1, "Yes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\nYes. They replied my mail. I'm going to the management office later. Plus will in to bank later also.or on wednesday.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

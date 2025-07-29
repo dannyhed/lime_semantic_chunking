@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEIT6FFY4AMQ546U"></div>
+        <div class="lime top_div" id="top_div0XEWKFCSR4RO7OF"></div>
         
         <script>
-        var top_div = d3.select('#top_divEIT6FFY4AMQ546U').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0XEWKFCSR4RO7OF').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.9028644761095998e-25]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["gayle", 5.1941783554049306e-06], ["Smith", -4.229951319582664e-06], ["waste", 3.106471167992121e-06], [".", -2.019536933690963e-06], ["da", -1.9236203647906573e-06]], 1, exp_div);
+                exp.show([["!", 0.6462710417403261], ["...", 0.5893639595622988], ["I", -0.4353798887204907], ["tried", 0.20022277951202724], ["with", 0.03667358497912661]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["gayle", 23, 5.1941783554049306e-06], ["Smith", 0, -4.229951319582664e-06], ["waste", 6, 3.106471167992121e-06], [".", 14, -2.019536933690963e-06], ["da", 12, -1.9236203647906573e-06], ["gayle", 55, 5.1941783554049306e-06], ["Smith", 64, -4.229951319582664e-06], ["waste", 102, 3.106471167992121e-06], [".", 142, -2.019536933690963e-06], ["da", 172, -1.9236203647906573e-06]], 1, "Smith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\nSmith waste da.i wanna gayle.\n\n\n", raw_div, true);
+            exp.show_raw_text([["!", 58, 0.6462710417403261], ["...", 51, 0.5893639595622988], ["I", 0, -0.4353798887204907], ["tried", 2, 0.20022277951202724], ["with", 37, 0.03667358497912661], ["!", 120, 0.6462710417403261], ["...", 175, 0.5893639595622988], ["I", 186, -0.4353798887204907], ["tried", 250, 0.20022277951202724], ["with", 347, 0.03667358497912661]], 1, "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\nI tried the Cape Cod ravoli, chicken,with cranberry...mmmm!\n\n\n", raw_div, true);
             
         </script>
         </body></html>

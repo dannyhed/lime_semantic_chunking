@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJE1IOX2OKWQCYQS"></div>
+        <div class="lime top_div" id="top_div6KA43RWRQMPNG65"></div>
         
         <script>
-        var top_div = d3.select('#top_divJE1IOX2OKWQCYQS').classed('lime top_div', true);
+        var top_div = d3.select('#top_div6KA43RWRQMPNG65').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.2, 0.8]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.55, 0.45]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["good", 0.22810557110819463], ["and", 0.17136976053897626], ["The", -0.06514500300955715], ["quite", 0.028898358943980792], ["as", -0.025352165861946645]], 1, exp_div);
+                exp.show([["and", 0.1491318692524821], ["battery", -0.08868487690450787], ["be", -0.06034126163866664], ["hours", -0.05602312773357094], ["would", 0.04569062809279023]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["good", 53, 0.22810557110819463], ["and", 14, 0.17136976053897626], ["The", 0, -0.06514500300955715], ["quite", 44, 0.028898358943980792], ["as", 50, -0.025352165861946645]], 1, "The directing and the cinematography aren't quite as good.  ", raw_div, true);
+            exp.show_raw_text([["and", 41, 0.1491318692524821], ["and", 84, 0.1491318692524821], ["battery", 49, -0.08868487690450787], ["be", 63, -0.06034126163866664], ["hours", 35, -0.05602312773357094], ["would", 57, 0.04569062809279023]], 1, "I used to talk on it for 1 - 1 1/2 hours and the battery would be literally drained and dying.", raw_div, true);
             
         </script>
         </body></html>

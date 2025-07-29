@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divHLZQSKRBMH19T67"></div>
+        <div class="lime top_div" id="top_div1XDU40PKIYYHQCL"></div>
         
         <script>
-        var top_div = d3.select('#top_divHLZQSKRBMH19T67').classed('lime top_div', true);
+        var top_div = d3.select('#top_div1XDU40PKIYYHQCL').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.008831596394676677, 0.9911684036053233]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["fags", 0.5822945896792266], ["Peace", 0.44065327983454883]], 1, exp_div);
+                exp.show([["aint", 0.35156593659076946], ["bond", 0.3240178892159445], ["lil", 0.2720524918343768], ["to", 0.19335093209676357], ["make", 0.061202556845507065]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["fags", 6, 0.5822945896792266], ["Peace", 0, 0.44065327983454883], ["fags", 19, 0.5674799886424312], ["Peace", 26, 0.4258386787977533], ["Peace", 39, 0.005017994031672746], ["fags", 45, 0.005017994031672746], ["Peace", 52, 0.004915647937295819], ["fags", 58, 0.004915647937295819], ["Peace", 65, 0.004880959067826983], ["fags", 71, 0.004880959067826983]], 1, "Peace fags\n\n\nPeace fags\n\n\nPeace fags\n\n\n", raw_div, true);
+            exp.show_raw_text([["aint", 39, 0.35156593659076946], ["bond", 34, 0.3240178892159445], ["lil", 0, 0.2720524918343768], ["to", 48, 0.19335093209676357], ["make", 24, 0.061202556845507065], ["aint", 101, 0.35156593659076946], ["bond", 158, 0.3240178892159445], ["lil", 186, 0.2720524918343768], ["to", 296, 0.19335093209676357], ["make", 334, 0.061202556845507065]], 1, "lil bitch thats down to make your bond aint got to tell her\n\n\nlil bitch thats down to make your bond aint got to tell her\n\n\nlil bitch thats down to make your bond aint got to tell her\n\n\nlil bitch thats down to make your bond aint got to tell her\n\n\nlil bitch thats down to make your bond aint got to tell her\n\n\nlil bitch thats down to make your bond aint got to tell her\n\n\n", raw_div, true);
             
         </script>
         </body></html>

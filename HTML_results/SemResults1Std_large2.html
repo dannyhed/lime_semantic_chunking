@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divDJ4E46ARTN2R2WJ"></div>
+        <div class="lime top_div" id="top_divDKYQBO8CW0TPJ64"></div>
         
         <script>
-        var top_div = d3.select('#top_divDJ4E46ARTN2R2WJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDKYQBO8CW0TPJ64').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.99820538671267, 0.0017946132873300088]);
+            var pp = new lime.PredictProba(pp_svg, [], [3.3859257261292797e-06, 0.9999966140742739]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["pls", -0.07689910705362643], ["drink", 0.0493850049236179], ["mail", 0.046000994084949676], ["model", 0.04567847396426388], ["send", 0.04217839513880287]], 1, exp_div);
+                exp.show([["fit", 0.2640022150381284], ["alarm", 0.260329590482812], ["its", 0.21858650197665364], ["to", -0.188171213622372], ["removing", 0.15042851653652606]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["pls", 49, -0.07689910705362643], ["drink", 6, 0.0493850049236179], ["mail", 67, 0.046000994084949676], ["model", 43, 0.04567847396426388], ["send", 53, 0.04217839513880287]], 1, "K ill drink.pa then what doing. I need srs model pls send it to my mail id pa.", raw_div, true);
+            exp.show_raw_text([["fit", 24, 0.2640022150381284], ["alarm", 36, 0.260329590482812], ["its", 5, 0.21858650197665364], ["to", 21, -0.188171213622372], ["removing", 72, 0.15042851653652606]], 1, "Also its slim enough to fit into my alarm clock docking station without removing the case.", raw_div, true);
             
         </script>
         </body></html>

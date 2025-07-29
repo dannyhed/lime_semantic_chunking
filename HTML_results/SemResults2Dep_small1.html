@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divVPNB1AY2QH9SZYX"></div>
+        <div class="lime top_div" id="top_divR3043ZUBZQCIQW4"></div>
         
         <script>
-        var top_div = d3.select('#top_divVPNB1AY2QH9SZYX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divR3043ZUBZQCIQW4').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.65, 0.35]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.87, 0.13]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["and", 0.2787306403884154], ["do", -0.0465700060338562], ["their", 0.04187726728632206], ["Do", -0.032258314338849854], ["helpful", -0.027302504545267812]], 1, exp_div);
+                exp.show([["poor", -0.2377419259328521], ["voice", 0.0519152735407173], ["clarity", 0.00786126521887944], [".", 0.00786126521887944]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["and", 26, 0.2787306403884154], ["do", 30, -0.0465700060338562], ["their", 12, 0.04187726728632206], ["Do", 0, -0.032258314338849854], ["helpful", 47, -0.027302504545267812], ["and", 92, 0.2787306403884154], ["do", 162, -0.0465700060338562], ["their", 210, 0.04187726728632206], ["Do", 264, -0.032258314338849854], ["helpful", 377, -0.027302504545267812]], 1, "Don't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\nDon't trust their website and don't expect any helpful support.\n\n\n", raw_div, true);
+            exp.show_raw_text([["poor", 0, -0.2377419259328521], ["voice", 5, 0.0519152735407173], ["clarity", 11, 0.00786126521887944], [".", 18, 0.00786126521887944], ["poor", 22, -0.24779946960757088], ["voice", 49, 0.03624495653571811], ["poor", 66, 0.00786126521887944], ["voice", 71, 0.00786126521887944], ["clarity", 77, 0.00786126521887944], [".", 84, 0.00786126521887944], ["poor", 88, -0.005664986763040116], ["voice", 115, -5.221343275968907e-05]], 1, "poor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\npoor voice clarity.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

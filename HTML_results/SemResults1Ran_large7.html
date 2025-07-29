@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8D9L8VNEA8RRC1O"></div>
+        <div class="lime top_div" id="top_divS5RG5U5VS4MEA4C"></div>
         
         <script>
-        var top_div = d3.select('#top_div8D9L8VNEA8RRC1O').classed('lime top_div', true);
+        var top_div = d3.select('#top_divS5RG5U5VS4MEA4C').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 4.834074077520548e-19]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 5.5015505186011e-20]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["+", 5.22109783217519e-12], ["owe", -4.206648385504159e-12], ["Hey", -4.332166411789677e-12], ["a", -1.9528223932850556e-12], ["you", -1.4065412882476514e-12], ["around", -1.4065412882476514e-12], ["?", -1.4065412882476514e-12]], 1, exp_div);
+                exp.show([["walk", 0.28952135836733783], ["!", 0.28839498658737117], ["relief", -0.20884259315721593], ["minutes", -0.20838321075901964], ["theatre", -0.0032905671942550776]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["+", 43, 5.22109783217519e-12], ["owe", 55, -4.206648385504159e-12], ["Hey", 0, -4.332166411789677e-12], ["a", 36, -1.9528223932850556e-12], ["you", 4, -1.4065412882476514e-12], ["around", 8, -1.4065412882476514e-12], ["?", 14, -1.4065412882476514e-12], ["+", 108, 5.22109783217519e-12], ["owe", 185, -4.206648385504159e-12], ["Hey", 195, -2.9256251235420263e-12], ["a", 296, -1.9528223932850556e-12], ["Hey", 325, -1.4065412882476514e-12], ["you", 329, -1.4065412882476514e-12], ["around", 333, -1.4065412882476514e-12], ["?", 339, -1.4065412882476514e-12]], 1, "Hey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\nHey you around? I've got enough for a half + the ten I owe you\n\n\n", raw_div, true);
+            exp.show_raw_text([["walk", 9, 0.28952135836733783], ["!", 74, 0.28839498658737117], ["relief", 68, -0.20884259315721593], ["minutes", 43, -0.20838321075901964], ["theatre", 25, -0.0032905671942550776], ["walk", 89, 0.28952135836733783], ["!", 234, 0.28839498658737117], ["relief", 308, -0.20884259315721593], ["minutes", 363, -0.20838321075901964], ["theatre", 425, -0.0032905671942550776]], 1, "I had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\nI had to walk out of the theatre for a few minutes just to get some relief!  \n\n\n", raw_div, true);
             
         </script>
         </body></html>

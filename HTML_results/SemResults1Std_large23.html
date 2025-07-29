@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUN6OXV7YS2XG3C9"></div>
+        <div class="lime top_div" id="top_div2ZKCR7LPJJEEQZT"></div>
         
         <script>
-        var top_div = d3.select('#top_divUN6OXV7YS2XG3C9').classed('lime top_div', true);
+        var top_div = d3.select('#top_div2ZKCR7LPJJEEQZT').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 1.419257492084715e-38]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.9825610378290156, 0.017438962170984416]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["in", -3.2367835930761063e-13], ["library", -2.8455639395054484e-13], ["you", -2.702828276936742e-13], ["Not", -2.6127615690706164e-13], ["this", 2.463344543626289e-13]], 1, exp_div);
+                exp.show([["when", -0.384287689699506], ["phone", -0.21568199140100563], ["finds", 0.2116980058908396], ["enter", 0.19254326869826147], ["the", 0.17096731379180743]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["in", 30, -3.2367835930761063e-13], ["library", 37, -2.8455639395054484e-13], ["you", 26, -2.702828276936742e-13], ["Not", 0, -2.6127615690706164e-13], ["this", 9, 2.463344543626289e-13]], 1, "Not from this campus. Are you in the library?", raw_div, true);
+            exp.show_raw_text([["when", 34, -0.384287689699506], ["phone", 17, -0.21568199140100563], ["finds", 3, 0.2116980058908396], ["enter", 41, 0.19254326869826147], ["the", 47, 0.17096731379180743]], 1, "It finds my cell phone right away when I enter the car.", raw_div, true);
             
         </script>
         </body></html>

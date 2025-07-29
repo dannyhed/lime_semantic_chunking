@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divA0TPSPS9R48LBFD"></div>
+        <div class="lime top_div" id="top_divPS10APVCF1IUP9N"></div>
         
         <script>
-        var top_div = d3.select('#top_divA0TPSPS9R48LBFD').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPS10APVCF1IUP9N').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.99, 0.01]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.97, 0.03]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["call", 0.006481985193559085], ["In", 0.006319343173641795], ["ll", -0.000291860057332304], ["meeting", 0.00023703397711387263], ["later", -0.00022637957897864137]], 1, exp_div);
+                exp.show([["The", 0.012016275892910499], ["waiting", 0.01192895669207946], ["tree", 0.001987090517567276], ["table", 0.0019045939724427008], ["by", 0.0018581623778365088]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["call", 12, 0.006481985193559085], ["In", 23, 0.006319343173641795], ["ll", 9, -0.000291860057332304], ["meeting", 26, 0.00023703397711387263], ["later", 17, -0.00022637957897864137]], 1, "Sorry, I'll call later In meeting.", raw_div, true);
+            exp.show_raw_text([["The", 0, 0.012016275892910499], ["waiting", 26, 0.01192895669207946], ["tree", 41, 0.001987090517567276], ["table", 4, 0.0019045939724427008], ["by", 34, 0.0018581623778365088]], 1, "The table's occupied, I'm waiting by the tree", raw_div, true);
             
         </script>
         </body></html>

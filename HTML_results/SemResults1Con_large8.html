@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJOBUXVYJUD32912"></div>
+        <div class="lime top_div" id="top_divEZDDIE9L51K87JY"></div>
         
         <script>
-        var top_div = d3.select('#top_divJOBUXVYJUD32912').classed('lime top_div', true);
+        var top_div = d3.select('#top_divEZDDIE9L51K87JY').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [6.633715798898265e-11, 0.9999999999336628]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["http://alto18.co.uk/wave/wave.asp?o=44345", 0.8609070923236655], ["sent", 0.03243191693065134], ["your", 0.026445577738328865], ["A", 0.016634927654762873], ["You", -0.10475361961789675], ["can", -0.10475361961789675], ["also", -0.10475361961789675], ["use", -0.10475361961789675]], 1, exp_div);
+                exp.show([["great", 0.5727538430840593], ["experience", 0.5258166539196845], [".", -0.12246493190855322], [",", -0.12012195794667177], ["a", 0.3881330666490767]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["http://alto18.co.uk/wave/wave.asp?o=44345", 55, 0.8609070923236655], ["sent", 32, 0.03243191693065134], ["your", 10, 0.026445577738328865], ["A", 0, 0.016634927654762873], ["You", 38, -0.10475361961789675], ["can", 42, -0.10475361961789675], ["also", 46, -0.10475361961789675], ["use", 51, -0.10475361961789675], ["http://alto18.co.uk/wave/wave.asp?o=44345", 154, 0.9656607119415622], ["You", 236, -0.10475361961789675], ["can", 240, -0.10475361961789675], ["also", 244, -0.10475361961789675], ["use", 249, -0.10475361961789675], ["http://alto18.co.uk/wave/wave.asp?o=44345", 253, -0.10475361961789675], ["sent", 329, 0.03243191693065134], ["your", 406, 0.026445577738328865], ["A", 495, 0.016634927654762873]], 1, "A link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\nA link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345\n\n\n", raw_div, true);
+            exp.show_raw_text([["great", 11, 0.5727538430840593], ["experience", 17, 0.5258166539196845], [".", 27, -0.12246493190855322], [",", 7, -0.12012195794667177], ["a", 9, 0.3881330666490767], ["a", 40, 0.3881330666490767], ["great", 42, 0.3881330666490767], ["experience", 48, 0.3881330666490767], ["great", 73, 0.18462077643498262], ["experience", 110, 0.13768358727060775], [".", 151, -0.12246493190855322], [",", 162, -0.12012195794667177]], 1, "Overall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\nOverall, a great experience.\n\n\n", raw_div, true);
             
         </script>
         </body></html>

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divC76GCNOAE68V5G7"></div>
+        <div class="lime top_div" id="top_divDYE40V4NIVDL93U"></div>
         
         <script>
-        var top_div = d3.select('#top_divC76GCNOAE68V5G7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divDYE40V4NIVDL93U').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.9999999999999281, 7.198497775893798e-14]);
+            var pp = new lime.PredictProba(pp_svg, [], [0.0, 1.0]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["0", "1"]);
+            var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["skip", -0.5252626272291371], ["collect", -0.4830248560604275], ["Austen", 0.2231097124286852], ["Unless", -0.13917204456817506], ["visually", 0.10834291689805253]], 1, exp_div);
+                exp.show([["good", 0.9819249213889063], ["Prices", -0.010370589178867747], ["were", -0.009047123733923775], ["Food", -0.008885956578040935], ["was", -0.00712486598110292]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["skip", 88, -0.5252626272291371], ["collect", 36, -0.4830248560604275], ["Austen", 65, 0.2231097124286852], ["Unless", 0, -0.13917204456817506], ["visually", 26, 0.10834291689805253]], 1, "Unless you're just out to visually \"collect\" all extant films of Austen's work, you can skip this one.  ", raw_div, true);
+            exp.show_raw_text([["good", 9, 0.9819249213889063], ["good", 27, 0.9819249213889063], ["good", 45, 0.9819249213889063], ["Prices", 33, -0.010370589178867747], ["were", 40, -0.009047123733923775], ["Food", 0, -0.008885956578040935], ["was", 5, -0.00712486598110292], ["was", 23, -0.00712486598110292]], 1, "Food was good, service was good, Prices were good.", raw_div, true);
             
         </script>
         </body></html>

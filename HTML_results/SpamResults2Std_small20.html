@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divH0TVNTRUL9I0RN7"></div>
+        <div class="lime top_div" id="top_divNGVCGD5Y3REU5RL"></div>
         
         <script>
-        var top_div = d3.select('#top_divH0TVNTRUL9I0RN7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divNGVCGD5Y3REU5RL').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, [], [0.09, 0.91]);
+            var pp = new lime.PredictProba(pp_svg, [], [1.0, 0.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation([]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["prize", 0.15963148547399755], ["Call", 0.12863606920193246], ["won", 0.11792924353038167], ["GUARANTEED", 0.08320254524066567], ["line", 0.08294571034168524]], 1, exp_div);
+                exp.show([["Hello", 0.0], ["Sort", 0.0], ["of", 0.0], ["out", 0.0], ["in", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["prize", 90, 0.15963148547399755], ["Call", 108, 0.12863606920193246], ["won", 78, 0.11792924353038167], ["GUARANTEED", 96, 0.08320254524066567], ["line", 135, 0.08294571034168524]], 1, "XMAS Prize draws! We are trying to contact U. Todays draw shows that you have won a \u00a32000 prize GUARANTEED. Call 09058094565 from land line. Valid 12hrs only", raw_div, true);
+            exp.show_raw_text([["Hello", 0, 0.0], ["Sort", 7, 0.0], ["of", 12, 0.0], ["out", 15, 0.0], ["in", 19, 0.0]], 1, "Hello. Sort of out in town already. That . So dont rush home, I am eating nachos. Will let you know eta.", raw_div, true);
             
         </script>
         </body></html>

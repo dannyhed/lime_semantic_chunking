@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divAQPIHQUW77JDXQI"></div>
+        <div class="lime top_div" id="top_divXBI8PCQ4KEGAQQJ"></div>
         
         <script>
-        var top_div = d3.select('#top_divAQPIHQUW77JDXQI').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXBI8PCQ4KEGAQQJ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [1.0, 2.687667734859288e-22]);
+            var pp = new lime.PredictProba(pp_svg, ["0", "1"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["0", "1"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["birds", -0.1898295565564208], ["walking", -0.12454063897357363], ["he", -0.09410324012595103], ["by", -0.08536013684164913], ["3", 0.07675702448716053]], 1, exp_div);
+                exp.show([["bitch", 0.08699865674407195], ["ova", 0.04712285117556736], ["to", -0.024899598766194655], ["ass", 0.01937684955830529], ["dat", 0.019148508115341446]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["birds", 24, -0.1898295565564208], ["walking", 7, -0.12454063897357363], ["he", 0, -0.09410324012595103], ["by", 36, -0.08536013684164913], ["3", 15, 0.07675702448716053]], 1, "he was walking 3 little birds pitch by his doorstep. Singing sweet songs of melodies pure true. Saying ...", raw_div, true);
+            exp.show_raw_text([["bitch", 32, 0.08699865674407195], ["ova", 38, 0.04712285117556736], ["to", 19, -0.024899598766194655], ["ass", 5, 0.01937684955830529], ["dat", 28, 0.019148508115341446]], 1, "Slaw ass team time to start dat bitch ova", raw_div, true);
             
         </script>
         </body></html>
