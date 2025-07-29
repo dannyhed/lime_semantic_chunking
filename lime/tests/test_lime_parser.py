@@ -117,6 +117,11 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     for m, model in enumerate(models):
         for i, inst in enumerate(instances):
             inst = html.unescape(inst).strip()
+            # Remove tokens like <#>, <unk>, or HTML tags
+            text = re.sub(r"<[^>]*>", "", text)
+
+            # Remove anything that isn't a word or number
+            text = ''.join(re.findall(r"\b\w+\b", text))
             # prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
