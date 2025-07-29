@@ -404,20 +404,33 @@ import os
 class SavedExplanation(object):
     def __init__(self, name=None, path=None, desc=None, exp=None, load=True):
         if exp != None:
-            domain_mapper = exp.domain_mapper
-            indexed_string = domain_mapper.indexed_string
-            self.standard = False
+            self.shap = False
             try:
-                indexed_string.tokens
+                domain_mapper = exp.domain_mapper
+                indexed_string = domain_mapper.indexed_string
             except:
+                self.shap = True
                 self.standard = True
-            indexed_string_data = {
-                "raw_string": indexed_string.raw,
-                "as_list": indexed_string.as_list,
-                "positions": indexed_string.positions,
-                "as_np": indexed_string.as_np,
-                "string_start": indexed_string.string_start
-            }
+            if not self.shap:
+                self.standard = False
+                try:
+                    indexed_string.tokens
+                except:
+                    self.standard = True
+                indexed_string_data = {
+                    "raw_string": indexed_string.raw,
+                    "as_list": indexed_string.as_list,
+                    "positions": indexed_string.positions,
+                    "as_np": indexed_string.as_np,
+                    "string_start": indexed_string.string_start
+                }
+            else:
+                self.exp = exp
+                self.data = {
+                    "shap": True,
+                    "exp_data": exp,
+                    "desc": desc
+                }
             if not self.standard:
                 try:
                     indexed_string_data["tokens"] = indexed_string.tokens
@@ -428,31 +441,34 @@ class SavedExplanation(object):
                 indexed_string_data["parse_type"] = indexed_string.parse_type
                 indexed_string_data["inverse_ids"] = indexed_string.inverse_ids
                 indexed_string_data["word_level"] = indexed_string.word_level
-            domain_data = {
-                "indexed_string": indexed_string_data
-            }
+            if not self.shap:
+                domain_data = {
+                    "indexed_string": indexed_string_data
+                }
             if not self.standard:
                 domain_data["all_exps"] = domain_mapper.all_exps
                 domain_data["num_exps"] = domain_mapper.num_exps
-            exp_data = {
-                "top_labels": exp.top_labels,
-                "intercept": exp.intercept,
-                "local_exp": exp.local_exp,
-                "score": exp.score,
-                "local_pred": exp.local_pred,
-                "class_names": exp.class_names,
-                "random_state": exp.random_state,
-                "predict_proba": exp.predict_proba,
-                "domain_data": domain_data
-            }
-            self.data = {
-                "name": name,
-                "path": path,
-                "desc": desc,
-                "exp_data": exp_data,
-                "raw_string": indexed_string.raw,
-                "is_standard": self.standard
-            }
+            if not self.shap:
+                exp_data = {
+                    "top_labels": exp.top_labels,
+                    "intercept": exp.intercept,
+                    "local_exp": exp.local_exp,
+                    "score": exp.score,
+                    "local_pred": exp.local_pred,
+                    "class_names": exp.class_names,
+                    "random_state": exp.random_state,
+                    "predict_proba": exp.predict_proba,
+                    "domain_data": domain_data
+                }
+                self.data = {
+                    "name": name,
+                    "path": path,
+                    "desc": desc,
+                    "exp_data": exp_data,
+                    "raw_string": indexed_string.raw,
+                    "is_standard": self.standard,
+                    "shap": False
+                }
             with open(path + name + ".pkl", mode="wb") as file:
                 pkl.dump(self.data, file=file)
         else:
@@ -471,12 +487,20 @@ class SavedExplanation(object):
                     except:
                         print("File does not exist")
                         return None
-            exp_data = self.data["exp_data"]
-            domain_data = exp_data["domain_data"]
-            indexed_string_data = domain_data["indexed_string"]
+            try:
+                self.data["shap"]
+            except:
+                self.data["shape"] = False
+
+            if not self.data["shap"]:
+                exp_data = self.data["exp_data"]
+                domain_data = exp_data["domain_data"]
+                indexed_string_data = domain_data["indexed_string"]
 
             if load:
-                if self.data["is_standard"]:
+                if self.data["shap"]:
+                    return self
+                elif self.data["is_standard"]:
                     indexed_string = IndexedString(indexed_string_data["raw_string"])
                     domain_mapper = TextDomainMapper(indexed_string)
                 else:
@@ -513,11 +537,14 @@ class SavedExplanation(object):
                                                                     exp_data["predict_proba"])
                 self.exp = exp
                 self.local_exp = exp.local_exp
+                return self
         
     def get_exp(self):
         return self.exp
     
     def get_local_exp(self, label=1):
+        if self.data["shap"]:
+            return self.exp
         all_exp = self.local_exp[label]
         word_ids = []
         if self.data["is_standard"]:

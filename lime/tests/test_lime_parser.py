@@ -62,6 +62,10 @@ import sys
 import pandas as pd
 import shap
 
+EXPL_PATH = r"./saved_explanations/"
+MODEL_PATH = r"./saved_models/"
+HTML_PATH = r"./HTML_results/"
+
 
 def clear_lines(n):
 # Move up and clear n lines
@@ -70,9 +74,6 @@ def clear_lines(n):
         sys.stdout.write("\033[2K") # clear line
     sys.stdout.flush()
 
-EXPL_PATH = r"./saved_explanations/"
-MODEL_PATH = r"./saved_models/"
-HTML_PATH = r"./HTML_results/"
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
                        skip_existing=False, just_desc=False):
@@ -81,7 +82,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
         name = desc["disting"] + "_" + desc["parses"][j] + "_" + desc["models"][m] + "_" + str(p) + "_" + str(i)
         return name
 
-    def save_desc(j, m, p, i, fts, smp, desc, msk=None, rnd=None, wrd=None):
+    def save_desc(j, m, p, i, fts=None, smp=None, desc=None, msk=None, rnd=None, wrd=None):
         name=save_name(j, m, i, p, desc=desc)
         description=name
         description += "\nModel:\t\t" + desc["models"][m]
@@ -152,30 +153,45 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
 
+                name = save_desc(4,m,p,i,desc=descriptions)[0]
+                if not (skip_existing and os.path.exists(path+name+".pkl")):
+                    print("\n" + name)
+                    sh = shap.Explainer(model)
+                    explanations.append(sh(inst))
+                elif just_desc:
+                    explanations.append(SavedExplanation(name, path).get_exp())
+                
+
                 if just_desc:
                     skip_existing = False
 
                 if save:    
                     name, desc = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-4])
+                        SavedExplanation(name, path, desc, explanations[-5])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-3])
+                        SavedExplanation(name, path, desc, explanations[-4])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
-                        SavedExplanation(name, path, desc, explanations[-2])
+                        SavedExplanation(name, path, desc, explanations[-3])
                     else:
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(3,m,p,i,num_feats,num_samples,descriptions)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
+                        SavedExplanation(name, path, desc, explanations[-2])
+                    else:
+                        print("\n" + name + " exists" + "\n")
+                    name, desc = save_desc(4,m,p,i,descriptions)
+                    if not(skip_existing and os.path.exists(path+name+".pkl")):
                         SavedExplanation(name, path, desc, explanations[-1])
                     else:
                         print("\n" + name + " exists" + "\n")
+                        
                 
                 clear_lines(15)
 
@@ -627,7 +643,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         descs = {
             # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
             "models": [model_save_name(p, DS, ext=False) for p in model_params],
-            "parses": ["Dep", "Con", "Ran", "Std"],
+            "parses": ["Dep", "Con", "Ran", "Std", "Shap"],
             # "param_sets": ["0", "1", "2", "3"],
 
         #            ||||||||||||||
