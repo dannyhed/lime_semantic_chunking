@@ -444,14 +444,24 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
         if pattern.match(file):
             print("found file")
             files.append(file)
+    files = sorted(files)
     if names == None:
         for f, file in enumerate(files):
-            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + str(f) + ".html")
-            print(HTML_PATH + disting + more_name + str(f))
+            pathname = HTML_PATH + disting + more_name + str(f)
+            exp = SavedExplanation(file, EXPL_PATH).get_exp()
+            exp.save_to_file(pathname + ".html")
+            #print(pathname)
+            with open(pathname + ".txt", "w+") as file:
+                file.write(exp.predict_proba)
+
     else:
         for name, file in zip(names, files):
-            SavedExplanation(file, EXPL_PATH).get_exp().save_to_file(HTML_PATH + disting + more_name + name + ".html")
-            print(HTML_PATH + disting + more_name + name)
+            pathname = HTML_PATH + disting + more_name + name
+            exp = SavedExplanation(file, EXPL_PATH).get_exp()
+            exp.save_to_file(pathname + ".html")
+            #print(HTML_PATH + disting + more_name + name)
+            with open(pathname + ".txt", "w+") as file:
+                file.write(exp.predict_proba)
 
 
 
@@ -649,7 +659,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets):
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
 
 
 
