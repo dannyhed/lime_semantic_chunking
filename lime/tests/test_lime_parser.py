@@ -190,9 +190,10 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         # mask = shap.maskers.Text(tokenizer)
                         #background = vectorizer(shap_train[:100]).toarray()
                         #print(f"Instance: {inst}")
-                        background = shap_train[:100]
-                        mask = shap.maskers.Text(r"\W+")
-                        sh = shap.KernelExplainer(model.predict_proba, background)
+                        # background = shap_train[:100]
+                        # mask = shap.maskers.Text(r"\W+")
+                        # sh = shap.KernelExplainer(model.predict_proba, background)
+                        sh = shap.Explainer(model)
                         explanations.append(sh(inst))
                         new_expls += 1
                     elif just_desc:
