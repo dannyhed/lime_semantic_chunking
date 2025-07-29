@@ -156,7 +156,9 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(4,m,p,i,desc=descriptions)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    background_data = model.named_steps['tfidfvectorizer'].transform(shap_train[:num_feats]).toarray()
+                    shap_inputs = [x.decode("utf-8") if isinstance(x, bytes) else x for x in shap_train[:num_feats]]
+                    background_data = model.named_steps['tfidfvectorizer'].transform(shap_inputs).toarray()
+                    #background_data = model.named_steps['tfidfvectorizer'].transform(shap_train[:num_feats]).toarray()
                     sh = shap.KernelExplainer(model.predict_proba, background_data)
                     #sh = shap.KernelExplainer(model, shap_train[:num_feats])
                     explanations.append(sh(inst))
@@ -680,7 +682,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         #     print(i)
         t_train = np.array(list(t_train))
         t_test = np.array(list(t_test))
-        all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, jmodel=True)
+        #all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, jmodel=True)
 
         all_models = load_models(model_params, DS)
 
