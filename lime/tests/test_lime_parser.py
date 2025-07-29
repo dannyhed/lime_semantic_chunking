@@ -122,6 +122,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
 
             # Remove anything that isn't a word or number
             inst = ''.join(re.findall(r"\b\w+\b", inst))
+            if len(inst) == 0:
+                continue
             # prediction = model([inst])
             for p, pset in enumerate(parameter_sets):
                 progress = m*tot_insts*tot_params + i*tot_params + p + 1
