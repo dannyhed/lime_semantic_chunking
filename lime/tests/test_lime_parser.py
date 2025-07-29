@@ -178,7 +178,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         # teacher_forcing_model = shap.models.TeacherForcing(
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
-                        mask = shap.maskers.Text(tokenizer)
+                        #mask = shap.maskers.Text(tokenizer)
+                        mask = shap.maskers.Text(r"\W+")
                         sh = shap.Explainer(model.predict_proba, mask)
                         explanations.append(sh(inst))
                         new_expls += 1
