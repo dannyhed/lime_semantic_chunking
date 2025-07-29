@@ -171,10 +171,10 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     if not (skip_existing and os.path.exists(path+name+".pkl")):
                         print("\n" + name)
                         try:
-                            tokenizer = model.named_steps["TfidfVectorizer"]
+                            tokenizer = model.named_steps["tfidfvectorizer'"]
                         except:
                             print(model.named_steps)
-                            tokenizer = model.named_steps["BERTVectorizer"].tokenizer
+                            tokenizer = model.named_steps["bertvectorizer"].tokenizer
                         # teacher_forcing_model = shap.models.TeacherForcing(
                         #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
