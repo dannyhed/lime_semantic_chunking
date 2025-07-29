@@ -78,7 +78,7 @@ def clear_lines(n):
 
 
 def run_all_explainers(models, class_names, parameter_sets, instances, save=False, descriptions=None, path=None, 
-                       skip_existing=False, just_desc=False, shap_train=None):
+                       skip_existing=False, just_desc=False, shap_train=[]):
 
     def save_name(j, m, i, p, desc):
         name = desc["disting"] + "_" + desc["parses"][j] + "_" + desc["models"][m] + "_" + str(p) + "_" + str(i)
@@ -175,7 +175,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     explanations.append(SavedExplanation(name, path).get_exp())
                     new_expls += 1
                     
-                if shap_train != None:
+                if len(shap_train) > 0:
                     name = save_desc(4,m,p,i,num_feats,num_samples,descriptions)[0]
                     if not (skip_existing and os.path.exists(path+name+".pkl")):
                         print("\n" + name)
