@@ -173,7 +173,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         except:
                             tokenizer = model.named_steps["bertvectorizer"]
                         teacher_forcing_model = shap.models.TeacherForcing(
-                            model, similarity_model=model, similarity_tokenizer=tokenizer, device=model.device)
+                            model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
                         mask = shap.maskers.Text(tokenizer)
                         sh = shap.Explainer(teacher_forcing_model, mask)
                         explanations.append(sh(inst))
