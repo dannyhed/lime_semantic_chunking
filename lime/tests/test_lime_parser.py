@@ -173,7 +173,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         try:
                             tokenizer = model.named_steps["TfidfVectorizer"]
                         except:
-                            print(model.names_steps)
+                            print(model.named_steps)
                             tokenizer = model.named_steps["BERTVectorizer"].tokenizer
                         # teacher_forcing_model = shap.models.TeacherForcing(
                         #     model.predict_proba, tokenizer=tokenizer)
