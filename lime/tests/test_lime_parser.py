@@ -168,7 +168,10 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     name = save_desc(4,m,p,i,num_feats,num_samples,descriptions)[0]
                     if not (skip_existing and os.path.exists(path+name+".pkl")):
                         print("\n" + name)
-                        tokenizer = model.tokenizer
+                        try:
+                            tokenizer = model.named_steps["TfidfVectorizer"]
+                        except:
+                            tokenizer = model.named_steps["bertvectorizer"]
                         teacher_forcing_model = shap.models.TeacherForcing(
                             model, similarity_model=model, similarity_tokenizer=tokenizer, device=model.device)
                         mask = shap.maskers.Text(tokenizer)
