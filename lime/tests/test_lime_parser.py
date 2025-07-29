@@ -659,40 +659,40 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=True, just_desc=False)
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, skip_existing=False, just_desc=False)
 
 
 instance_idxs = list(range(25))
 params = [6]
 models_1 = [-1]
-dists_1 = ["SpamResults1", "SemResults1", "IMDBResults1",
-            "HateResults1"]
+dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
+            "HateHuman1"]
 run_all_datasets(dists_1, models_1, params, instance_idxs)
 
 
 instance_idxs = list(range(25, 50))
 models_2 = [0]
 # "spam", "sem", "imdb", "hate"
-dists_2 = ["SpamResults2", "SemResults2", 
-            "IMDBResults2", "HateResults2"]
+dists_2 = ["SpamHuman2", "SemHuman2", 
+            "IMDBHuman2", "HateHuman2"]
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
 run_all_datasets(dists_2, models_2, params, instance_idxs)
 
 
-all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
-            "HateResults1", "SpamResults2", "SemResults2", 
-            "IMDBResults2", "HateResults2"]
+all_dists = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
+            "HateHuman1", "SpamHuman2", "SemHuman2", 
+            "IMDBHuman2", "HateHuman2"]
 models = [0, -1]
 
-comp_descs = {
-    "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
-    "parses": ["Dep", "Con", "Ran", "Std"],
-    "params": [EXP_PARAMS[p] for p in params],
-    "instances": instance_idxs,
-    "disting": "SpamResults1"
-}
+# comp_descs = {
+#     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
+#     "parses": ["Dep", "Con", "Ran", "Std"],
+#     "params": [EXP_PARAMS[p] for p in params],
+#     "instances": instance_idxs,
+#     "disting": "SpamResults1"
+# }
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
@@ -787,19 +787,19 @@ ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"]
 #             print(more_name)
 #             print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
 
-params = [0]
+par = 0
 
 more_name = "large"
 m = model_save_name(MODEL_PARAMS[models_1[0]], ext=False)
 for dist, ds in zip(dists_1, ALL_DATASETS):
     for parse in comp_descs["parses"]:
-        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
+        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{par}_\d+", more_name=(parse + "_" + more_name))
 
 more_name = "small"
 m = model_save_name(MODEL_PARAMS[models_2[0]], ext=False)
 for dist, ds in zip(dists_2, ALL_DATASETS):
     for parse in comp_descs["parses"]:
-        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{params[0]}_\d+", more_name=(parse + "_" + more_name))
+        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{par}_\d+", more_name=(parse + "_" + more_name))
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
