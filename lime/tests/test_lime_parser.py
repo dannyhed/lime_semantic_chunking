@@ -179,7 +179,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         explanations.append(SavedExplanation(name, path).get_exp())
                         new_expls += 1
 
-                
+                print(new_expls)
 
                 if just_desc:
                     skip_existing = False
@@ -211,6 +211,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         print("\n" + name + " exists" + "\n")
                     name, desc = save_desc(4,m,p,i,desc=descriptions)
                     if not(skip_existing and os.path.exists(path+name+".pkl")):
+                        print(new_expls)
                         SavedExplanation(name, path, desc, explanations[-new_expls])
                         new_expls -= 1
                     else:
