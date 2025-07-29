@@ -172,11 +172,11 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                             tokenizer = model.named_steps["TfidfVectorizer"]
                         except:
                             tokenizer = model.named_steps["bertvectorizer"].tokenizer
-                        teacher_forcing_model = shap.models.TeacherForcing(
-                            model.predict_proba, tokenizer=tokenizer)
+                        # teacher_forcing_model = shap.models.TeacherForcing(
+                        #     model.predict_proba, tokenizer=tokenizer)
                             #model, similarity_model=model, similarity_tokenizer=tokenizer, device=tokenizer.device)
                         mask = shap.maskers.Text(tokenizer)
-                        sh = shap.Explainer(teacher_forcing_model, mask)
+                        sh = shap.Explainer(model.predict_proba, mask)
                         explanations.append(sh(inst))
                         new_expls += 1
                     elif just_desc:
