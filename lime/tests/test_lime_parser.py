@@ -193,7 +193,8 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                         # background = shap_train[:100]
                         # mask = shap.maskers.Text(r"\W+")
                         # sh = shap.KernelExplainer(model.predict_proba, background)
-                        sh = shap.Explainer(model.predict_proba)
+                        smodel = shap.models.TransformersPipeline(model.predict_proba, rescale_to_logits=False)
+                        sh = shap.Explainer(smodel)
                         explanations.append(sh(inst))
                         new_expls += 1
                     elif just_desc:
