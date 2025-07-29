@@ -719,7 +719,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
 
 
 # instance_idxs = list(range(25))
-# params = [6]
+params = [6]
 # models_1 = [-1]
 # dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
 #             "HateHuman1"]
