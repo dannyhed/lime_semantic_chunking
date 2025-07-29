@@ -452,6 +452,7 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
             exp.save_to_file(pathname + ".html")
             #print(pathname)
             with open(pathname + ".txt", "w+") as file:
+                print(exp.predict_proba)
                 file.write(exp.predict_proba)
 
     else:
