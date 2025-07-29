@@ -103,7 +103,6 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
     explainerCon = LimeTextParserExplainer(class_names=class_names, verbose=False, parsing_type="constituency")
     clear_lines(28)
     explainerStd = LimeTextExplainer(class_names=class_names, verbose=False)
-    tokenizer = AutoTokenizer()
     explanations = []
     
     tot_insts = len(instances)
@@ -126,7 +125,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(0,m,p,i,num_feats,num_samples,descriptions,mask_method,wrd=word_level)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    explanations.append(explainerDep.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
+                    explanations.append(explainerDep.explain_instance(inst, model.predict_proba, num_features=num_feats, num_samples=num_samples, 
                                                                     mask_method=mask_method, word_level=word_level))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
@@ -135,7 +134,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(1,m,p,i,num_feats,num_samples,descriptions,mask_method)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    explanations.append(explainerCon.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
+                    explanations.append(explainerCon.explain_instance(inst, model.predict_proba, num_features=num_feats, num_samples=num_samples, 
                                                                     mask_method=mask_method))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
@@ -143,7 +142,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(2,m,p,i,num_feats,num_samples,descriptions,mask_method,rnd=num_rand_trees)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    explanations.append(explainerRan.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples, 
+                    explanations.append(explainerRan.explain_instance(inst, model.predict_proba, num_features=num_feats, num_samples=num_samples, 
                                                                     random_trees=num_rand_trees, mask_method=mask_method))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
@@ -151,7 +150,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(3,m,p,i,num_feats,num_samples,descriptions)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    explanations.append(explainerStd.explain_instance(inst, model, num_features=num_feats, num_samples=num_samples))
+                    explanations.append(explainerStd.explain_instance(inst, model.predict_proba, num_features=num_feats, num_samples=num_samples))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
                     
@@ -159,10 +158,12 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                     name = save_desc(4,m,p,i,num_feats,num_samples,descriptions)[0]
                     if not (skip_existing and os.path.exists(path+name+".pkl")):
                         print("\n" + name)
+                        tokenizer = model.tokenizer
                         teacher_forcing_model = shap.models.TeacherForcing(
                             model, similarity_model=model, similarity_tokenizer=tokenizer, device=model.device)
                         mask = shap.maskers.Text(tokenizer)
                         sh = shap.Explainer(teacher_forcing_model, mask)
+                        explanations.append(sh(inst))
                     elif just_desc:
                         explanations.append(SavedExplanation(name, path).get_exp())
 
