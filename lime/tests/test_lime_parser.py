@@ -156,7 +156,7 @@ def run_all_explainers(models, class_names, parameter_sets, instances, save=Fals
                 name = save_desc(4,m,p,i,desc=descriptions)[0]
                 if not (skip_existing and os.path.exists(path+name+".pkl")):
                     print("\n" + name)
-                    sh = shap.KernelExplainer(model, shap.sample(shap_train, num_feats))
+                    sh = shap.KernelExplainer(model, shap_train[:num_feats])
                     explanations.append(sh(inst))
                 elif just_desc:
                     explanations.append(SavedExplanation(name, path).get_exp())
