@@ -540,7 +540,7 @@ class SavedExplanation(object):
                                                                     exp_data["predict_proba"])
                 self.exp = exp
                 self.local_exp = exp.local_exp
-                return self
+                #return self
     
     def get_exp(self):
         return self.exp
