@@ -5,10 +5,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from PIL import Image
-from test_lime_parser import *
+# from test_lime_parser import *
 import time
 import shap
-from lime_text_parser import SavedExplanation
+# from lime_text_parser import SavedExplanation
 import re
 import matplotlib.pyplot as plt
 
@@ -31,13 +31,13 @@ chrome_options.add_argument("--window-size=1600,1200")
 chrome_options.add_argument("--force-device-scale-factor=2")
 driver = webdriver.Chrome(options=chrome_options)
 
-def print_shap_images(exp_path):
-    pattern = re.compile(".*Shap.*")
-    for filename in os.listdir(exp_path):
-        if pattern.match(filename):
-            exp = SavedExplanation(filename).get_exp()
-            shap.plots.text(exp)
-            shap.plots.bar(exp)
+# def print_shap_images(exp_path):
+#     pattern = re.compile(".*Shap.*")
+#     for filename in os.listdir(exp_path):
+#         if pattern.match(filename):
+#             exp = SavedExplanation(filename).get_exp()
+#             shap.plots.text(exp)
+#             shap.plots.bar(exp)
 
 
 # ==== RENDER FUNCTION ====
@@ -53,12 +53,19 @@ def render_div_by_selector(selector, output_path, html_file):
         element = driver.find_element(By.CSS_SELECTOR, selector)
         location = element.location_once_scrolled_into_view
         time.sleep(0.3)
-        size = element.size
+
+        # Expand element height to fit full scrollable content
         driver.execute_script("""
             const el = arguments[0];
             el.style.height = el.scrollHeight + "px";
             el.style.overflow = "visible";
         """, element)
+
+        # Re-fetch element size and location after expanding
+        time.sleep(0.2)
+        location = element.location_once_scrolled_into_view
+        size = element.size
+
         driver.save_screenshot("temp_full_page.png")
 
         im = Image.open("temp_full_page.png")
@@ -79,7 +86,7 @@ for filename in os.listdir(HTML_DIR):
     if not filename.endswith(".html"):
         continue
 
-    if not filename.find("shap"):
+    if filename.find("shap") == -1:
         file_path = os.path.join(HTML_DIR, filename)
         base_name = os.path.splitext(filename)[0]
 

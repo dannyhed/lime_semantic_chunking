@@ -724,13 +724,13 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         #     print(i)
         t_train = np.array(list(t_train))
         t_test = np.array(list(t_test))
-        all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, jmodel=True)
+        # all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, jmodel=True)
 
         all_models = load_models(model_params, DS)
 
         run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
                         instances, save=True, descriptions=descs, path=EXPL_PATH, 
-                        skip_existing=False, just_desc=False)
+                        skip_existing=True, just_desc=False)
 
 
 instance_idxs = list(range(25))
@@ -757,13 +757,13 @@ all_dists = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
             "IMDBHuman2", "HateHuman2"]
 models = [0, -1]
 
-# comp_descs = {
-#     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
-#     "parses": ["Dep", "Con", "Ran", "Std"],
-#     "params": [EXP_PARAMS[p] for p in params],
-#     "instances": instance_idxs,
-#     "disting": "SpamResults1"
-# }
+comp_descs = {
+    "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
+    "parses": ["Dep", "Con", "Ran", "Std"],
+    "params": [EXP_PARAMS[p] for p in params],
+    "instances": instance_idxs,
+    "disting": "SpamResults1"
+}
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
