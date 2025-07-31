@@ -738,7 +738,7 @@ params = [6]
 models_1 = [-1]
 dists_1 = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
             "HateHuman1"]
-run_all_datasets(dists_1, models_1, params, instance_idxs)
+# run_all_datasets(dists_1, models_1, params, instance_idxs)
 
 
 instance_idxs = list(range(25, 50))
@@ -749,7 +749,7 @@ dists_2 = ["SpamHuman2", "SemHuman2",
 #"SpamResults1", "SemResults1", "IMDBResults1",
             # "HateResults1", 
 
-run_all_datasets(dists_2, models_2, params, instance_idxs)
+# run_all_datasets(dists_2, models_2, params, instance_idxs)
 
 
 all_dists = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
@@ -860,20 +860,20 @@ ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"]
 
 par = 0
 
-more_name = "large"
-m = model_save_name(MODEL_PARAMS[models_1[0]], ext=False)
-for dist, ds in zip(dists_1, ALL_DATASETS):
-    for parse in comp_descs["parses"]:
-        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{par}_\d+", more_name=(parse + "_" + more_name))
+# more_name = "large"
+# m = model_save_name(MODEL_PARAMS[models_1[0]], ext=False)
+# for dist, ds in zip(dists_1, ALL_DATASETS):
+#     for parse in comp_descs["parses"]:
+#         print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{par}_\d+", more_name=(parse + "_" + more_name))
 
-more_name = "small"
-m = model_save_name(MODEL_PARAMS[models_2[0]], ext=False)
-for dist, ds in zip(dists_2, ALL_DATASETS):
-    for parse in comp_descs["parses"]:
-        print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{par}_\d+", more_name=(parse + "_" + more_name))
+# more_name = "small"
+# m = model_save_name(MODEL_PARAMS[models_2[0]], ext=False)
+# for dist, ds in zip(dists_2, ALL_DATASETS):
+#     for parse in comp_descs["parses"]:
+#         print_explanations(dist, add_regex=f"_{parse}_{ds}-{re.escape(m)}_{par}_\d+", more_name=(parse + "_" + more_name))
 
 
-# get_exp_metrics(comp_descs, compare_by="exp")
+get_exp_metrics(comp_descs, compare_by="exp")
 
 
 # comp_descs["disting"] = "SemResults1"
