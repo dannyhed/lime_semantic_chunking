@@ -495,13 +495,13 @@ class SavedExplanation(object):
             except:
                 self.data["shape"] = False
 
-            if not self.data["shap"]:
+            if not False: #self.data["shap"]:
                 exp_data = self.data["exp_data"]
                 domain_data = exp_data["domain_data"]
                 indexed_string_data = domain_data["indexed_string"]
 
             if load:
-                if self.data["shap"]:
+                if False:#self.data["shap"]:
                     return self
                 elif self.data["is_standard"]:
                     indexed_string = IndexedString(indexed_string_data["raw_string"])
