@@ -546,8 +546,8 @@ class SavedExplanation(object):
         return self.exp
     
     def get_local_exp(self, label=1):
-        if self.data["shap"]:
-            return self.exp
+        # if self.data["shap"]:
+        #     return self.exp
         all_exp = self.local_exp[label]
         word_ids = []
         if self.data["is_standard"]:
