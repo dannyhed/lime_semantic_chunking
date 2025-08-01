@@ -430,7 +430,7 @@ def avg_influence_sz(exp_arr):
     for exp in exp_arr:
         if len(exp.get_local_exp()) > 0:
             infl_sz = influence_sz(exp)
-            print(infl_sz)
+            # print(infl_sz)
             if infl_sz[4] != 0:
                 avg_sz += infl_sz[0]
                 wgh_sz += infl_sz[1]
@@ -813,6 +813,9 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
         sorted_exps = [(f'{comp_descs["parses"][int(i/len(comp_descs["params"]))]}-{i%len(comp_descs["params"])}', []) for i in range(len(comp_descs["parses"]) * len(comp_descs["params"]))]
 
     print(f"{len(patterns)} patterns found...")
+
+    for pattern in patterns:
+        print(pattern)
 
     for exp in loaded:
         desc = exp.get_desc()
