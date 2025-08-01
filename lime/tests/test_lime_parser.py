@@ -430,11 +430,12 @@ def avg_influence_sz(exp_arr):
     for exp in exp_arr:
         if len(exp.get_local_exp()) > 0:
             infl_sz = influence_sz(exp)
-            avg_sz += infl_sz[0]
-            wgh_sz += infl_sz[1]
-            dist_avg += infl_sz[2]
-            wgh_dst += infl_sz[3]
-            word_sum += infl_sz[4]
+            if infl_sz[4] != 0:
+                avg_sz += infl_sz[0]
+                wgh_sz += infl_sz[1]
+                dist_avg += infl_sz[2]
+                wgh_dst += infl_sz[3]
+                word_sum += infl_sz[4]
     if word_sum != 0:
         avg_sz = avg_sz / word_sum
         wgh_sz = wgh_sz / word_sum
