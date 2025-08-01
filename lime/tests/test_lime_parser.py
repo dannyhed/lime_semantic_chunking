@@ -430,6 +430,7 @@ def avg_influence_sz(exp_arr):
     for exp in exp_arr:
         if len(exp.get_local_exp()) > 0:
             infl_sz = influence_sz(exp)
+            print(infl_sz)
             if infl_sz[4] != 0:
                 avg_sz += infl_sz[0]
                 wgh_sz += infl_sz[1]
