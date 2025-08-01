@@ -406,9 +406,6 @@ def influence_sz(exp, label=1):
         weighted_rel_dist = [dist * abs(weighted_dep_chunks[i]) for i, dist in enumerate(relation_distance)]
         total = len(id_chunks)
 
-    if total == 0:
-        return (0, 0, 0, 0, 0)
-
     else:
         get_exp = exp.get_exp().local_exp[label]
         sum_influences = [1 for _ in get_exp]
@@ -433,11 +430,13 @@ def avg_influence_sz(exp_arr):
     for exp in exp_arr:
         if len(exp.get_local_exp()) > 0:
             infl_sz = influence_sz(exp)
-            avg_sz += infl_sz[0]
-            wgh_sz += infl_sz[1]
-            dist_avg += infl_sz[2]
-            wgh_dst += infl_sz[3]
-            word_sum += infl_sz[4]
+            # print(infl_sz)
+            if infl_sz[4] != 0:
+                avg_sz += infl_sz[0]
+                wgh_sz += infl_sz[1]
+                dist_avg += infl_sz[2]
+                wgh_dst += infl_sz[3]
+                word_sum += infl_sz[4]
     if word_sum != 0:
         avg_sz = avg_sz / word_sum
         wgh_sz = wgh_sz / word_sum
