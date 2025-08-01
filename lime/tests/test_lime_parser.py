@@ -406,6 +406,9 @@ def influence_sz(exp, label=1):
         weighted_rel_dist = [dist * abs(weighted_dep_chunks[i]) for i, dist in enumerate(relation_distance)]
         total = len(id_chunks)
 
+    if total == 0:
+        return (0, 0, 0, 0, 0)
+
     else:
         get_exp = exp.get_exp().local_exp[label]
         sum_influences = [1 for _ in get_exp]
@@ -430,13 +433,11 @@ def avg_influence_sz(exp_arr):
     for exp in exp_arr:
         if len(exp.get_local_exp()) > 0:
             infl_sz = influence_sz(exp)
-            # print(infl_sz)
-            if infl_sz[4] != 0:
-                avg_sz += infl_sz[0]
-                wgh_sz += infl_sz[1]
-                dist_avg += infl_sz[2]
-                wgh_dst += infl_sz[3]
-                word_sum += infl_sz[4]
+            avg_sz += infl_sz[0]
+            wgh_sz += infl_sz[1]
+            dist_avg += infl_sz[2]
+            wgh_dst += infl_sz[3]
+            word_sum += infl_sz[4]
     if word_sum != 0:
         avg_sz = avg_sz / word_sum
         wgh_sz = wgh_sz / word_sum
@@ -827,7 +828,7 @@ def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
     for i, f in enumerate(found):
         print(f"{patterns[i]}: {f}")
 
-    print(f"{sum([len(i) for (_, i) in sorted_exps])} explanations match...")
+    print(f"{sum([len(i) for (_, i) in sorted_exps])} explanations total...")
 
     for i, (name, exp_arr) in enumerate(sorted_exps):
         if len(exp_arr) > 0:
