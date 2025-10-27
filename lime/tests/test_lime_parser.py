@@ -297,6 +297,8 @@ def my_cos_similarity(vec1, vec2):
     except:
         return 0
 
+from pythainlp.tokenize import word_tokenize
+
 class BERTVectorizer(BaseEstimator, TransformerMixin):
     def __init__(self, model_name='bert-base-uncased', language="En", device=None):
         if language == "Leb":
@@ -310,6 +312,7 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
         elif language == "Beng":
             model_name = "csebuetnlp/banglabert"
         self.model_name = model_name
+        self.lang = language
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, use_fast=True)
@@ -323,6 +326,9 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
     def transform(self, X):
         vectors = []
         for sentence in X:
+            if self.lang == "Thai":
+                sentence = " ".join(word_tokenize(sentence, engine="newmm"))
+
             inputs = self.tokenizer(sentence, return_tensors='pt', truncation=True,
                                     padding=True, max_length=128).to(self.device)
             with torch.no_grad():
