@@ -1041,20 +1041,20 @@ explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, lan
 clear_lines(26)
 # explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="constituency")
 
-ar_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[0])
-ar_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[0])
+ar_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[0])
+ar_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[0])
 
-bn_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[4])
-bn_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[4])
+bn_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[4])
+bn_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[4])
 
-th_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[2])
-th_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[2])
+th_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[2])
+th_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[2])
 
-tr_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[3])
-tr_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[3])
+tr_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[3])
+tr_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[3])
 
-ur_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[1])
-ur_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[1])
+ur_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[1])
+ur_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[1])
 
 # ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
 #                 #"spam", 
