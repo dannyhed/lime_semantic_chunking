@@ -704,8 +704,8 @@ def get_ts_and_ls(DS):
         with open(THAI_NEG, "r", encoding="utf-8") as file:
             labels, texts = [0 for line in file], [re.sub(r'\{Emoji}', '', line.strip()) for line in file]
         with open(THAI_POS, "r", encoding="utf-8") as file:
-            labels = labels.append([1 for line in file])
-            texts = texts.append([re.sub(r'\{Emoji}', '', line.strip()) for line in file])
+            labels.append([1 for line in file])
+            texts.append([re.sub(r'\{Emoji}', '', line.strip()) for line in file])
 
         lang = "Thai"
 
@@ -756,7 +756,12 @@ def get_ts_and_ls(DS):
 
 for ds in ALL_DATASETS:
     print(ds)
-    get_data(ds, BERT_FOLD, data=get_ts_and_ls(ds), text_too=True)
+    data = get_ts_and_ls(ds)
+    # texts, labels, lang = data
+    # print(texts[0])
+    # print(labels[0])
+    # print(lang)
+    get_data(ds, BERT_FOLD, data=data, text_too=True)
 
 
 
