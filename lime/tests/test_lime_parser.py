@@ -311,7 +311,10 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
             model_name = "csebuetnlp/banglabert"
         self.model_name = model_name
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, use_fast=True)
+        except:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.model = AutoModel.from_pretrained(self.model_name).to(self.device).eval()
 
     def fit(self, X, y=None):
