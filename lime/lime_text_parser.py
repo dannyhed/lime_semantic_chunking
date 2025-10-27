@@ -87,6 +87,7 @@ class LimeTextParserExplainer(object):
                  kernel=None,
                  verbose=False,
                  class_names=None,
+                 language="en",
                  feature_selection='auto',
                  split_expression=r'\W+',
                  bow=True,
@@ -133,20 +134,21 @@ class LimeTextParserExplainer(object):
 
 #////////////////////////////////////////////////////////////////////////////
 
-        def init_parser(self):
-            stanza.download('en')
+        def init_parser(self, language):
+            stanza.download(language)
             if parsing_type == "dependency":
-                self.parser = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
+                self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
             elif parsing_type == "constituency":
-                self.parser = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
+                self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,constituency')
             elif parsing_type == "random":
-                self.parser = stanza.Pipeline(lang='en', processors='tokenize')
+                self.parser = stanza.Pipeline(lang=language, processors='tokenize')
             else:
                 raise ValueError("PARSING METHOD NOT AN OPTION, HALTING")
                
         self.mask_method = mask_method
         self.parser_type = parsing_type
-        init_parser(self)
+        self.language = language
+        init_parser(self, language)
         self.random_trees = random_trees
         self.max_sample_size = max_sample_size
         self.word_level=word_level

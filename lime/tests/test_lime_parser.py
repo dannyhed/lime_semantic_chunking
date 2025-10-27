@@ -510,6 +510,8 @@ def train_models(all_model_params, train_vectors, bert_train, y_train, vectorize
                     models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
             with open(MODEL_PATH + model_save_name(p, dataset), "wb") as file:
                 pkl.dump(models_trained[-1], file)
+        else:
+            print(f"{MODEL_PATH + model_save_name(p, dataset)} exists...")
     clear_lines(1)
     print("Models trained")
     return models_trained
@@ -770,14 +772,16 @@ def get_ts_and_ls(DS):
     
     return texts, labels, lang
 
-# for ds in ALL_DATASETS:
+dss = {}
+
+for ds in ALL_DATASETS:
 #     print(ds)
-#     data = get_ts_and_ls(ds)
+    data = get_ts_and_ls(ds)
     # texts, labels, lang = data
     # print(texts[0])
     # print(labels[0])
     # print(lang)
-    # get_data(ds, BERT_FOLD, data=data, text_too=True)
+    dss[ds] = get_data(ds, BERT_FOLD, data=data, text_too=True)
 
 
 
@@ -1001,7 +1005,67 @@ par = 0
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
-run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
+
+# run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
+explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
+clear_lines(21)
+explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
+clear_lines(26)
+explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
+clear_lines(28)
+explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
+
+explainerRan_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="random")
+clear_lines(21)
+explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="dependency")
+clear_lines(26)
+explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="constituency")
+
+explainerRan_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="random")
+clear_lines(21)
+explainerDep_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="dependency")
+clear_lines(26)
+explainerCon_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="constituency")
+
+explainerRan_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="random")
+clear_lines(21)
+explainerDep_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="dependency")
+clear_lines(26)
+explainerCon_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="constituency")
+
+explainerRan_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="random")
+clear_lines(21)
+explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="dependency")
+clear_lines(26)
+explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="constituency")
+
+ar_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[0])
+ar_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[0])
+
+bn_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[4])
+bn_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[4])
+
+th_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[2])
+th_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[2])
+
+tr_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[3])
+tr_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[3])
+
+ur_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[1])
+ur_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[1])
+
+# ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
+#                 #"spam", 
+#                 "spam_turk", 
+#                 #"hate", 
+#                 "hate_beng"]
+
+explainerCon_ar.explain_instance(dss["sent_leb"][20], ar_models_lg.predict_proba).as_html(HTML_PATH)
+explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
+explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
+explainerCon_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
+explainerStd.explain_instance(dss["sent_urdu"][20], ur_models_lg.predict_proba).as_html(HTML_PATH)
+
 
 
 # comp_descs["disting"] = "SemResults1"
