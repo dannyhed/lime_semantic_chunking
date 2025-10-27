@@ -8,7 +8,6 @@ import numpy as np
 
 #import lime
 import sklearn
-import numpy as np
 import sklearn
 import sklearn.ensemble
 import sklearn.metrics
@@ -24,9 +23,12 @@ from lime.lime_text import LimeTextExplainer
 import dill as pkl
 import os
 
-from transformers import pipeline, AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModel
 import torch
 from sklearn.base import BaseEstimator, TransformerMixin
+
+import pandas as pd
+import html
 
 #///////ADD BERT COMPARISON WITH TENSORFLOW//////////
 
@@ -535,22 +537,36 @@ def print_explanations(disting, names=None, more_name=None, add_regex=None):
 
 
 
+DATASETS = r"./datasets/"
 BERT_FOLD = r"./bert_data/"
 SPAM_DATA = "spam_ds"
 SEM_DATA = "sem_ds"
 IMDB_DATA = "imdb_ds"
 HATE_DATA = "hate_ds"
-SPAMFILE = r"./smsspamcollection/SMSSpamCollection"
-SEMFILE = r"./sentiment_sens/"
+SPAMFILE = os.path.join(DATASETS, "smsspamcollection/SMSSpamCollection")
+SEMFILE = os.path.join(DATASETS, "sentiment_sens/")
 SEMFILE_1 = "amazon_cells_labelled.txt"
 SEMFILE_2 = "imdb_labelled.txt"
 SEMFILE_3 = "yelp_labelled.txt"
-IMDB = r"./aclImdb/"
+IMDB = os.path.join(DATASETS, "aclImdb/")
 IMDB_TT = ["test/", "train/"]
 IMDB_NP = ["neg/", "pos/"]
 IMDB_COMP = IMDB + "imdb_compiled.txt"
-HATEFILE = r"./hate_speech/labeled_data.csv"
-HATETAB = r"./hate_speech/tab_sep_hate_data.csv"
+HATEFILE = os.path.join(DATASETS, "hate_speech/labeled_data.csv")
+HATETAB = os.path.join(DATASETS, "hate_speech/tab_sep_hate_data.csv")
+
+LEB_AR_REVS = os.path.join(DATASETS, "Lebanese_Arabic_Reviews/Lebanese_Arabic_Reviews.csv")
+ROM_URDU_SENT = os.path.join(DATASETS, "Roman_Urdu_Sentiment/urdu_sents.tsv")
+BENG_HATE_FOLD = os.path.join(DATASETS, "Bengali_Hate_Speech/")
+BENG_TRAIN = os.path.join(BENG_HATE_FOLD, "train.csv")
+BENG_TEST = os.path.join(BENG_HATE_FOLD, "test.csv")
+BENG_VAL = os.path.join(BENG_HATE_FOLD, "validate.csv")
+TURK_SPAM = os.path.join(DATASETS, "Turkish_Spam/trspam.csv")
+THAI_SENT_FOLD = os.path.join(DATASETS, "Wisesight_Thai_Sentiment/")
+THAI_NEG = os.path.join(THAI_SENT_FOLD, "neg.txt")
+THAI_NEU = os.path.join(THAI_SENT_FOLD, "neu.txt")
+THAI_POS = os.path.join(THAI_SENT_FOLD, "pos.txt")
+THAI_Q = os.path.join(THAI_SENT_FOLD, "q.txt")
 
 # texts = []
 # labels = []
@@ -627,7 +643,10 @@ class_names_imdb = ['0', '1']
 class_names_hate = ['0', '1']
 
 
-ALL_DATASETS = ["spam", "sem", "imdb", "hate"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ALL_DATASETS = ["sent_imdb_engl", "sent_leb", "sent_urdu", "sent_thai", 
+                "spam_engl", "spam_turk", 
+                "hate_engl", "hate_beng",  
+                "sem"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 DATASET = ALL_DATASETS[3]                      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #         ^^^^^^^^^^^^^^^
 
@@ -646,22 +665,70 @@ def get_ts_and_ls(DS):
 
         CLASS_NAMES = class_names_sem
 
-    elif DS == "spam":
+    elif DS == "hate_beng":
+        train = pd.read_csv(BENG_TRAIN, header=0)
+        test = pd.read_csv(BENG_TEST, header=0)
+        val = pd.read_csv(BENG_VAL, header=0)
+
+        texts = [re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in train[train.columns[0]]]
+        texts.append([re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in test[test.columns[0]]])
+        texts.append([re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in val[val.columns[0]]])
+
+        labels = [0 if x == "Neutral" else 1 for x in train[train.columns[1]]]
+        labels.append([0 if x == "Neutral" else 1 for x in test[train.columns[1]]])
+        labels.append([0 if x == "Neutral" else 1 for x in val[val.columns[1]]])
+
+
+    elif DS == "spam_turk":
+        data = pd.read_csv(TURK_SPAM, header=0, quotechar='"', on_bad_lines="skip")
+        labels = [1 if x == "spam" else 0 for x, y in zip(data[data.columns[1]], data[data.columns[0]]) if pd.notnull(y) and pd.notnull(x)]
+        texts = [re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x, y in zip(data[data.columns[0]], data[data.columns[1]]) if pd.notnull(y) and pd.notnull(x)]
+
+    elif DS == "sent_thai":
+        with open(THAI_NEG, "r", encoding="utf-8") as file:
+            labels, texts = [0 for line in file], [re.sub(r'\{Emoji}', '', line.strip()) for line in file]
+        with open(THAI_POS, "r", encoding="utf-8") as file:
+            labels = labels.append([1 for line in file])
+            texts = texts.append([re.sub(r'\{Emoji}', '', line.strip()) for line in file])
+
+    elif DS == "sent_urdu":
+        with open(ROM_URDU_SENT, encoding="utf-8") as f:
+            lines = f.readlines()
+
+        labels, texts = [], []
+
+        for line in lines:
+            line = html.unescape(line.replace('"', '').strip())
+            if '\t' in line:
+                label, text = line.split('\t', 1)
+                labels.append(label.strip())
+                texts.append(text.strip())
+    
+    elif DS == "sent_leb":
+        data = pd.read_csv(LEB_AR_REVS, header=0)
+        labels, texts = ([1 if x >=3 else 0 for x in data[data.columns[2]]], 
+                        [re.sub(r'\{Emoji}', '', x.strip()).replace("\"", "") for x in data[data.columns[1]]])
+            
+    elif DS == "spam_engl":
         labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
 
         CLASS_NAMES = class_names_spam
 
-    elif DS == "imdb":
+    elif DS == "sent_imdb_engl":
         labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
 
         CLASS_NAMES = class_names_imdb
 
-    elif DS == "hate":    
+    elif DS == "hate_engl":    
         labels, texts = tab_separated_ds(HATETAB, class_names_hate)
 
         CLASS_NAMES = class_names_hate
     
     return texts, labels
+
+for ds in ALL_DATASETS:
+    print(ds)
+    get_ts_and_ls(ds)
 
 
 
@@ -675,7 +742,7 @@ MODEL_PARAMS = [("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b"
 EXP_PARAMS = [(5, 1000, 1, 25, True), 
                   (10, 1000, 1, 25, True), 
                   (20, 1000, 1, 25, True), 
-                  (5, 1000, 1, 50, True), 
+                  (5, 1000, 1, 50, True),
                   (10, 1000, 1, 50, True), 
                   (20, 1000, 1, 50, True), 
                   (5, 1000, 1, 100, True), 
