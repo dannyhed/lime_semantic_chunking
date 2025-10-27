@@ -342,6 +342,8 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
 def save_bert_vecs(dataset, filename, path):
     try:
         texts, labels, lang = dataset
+        print(f"texts length: {len(texts)}")
+        print(f"labels length: {len(labels)}")
     except:
         print("ERROR: No data provided!")
         return None
