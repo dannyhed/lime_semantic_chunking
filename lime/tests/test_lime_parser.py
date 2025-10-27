@@ -1000,7 +1000,7 @@ par = 0
 
 
 # get_exp_metrics(comp_descs, compare_by="exp")
-run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=MODEL_PARAMS, exp_param_sets=None, instance_idxs=None)
+run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
 
 
 # comp_descs["disting"] = "SemResults1"
