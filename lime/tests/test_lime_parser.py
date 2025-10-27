@@ -728,7 +728,7 @@ def get_ts_and_ls(DS):
 
 for ds in ALL_DATASETS:
     print(ds)
-    get_ts_and_ls(ds)
+    get_data(ds, BERT_FOLD, data=get_ts_and_ls(ds), text_too=True)
 
 
 
