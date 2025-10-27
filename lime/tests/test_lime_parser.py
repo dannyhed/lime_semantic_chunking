@@ -484,31 +484,32 @@ def model_save_name(params, dataset=None, ext=True):
         return filename
 
 
-def train_models(all_model_params, train_vectors, bert_train, y_train, vectorizer, dataset=None, language="En", jmodel=False):
+def train_models(all_model_params, train_vectors, bert_train, y_train, vectorizer, dataset=None, language="En", jmodel=False, skip_existing=True):
     print("Training Models...")
     models_trained = []
     bert_vectorizer = BERTVectorizer(language=language)
     for p in tqdm(all_model_params):
-        m = []
-        if p[0] == "rf":
-            m = sklearn.ensemble.RandomForestClassifier(n_estimators=p[2])
-        elif p[0] == "mlp":
-            m = MLPClassifier(solver="lbfgs", alpha=1e-5,
-                            hidden_layer_sizes=tuple(p[2]), random_state=1, max_iter=2000)
-        if p[1] == "i":
-            m.fit(train_vectors, y_train)
-            if jmodel:
-                models_trained.append(make_pipeline(vectorizer, m))
-            else:
-                models_trained.append(make_pipeline(vectorizer, m).predict_proba)
-        elif p[1] == "b":
-            m.fit(bert_train, y_train)
-            if jmodel:
-                models_trained.append(make_pipeline(bert_vectorizer, m))
-            else:
-                models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
-        with open(MODEL_PATH + model_save_name(p, dataset), "wb") as file:
-            pkl.dump(models_trained[-1], file)
+        if not (skip_existing and os.path.exists(MODEL_PATH + model_save_name(p, dataset))):
+            m = []
+            if p[0] == "rf":
+                m = sklearn.ensemble.RandomForestClassifier(n_estimators=p[2])
+            elif p[0] == "mlp":
+                m = MLPClassifier(solver="lbfgs", alpha=1e-5,
+                                hidden_layer_sizes=tuple(p[2]), random_state=1, max_iter=2000)
+            if p[1] == "i":
+                m.fit(train_vectors, y_train)
+                if jmodel:
+                    models_trained.append(make_pipeline(vectorizer, m))
+                else:
+                    models_trained.append(make_pipeline(vectorizer, m).predict_proba)
+            elif p[1] == "b":
+                m.fit(bert_train, y_train)
+                if jmodel:
+                    models_trained.append(make_pipeline(bert_vectorizer, m))
+                else:
+                    models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
+            with open(MODEL_PATH + model_save_name(p, dataset), "wb") as file:
+                pkl.dump(models_trained[-1], file)
     clear_lines(1)
     print("Models trained")
     return models_trained
