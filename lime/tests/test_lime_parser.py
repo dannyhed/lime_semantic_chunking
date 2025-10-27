@@ -510,6 +510,7 @@ def train_models(all_model_params, train_vectors, bert_train, y_train, vectorize
                     models_trained.append(make_pipeline(bert_vectorizer, m).predict_proba)
             with open(MODEL_PATH + model_save_name(p, dataset), "wb") as file:
                 pkl.dump(models_trained[-1], file)
+            print(f"model saved to {MODEL_PATH + model_save_name(p, dataset)}")
         else:
             print(f"{MODEL_PATH + model_save_name(p, dataset)} exists...")
     clear_lines(1)
@@ -1006,7 +1007,7 @@ par = 0
 
 # get_exp_metrics(comp_descs, compare_by="exp")
 
-# run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
+run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
 explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
 clear_lines(21)
 explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
