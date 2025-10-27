@@ -137,7 +137,10 @@ class LimeTextParserExplainer(object):
         def init_parser(self, language):
             stanza.download(language, package="default")
             if parsing_type == "dependency":
-                self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
+                if language != "th":
+                    self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
+                else:
+                    self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,lemma,depparse')
             elif parsing_type == "constituency":
                 self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,constituency')
             elif parsing_type == "random":
