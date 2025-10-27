@@ -298,7 +298,17 @@ def my_cos_similarity(vec1, vec2):
         return 0
 
 class BERTVectorizer(BaseEstimator, TransformerMixin):
-    def __init__(self, model_name='bert-base-uncased', device=None):
+    def __init__(self, model_name='bert-base-uncased', language="En", device=None):
+        if language == "Leb":
+            model_name = "aubmindlab/bert-base-arabert"
+        elif language == "Urdu":
+            model_name = "callmesan/ModernBERT-large-roman-urdu-binary"
+        elif language == "Thai":
+            model_name = "monsoon-nlp/bert-base-thai"
+        elif language == "Turk":
+            model_name = "dbmdz/bert-base-turkish-cased"
+        elif language == "Beng":
+            model_name = "csebuetnlp/banglabert"
         self.model_name = model_name
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
@@ -322,13 +332,13 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
 
 def save_bert_vecs(dataset, filename, path):
     try:
-        texts, labels = dataset
+        texts, labels, lang = dataset
     except:
         print("ERROR: No data provided!")
         return None
     bert_sens = []
     save_data = []
-    bert_vectorizer = BERTVectorizer()
+    bert_vectorizer = BERTVectorizer(language=lang)
     bert_sens = bert_vectorizer.transform(texts)
     save_data = (texts, bert_sens, labels)
     with open(path + filename + ".pkl", "wb+") as file:
@@ -643,9 +653,9 @@ class_names_imdb = ['0', '1']
 class_names_hate = ['0', '1']
 
 
-ALL_DATASETS = ["sent_imdb_engl", "sent_leb", "sent_urdu", "sent_thai", 
-                "spam_engl", "spam_turk", 
-                "hate_engl", "hate_beng",  
+ALL_DATASETS = ["imdb", "sent_leb", "sent_urdu", "sent_thai", 
+                "spam", "spam_turk", 
+                "hate", "hate_beng",  
                 "sem"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 DATASET = ALL_DATASETS[3]                      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #         ^^^^^^^^^^^^^^^
@@ -665,6 +675,8 @@ def get_ts_and_ls(DS):
 
         CLASS_NAMES = class_names_sem
 
+        lang = "En"
+
     elif DS == "hate_beng":
         train = pd.read_csv(BENG_TRAIN, header=0)
         test = pd.read_csv(BENG_TEST, header=0)
@@ -678,11 +690,15 @@ def get_ts_and_ls(DS):
         labels.append([0 if x == "Neutral" else 1 for x in test[train.columns[1]]])
         labels.append([0 if x == "Neutral" else 1 for x in val[val.columns[1]]])
 
+        lang = "Beng"
+
 
     elif DS == "spam_turk":
         data = pd.read_csv(TURK_SPAM, header=0, quotechar='"', on_bad_lines="skip")
         labels = [1 if x == "spam" else 0 for x, y in zip(data[data.columns[1]], data[data.columns[0]]) if pd.notnull(y) and pd.notnull(x)]
         texts = [re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x, y in zip(data[data.columns[0]], data[data.columns[1]]) if pd.notnull(y) and pd.notnull(x)]
+
+        lang = "Turk"
 
     elif DS == "sent_thai":
         with open(THAI_NEG, "r", encoding="utf-8") as file:
@@ -690,6 +706,8 @@ def get_ts_and_ls(DS):
         with open(THAI_POS, "r", encoding="utf-8") as file:
             labels = labels.append([1 for line in file])
             texts = texts.append([re.sub(r'\{Emoji}', '', line.strip()) for line in file])
+
+        lang = "Thai"
 
     elif DS == "sent_urdu":
         with open(ROM_URDU_SENT, encoding="utf-8") as f:
@@ -703,28 +721,38 @@ def get_ts_and_ls(DS):
                 label, text = line.split('\t', 1)
                 labels.append(label.strip())
                 texts.append(text.strip())
+
+        lang = "Urdu"
     
     elif DS == "sent_leb":
         data = pd.read_csv(LEB_AR_REVS, header=0)
         labels, texts = ([1 if x >=3 else 0 for x in data[data.columns[2]]], 
                         [re.sub(r'\{Emoji}', '', x.strip()).replace("\"", "") for x in data[data.columns[1]]])
+        
+        lang = "Leb"
             
-    elif DS == "spam_engl":
+    elif DS == "spam":
         labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
 
         CLASS_NAMES = class_names_spam
 
-    elif DS == "sent_imdb_engl":
+        lang = "En"
+
+    elif DS == "imdb":
         labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
 
         CLASS_NAMES = class_names_imdb
 
-    elif DS == "hate_engl":    
+        lang = "En"
+
+    elif DS == "hate":    
         labels, texts = tab_separated_ds(HATETAB, class_names_hate)
 
         CLASS_NAMES = class_names_hate
+
+        lang = "En"
     
-    return texts, labels
+    return texts, labels, lang
 
 for ds in ALL_DATASETS:
     print(ds)
