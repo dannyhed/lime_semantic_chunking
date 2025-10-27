@@ -805,7 +805,7 @@ comp_descs = {}
 
 def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs):
     model_params = [MODEL_PARAMS[i] for i in model_param_sets]
-    parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
+    # parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
 
     for dist, DS in enumerate(ALL_DATASETS):
         print(f"NEXT DATASET: {DS}")
