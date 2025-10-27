@@ -971,7 +971,7 @@ def get_all_distings():
     return all_dists
 
 
-ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"] 
+# ALL_DATASETS = ["spam", "sem", "imdb", "hate", "spam", "sem", "imdb", "hate"] 
 
 # all_dists = ["SpamResults1", "SemResults1", "IMDBResults1",
 #             "HateResults1", "SpamResults2", "SemResults2", 
