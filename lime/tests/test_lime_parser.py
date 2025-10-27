@@ -773,7 +773,7 @@ for ds in ALL_DATASETS:
     # print(texts[0])
     # print(labels[0])
     # print(lang)
-    # get_data(ds, BERT_FOLD, data=data, text_too=True)
+    get_data(ds, BERT_FOLD, data=data, text_too=True)
 
 
 
