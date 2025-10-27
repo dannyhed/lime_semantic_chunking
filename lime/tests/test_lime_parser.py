@@ -1041,20 +1041,20 @@ explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, lan
 clear_lines(26)
 # explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="constituency")
 
-ar_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[0])
-ar_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[0])
+ar_models_sm = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
 
-bn_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[4])
-bn_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[4])
 
-th_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[2])
-th_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[2])
+# bn_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[4])
+# bn_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[4])
 
-tr_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[3])
-tr_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[3])
+# th_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[2])
+# th_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[2])
 
-ur_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[1])
-ur_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[1])
+# tr_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[3])
+# tr_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[3])
+
+# ur_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[1])
+# ur_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[1])
 
 # ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
 #                 #"spam", 
@@ -1062,11 +1062,11 @@ ur_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[1])
 #                 #"hate", 
 #                 "hate_beng"]
 
-explainerDep_ar.explain_instance(dss["sent_leb"][20], ar_models_lg.predict_proba).as_html(HTML_PATH)
+explainerDep_ar.explain_instance(dss["sent_leb"][20], ar_models_sm[0].predict_proba).as_html(HTML_PATH)
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
-explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
-explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
-explainerStd.explain_instance(dss["sent_urdu"][20], ur_models_lg.predict_proba).as_html(HTML_PATH)
+# explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
+# explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
+# explainerStd.explain_instance(dss["sent_urdu"][20], ur_models_lg.predict_proba).as_html(HTML_PATH)
 
 
 
