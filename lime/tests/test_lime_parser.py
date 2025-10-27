@@ -1011,7 +1011,7 @@ explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, lan
 clear_lines(21)
 explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
 clear_lines(26)
-explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
+# explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
 clear_lines(28)
 explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
 
@@ -1019,25 +1019,25 @@ explainerRan_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, lan
 clear_lines(21)
 explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="dependency")
 clear_lines(26)
-explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="constituency")
+# explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="constituency")
 
 explainerRan_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="random")
 clear_lines(21)
 explainerDep_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="dependency")
 clear_lines(26)
-explainerCon_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="constituency")
+# explainerCon_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="constituency")
 
 explainerRan_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="random")
 clear_lines(21)
 explainerDep_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="dependency")
 clear_lines(26)
-explainerCon_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="constituency")
+# explainerCon_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="constituency")
 
 explainerRan_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="random")
 clear_lines(21)
 explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="dependency")
 clear_lines(26)
-explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="constituency")
+# explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="constituency")
 
 ar_models_sm = load_models(MODEL_PARAMS[0], dataset=ALL_DATASETS[0])
 ar_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[0])
