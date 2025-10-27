@@ -692,12 +692,12 @@ def get_ts_and_ls(DS):
         val = pd.read_csv(BENG_VAL, header=0)
 
         texts = [re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in train[train.columns[0]]]
-        texts.append([re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in test[test.columns[0]]])
-        texts.append([re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in val[val.columns[0]]])
+        texts.extend([re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in test[test.columns[0]]])
+        texts.extend([re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x in val[val.columns[0]]])
 
         labels = [0 if x == "Neutral" else 1 for x in train[train.columns[1]]]
-        labels.append([0 if x == "Neutral" else 1 for x in test[train.columns[1]]])
-        labels.append([0 if x == "Neutral" else 1 for x in val[val.columns[1]]])
+        labels.extend([0 if x == "Neutral" else 1 for x in test[train.columns[1]]])
+        labels.extend([0 if x == "Neutral" else 1 for x in val[val.columns[1]]])
 
         lang = "Beng"
 
@@ -711,10 +711,13 @@ def get_ts_and_ls(DS):
 
     elif DS == "sent_thai":
         with open(THAI_NEG, "r", encoding="utf-8") as file:
-            labels, texts = [0 for line in file], [re.sub(r'\{Emoji}', '', line.strip()) for line in file]
+            lines = file.readlines()
+        labels, texts = [0 for line in lines if re.sub(r'\{Emoji}', '', line.strip()).strip() != ''], [re.sub(r'\{Emoji}', '', line.strip()) for line in lines if re.sub(r'\{Emoji}', '', line.strip()).strip() != '']
+
         with open(THAI_POS, "r", encoding="utf-8") as file:
-            labels.append([1 for line in file])
-            texts.append([re.sub(r'\{Emoji}', '', line.strip()) for line in file])
+            lines = file.readlines()
+        labels.extend([1 for line in lines if re.sub(r'\{Emoji}', '', line.strip()).strip() != ''])
+        texts.extend([re.sub(r'\{Emoji}', '', line.strip()) for line in lines if re.sub(r'\{Emoji}', '', line.strip()).strip() != ''])
 
         lang = "Thai"
 
@@ -770,7 +773,7 @@ for ds in ALL_DATASETS:
     # print(texts[0])
     # print(labels[0])
     # print(lang)
-    get_data(ds, BERT_FOLD, data=data, text_too=True)
+    # get_data(ds, BERT_FOLD, data=data, text_too=True)
 
 
 
