@@ -1061,7 +1061,7 @@ ur_models_lg = load_models(MODEL_PARAMS[1], dataset=ALL_DATASETS[1])
 #                 "hate_beng"]
 
 explainerDep_ar.explain_instance(dss["sent_leb"][20], ar_models_lg.predict_proba).as_html(HTML_PATH)
-explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
+# explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
 explainerStd.explain_instance(dss["sent_urdu"][20], ur_models_lg.predict_proba).as_html(HTML_PATH)
