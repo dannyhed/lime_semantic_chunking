@@ -250,6 +250,8 @@ class LimeTextParserExplainer(object):
                                         parse_type=self.parser_type, word_level=word_level,
                                         random_trees=random_trees))
         
+        print("Indexed string parsed...")
+        
         #print(f"indexed_string.tokens: {indexed_string.tokens}")
         #print(f"indexed_string.as_list: {indexed_string.as_list}")
         #print(f"indexed_string.positions: {indexed_string.positions}")
@@ -257,15 +259,19 @@ class LimeTextParserExplainer(object):
 
         #print("I MADE IT HERE??????")
         domain_mapper = TextParserDomainMapper(indexed_string)
+        print("Domain mapped")
         data, yss, distances = self.__data_labels_distances(
             indexed_string, classifier_fn, num_samples,
             distance_metric=distance_metric, mask_method=mask_method)
+        print("Generated Samples")
         #print(f"data: {data}")
         if self.class_names is None:
             self.class_names = [str(x) for x in range(yss[0].shape[0])]
         ret_exp = explanation.Explanation(domain_mapper=domain_mapper,
                                           class_names=self.class_names,
                                           random_state=self.random_state)
+        
+        print("Samples explained")
         ret_exp.predict_proba = yss[0]
         if top_labels:
             labels = np.argsort(yss[0])[-top_labels:]
