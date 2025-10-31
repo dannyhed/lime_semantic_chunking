@@ -1141,6 +1141,7 @@ class IndexedStringParsed(object):
     @staticmethod
     def _segment_with_tokens(text, tokens):
         """Segment a string around the tokens created by a passed-in tokenizer"""
+        print(tokens)
         list_form = []
         positions = []
         text_ptr = 0
