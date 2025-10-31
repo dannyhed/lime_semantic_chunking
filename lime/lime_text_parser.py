@@ -137,10 +137,10 @@ class LimeTextParserExplainer(object):
         def init_parser(self, language):
             stanza.download(language, package="default")
             if parsing_type == "dependency":
-                if language != "th" and language != "ur":
+                if language != "th" and language != "ur" and language != "ar":
                     self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
                 else:
-                    self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,lemma,depparse')
+                    self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse")
             elif parsing_type == "constituency":
                 self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,constituency')
             elif parsing_type == "random":
@@ -640,7 +640,7 @@ class IndexedStringParsed(object):
             self.random_trees = random_trees
             self.word_level = word_level
             self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
-            self.inverse_ids = self.get_inverse_ids()  
+            self.inverse_ids = self.get_inverse_ids()
             self.num_feats = self.num_features()
             self.as_list, self.positions = self._segment_with_tokens(self.raw, self.tokens)    
             self.as_np = np.array(self.as_list)
