@@ -1067,7 +1067,7 @@ ar_models_sm = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], d
 import unicodedata
 import stanza
 
-
+print(stanza.__version__)
 for lang in ["ar", "th", "bn", "tr", "ur"]:
     info = stanza.utils.datasets.get_lang_info(lang)
     print(lang, info["available_processors"])
