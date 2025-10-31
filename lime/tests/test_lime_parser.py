@@ -1069,7 +1069,7 @@ import stanza
 
 print(stanza.__version__)
 for lang in ["ar", "th", "bn", "tr", "ur"]:
-    info = stanza.utils.datasets.get_lang_info(lang)
+    info = stanza.resources.common.get_default_package(lang)
     print(lang, info["available_processors"])
 
 def normalize_text(text):
