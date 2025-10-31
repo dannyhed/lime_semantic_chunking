@@ -122,6 +122,7 @@ class Explanation(object):
             raise NotImplementedError('Not supported for regression explanations.')
         else:
             ans = self.top_labels if self.top_labels else self.local_exp.keys()
+            print(f"available labels: {list(ans)}") # <------------------- REMOVE
             return list(ans)
 
     def as_list(self, label=1, **kwargs):

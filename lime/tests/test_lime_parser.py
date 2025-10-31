@@ -1072,7 +1072,8 @@ def normalize_text(text):
     text = text.replace("\u200c", "").replace("\u200d", "")  # zero-width non-joiner/joiner
     return text.strip()
 
-explainerDep_ar.explain_instance(normalize_text(dss["sent_leb"][0][0]), ar_models_sm[0].predict_proba, num_samples=100).as_html(HTML_PATH)
+with open(HTML_PATH + "ar_test.html", "w+", encoding="utf-8") as file:
+    file.write(explainerDep_ar.explain_instance(normalize_text(dss["sent_leb"][0][0]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
