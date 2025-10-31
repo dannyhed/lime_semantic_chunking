@@ -138,13 +138,13 @@ class LimeTextParserExplainer(object):
             stanza.download(language, package="default")
             if parsing_type == "dependency":
                 if language == "ar":
-                    self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse',
-                      tokenize_no_ssplit=True,
-                      use_gpu=False,
-                      dir="./stanza_resources",
-                      tokenize_pretokenized=False,
-                      config={"processors": "tokenize,pos,lemma,depparse",
-                              "tokenize": {"no_ssplit": True, "arabic_use_mwt": False}})
+                    self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse",
+                        use_gpu=False,
+                        dir="./stanza_resources",
+                        tokenize_no_ssplit=True,
+                        tokenize_pretokenized=False,
+                        # critical part: disable mwt expansion
+                        mwt=False)
                 if language != "th" and language != "ur":
                     self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
                 else:
@@ -1145,14 +1145,7 @@ class IndexedStringParsed(object):
                 inter_token_string.append(text[text_ptr])
                 text_ptr += 1
                 if text_ptr >= len(text):
-                    if token not in text:
-                        close = difflib.get_close_matches(token, text.split(), n=1)
-                        if close:
-                            token = close[0]
-                        else:
-                            continue
-                    else:
-                        raise ValueError("Tokenization produced tokens that do not belong in string!")
+                    raise ValueError("Tokenization produced tokens that do not belong in string!")
             text_ptr += len(token)
             if inter_token_string:
                 list_form.append(''.join(inter_token_string))
