@@ -1065,6 +1065,12 @@ ar_models_sm = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], d
 #                 "hate_beng"]
 
 import unicodedata
+import stanza
+
+
+for lang in ["ar", "th", "bn", "tr", "ur"]:
+    info = stanza.utils.datasets.get_lang_info(lang)
+    print(lang, info["available_processors"])
 
 def normalize_text(text):
     # Normalize to NFC and remove zero-width characters
