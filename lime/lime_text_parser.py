@@ -146,6 +146,10 @@ class LimeTextParserExplainer(object):
                         tokenize_pretokenized=False,
                         # critical part: disable mwt expansion
                         mwt=False)
+                    doc = self.parser("وبالسيارة جميلة.")
+                    for sent in doc.sentences:
+                        print([w.text for w in sent.words])
+
                 if language != "th" and language != "ur":
                     self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
                 else:
