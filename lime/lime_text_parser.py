@@ -645,7 +645,7 @@ class IndexedStringParsed(object):
         """
         if not no_init:
             if pretok:
-                raw_string = raw_string.split()
+                raw_string = ''.join(raw_string.split())
             self.raw = raw_string + "\n\n\n"
             self.parser = parser
             self.parse_type = parse_type
