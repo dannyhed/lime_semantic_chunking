@@ -136,6 +136,7 @@ class LimeTextParserExplainer(object):
 
         def init_parser(self, language):
             stanza.download(language, package="default")
+            print(f"Initializing {language}, parsing_type = {parsing_type}")
             if parsing_type == "dependency":
                 if language == "ar":
                     self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse",
