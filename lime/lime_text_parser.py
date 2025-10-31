@@ -612,7 +612,7 @@ class SavedExplanation(object):
                     complete_exp.append((tokens[i], 0.0))
         return complete_exp
 
-    
+import difflib
 
 
 class IndexedStringParsed(object):
@@ -1137,7 +1137,12 @@ class IndexedStringParsed(object):
                 inter_token_string.append(text[text_ptr])
                 text_ptr += 1
                 if text_ptr >= len(text):
-                    raise ValueError("Tokenization produced tokens that do not belong in string!")
+                    if token not in text:
+                        close = difflib.get_close_matches(token, text.split(), n=1)
+                    if close:
+                        token = close[0]
+                    else:
+                        raise ValueError("Tokenization produced tokens that do not belong in string!")
             text_ptr += len(token)
             if inter_token_string:
                 list_form.append(''.join(inter_token_string))
