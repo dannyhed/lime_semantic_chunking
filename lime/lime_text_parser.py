@@ -140,15 +140,9 @@ class LimeTextParserExplainer(object):
             if parsing_type == "dependency":
                 if language == "ar":
                     self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse",
-                        use_gpu=False,
                         dir="./stanza_resources",
-                        tokenize_no_ssplit=True,
-                        tokenize_pretokenized=False,
-                        # critical part: disable mwt expansion
-                        mwt=False)
-                    doc = self.parser("وبالسيارة جميلة.")
-                    for sent in doc.sentences:
-                        print([w.text for w in sent.words])
+                        use_gpu=False,
+                        tokenize_pretokenized=True)
 
                 if language != "th" and language != "ur":
                     self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
@@ -163,7 +157,7 @@ class LimeTextParserExplainer(object):
                
         self.mask_method = mask_method
         self.parser_type = parsing_type
-        self.language = language
+        self.lanugage = language
         init_parser(self, language)
         self.random_trees = random_trees
         self.max_sample_size = max_sample_size
@@ -258,8 +252,11 @@ class LimeTextParserExplainer(object):
             #print(f"depend single exp: {exp}")
             return exp
         
-
-        indexed_string = (IndexedStringParsed(text_instance, parser=self.parser, 
+        if self.lanugage == "ar":
+            pretok = True
+        else:
+            pretok = False
+        indexed_string = (IndexedStringParsed(text_instance, parser=self.parser, pretok=pretok,
                                         parse_type=self.parser_type, word_level=word_level,
                                         random_trees=random_trees))
         
@@ -631,7 +628,7 @@ import difflib
 class IndexedStringParsed(object):
     """String with various indexes."""
 
-    def __init__(self, raw_string=None, parser=None, parse_type="dependency", 
+    def __init__(self, raw_string=None, parser=None, pretok=False, parse_type="dependency", 
                  word_level=False, random_trees=20, no_init=False):
         """Initializer.
 
@@ -650,6 +647,7 @@ class IndexedStringParsed(object):
             self.raw = raw_string + "\n\n\n"
             self.parser = parser
             self.parse_type = parse_type
+            self.pretok = pretok
             self.random_trees = random_trees
             self.word_level = word_level
             self.parse_tree, self.tokens = self.get_parsing(raw_string, parser)  
@@ -992,6 +990,8 @@ class IndexedStringParsed(object):
 
                 return combine_different(combined)
 
+            if self.pretok:
+                text_instance = [text_instance.split()]
             parse = self.parser(text_instance)
             words = [[token.text for token in sent.words] for sent in parse.sentences]
             self.tot_sents = len(words)
