@@ -140,7 +140,7 @@ class LimeTextParserExplainer(object):
                 if language != "th" and language != "ur" and language != "ar":
                     self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
                 else:
-                    self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse")
+                    self.parser = stanza.Pipeline(lang=language, processors="tokenize") #,pos,lemma,depparse
             elif parsing_type == "constituency":
                 self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,constituency')
             elif parsing_type == "random":
