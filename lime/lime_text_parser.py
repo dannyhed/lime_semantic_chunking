@@ -993,7 +993,7 @@ class IndexedStringParsed(object):
                 return combine_different(combined)
 
             if self.pretok:
-                text_instance = [text_instance.split()]
+                text_instance = ''.join(text_instance.split())
             print(text_instance)
             parse = self.parser(text_instance)
             words = [[token.text for token in sent.words] for sent in parse.sentences]
