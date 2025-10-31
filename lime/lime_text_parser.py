@@ -1139,8 +1139,10 @@ class IndexedStringParsed(object):
                 if text_ptr >= len(text):
                     if token not in text:
                         close = difflib.get_close_matches(token, text.split(), n=1)
-                    if close:
-                        token = close[0]
+                        if close:
+                            token = close[0]
+                        else:
+                            continue
                     else:
                         raise ValueError("Tokenization produced tokens that do not belong in string!")
             text_ptr += len(token)
