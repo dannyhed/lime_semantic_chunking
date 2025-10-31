@@ -992,6 +992,7 @@ class IndexedStringParsed(object):
 
             if self.pretok:
                 text_instance = [text_instance.split()]
+            print(text_instance)
             parse = self.parser(text_instance)
             words = [[token.text for token in sent.words] for sent in parse.sentences]
             self.tot_sents = len(words)
