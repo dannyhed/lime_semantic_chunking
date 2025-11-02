@@ -1009,13 +1009,13 @@ par = 0
 # get_exp_metrics(comp_descs, compare_by="exp")
 
 # run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
-# explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
+explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
 # clear_lines(21)
 explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
 # clear_lines(26)
-# explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
+explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
 # clear_lines(28)
-# explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
+explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
 
 
 # explainerRan_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="random")
@@ -1072,8 +1072,17 @@ def normalize_text(text):
     text = text.replace("\u200c", "").replace("\u200d", "")  # zero-width non-joiner/joiner
     return text.strip()
 
-with open(HTML_PATH + "ar_test.html", "w+", encoding="utf-8") as file:
-    file.write(explainerDep_ar.explain_instance(normalize_text(dss["sent_leb"][0][0]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+with open(HTML_PATH + "ar_dep_test.html", "w+", encoding="utf-8") as file:
+    file.write(explainerDep_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+    
+with open(HTML_PATH + "ar_con_test.html", "w+", encoding="utf-8") as file:
+    file.write(explainerCon_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+
+with open(HTML_PATH + "ar_ran_test.html", "w+", encoding="utf-8") as file:
+    file.write(explainerRan_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+
+with open(HTML_PATH + "ar_std_test.html", "w+", encoding="utf-8") as file:
+    file.write(explainerStd.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
