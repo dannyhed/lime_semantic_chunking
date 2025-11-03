@@ -136,16 +136,19 @@ class LimeTextParserExplainer(object):
 
         def init_parser(self, language):
             if language == "bn":
-                stanza.download(language)
+                stanza.download("multilingual")
             else:
                 stanza.download(language, package="default")
             print(f"Initializing {language}, parsing_type = {parsing_type}")
             if parsing_type == "dependency":
                 if language != "en":
-                    self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse",
-                        dir="./stanza_resources",
-                        use_gpu=False,
-                        tokenize_pretokenized=True)
+                    if language == "bn":
+                        self.parser = stanza.Pipeline('multilingual', processors='tokenize,pos,lemma,depparse')
+                    else:
+                        self.parser = stanza.Pipeline(lang=language, processors="tokenize,pos,lemma,depparse",
+                            dir="./stanza_resources",
+                            use_gpu=False,
+                            tokenize_pretokenized=True)
                 else:
                     self.parser = stanza.Pipeline(lang=language, processors='tokenize,mwt,pos,lemma,depparse')
 
