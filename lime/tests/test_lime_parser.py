@@ -972,7 +972,7 @@ def explain_multilang(instances, models, language="ar", filenames_dict={}, path=
     if language == "en":
         explainers["con"] = LimeTextParserExplainer(class_names=class_names, verbose=False, language=language, parsing_type="constituency")
 
-    for exp, fname in tqdm(list(zip(combo_exps, filenames), "Explaining")):
+    for exp, fname in tqdm(list(zip(combo_exps, filenames)), "Explaining"):
         m, i, p = exp
         i = normalize_text(i)
         with open(path + fname, "w+", encoding="utf-8") as file:
