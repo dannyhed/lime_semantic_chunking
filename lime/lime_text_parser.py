@@ -136,7 +136,7 @@ class LimeTextParserExplainer(object):
 
         def init_parser(self, language):
             if language == "bn":
-                stanza.download("multilingual")
+                stanza.download("multilingual", package="ud")
             else:
                 stanza.download(language, package="default")
             print(f"Initializing {language}, parsing_type = {parsing_type}")
