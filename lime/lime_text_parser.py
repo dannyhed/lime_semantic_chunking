@@ -158,7 +158,8 @@ class LimeTextParserExplainer(object):
                 if language == "bn":
                     self.parser = stanza.Pipeline('multilingual', processors='tokenize')
                 else:
-                    self.parser = stanza.Pipeline(lang=language, processors='tokenize')
+                    self.parser = stanza.Pipeline(lang=language, processors='tokenize',
+                      model_dir="/home/dkamen/stanza_resources")
             else:
                 raise ValueError("PARSING METHOD NOT AN OPTION, HALTING")
                
