@@ -1075,8 +1075,8 @@ def normalize_text(text):
 with open(HTML_PATH + "ar_dep_test.html", "w+", encoding="utf-8") as file:
     file.write(explainerDep_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
     
-with open(HTML_PATH + "ar_con_test.html", "w+", encoding="utf-8") as file:
-    file.write(explainerCon_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+# with open(HTML_PATH + "ar_con_test.html", "w+", encoding="utf-8") as file:
+#     file.write(explainerCon_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
 
 with open(HTML_PATH + "ar_ran_test.html", "w+", encoding="utf-8") as file:
     file.write(explainerRan_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
