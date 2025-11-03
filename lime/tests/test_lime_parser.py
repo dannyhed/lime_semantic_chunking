@@ -1103,7 +1103,7 @@ def explain_ars(instances, models, filenames_dict={}, path=HTML_PATH, samples=10
     combo_names = it.product(fld["model_names"], fld["inst_names"], fld["parse_names"])
     combo_exps = it.product(models, instances, fld["parse_names"])
 
-    filenames = [f"{fld["begin_filename"]}{parse}_{model}_{fld["post_name"]}_{inst}.html" for (model, inst, parse) in combo_names]
+    filenames = [f"{fld['begin_filename']}{parse}_{model}_{fld['post_name']}_{inst}.html" for (model, inst, parse) in combo_names]
 
     explainers = {"std": LimeTextExplainer(class_names=[0, 1], verbose=False),
                   "ran": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random"),
