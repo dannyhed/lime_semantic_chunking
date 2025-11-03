@@ -268,7 +268,7 @@ class LimeTextParserExplainer(object):
                                         parse_type=self.parser_type, word_level=word_level,
                                         random_trees=random_trees))
         
-        print("Indexed string parsed...")
+        # print("Indexed string parsed...")
         
         #print(f"indexed_string.tokens: {indexed_string.tokens}")
         #print(f"indexed_string.as_list: {indexed_string.as_list}")
@@ -277,11 +277,11 @@ class LimeTextParserExplainer(object):
 
         #print("I MADE IT HERE??????")
         domain_mapper = TextParserDomainMapper(indexed_string)
-        print("Domain mapped")
+        # print("Domain mapped")
         data, yss, distances = self.__data_labels_distances(
             indexed_string, classifier_fn, num_samples,
             distance_metric=distance_metric, mask_method=mask_method)
-        print("Generated Samples")
+        # print("Generated Samples")
         #print(f"data: {data}")
         if self.class_names is None:
             self.class_names = [str(x) for x in range(yss[0].shape[0])]
@@ -289,7 +289,7 @@ class LimeTextParserExplainer(object):
                                           class_names=self.class_names,
                                           random_state=self.random_state)
         
-        print("Samples explained")
+        # print("Samples explained")
         ret_exp.predict_proba = yss[0]
         if top_labels:
             labels = np.argsort(yss[0])[-top_labels:]
@@ -1002,7 +1002,7 @@ class IndexedStringParsed(object):
 
             if self.pretok:
                 text_instance = ''.join(text_instance.split())
-            print(text_instance)
+            # print(text_instance)
             parse = self.parser(text_instance)
             words = [[token.text for token in sent.words] for sent in parse.sentences]
             self.tot_sents = len(words)
@@ -1151,7 +1151,7 @@ class IndexedStringParsed(object):
     @staticmethod
     def _segment_with_tokens(text, tokens):
         """Segment a string around the tokens created by a passed-in tokenizer"""
-        print(tokens)
+        # print(tokens)
         list_form = []
         positions = []
         text_ptr = 0
