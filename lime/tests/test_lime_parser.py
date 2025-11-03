@@ -768,54 +768,6 @@ def get_ts_and_ls(DS):
 
 comp_descs = {}
 
-def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs):
-    model_params = [MODEL_PARAMS[i] for i in model_param_sets]
-    # parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
-
-    for dist, DS in enumerate(ALL_DATASETS):
-        print(f"NEXT DATASET: {DS}")
-        descs = {
-            # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
-            "models": [model_save_name(p, DS, ext=False) for p in model_params],
-            "parses": ["Dep", "Con", "Ran", "Std", "Shap"],
-            # "param_sets": ["0", "1", "2", "3"],
-
-        #            ||||||||||||||
-        #            \/\/\/\/\/\/\/
-            "disting": all_dists[dist]
-        } #            ^^^^^^^^^^^^^^
-        #            ^^^^^^^^^^^^^^
-
-        #                                                                 ||||||||||
-        #                                                                 ||||||||||
-        #                                                                 \/\/\/\/\/
-        texts, labels, lang = get_ts_and_ls(DS)
-        t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(DS, BERT_FOLD, (texts, labels), text_too=True)
-        #                                                                 /\/\/\/\/\
-        #                                                                 ||||||||||
-        #                                                                 ||||||||||
-
-        # vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
-        # train_vectors = vectorizer.fit_transform(t_train)
-        # test_vectors = vectorizer.transform(t_test)
-        train_vectors = None
-        vectorizer = None
-
-        # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
-        #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
-
-        # instances = [t_test[i] for i in instance_idxs]
-        # for i in instances:
-        #     print(i)
-        t_train = np.array(list(t_train))
-        t_test = np.array(list(t_test))
-        all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, language=lang, jmodel=True)
-
-        all_models = load_models(model_params, DS)
-
-        # run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-        #                 instances, save=True, descriptions=descs, path=EXPL_PATH, 
-        #                 skip_existing=True, just_desc=False)
 
 
 instance_idxs = list(range(25))
@@ -842,13 +794,13 @@ all_dists = ["SpamHuman1", "SemHuman1", "IMDBHuman1",
             "IMDBHuman2", "HateHuman2"]
 models = [0, -1]
 
-comp_descs = {
-    "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
-    "parses": ["Dep", "Con", "Ran", "Std"],
-    "params": [EXP_PARAMS[p] for p in params],
-    "instances": instance_idxs,
-    "disting": "SpamResults1"
-}
+# comp_descs = {
+#     "models": [model_save_name(MODEL_PARAMS[p], dataset=None, ext=False) for p in models],
+#     "parses": ["Dep", "Con", "Ran", "Std"],
+#     "params": [EXP_PARAMS[p] for p in params],
+#     "instances": instance_idxs,
+#     "disting": "SpamResults1"
+# }
 
 def get_exp_metrics(comp_descs, compare_by="model", all_results=False):
 
@@ -1048,6 +1000,51 @@ for ds in ALL_DATASETS:
                 #("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
 MODEL_PARAMS = [("mlp", "b", [50, 25]), #("mlp", "b", [100, 50]), 
                 ("mlp", "b", [200, 100])]
+
+
+def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs):
+    model_params = [MODEL_PARAMS[i] for i in model_param_sets]
+    # parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
+
+    for dist, DS in enumerate(ALL_DATASETS):
+        print(f"NEXT DATASET: {DS}")
+        descs = {
+            # "models": ["RF_500_BERT", "MLP_(50-25)_BERT", "RF_500_TFIDF", "MLP_(50-25)_TFIDF"],
+            "models": [model_save_name(p, DS, ext=False) for p in model_params],
+            "parses": ["Dep", "Con", "Ran", "Std", "Shap"],
+            # "param_sets": ["0", "1", "2", "3"],
+
+        #            ||||||||||||||
+        #            \/\/\/\/\/\/\/
+            "disting": all_dists[dist]
+        } #            ^^^^^^^^^^^^^^
+        #            ^^^^^^^^^^^^^^
+        #                                                                 \/\/\/\/\/
+        texts, labels, lang = get_ts_and_ls(DS)
+        t_train, t_test, bert_train, bert_test, y_train, y_test = get_data(DS, BERT_FOLD, (texts, labels), text_too=True)
+        #                                                                 /\/\/\/\/\
+
+        # vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+        # train_vectors = vectorizer.fit_transform(t_train)
+        # test_vectors = vectorizer.transform(t_test)
+        train_vectors = None
+        vectorizer = None
+
+        # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
+        #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
+
+        # instances = [t_test[i] for i in instance_idxs]
+        # for i in instances:
+        #     print(i)
+        t_train = np.array(list(t_train))
+        t_test = np.array(list(t_test))
+        all_models = train_models(model_params, train_vectors, bert_train, y_train, vectorizer, DS, language=lang, jmodel=True)
+
+        all_models = load_models(model_params, DS)
+
+        # run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
+        #                 instances, save=True, descriptions=descs, path=EXPL_PATH, 
+        #                 skip_existing=True, just_desc=False)
 
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
