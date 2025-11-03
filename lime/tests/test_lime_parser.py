@@ -1072,11 +1072,11 @@ ur_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], data
 
 ar_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
 
+explain_multilang(dss["hate_beng"][0][1], ar_models[0].predict_proba, "bn", {"post_name": "newtest"})
 explain_multilang(dss["sent_leb"][0][1], ar_models[0].predict_proba, "ar", {"post_name": "newtest"})
 explain_multilang(dss["sent_urdu"][0][1], ur_models[0].predict_proba, "ur", {"post_name": "newtest"})
 explain_multilang(dss["sent_thai"][0][1], th_models[0].predict_proba, "th", {"post_name": "newtest"})
 explain_multilang(dss["spam_turk"][0][1], ar_models[0].predict_proba, "tr", {"post_name": "newtest"})
-explain_multilang(dss["hate_beng"][0][1], ar_models[0].predict_proba, "bn", {"post_name": "newtest"})
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
