@@ -1013,7 +1013,7 @@ explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, lan
 # clear_lines(21)
 explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
 # clear_lines(26)
-explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
+# explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
 # clear_lines(28)
 explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
 
