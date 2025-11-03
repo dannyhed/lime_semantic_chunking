@@ -1062,7 +1062,7 @@ EXP_PARAMS = [(5, 1000, 1, 25, True),
                   (20, 1000, 1, 200, True)]
 
 
-bn_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[4])
+# bn_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[4])
 
 th_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[2])
 
@@ -1072,7 +1072,7 @@ ur_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], data
 
 ar_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
 
-explain_multilang(dss["hate_beng"][0][1], [m.predict_proba for m in bn_models], "bn", {"post_name": "newtest"})
+# explain_multilang(dss["hate_beng"][0][1], [m.predict_proba for m in bn_models], "bn", {"post_name": "newtest"})
 explain_multilang(dss["sent_leb"][0][1], [m.predict_proba for m in ar_models], "ar", {"post_name": "newtest"})
 explain_multilang(dss["sent_urdu"][0][1], [m.predict_proba for m in ur_models], "ur", {"post_name": "newtest"})
 explain_multilang(dss["sent_thai"][0][1], [m.predict_proba for m in th_models], "th", {"post_name": "newtest"})
