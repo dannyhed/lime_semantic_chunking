@@ -669,11 +669,6 @@ class_names_imdb = ['0', '1']
 class_names_hate = ['0', '1']
 
 
-DATASET = ALL_DATASETS[3]                      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-#         ^^^^^^^^^^^^^^^
-
-CLASS_NAMES = []
-
 def get_ts_and_ls(DS):
     labels = []
     texts = []
@@ -989,7 +984,7 @@ def normalize_text(text):
     text = text.replace("\u200c", "").replace("\u200d", "")  # zero-width non-joiner/joiner
     return text.strip()
 
-def explain_multilang(instances, models, language="ar", filenames_dict={}, path=HTML_PATH, samples=100):
+def explain_multilang(instances, models, language="ar", filenames_dict={}, path=HTML_PATH, samples=100, class_names=[0, 1]):
     # filenames_dict = {"model_names": ["mlp_large", "mlp_small"],
     #                   "begin_filename": "ar",                         
     #                   "post_name": "test", "first_try", "final", etc...,   
@@ -1020,11 +1015,11 @@ def explain_multilang(instances, models, language="ar", filenames_dict={}, path=
 
     filenames = [f"{fld['begin_filename']}{parse}_{model}_{fld['post_name']}_{inst}.html" for (model, inst, parse) in combo_names]
 
-    explainers = {"std": LimeTextExplainer(class_names=[0, 1], verbose=False),
-                  "ran": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language=language, parsing_type="random"),
-                  "dep": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language=language, parsing_type="dependency")}
+    explainers = {"std": LimeTextExplainer(class_names=class_names, verbose=False),
+                  "ran": LimeTextParserExplainer(class_names=class_names, verbose=False, language=language, parsing_type="random"),
+                  "dep": LimeTextParserExplainer(class_names=class_names, verbose=False, language=language, parsing_type="dependency")}
     if language == "en":
-        explainers["con"] = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language=language, parsing_type="constituency")
+        explainers["con"] = LimeTextParserExplainer(class_names=class_names, verbose=False, language=language, parsing_type="constituency")
 
     for exp, fname in zip(combo_exps, filenames):
         m, i, p = exp
