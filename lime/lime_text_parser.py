@@ -155,7 +155,10 @@ class LimeTextParserExplainer(object):
             elif parsing_type == "constituency":
                 self.parser = stanza.Pipeline(lang=language, processors='tokenize,pos,constituency')
             elif parsing_type == "random":
-                self.parser = stanza.Pipeline(lang=language, processors='tokenize')
+                if language == "bn":
+                    self.parser = stanza.Pipeline('multilingual', processors='tokenize')
+                else:
+                    self.parser = stanza.Pipeline(lang=language, processors='tokenize')
             else:
                 raise ValueError("PARSING METHOD NOT AN OPTION, HALTING")
                
