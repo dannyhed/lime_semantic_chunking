@@ -669,13 +669,6 @@ class_names_imdb = ['0', '1']
 class_names_hate = ['0', '1']
 
 
-#["imdb", 
-ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
-                #"spam", 
-                "spam_turk", 
-                #"hate", 
-                "hate_beng"]#,  
-                #"sem"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 DATASET = ALL_DATASETS[3]                      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #         ^^^^^^^^^^^^^^^
 
@@ -694,7 +687,7 @@ def get_ts_and_ls(DS):
 
         CLASS_NAMES = class_names_sem
 
-        lang = "En"
+        lang = "en"
 
     elif DS == "hate_beng":
         train = pd.read_csv(BENG_TRAIN, header=0)
@@ -709,7 +702,7 @@ def get_ts_and_ls(DS):
         labels.extend([0 if x == "Neutral" else 1 for x in test[train.columns[1]]])
         labels.extend([0 if x == "Neutral" else 1 for x in val[val.columns[1]]])
 
-        lang = "Beng"
+        lang = "bn"
 
 
     elif DS == "spam_turk":
@@ -717,7 +710,7 @@ def get_ts_and_ls(DS):
         labels = [1 if x == "spam" else 0 for x, y in zip(data[data.columns[1]], data[data.columns[0]]) if pd.notnull(y) and pd.notnull(x)]
         texts = [re.sub(r'\{Emoji}', '', (html.unescape(x)).strip()).replace('\"', '') for x, y in zip(data[data.columns[0]], data[data.columns[1]]) if pd.notnull(y) and pd.notnull(x)]
 
-        lang = "Turk"
+        lang = "tr"
 
     elif DS == "sent_thai":
         with open(THAI_NEG, "r", encoding="utf-8") as file:
@@ -729,7 +722,7 @@ def get_ts_and_ls(DS):
         labels.extend([1 for line in lines if re.sub(r'\{Emoji}', '', line.strip()).strip() != ''])
         texts.extend([re.sub(r'\{Emoji}', '', line.strip()) for line in lines if re.sub(r'\{Emoji}', '', line.strip()).strip() != ''])
 
-        lang = "Thai"
+        lang = "th"
 
     elif DS == "sent_urdu":
         with open(ROM_URDU_SENT, encoding="utf-8") as f:
@@ -744,70 +737,38 @@ def get_ts_and_ls(DS):
                 labels.append(label.strip())
                 texts.append(text.strip())
 
-        lang = "Urdu"
+        lang = "ur"
     
     elif DS == "sent_leb":
         data = pd.read_csv(LEB_AR_REVS, header=0)
         labels, texts = ([1 if x >=3 else 0 for x in data[data.columns[2]]], 
                         [re.sub(r'\{Emoji}', '', x.strip()).replace("\"", "") for x in data[data.columns[1]]])
         
-        lang = "Leb"
+        lang = "ar"
             
     elif DS == "spam":
         labels, texts = tab_separated_ds(SPAMFILE, class_names_spam)
 
         CLASS_NAMES = class_names_spam
 
-        lang = "En"
+        lang = "en"
 
     elif DS == "imdb":
         labels, texts = tab_separated_ds(IMDB_COMP, class_names_imdb)
 
         CLASS_NAMES = class_names_imdb
 
-        lang = "En"
+        lang = "en"
 
     elif DS == "hate":    
         labels, texts = tab_separated_ds(HATETAB, class_names_hate)
 
         CLASS_NAMES = class_names_hate
 
-        lang = "En"
+        lang = "en"
     
     return texts, labels, lang
 
-dss = {}
-
-for ds in ALL_DATASETS:
-#     print(ds)
-    data = get_ts_and_ls(ds)
-    # texts, labels, lang = data
-    # print(texts[0])
-    # print(labels[0])
-    # print(lang)
-    dss[ds] = get_data(ds, BERT_FOLD, data=data, text_too=True)
-
-
-
-#[("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
-                #("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
-MODEL_PARAMS = [("mlp", "b", [50, 25]), #("mlp", "b", [100, 50]), 
-                ("mlp", "b", [200, 100])]
-
-
-# (num_feats, num_samples, mask_method, num_rand_trees, word_level)
-EXP_PARAMS = [(5, 1000, 1, 25, True), 
-                  (10, 1000, 1, 25, True), 
-                  (20, 1000, 1, 25, True), 
-                  (5, 1000, 1, 50, True),
-                  (10, 1000, 1, 50, True), 
-                  (20, 1000, 1, 50, True), 
-                  (5, 1000, 1, 100, True), 
-                  (10, 1000, 1, 100, True), 
-                  (20, 1000, 1, 100, True),
-                  (5, 1000, 1, 200, True),
-                  (10, 1000, 1, 200, True), 
-                  (20, 1000, 1, 200, True)]
 
 
 comp_descs = {}
@@ -1011,54 +972,8 @@ par = 0
 # get_exp_metrics(comp_descs, compare_by="exp")
 
 # # run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
-# explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
-# # clear_lines(21)
-# explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
-# # clear_lines(26)
-# # explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
-# # clear_lines(28)
-# explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
 
 
-# explainerRan_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="random")
-# clear_lines(21)
-# explainerDep_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="dependency")
-# clear_lines(26)
-
-# explainerRan_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="random")
-# clear_lines(21)
-# explainerDep_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="dependency")
-# clear_lines(26)
-
-# explainerRan_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="random")
-# clear_lines(21)
-# explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="dependency")
-# clear_lines(26)
-
-# explainerRan_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="random")
-# clear_lines(21)
-# explainerDep_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="dependency")
-# clear_lines(26)
-# explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="bn", parsing_type="constituency")
-
-# explainerCon_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="constituency")
-# explainerCon_tr = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="tr", parsing_type="constituency")
-# explainerCon_bn = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ur", parsing_type="constituency")
-
-ar_models_sm = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
-
-
-# bn_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[4])
-# bn_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[4])
-
-# th_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[2])
-# th_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[2])
-
-# tr_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[3])
-# tr_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[3])
-
-# ur_models_sm = load_models(("mlp", "b", [50, 25]), dataset=ALL_DATASETS[1])
-# ur_models_lg = load_models(("mlp", "b", [200, 100]), dataset=ALL_DATASETS[1])
 
 # ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
 #                 #"spam", 
@@ -1074,7 +989,7 @@ def normalize_text(text):
     text = text.replace("\u200c", "").replace("\u200d", "")  # zero-width non-joiner/joiner
     return text.strip()
 
-def explain_ars(instances, models, filenames_dict={}, path=HTML_PATH, samples=100):
+def explain_multilang(instances, models, language="ar", filenames_dict={}, path=HTML_PATH, samples=100):
     # filenames_dict = {"model_names": ["mlp_large", "mlp_small"],
     #                   "begin_filename": "ar",                         
     #                   "post_name": "test", "first_try", "final", etc...,   
@@ -1094,7 +1009,7 @@ def explain_ars(instances, models, filenames_dict={}, path=HTML_PATH, samples=10
     if "post_name" not in filenames_dict:
         filenames_dict["post_name"] = "exp"
     if "begin_filename" not in filenames_dict:
-        filenames_dict["begin_filename"] = "ar_"
+        filenames_dict["begin_filename"] = language + "_"
     elif filenames_dict["begin_filename"] != "":
         filenames_dict["begin_filename"] = filenames_dict["begin_filename"] + "_"
     
@@ -1106,8 +1021,10 @@ def explain_ars(instances, models, filenames_dict={}, path=HTML_PATH, samples=10
     filenames = [f"{fld['begin_filename']}{parse}_{model}_{fld['post_name']}_{inst}.html" for (model, inst, parse) in combo_names]
 
     explainers = {"std": LimeTextExplainer(class_names=[0, 1], verbose=False),
-                  "ran": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random"),
-                  "dep": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")}
+                  "ran": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language=language, parsing_type="random"),
+                  "dep": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language=language, parsing_type="dependency")}
+    if language == "en":
+        explainers["con"] = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language=language, parsing_type="constituency")
 
     for exp, fname in zip(combo_exps, filenames):
         m, i, p = exp
@@ -1116,7 +1033,58 @@ def explain_ars(instances, models, filenames_dict={}, path=HTML_PATH, samples=10
             file.write(explainers[p].explain_instance(i, m, num_samples=samples).as_html())
 
 
-explain_ars(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, {"post_name": "newtest"})
+#["imdb", 
+ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
+                #"spam", 
+                "spam_turk", 
+                #"hate", 
+                "hate_beng"]#,  
+                #"sem"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+dss = {}
+
+for ds in ALL_DATASETS:
+    data = get_ts_and_ls(ds)
+    dss[ds] = get_data(ds, BERT_FOLD, data=data, text_too=True)
+
+
+
+#[("rf", "i", 100), ("rf", "i", 500), ("rf", "b", 100), ("rf", "b", 500),
+                #("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
+MODEL_PARAMS = [("mlp", "b", [50, 25]), #("mlp", "b", [100, 50]), 
+                ("mlp", "b", [200, 100])]
+
+
+# (num_feats, num_samples, mask_method, num_rand_trees, word_level)
+EXP_PARAMS = [(5, 1000, 1, 25, True), 
+                  (10, 1000, 1, 25, True), 
+                  (20, 1000, 1, 25, True), 
+                  (5, 1000, 1, 50, True),
+                  (10, 1000, 1, 50, True), 
+                  (20, 1000, 1, 50, True), 
+                  (5, 1000, 1, 100, True), 
+                  (10, 1000, 1, 100, True), 
+                  (20, 1000, 1, 100, True),
+                  (5, 1000, 1, 200, True),
+                  (10, 1000, 1, 200, True), 
+                  (20, 1000, 1, 200, True)]
+
+
+bn_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[4])
+
+th_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[2])
+
+tr_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[3])
+
+ur_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[1])
+
+ar_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
+
+explain_multilang(dss["sent_leb"][0][1], ar_models[0].predict_proba, "ar", {"post_name": "newtest"})
+explain_multilang(dss["sent_urdu"][0][1], ur_models[0].predict_proba, "ur", {"post_name": "newtest"})
+explain_multilang(dss["sent_thai"][0][1], th_models[0].predict_proba, "th", {"post_name": "newtest"})
+explain_multilang(dss["spam_turk"][0][1], ar_models[0].predict_proba, "tr", {"post_name": "newtest"})
+explain_multilang(dss["hate_beng"][0][1], ar_models[0].predict_proba, "bn", {"post_name": "newtest"})
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
