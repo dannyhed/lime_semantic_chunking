@@ -30,6 +30,8 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd
 import html
 
+import itertools as it
+
 #///////ADD BERT COMPARISON WITH TENSORFLOW//////////
 
 class LimeParserComparison(object):
@@ -1008,14 +1010,14 @@ par = 0
 
 # get_exp_metrics(comp_descs, compare_by="exp")
 
-# run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
-explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
-# clear_lines(21)
-explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
-# clear_lines(26)
-# explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
-# clear_lines(28)
-explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
+# # run_all_datasets(all_dists=ALL_DATASETS, model_param_sets=[0, 1], exp_param_sets=None, instance_idxs=None)
+# explainerRan_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random")
+# # clear_lines(21)
+# explainerDep_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")
+# # clear_lines(26)
+# # explainerCon_ar = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="constituency")
+# # clear_lines(28)
+# explainerStd = LimeTextExplainer(class_names=[0, 1], verbose=False)
 
 
 # explainerRan_th = LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="th", parsing_type="random")
@@ -1072,17 +1074,49 @@ def normalize_text(text):
     text = text.replace("\u200c", "").replace("\u200d", "")  # zero-width non-joiner/joiner
     return text.strip()
 
-with open(HTML_PATH + "ar_dep_test.html", "w+", encoding="utf-8") as file:
-    file.write(explainerDep_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+def explain_ars(instances, models, filenames_dict={}, path=HTML_PATH, samples=100):
+    # filenames_dict = {"model_names": ["mlp_large", "mlp_small"],
+    #                   "begin_filename": "ar",                         
+    #                   "post_name": "test", "first_try", "final", etc...,   
+    #                   "parse_names": ["dep", "ran", "std"],                
+    #                   "inst_names": ["confusing1", "confusing2", "simple1"]}
+
+    if not isinstance(instances, list):
+        instances = [instances]
+    if not isinstance(models, list):
+        models = [models]
+    if "model_names" not in filenames_dict:
+        filenames_dict["model_names"] = [f"model{x}" for x in range(len(models))]
+    if "inst_names" not in filenames_dict:
+        filenames_dict["inst_names"] = [str(x) for x in range(len(instances))]
+    if "parse_names" not in filenames_dict:
+        filenames_dict["parse_names"] = ["dep", "ran", "std"]
+    if "post_name" not in filenames_dict:
+        filenames_dict["post_name"] = "exp"
+    if "begin_filename" not in filenames_dict:
+        filenames_dict["begin_filename"] = "ar_"
+    elif filenames_dict["begin_filename"] != "":
+        filenames_dict["begin_filename"] = filenames_dict["begin_filename"] + "_"
     
-# with open(HTML_PATH + "ar_con_test.html", "w+", encoding="utf-8") as file:
-#     file.write(explainerCon_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+    fld = filenames_dict
 
-with open(HTML_PATH + "ar_ran_test.html", "w+", encoding="utf-8") as file:
-    file.write(explainerRan_ar.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+    combo_names = it.product(fld["model_names"], fld["inst_names"], fld["parse_names"])
+    combo_exps = it.product(models, instances, fld["parse_names"])
 
-with open(HTML_PATH + "ar_std_test.html", "w+", encoding="utf-8") as file:
-    file.write(explainerStd.explain_instance(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, num_samples=100).as_html())
+    filenames = [f"{fld["begin_filename"]}{parse}_{model}_{fld["post_name"]}_{inst}.html" for (model, inst, parse) in combo_names]
+
+    explainers = {"std": LimeTextExplainer(class_names=[0, 1], verbose=False),
+                  "ran": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="random"),
+                  "dep": LimeTextParserExplainer(class_names=[0, 1], verbose=False, language="ar", parsing_type="dependency")}
+
+    for exp, fname in zip(combo_exps, filenames):
+        m, i, p = exp
+        i = normalize_text(i)
+        with open(path + fname, "w+", encoding="utf-8") as file:
+            file.write(explainers[p].explain_instance(i, m, num_samples=samples).as_html())
+
+
+explain_ars(normalize_text(dss["sent_leb"][0][1]), ar_models_sm[0].predict_proba, {"post_name": "newtest"})
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
