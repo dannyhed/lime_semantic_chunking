@@ -522,11 +522,10 @@ def train_models(all_model_params, train_vectors, bert_train, y_train, vectorize
 def load_models(all_model_params, dataset=None):
     print("Loading models...")
     models_loaded = []
-    for p in all_model_params:
-        print(p)
+    for p in tqdm(all_model_params, dataset):
         with open(MODEL_PATH + model_save_name(p, dataset), "rb") as file:
             models_loaded.append(pkl.load(file))
-    clear_lines(1)
+    # clear_lines(1)
     print("Models loaded")
     return models_loaded
 
@@ -973,7 +972,7 @@ def explain_multilang(instances, models, language="ar", filenames_dict={}, path=
     if language == "en":
         explainers["con"] = LimeTextParserExplainer(class_names=class_names, verbose=False, language=language, parsing_type="constituency")
 
-    for exp, fname in zip(combo_exps, filenames):
+    for exp, fname in tqdm(zip(combo_exps, filenames), "Explaining"):
         m, i, p = exp
         i = normalize_text(i)
         with open(path + fname, "w+", encoding="utf-8") as file:
@@ -1073,10 +1072,10 @@ ur_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], data
 ar_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
 
 # explain_multilang(dss["hate_beng"][0][1], [m.predict_proba for m in bn_models], "bn", {"post_name": "newtest"})
-explain_multilang(dss["sent_leb"][0][1], [m.predict_proba for m in ar_models], "ar", {"post_name": "newtest"})
-explain_multilang(dss["sent_urdu"][0][1], [m.predict_proba for m in ur_models], "ur", {"post_name": "newtest"})
-explain_multilang(dss["sent_thai"][0][1], [m.predict_proba for m in th_models], "th", {"post_name": "newtest"})
-explain_multilang(dss["spam_turk"][0][1], [m.predict_proba for m in tr_models], "tr", {"post_name": "newtest"})
+explain_multilang(dss["sent_leb"][0][1], [m.predict_proba for m in ar_models], "ar", {"post_name": "mdemo"})
+explain_multilang(dss["sent_urdu"][0][1], [m.predict_proba for m in ur_models], "ur", {"post_name": "mdemo"})
+explain_multilang(dss["sent_thai"][0][1], [m.predict_proba for m in th_models], "th", {"post_name": "mdemo"})
+explain_multilang(dss["spam_turk"][0][1], [m.predict_proba for m in tr_models], "tr", {"post_name": "mdemo"})
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
