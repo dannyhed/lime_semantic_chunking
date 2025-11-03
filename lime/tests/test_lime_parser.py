@@ -974,7 +974,7 @@ def explain_multilang(instances, models, language="ar", filenames_dict={}, path=
 
     for exp, fname in tqdm(list(zip(combo_exps, filenames)), "Explaining"):
         m, i, p = exp
-        print(i)
+        # print(i)
         i = normalize_text(i)
         with open(path + fname, "w+", encoding="utf-8") as file:
             file.write(explainers[p].explain_instance(i, m, num_samples=samples).as_html())
