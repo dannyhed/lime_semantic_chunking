@@ -1096,7 +1096,7 @@ def demo_models():
         ms, d = c
         train_sens, test_sens, train_bert, test_bert, y_train, y_test = dss[d]
         for (m, n) in ms:
-            y_pred = m.predict_proba(test_sens)
+            y_pred = m.predict(test_sens)
             acc = accuracy_score(y_test, y_pred)
             prec = precision_score(y_test, y_pred, average='weighted')
             rec = recall_score(y_test, y_pred, average='weighted')
