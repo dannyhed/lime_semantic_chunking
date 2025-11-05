@@ -668,7 +668,7 @@ def tab_separated_ds(filepath, class_names, labelfirst=True):
             texts.append(t)
     return labels, texts
 
-class_names_spam = ['ham', 'spam']
+class_names_spam = ['0', '1'] #['ham', 'spam']
 class_names_sem = ['0', '1']
 class_names_imdb = ['0', '1']
 class_names_hate = ['0', '1']
