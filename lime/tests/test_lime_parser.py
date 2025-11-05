@@ -1091,7 +1091,7 @@ def demo_explanations():
 # explainerStd.explain_instance(dss["sent_urdu"][20], ur_models_lg.predict_proba).as_html(HTML_PATH)
 
 def demo_models():
-    combos = [(load_models(MODEL_PARAMS, dataset=d), d) for d in ALL_DATASETS]
+    combos = [(load_models(MODEL_PARAMS, dataset=d, return_name=True), d) for d in ALL_DATASETS]
     for c in combos:
         ms, d = c
         train_sens, test_sens, train_bert, test_bert, y_train, y_test = dss[d]
