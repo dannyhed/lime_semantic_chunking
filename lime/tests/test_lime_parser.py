@@ -1004,7 +1004,7 @@ MODEL_PARAMS = [("mlp", "b", [50, 25]), #("mlp", "b", [100, 50]),
 
 def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs):
     model_params = [MODEL_PARAMS[i] for i in model_param_sets]
-    # parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
+    parameter_sets = [EXP_PARAMS[i] for i in exp_param_sets]
 
     for dist, DS in enumerate(ALL_DATASETS):
         print(f"NEXT DATASET: {DS}")
@@ -1033,7 +1033,7 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
         # [953, 1091, 1089, 1087, 1080, 1078, 1076, 
         #              1075, 1074, 1071, 1068, 1061, 1058, 1052, 1047]
 
-        # instances = [t_test[i] for i in instance_idxs]
+        instances = [t_test[i] for i in instance_idxs]
         # for i in instances:
         #     print(i)
         t_train = np.array(list(t_train))
@@ -1042,9 +1042,9 @@ def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs)
 
         all_models = load_models(model_params, DS)
 
-        # run_all_explainers(all_models, CLASS_NAMES, parameter_sets, 
-        #                 instances, save=True, descriptions=descs, path=EXPL_PATH, 
-        #                 skip_existing=True, just_desc=False)
+        run_all_explainers(all_models, [0, 1], parameter_sets, 
+                        instances, save=True, descriptions=descs, path=EXPL_PATH, 
+                        skip_existing=True, just_desc=False)
 
 
 # (num_feats, num_samples, mask_method, num_rand_trees, word_level)
@@ -1064,7 +1064,9 @@ EXP_PARAMS = [(5, 1000, 1, 25, True),
 
 # bn_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[4])
 
-th_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[2])
+
+
+th_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[2])
 
 tr_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[3])
 
