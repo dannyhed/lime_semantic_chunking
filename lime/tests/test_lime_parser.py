@@ -1110,8 +1110,8 @@ def demo_models():
 
 #return (train_sens, test_sens, train_bert, test_bert, y_train, y_test)
 
-demo_models()
-# demo_explanations()
+# demo_models()
+demo_explanations()
 
 
 # comp_descs["disting"] = "SemResults1"
