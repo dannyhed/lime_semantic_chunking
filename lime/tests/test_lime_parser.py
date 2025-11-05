@@ -32,6 +32,8 @@ import html
 
 import itertools as it
 
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
+
 #///////ADD BERT COMPARISON WITH TENSORFLOW//////////
 
 class LimeParserComparison(object):
@@ -519,12 +521,16 @@ def train_models(all_model_params, train_vectors, bert_train, y_train, vectorize
     print("Models trained")
     return models_trained
 
-def load_models(all_model_params, dataset=None):
+def load_models(all_model_params, dataset=None, return_name=False):
     print("Loading models...")
     models_loaded = []
     for p in tqdm(all_model_params, dataset):
-        with open(MODEL_PATH + model_save_name(p, dataset), "rb") as file:
-            models_loaded.append(pkl.load(file))
+        name = model_save_name(p, dataset)
+        with open(MODEL_PATH + name, "rb") as file:
+            if return_name:
+                models_loaded.append((pkl.load(file), name))
+            else:
+                models_loaded.append(pkl.load(file))
     # clear_lines(1)
     print("Models loaded")
     return models_loaded
@@ -1065,25 +1071,47 @@ EXP_PARAMS = [(5, 1000, 1, 25, True),
 # bn_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[4])
 
 
+def demo_explanations():
+    th_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[2])
 
-th_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[2])
+    tr_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[3])
 
-tr_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[3])
+    ur_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[1])
 
-ur_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[1])
+    ar_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[0])
 
-ar_models = load_models([("mlp", "b", [50, 25]), ("mlp", "b", [200, 100])], dataset=ALL_DATASETS[0])
-
-# explain_multilang(dss["hate_beng"][0][1], [m.predict_proba for m in bn_models], "bn", {"post_name": "newtest"})
-explain_multilang(list(dss["sent_leb"][0][1:5]), [m.predict_proba for m in ar_models], "ar", {"post_name": "mdemo"})
-explain_multilang(list(dss["sent_urdu"][0][1:5]), [m.predict_proba for m in ur_models], "ur", {"post_name": "mdemo"})
-explain_multilang(list(dss["sent_thai"][0][1:5]), [m.predict_proba for m in th_models], "th", {"post_name": "mdemo"})
-explain_multilang(list(dss["spam_turk"][0][1:5]), [m.predict_proba for m in tr_models], "tr", {"post_name": "mdemo"})
+    # explain_multilang(dss["hate_beng"][0][1], [m.predict_proba for m in bn_models], "bn", {"post_name": "newtest"})
+    explain_multilang(list(dss["sent_leb"][0][1:5]), [m.predict_proba for m in ar_models], "ar", {"post_name": "mdemo"})
+    explain_multilang(list(dss["sent_urdu"][0][1:5]), [m.predict_proba for m in ur_models], "ur", {"post_name": "mdemo"})
+    explain_multilang(list(dss["sent_thai"][0][1:5]), [m.predict_proba for m in th_models], "th", {"post_name": "mdemo"})
+    explain_multilang(list(dss["spam_turk"][0][1:5]), [m.predict_proba for m in tr_models], "tr", {"post_name": "mdemo"})
 # explainerDep_bn.explain_instance(dss["hate_beng"][20], bn_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_th.explain_instance(dss["sent_thai"][20], th_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerRan_tr.explain_instance(dss["spam_turk"][20], tr_models_lg.predict_proba).as_html(HTML_PATH)
 # explainerStd.explain_instance(dss["sent_urdu"][20], ur_models_lg.predict_proba).as_html(HTML_PATH)
 
+def demo_models():
+    combos = [(load_models(MODEL_PARAMS, dataset=d), d) for d in ALL_DATASETS]
+    for c in combos:
+        ms, d = c
+        train_sens, test_sens, train_bert, test_bert, y_train, y_test = dss[d]
+        for (m, n) in ms:
+            y_pred = m.predict_proba(test_sens)
+            acc = accuracy_score(y_test, y_pred)
+            prec = precision_score(y_test, y_pred, average='weighted')
+            rec = recall_score(y_test, y_pred, average='weighted')
+            f1 = f1_score(y_test, y_pred, average='weighted')
+            
+            print(f"{n} test results:")
+            print(f"Accuracy:  {acc:.4f}")
+            print(f"Precision: {prec:.4f}")
+            print(f"Recall:    {rec:.4f}")
+            print(f"F1 Score:  {f1:.4f}")
+
+#return (train_sens, test_sens, train_bert, test_bert, y_train, y_test)
+
+demo_models()
+# demo_explanations()
 
 
 # comp_descs["disting"] = "SemResults1"
