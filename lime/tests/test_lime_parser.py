@@ -1,6 +1,8 @@
 #%%
 from __future__ import print_function
 
+torch.serialization._validate_device = lambda storage, location, backend_name=None: torch.device("cpu")
+
 import shap.maskers
 import stanza
 import random as rand
