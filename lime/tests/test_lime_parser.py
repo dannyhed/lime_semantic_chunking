@@ -34,6 +34,8 @@ import itertools as it
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
 
+from metrics import *
+
 #///////ADD BERT COMPARISON WITH TENSORFLOW//////////
 
 class LimeParserComparison(object):
@@ -984,15 +986,115 @@ def explain_multilang(instances, models, language="ar", filenames_dict={}, path=
         i = normalize_text(i)
         with open(path + fname, "w+", encoding="utf-8") as file:
             file.write(explainers[p].explain_instance(i, m, num_samples=samples).as_html())
+import spacy
+import random
+
+nlp = spacy.load("en_core_web_md")
+
+ALLOWED_POS = {"NOUN", "VERB", "ADJ", "ADV"}
+
+def extract_influences(exp, label, num_features):
+    """
+    Converts LIME local_exp to a fixed-length float vector.
+    """
+    influences = np.zeros(num_features, dtype=np.float32)
+
+    for idx, weight in exp.local_exp[label]:
+        if idx < num_features:
+            influences[idx] = weight
+
+    return influences
+
+
+def euclidean_distance(x, y):
+    return np.linalg.norm(x - y)
+
+def compute_lime_stability(
+    explanations,
+    distance_metric=euclidean_distance,
+    metric="similarity"
+):
+    """
+    Compute LIME stability (m_f9.2) per dataset.
+
+    Parameters
+    ----------
+    explanations : np.ndarray
+        Shape: (datasets, sentences, neighbors, features)
+    distance_metric : function
+        Distance function between explanation vectors
+    metric : str
+        "similarity" or "identity"
+
+    Returns
+    -------
+    stability_scores : np.ndarray
+        Shape: (datasets,)
+    """
+
+    num_datasets = explanations.shape[0]
+    stability_scores = np.zeros(num_datasets, dtype=np.float32)
+
+    for d in range(num_datasets):
+        # For dataset d, collect neighbors for each sentence
+        exp_neighbors = [
+            explanations[d, i]
+            for i in range(explanations.shape[1])
+        ]
+
+        stability_scores[d] = f9_score(
+            exp_neighbors=exp_neighbors,
+            distance_metric=distance_metric,
+            metric=metric
+        )
+
+    return stability_scores
+
+def get_similar_word(token, top_n=20, similarity_threshold=0.55):
+    """Find a similar word with same POS using vectors."""
+    if not token.has_vector:
+        return token.text
+
+    candidates = []
+    for word in nlp.vocab:
+        if (
+            word.is_lower
+            and word.has_vector
+            and word.prob >= -15
+            and nlp(word.text)[0].pos_ == token.pos_
+        ):
+            sim = token.similarity(nlp(word.text)[0])
+            if sim >= similarity_threshold and word.text != token.text:
+                candidates.append(word.text)
+
+    return random.choice(candidates) if candidates else token.text
+
+
+def synonym_swap(sentence, replace_prob=0.3):
+    doc = nlp(sentence)
+    new_tokens = []
+
+    for token in doc:
+        if (
+            token.pos_ in ALLOWED_POS
+            and not token.is_stop
+            and random.random() < replace_prob
+        ):
+            new_tokens.append(get_similar_word(token))
+        else:
+            new_tokens.append(token.text)
+
+    return spacy.tokens.Doc(doc.vocab, words=new_tokens).text
+
+def generate_syns(sentences, replace_prob=0.3):
+    return [synonym_swap(sen, replace_prob) for sen in sentences]
+
 
 
 #["imdb", 
-ALL_DATASETS = ["sent_leb", "sent_urdu", "sent_thai", 
-                #"spam", 
-                "spam_turk", 
-                #"hate", 
-                "hate_beng"]#,  
-                #"sem"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ALL_DATASETS = ["imdb", "sem", "sent_leb", "sent_urdu", "sent_thai", 
+                "spam", "spam_turk", 
+                "hate", "hate_beng",] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 dss = {}
 
@@ -1006,6 +1108,124 @@ for ds in ALL_DATASETS:
                 #("mlp", "i", [50, 25]), ("mlp", "i", [100, 50]), ("mlp", "i", [200, 100]),
 MODEL_PARAMS = [("mlp", "b", [50, 25]), #("mlp", "b", [100, 50]), 
                 ("mlp", "b", [200, 100])]
+
+
+def similar_explanations(
+    explainer,
+    models,
+    num_sens=50,
+    num_syns=10,
+    num_features=100):
+    
+    sample_sens = []
+
+    # Load models and sample sentences
+    for ds in ALL_DATASETS:
+        sample_sens.append(
+            np.random.choice(dss[ds][1], num_sens, replace=False)
+        )
+
+    # Shape: (datasets, sentences, synonyms + original)
+    similar_sens = np.empty(
+        (len(ALL_DATASETS), num_sens, num_syns + 1),
+        dtype=object
+    )
+
+    # Insert originals
+    similar_sens[:, :, 0] = sample_sens
+
+    # Generate synonyms
+    for d, ds in enumerate(ALL_DATASETS):
+        for i, sentence in enumerate(sample_sens[d]):
+            similar_sens[d, i, 1:] = generate_syns(
+                [sentence] * num_syns
+            )
+
+    # Allocate explanation tensor
+    explanations = np.zeros(
+        (
+            len(ALL_DATASETS),
+            num_sens,
+            num_syns + 1,
+            num_features,
+        ),
+        dtype=np.float32
+    )
+
+    # Generate LIME explanations
+    for d, ds in enumerate(ALL_DATASETS):
+        model = models[d]
+
+        for i in range(num_sens):
+            for j in range(num_syns + 1):
+                sentence = similar_sens[d, i, j]
+
+                exp = explainer.explain_instance(
+                    sentence,
+                    model.predict_proba,
+                    num_features=num_features
+                )
+
+                label = exp.available_labels()[0]
+
+                explanations[d, i, j] = extract_influences(
+                    exp, label, num_features
+                )
+            
+
+def stability(explainers, models):
+    for key, value in explainers:
+        explanations = similar_explanations(explainer=explainers[key],
+                                            models=models, num_sens=50, num_syns=10, num_features=100)
+
+        # Compute stability
+        lime_stability = compute_lime_stability(
+            explanations,
+            distance_metric=euclidean_distance,
+            metric="similarity"
+        )
+
+        print("LIME stability per dataset:", lime_stability)
+    
+    
+
+
+def obj_metrics(num_sens=50, num_syns=10):    
+    all_models = []
+    for ds in ALL_DATASETS:
+        all_models.append(load_models(MODEL_PARAMS, ds))
+    explainers = {"std": LimeTextExplainer(verbose=False),
+                  "ran": LimeTextParserExplainer(verbose=False, parsing_type="random"),
+                  "dep": LimeTextParserExplainer(verbose=False, parsing_type="dependency"),
+                  "con" : LimeTextParserExplainer(verbose=False, parsing_type="constituency")}
+    
+    stab = stability(explainers, models)
+    print(stab)
+    
+
+    # all_models = []
+    # sample_sens = []
+
+    # for ds in ALL_DATASETS:
+    #     all_models.append(load_models(MODEL_PARAMS, ds))
+    #     sample_sens.append(np.random.choice(dss[ds][1], num_sens))
+
+    # similar_sens = np.empty_like((len(ALL_DATASETS), num_sens, num_syns + 1), dtype=np.str_)
+    # similar_sens[:][:][0] = sample_sens
+
+    # for d, ds in enumerate(ALL_DATASETS):
+    #     for i, sample in enumerate(sample_sens[d]):
+    #         similar_sens[d][i][1:] = generate_syns([sample[i]]*num_syns)
+
+
+        
+    #     all_models[d]
+
+
+
+
+    #generate explanations
+    #pass to metrics.py f_9
 
 
 def run_all_datasets(all_dists, model_param_sets, exp_param_sets, instance_idxs):
@@ -1072,13 +1292,13 @@ EXP_PARAMS = [(5, 1000, 1, 25, True),
 
 
 def demo_explanations():
-    th_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[2])
+    th_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[4])
 
-    tr_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[3])
+    tr_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[6])
 
-    ur_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[1])
+    ur_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[3])
 
-    ar_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[0])
+    ar_models = load_models(MODEL_PARAMS, dataset=ALL_DATASETS[2])
 
     # explain_multilang(dss["hate_beng"][0][1], [m.predict_proba for m in bn_models], "bn", {"post_name": "newtest"})
     explain_multilang(list(dss["sent_leb"][0][1:5]), [m.predict_proba for m in ar_models], "ar", {"post_name": "mdemo"})
@@ -1111,7 +1331,8 @@ def demo_models():
 #return (train_sens, test_sens, train_bert, test_bert, y_train, y_test)
 
 # demo_models()
-demo_explanations()
+# demo_explanations()
+obj_metrics()
 
 
 # comp_descs["disting"] = "SemResults1"

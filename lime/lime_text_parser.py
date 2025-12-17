@@ -522,7 +522,7 @@ class SavedExplanation(object):
             try:
                 self.data["shap"]
             except:
-                self.data["shape"] = False
+                self.data["shap"] = False
 
             if not False: #self.data["shap"]:
                 exp_data = self.data["exp_data"]
