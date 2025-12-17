@@ -1097,9 +1097,10 @@ def generate_syns(sentences, replace_prob=0.3):
 
 #["imdb", 
 ALL_DATASETS = [#"imdb", 
-                #"sem", "sent_leb"], "sent_urdu", "sent_thai", 
+                #"sem", "sent_leb"], 
+                "sent_urdu", "sent_thai"] 
                 #"spam", "spam_turk", 
-                "hate", "hate_beng",] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                #"hate", "hate_beng"] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 dss = {}
 
@@ -1167,7 +1168,7 @@ def similar_explanations(
 
                 exp = explainer.explain_instance(
                     sentence,
-                    model.predict,
+                    model.predict_proba,
                     num_features=num_features
                 )
 
@@ -1196,9 +1197,7 @@ def stability(explainers, models):
 
 
 def obj_metrics(num_sens=50, num_syns=10):    
-    all_models = []
-    for ds in ALL_DATASETS:
-        all_models.append(load_models(MODEL_PARAMS, ds))
+    all_models = [load_models(MODEL_PARAMS, ds) for ds in ALL_DATASETS]
     explainers = {"std": LimeTextExplainer(verbose=False),
                   "ran": LimeTextParserExplainer(verbose=False, parsing_type="random"),
                   "dep": LimeTextParserExplainer(verbose=False, parsing_type="dependency"),
