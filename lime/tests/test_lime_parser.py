@@ -1075,7 +1075,7 @@ def get_similar_word(token, top_n=20, similarity_threshold=0.55):
 
 
 def synonym_swap(sentence, replace_prob=0.3):
-    doc = nlp(sentence)
+    doc = nlp(str(sentence))
     new_tokens = []
 
     for token in doc:
