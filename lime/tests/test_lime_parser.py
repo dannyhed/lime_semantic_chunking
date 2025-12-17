@@ -1097,9 +1097,9 @@ def generate_syns(sentences, replace_prob=0.3):
 
 #["imdb", 
 ALL_DATASETS = [#"imdb", 
-                "sem", "sent_leb", "sent_urdu", "sent_thai", 
-                "spam", "spam_turk", 
-                "hate", "hate_beng",] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                "sem"]#, "sent_leb", "sent_urdu", "sent_thai", 
+                #"spam", "spam_turk", 
+                #"hate", "hate_beng",] # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 dss = {}
 
