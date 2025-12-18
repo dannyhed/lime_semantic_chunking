@@ -1202,6 +1202,8 @@ def similar_explanations(
 
                 sentence = similar_sens[i, j]
 
+                print(f"sentence: {sentence}")
+
                 exp = explainer.explain_instance(sentence, m.predict_proba, num_features=7)
 
                 label = exp.available_labels()[0]
