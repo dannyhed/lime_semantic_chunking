@@ -1,6 +1,9 @@
 #%%
 from __future__ import print_function
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+
 import torch
 
 torch.serialization._validate_device = lambda storage, location, backend_name=None: torch.device("cpu")
