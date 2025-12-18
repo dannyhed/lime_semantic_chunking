@@ -1221,7 +1221,7 @@ def stability(explainers, models, dataset):
     for key, value in explainers.items():
 
         explanations = similar_explanations(explainer=explainers[key], models=models, 
-                                            dataset=dataset, num_sens=50, num_syns=10, num_features=100)
+                                            dataset=dataset, num_sens=50, num_syns=10)
 
         # Compute stability
         lime_stability = compute_lime_stability(
