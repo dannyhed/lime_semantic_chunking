@@ -326,7 +326,7 @@ class BERTVectorizer(BaseEstimator, TransformerMixin):
             model_name = "csebuetnlp/banglabert"
         self.model_name = model_name
         self.lang = language
-        self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
+        self.device = device or 'cpu' # ('cuda' if torch.cuda.is_available() else 'cpu')
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, use_fast=True)
         except:
