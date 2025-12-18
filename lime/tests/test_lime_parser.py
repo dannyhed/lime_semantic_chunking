@@ -1160,7 +1160,15 @@ def similar_explanations(
 
     # Generate LIME explanations
     for d, ds in enumerate(ALL_DATASETS):
+        print(f"models:\t{np.shape(models)}")
+        print(models)
+
+        print()
+
         model = models[d]
+
+        print(f"models[d]:\t{np.shape(model)}")
+        print(model)
 
         for i in range(num_sens):
             for j in range(num_syns + 1):
