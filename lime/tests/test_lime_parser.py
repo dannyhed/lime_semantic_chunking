@@ -1016,8 +1016,8 @@ def extract_influences(exp, label):
     """
     Converts LIME local_exp to a fixed-length float vector.
     """
-    
-    saved_exp = SavedExplanation("temp_sexp", EXPL_PATH, "None", exp)
+    SavedExplanation("temp_sexp", EXPL_PATH, "None", exp)
+    saved_exp = SavedExplanation("temp_sexp", EXPL_PATH, "None")
     all_feats = saved_exp.all_features(label)
 
     vector = [0] * (max([feat[0] for feat in all_feats]) + 1)
