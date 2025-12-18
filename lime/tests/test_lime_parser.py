@@ -544,7 +544,7 @@ def load_models(all_model_params, dataset=None, return_name=False, reload_vec=Fa
         if reload_vec:
             old_pipe = models_loaded[-1]
             ( o_v, same_clf) = (old_pipe.steps[0][1], old_pipe.steps[1][1])
-            print(f"TYPE OF o_v: {type(o_v)}\tTYPE OF same_clf: {type(same_clf)}")
+            # print(f"TYPE OF o_v: {type(o_v)}\tTYPE OF same_clf: {type(same_clf)}")
             # if isinstance(o_v, BERTVectorizer):
             new_vec = BERTVectorizer(model_name=o_v.model_name, language=o_v.lang)
             # else:
@@ -1012,17 +1012,40 @@ nlp = spacy.load("en_core_web_md")
 
 ALLOWED_POS = {"NOUN", "VERB", "ADJ", "ADV"}
 
-def extract_influences(exp, label, num_features):
+def extract_influences(exp, label):
     """
     Converts LIME local_exp to a fixed-length float vector.
     """
-    influences = np.zeros(num_features, dtype=np.float32)
+    
+    saved_exp = SavedExplanation("temp_sexp", EXPL_PATH, "None", exp)
+    all_feats = saved_exp.all_features(label)
 
-    for idx, weight in exp.local_exp[label]:
-        if idx < num_features:
-            influences[idx] = weight
+    vector = [0] * (max([feat[0] for feat in all_feats]) + 1)
 
-    return influences
+    for feat in all_feats:
+        vector[feat[0]] = feat[1]
+
+    return vector
+    # local_exp = exp.local_exp[label]
+
+    # exp_ids = [x[0] for x in local_exp]
+    # tokens = list(self.get_tokens().keys())
+    # for i in range(len(tokens)):
+    #     if tokens[i] in exp_ids:
+    #         j = 0
+    #         while exp_ids[j] != tokens[i]:
+    #             j += 1
+    #         complete_exp.append(local_exp[j])
+    #     else:
+    #         complete_exp.append((tokens[i], 0.0))
+
+    # influences = np.zeros(num_features, dtype=np.float32)
+
+    # for idx, weight in exp.local_exp[label]:
+    #     if idx < num_features:
+    #         influences[idx] = weight
+
+    # return influences
 
 
 def euclidean_distance(x, y):
@@ -1051,14 +1074,13 @@ def compute_lime_stability(
         Shape: (datasets,)
     """
 
-    num_datasets = explanations.shape[0]
-    stability_scores = np.zeros(num_datasets, dtype=np.float32)
+    stability_scores = np.zeros(len(explanations), dtype=np.float32)
 
-    for d in range(num_datasets):
+    for d in range(len(explanations)):
         # For dataset d, collect neighbors for each sentence
         exp_neighbors = [
             explanations[d, i]
-            for i in range(explanations.shape[1])
+            for i in range(len(explanations[d]))
         ]
 
         stability_scores[d] = f9_score(
@@ -1134,72 +1156,72 @@ MODEL_PARAMS = [("mlp", "b", [50, 25]), #("mlp", "b", [100, 50]),
 def similar_explanations(
     explainer,
     models,
+    dataset,
     num_sens=50,
-    num_syns=10,
-    num_features=100):
+    num_syns=10):
     
     sample_sens = []
 
     # Load models and sample sentences
-    for ds in ALL_DATASETS:
-        sample_sens.append(
-            np.random.choice(dss[ds][1], num_sens, replace=False)
-        )
+    sample_sens.append(np.random.choice(dss[dataset][1], num_sens, replace=False))
 
     # Shape: (datasets, sentences, synonyms + original)
     similar_sens = np.empty(
-        (len(ALL_DATASETS), num_sens, num_syns + 1),
+        (num_sens, num_syns + 1),
         dtype=object
     )
 
     # Insert originals
-    similar_sens[:, :, 0] = sample_sens
+    similar_sens[:, 0] = sample_sens
 
     # Generate synonyms
-    for d, ds in enumerate(ALL_DATASETS):
-        for i, sentence in enumerate(sample_sens[d]):
-            similar_sens[d, i, 1:] = generate_syns(
-                [sentence] * num_syns
-            )
+    for i, sentence in enumerate(sample_sens):
+        similar_sens[i, 1:] = generate_syns([sentence] * num_syns)
 
     # Allocate explanation tensor
-    explanations = np.zeros(
-        (
-            len(ALL_DATASETS),
-            num_sens,
-            num_syns + 1,
-            num_features,
-        ),
-        dtype=np.float32
-    )
+    # explanations = np.zeros(
+    #     (
+    #         num_sens,
+    #         num_syns + 1
+    #     ),
+    #     dtype=np.float32
+    # )
+
+    exp_tensor = []
 
     # Generate LIME explanations
-    for d, ds in enumerate(ALL_DATASETS):
-
-        model = models[d]
+    for m in models:
 
         for i in range(num_sens):
-            for j in range(num_syns + 1):
-                sentence = similar_sens[d, i, j]
 
-                exp = explainer.explain_instance(
-                    sentence,
-                    model.predict_proba,
-                    num_features=num_features
-                )
+            model_row = []
+
+            for j in range(num_syns + 1):
+
+                syn_row = []
+
+                sentence = similar_sens[i, j]
+
+                exp = explainer.explain_instance(sentence, m.predict_proba, num_features=num_features)
 
                 label = exp.available_labels()[0]
 
-                explanations[d, i, j] = extract_influences(
-                    exp, label, num_features
-                )
-            
+                # explanations[i, j] = 
+                syn_row.append(extract_influences(exp, label))
 
-def stability(explainers, models):
+            model_row.append(syn_row)
+
+        exp_tensor.append(model_row)
+
+    return exp_tensor
+
+
+
+def stability(explainers, models, dataset):
     for key, value in explainers.items():
 
-        explanations = similar_explanations(explainer=explainers[key],
-                                            models=models, num_sens=50, num_syns=10, num_features=100)
+        explanations = similar_explanations(explainer=explainers[key], models=models, 
+                                            dataset=dataset, num_sens=50, num_syns=10, num_features=100)
 
         # Compute stability
         lime_stability = compute_lime_stability(
@@ -1208,7 +1230,7 @@ def stability(explainers, models):
             metric="similarity"
         )
 
-        print("LIME stability per dataset:", lime_stability)
+        print(f"LIME stability for {dataset} per model: {lime_stability}")
     
     
 
@@ -1220,7 +1242,7 @@ def obj_metrics(num_sens=50, num_syns=10):
                   "dep": LimeTextParserExplainer(verbose=False, parsing_type="dependency"),
                   "con" : LimeTextParserExplainer(verbose=False, parsing_type="constituency")}
     
-    stab = [[stability(explainers, m)] for m in all_models]
+    stab = [[stability(explainers, m, ALL_DATASETS[d])] for d, m in enumerate(all_models)]
     print(stab)
     
 
