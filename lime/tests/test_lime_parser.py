@@ -1127,7 +1127,9 @@ def synonym_swap(sentence, replace_prob=0.3):
 
     new_sentence = spacy.tokens.Doc(doc.vocab, words=new_tokens).text
 
-    print(f"Old sentence: {sentence}\nNew sentence: {new_sentence}")
+    for t1, t2 in zip(doc, new_tokens):
+        if t1.text != t2.text:
+            print(f"Old sentence: {sentence}\nNew sentence: {new_sentence}")
 
     return new_sentence
 
