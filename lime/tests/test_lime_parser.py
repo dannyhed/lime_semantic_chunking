@@ -1189,6 +1189,7 @@ def similar_explanations(
 
 def stability(explainers, models):
     for key, value in explainers.items():
+
         explanations = similar_explanations(explainer=explainers[key],
                                             models=models, num_sens=50, num_syns=10, num_features=100)
 
@@ -1211,7 +1212,7 @@ def obj_metrics(num_sens=50, num_syns=10):
                   "dep": LimeTextParserExplainer(verbose=False, parsing_type="dependency"),
                   "con" : LimeTextParserExplainer(verbose=False, parsing_type="constituency")}
     
-    stab = stability(explainers, all_models)
+    stab = [[[stability(explainers, m) for m in pset] for pset in dset] for dset in ALL_DATASETS]
     print(stab)
     
 
