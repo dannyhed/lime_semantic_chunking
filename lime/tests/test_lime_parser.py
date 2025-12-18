@@ -1202,7 +1202,7 @@ def similar_explanations(
 
                 sentence = similar_sens[i, j]
 
-                exp = explainer.explain_instance(sentence, m.predict_proba, num_features=num_features)
+                exp = explainer.explain_instance(sentence, m.predict_proba, num_features=7)
 
                 label = exp.available_labels()[0]
 
