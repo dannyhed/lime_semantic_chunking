@@ -545,10 +545,10 @@ def load_models(all_model_params, dataset=None, return_name=False, reload_vec=Fa
             old_pipe = models_loaded[-1]
             ( o_v, same_clf) = (old_pipe.steps[0][1], old_pipe.steps[1][1])
             print(f"TYPE OF o_v: {type(o_v)}\tTYPE OF same_clf: {type(same_clf)}")
-            if isinstance(o_v, BERTVectorizer):
-                new_vec = BERTVectorizer(model_name=o_v.model_name, language=o_v.lang)
-            else:
-                print("Please fix load_models to accomadate for other vectorizers")
+            # if isinstance(o_v, BERTVectorizer):
+            new_vec = BERTVectorizer(model_name=o_v.model_name, language=o_v.lang)
+            # else:
+            #     print("Please fix load_models to accomadate for other vectorizers")
             models_loaded[-1] = make_pipeline(new_vec, same_clf)
 
             
