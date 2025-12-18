@@ -1159,11 +1159,9 @@ def similar_explanations(
     dataset,
     num_sens=50,
     num_syns=10):
-    
-    sample_sens = []
 
     # Load models and sample sentences
-    sample_sens.append(np.random.choice(dss[dataset][1], num_sens, replace=False))
+    sample_sens = np.random.choice(dss[dataset][1], num_sens, replace=False)
 
     # Shape: (datasets, sentences, synonyms + original)
     similar_sens = np.empty(
