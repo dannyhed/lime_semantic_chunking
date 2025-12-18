@@ -1125,7 +1125,11 @@ def synonym_swap(sentence, replace_prob=0.3):
         else:
             new_tokens.append(token.text)
 
-    return spacy.tokens.Doc(doc.vocab, words=new_tokens).text
+    new_sentence = spacy.tokens.Doc(doc.vocab, words=new_tokens).text
+
+    print(f"Old sentence: {sentence}\nNew sentence: {new_sentence}")
+
+    return new_sentence
 
 def generate_syns(sentences, replace_prob=0.3):
     return [synonym_swap(sen, replace_prob) for sen in sentences]
