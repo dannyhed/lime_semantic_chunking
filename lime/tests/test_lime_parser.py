@@ -497,7 +497,8 @@ def model_save_name(params, dataset=None, ext=True):
         return filename
 
 
-def train_models(all_model_params, train_vectors, bert_train, y_train, vectorizer, dataset=None, language="En", jmodel=False, skip_existing=True):
+def train_models(all_model_params, train_vectors, bert_train, y_train, vectorizer, 
+                 dataset=None, language="En", jmodel=False, skip_existing=True, pretrained_clf=None):
     print("Training Models...")
     models_trained = []
     bert_vectorizer = BERTVectorizer(language=language)
@@ -530,7 +531,7 @@ def train_models(all_model_params, train_vectors, bert_train, y_train, vectorize
     print("Models trained")
     return models_trained
 
-def load_models(all_model_params, dataset=None, return_name=False):
+def load_models(all_model_params, dataset=None, return_name=False, reload_vec=False):
     print("Loading models...")
     models_loaded = []
     for p in tqdm(all_model_params, dataset):
@@ -540,6 +541,16 @@ def load_models(all_model_params, dataset=None, return_name=False):
                 models_loaded.append((pkl.load(file), name))
             else:
                 models_loaded.append(pkl.load(file))
+        if reload_vec:
+            old_pipe = models_loaded[-1]
+            ( o_v, same_clf) = (old_pipe.steps[0][1], old_pipe.steps[1][1])
+            if isinstance(o_v, BERTVectorizer):
+                new_vec = BERTVectorizer(model_name=o_v.model_name, language=o_v.lang)
+            else:
+                print("Please fix load_models to accomadate for other vectorizers")
+            models_loaded[-1] = make_pipeline(new_vec, same_clf)
+
+            
     # clear_lines(1)
     print("Models loaded")
     return models_loaded
@@ -1202,7 +1213,7 @@ def stability(explainers, models):
 
 
 def obj_metrics(num_sens=50, num_syns=10):    
-    all_models = [load_models(MODEL_PARAMS, ds) for ds in ALL_DATASETS]
+    all_models = [load_models(MODEL_PARAMS, ds, reload_vec=True) for ds in ALL_DATASETS]
     explainers = {"std": LimeTextExplainer(verbose=False),
                   "ran": LimeTextParserExplainer(verbose=False, parsing_type="random"),
                   "dep": LimeTextParserExplainer(verbose=False, parsing_type="dependency"),
