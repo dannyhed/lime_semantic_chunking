@@ -1205,7 +1205,7 @@ def obj_metrics(num_sens=50, num_syns=10):
                   "dep": LimeTextParserExplainer(verbose=False, parsing_type="dependency"),
                   "con" : LimeTextParserExplainer(verbose=False, parsing_type="constituency")}
     
-    stab = [[[stability(explainers, m) for m in pset] for pset in dset] for dset in all_models]
+    stab = [[stability(explainers, pset) for pset in dset] for dset in all_models]
     print(stab)
     
 
