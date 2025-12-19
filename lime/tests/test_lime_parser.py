@@ -1008,7 +1008,7 @@ def explain_multilang(instances, models, language="ar", filenames_dict={}, path=
 import spacy
 import random
 
-nlp = spacy.load("en_core_web_md")
+nlp = spacy.load("en_core_web_lg")
 
 ALLOWED_POS = {"NOUN", "VERB", "ADJ", "ADV"}
 
