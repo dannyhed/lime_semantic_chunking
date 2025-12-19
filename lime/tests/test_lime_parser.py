@@ -1091,7 +1091,7 @@ def compute_lime_stability(
 
     return stability_scores
 
-def get_similar_word(token, top_n=50, similarity_threshold=0.4):
+def get_similar_word(token, top_n=50, similarity_threshold=0.3):
     if not token.has_vector:
         return token.text
 
@@ -1137,7 +1137,7 @@ def synonym_swap(sentence, replace_prob=0.3):
     return new_sentence
 
 def generate_syns(sentences, replace_prob=0.3):
-    return [synonym_swap(sen, replace_prob) for sen in sentences]
+    return [synonym_swap(sen, replace_prob) for sen in tqdm(sentences)]
 
 
 
