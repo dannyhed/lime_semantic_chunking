@@ -1091,22 +1091,25 @@ def compute_lime_stability(
 
     return stability_scores
 
-def get_similar_word(token, top_n=20, similarity_threshold=0.55):
-    """Find a similar word with same POS using vectors."""
+def get_similar_word(token, top_n=50, similarity_threshold=0.4):
     if not token.has_vector:
         return token.text
 
+    queries = nlp.vocab.vectors.most_similar(
+        token.vector.reshape(1, -1), n=top_n
+    )[0][0]
+
     candidates = []
-    for word in nlp.vocab:
-        if (
-            word.is_lower
-            and word.has_vector
-            and word.prob >= -15
-            and nlp(word.text)[0].pos_ == token.pos_
-        ):
-            sim = token.similarity(nlp(word.text)[0])
-            if sim >= similarity_threshold and word.text != token.text:
-                candidates.append(word.text)
+    for key in queries:
+        word = nlp.vocab[key]
+        if not word.has_vector:
+            continue
+        if word.text.lower() == token.text.lower():
+            continue
+
+        lex_token = nlp.make_doc(word.text)[0]
+        if lex_token.pos_ == token.pos_:
+            candidates.append(word.text)
 
     return random.choice(candidates) if candidates else token.text
 
