@@ -1475,7 +1475,7 @@ def plot_pos_influence(pos_influence, outfile="pos_influence.png"):
 # plot_pos_influence(pos_scores)
 
 
-imdbmodel = load_models(MODEL_PARAMS[1], ALL_DATASETS[0], reload_vec=True)
+imdbmodel = load_models(MODEL_PARAMS[1], ALL_DATASETS[1], reload_vec=True)
 train_sens, test_sens, train_bert, test_bert, y_train, y_test = dss["imdb"]
 plot_pos_influence(compute_avg_pos_influence(test_sens, y_test, imdbmodel, LimeTextExplainer(verbose=False)))
 
