@@ -1382,9 +1382,108 @@ def demo_models():
 
 #return (train_sens, test_sens, train_bert, test_bert, y_train, y_test)
 
+import numpy as np
+import matplotlib.pyplot as plt
+from collections import defaultdict
+import stanza
+
+# ----------------------------
+# Stanza setup (run once)
+# ----------------------------
+stanza.download("en")
+nlp = stanza.Pipeline(
+    lang="en",
+    processors="tokenize,pos",
+    tokenize_no_ssplit=True,
+    verbose=False
+)
+
+# ----------------------------
+# Main computation
+# ----------------------------
+def compute_avg_pos_influence(
+    sentences,
+    labels,
+    model,
+    explainer,
+    num_features=10
+):
+    """
+    Returns: dict {POS_tag -> average absolute LIME influence}
+    """
+
+    pos_sum = defaultdict(float)
+    pos_count = defaultdict(int)
+
+    for sent, y in zip(sentences, labels):
+
+        # Run LIME
+        exp = explainer.explain_instance(
+            sent,
+            model.predict_proba,
+            labels=[y],
+            num_features=num_features
+        )
+
+        # word -> weight
+        lime_weights = dict(exp.as_list(label=y))
+
+        # POS tagging
+        doc = nlp(sent)
+
+        for sentence in doc.sentences:
+            for word in sentence.words:
+                token = word.text
+                pos = word.upos  # Universal POS tag
+
+                if token in lime_weights:
+                    pos_sum[pos] += abs(lime_weights[token])
+                    pos_count[pos] += 1
+
+    return {
+        pos: pos_sum[pos] / pos_count[pos]
+        for pos in pos_sum
+        if pos_count[pos] > 0
+    }
+
+# ----------------------------
+# Plotting
+# ----------------------------
+def plot_pos_influence(pos_influence, outfile="pos_influence.png"):
+    pos = list(pos_influence.keys())
+    vals = [pos_influence[p] for p in pos]
+
+    plt.figure()
+    plt.bar(pos, vals)
+    plt.xlabel("Part of Speech")
+    plt.ylabel("Average |Influence|")
+    plt.title("Average LIME Influence by POS")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig(outfile, dpi=300)
+    plt.close()
+
+# ----------------------------
+# Example usage
+# ----------------------------
+# pos_scores = compute_avg_pos_influence(
+#     sentences=X_text,
+#     labels=y,
+#     model=clf,
+#     explainer=lime_explainer
+# )
+# plot_pos_influence(pos_scores)
+
+
+imdbmodel = load_models(MODEL_PARAMS[1], ALL_DATASETS[0], reload_vec=True)
+train_sens, test_sens, train_bert, test_bert, y_train, y_test = dss["imdb"]
+plot_pos_influence(compute_avg_pos_influence(test_sens, y_test, imdbmodel, LimeTextExplainer(verbose=False)))
+
+
+
 # demo_models()
 # demo_explanations()
-obj_metrics()
+# obj_metrics()
 
 
 # comp_descs["disting"] = "SemResults1"
